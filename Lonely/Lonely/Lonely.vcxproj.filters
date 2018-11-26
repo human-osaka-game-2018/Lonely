@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene">
+      <UniqueIdentifier>{a18f15e8-880f-47cc-a3f0-13953ad41f6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\DataSelectScene">
+      <UniqueIdentifier>{6de72790-d50e-4c51-8523-78d144507ce7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\TitleScene">
+      <UniqueIdentifier>{5e29586c-a666-4ca8-b274-791a7be2feea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene">
+      <UniqueIdentifier>{2d34fccb-953a-45a1-bacc-b09d96e2d0aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Main">
+      <UniqueIdentifier>{61a97c0c-6ba8-491e-b5da-24c075caff41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib">
+      <UniqueIdentifier>{367cf153-1c4b-4aed-9d92-677ed75ace57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\DirectX">
+      <UniqueIdentifier>{bceb0b1f-3a2f-4f75-b0b5-f16201d68aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\Input">
+      <UniqueIdentifier>{64756d85-c41c-467b-b068-0ebe0bcdef2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\Font">
+      <UniqueIdentifier>{92ed0de5-c7f8-416b-8adc-b9760a0762f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\Window">
+      <UniqueIdentifier>{f4bd31b3-bb04-4bcf-a553-570208ab445e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\FBX">
+      <UniqueIdentifier>{9d4ae9a4-575e-48e6-9d15-822193b41ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\SceneManager">
+      <UniqueIdentifier>{6b8c0903-da81-4d70-bd6e-8fd8bcc2e8c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\SceneManager\SceneBase">
+      <UniqueIdentifier>{c5b81caf-e3d5-4fef-8e15-9cc1cbb8d0c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\CameraBase">
+      <UniqueIdentifier>{0bde4360-8c2a-4bf1-9532-2d547d5a5a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\ObjectManager">
+      <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\2DHelper">
+      <UniqueIdentifier>{e7601e84-543d-491e-bfbd-32e26a77db6f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameLib\DirectX\DirectX.cpp">
+      <Filter>リソース ファイル\GameLib\DirectX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Input\Input.cpp">
+      <Filter>リソース ファイル\GameLib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Font\Font.cpp">
+      <Filter>リソース ファイル\GameLib\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\FBX\3DHelper.cpp">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\FBX\FBX.cpp">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\FBX\IndexBuffer.cpp">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\FBX\Texture.cpp">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\FBX\VertexBuffer.cpp">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\Window\Window.cpp">
+      <Filter>リソース ファイル\GameLib\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\GameLib.cpp">
+      <Filter>リソース ファイル\GameLib</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\SceneManager\SceneManager.cpp">
+      <Filter>リソース ファイル\GameLib\SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\Cursor.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleBackGround.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleCamera.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleLogo.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu1.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu2.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleScene.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\GameCamera.cpp">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\GameScene.cpp">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\Camera\Camera.cpp">
+      <Filter>リソース ファイル\Scene\CameraBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Main\Main.cpp">
+      <Filter>リソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\SceneManager\SceneBase\SceneBase.cpp">
+      <Filter>リソース ファイル\GameLib\SceneManager\SceneBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Main\TestMain.cpp">
+      <Filter>リソース ファイル\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\ObjectManager\Object.cpp">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\ObjectManager\ObjectManager.cpp">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\2DHelper\2DHelper.cpp">
+      <Filter>リソース ファイル\GameLib\2DHelper</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameLib\DirectX\DirectX.h">
+      <Filter>リソース ファイル\GameLib\DirectX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Input\Input.h">
+      <Filter>リソース ファイル\GameLib\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Font\Font.h">
+      <Filter>リソース ファイル\GameLib\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\FBX\3DHelper.h">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\FBX\FBX.h">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\FBX\IndexBuffer.h">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\FBX\Texture.h">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\FBX\VertexBuffer.h">
+      <Filter>リソース ファイル\GameLib\FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\Window\Window.h">
+      <Filter>リソース ファイル\GameLib\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\GameLib.h">
+      <Filter>リソース ファイル\GameLib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\SceneManager\SceneManager.h">
+      <Filter>リソース ファイル\GameLib\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\Cursor.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackGround.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleCamera.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleLogo.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu1.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu2.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleScene.h">
+      <Filter>リソース ファイル\Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\GameCamera.h">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\GameScene.h">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\Camera\Camera.h">
+      <Filter>リソース ファイル\Scene\CameraBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Main\Main.h">
+      <Filter>リソース ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\SceneManager\SceneBase\SceneBase.h">
+      <Filter>リソース ファイル\GameLib\SceneManager\SceneBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\ObjectManager\Object.h">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\ObjectManager\ObjectManager.h">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\2DHelper\2DHelper.h">
+      <Filter>リソース ファイル\GameLib\2DHelper</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+/**
+* @file TitleScene.h
+* @brief TitleSceneクラスのヘッダファイル
+* @author 佐川　嗣苑
+*/
+
+#pragma once
+#include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "TitleScene.h"
+#include "TitleBackGround.h"
+#include "TitleLogo.h"
+#include "TitleMenu1.h"
+#include "TitleMenu2.h"
+#include "Cursor.h"
+
+/**
+* @brief タイトルシーンのクラス
+*/
+class TitleScene : public SceneBase
+{
+public:
+
+	TitleScene();
+	~TitleScene();
+
+	/**
+	* @brief 初期化関数
+	*/
+	bool Initialize();
+
+	/**
+	* @brief 解放関数
+	*/
+	void Finalize();
+
+	/**
+	* @brief 操作関数
+	*/
+	void Update();
+
+	/**
+	* @brief 描画関数
+	*/
+	void Render();
+
+private:
+
+};

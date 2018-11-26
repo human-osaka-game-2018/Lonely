@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "../../GameLib/GameLib.h"
-//#include "d3d9.h"
+//#include "../../GameLib/GameLib.h"
+#include "d3d9.h"
 
 /**
 * @brief バーテックスバッファの処理や情報をまとめたクラス

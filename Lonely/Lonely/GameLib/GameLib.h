@@ -13,6 +13,7 @@
 #include "Font\Font.h"
 #include "SceneManager\SceneManager.h"
 #include "ObjectManager\ObjectManager.h"
+#include "2DHelper\2DHelper.h"
 
 /**
 * @brief ‰ğ•ú‚ğs‚¤ƒ}ƒNƒ

@@ -35,6 +35,8 @@ bool TitleScene::Initialize()
 {
 	//オブジェクトをNEWして、オブまねのVectorにつめる
 	m_pObjectManager->ResisterObject(new TitleBackGround);
+	return true;
+	//return true;
 	//m_pObjectManager->ResisterObject(new TitleLogo);
 	//m_pObjectManager->ResisterObject(new Cursor);
 	//m_pObjectManager->ResisterObject(new TitleMenu1);

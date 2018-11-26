@@ -26,7 +26,7 @@ void SceneManager::Initialize()
 void SceneManager::Finalize()
 {
 	// ÅŒã‚Í‰ð•ú‚µ‚ÄI‚í‚é
-	if (m_pScene) m_pScene->Finalize();
+	if (m_pScene) { m_pScene->Finalize(); }
 	SAFE_DELETE(m_pScene);
 }
 

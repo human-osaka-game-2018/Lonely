@@ -54,7 +54,7 @@ void ObjectManager::Finalize()
 //このクラスを派生したクラスの操作関数を呼ぶ
 void ObjectManager::Update()
 {
-	for (int i = 0; i < m_pObjectVec.size; i++)
+	for (int i = 0; i < m_pObjectVec.size(); i++)
 	{
 		m_pObjectVec[i]->Update();
 	}
@@ -63,7 +63,7 @@ void ObjectManager::Update()
 //このクラスを派生したクラスの描画関数を呼ぶ
 void ObjectManager::Render()
 {
-	for (int i = 0; i < m_pObjectVec.size; i++) {
+	for (int i = 0; i < m_pObjectVec.size(); i++) {
 		m_pObjectVec[i]->Render();
 	}
 }
@@ -78,7 +78,7 @@ void ObjectManager::ResisterObject(Object* object)
 void ObjectManager::ReleaseObject()
 {
 	//Vector配列の要素が０なら関数から抜ける
-	if (m_pObjectVec.size == 0)
+	if (m_pObjectVec.size() == 0)
 	{
 		return;
 	}
@@ -89,7 +89,7 @@ void ObjectManager::ReleaseObject()
 	}
 
 	//要素数を０にする
-	m_pObjectVec.clear;
+	m_pObjectVec.clear();
 	//キャパシティーを０にする
 	m_pObjectVec.shrink_to_fit();
 }

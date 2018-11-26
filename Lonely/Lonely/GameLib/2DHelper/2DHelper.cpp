@@ -5,7 +5,6 @@
 */
 
 #include "../GameLib.h"
-#include "2DHelper.h"
 
 Sprite::Sprite(void)
 	: m_x(0.0f), m_y(0.0f)

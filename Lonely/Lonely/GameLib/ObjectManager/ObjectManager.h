@@ -60,6 +60,6 @@ public:
 	
 private:
 
-	static std::vector<Object*> m_pObjectVec;				//!< Objectクラスの
+	std::vector<Object*> m_pObjectVec;				//!< Objectクラスの
 	//static ObjectManager* m_pObjectManager;					//!< ObjectManagerクラスのインスタンスへのポインタ変数
 };

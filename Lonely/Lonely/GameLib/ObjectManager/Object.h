@@ -41,11 +41,3 @@ public:
 private:
 
 };
-
-Object::Object()
-{
-}
-
-Object::~Object()
-{
-}

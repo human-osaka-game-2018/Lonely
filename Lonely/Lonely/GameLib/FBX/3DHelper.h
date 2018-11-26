@@ -10,6 +10,7 @@
 #include "Texture.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
+#include "d3dx9math.h"
 
 
 

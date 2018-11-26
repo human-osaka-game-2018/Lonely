@@ -21,11 +21,3 @@ public:
 private:
 
 };
-
-TitleMenu1::TitleMenu1()
-{
-}
-
-TitleMenu1::~TitleMenu1()
-{
-}

@@ -7,10 +7,10 @@
 #include "VertexBuffer.h"
 #include "../GameLib.h"
 
-VertexBuffer::VertexBuffer(void)
+VertexBuffer::VertexBuffer()
 	: m_pBuffer(NULL)
 {}
-VertexBuffer::~VertexBuffer(void)
+VertexBuffer::~VertexBuffer()
 {
 	Finalize();
 }
@@ -40,7 +40,7 @@ bool VertexBuffer::Create(UINT size, const void* pVertices)
 	return pVertexBuffer != NULL;
 }
 
-void VertexBuffer::Finalize(void)
+void VertexBuffer::Finalize()
 {
 	SAFE_RELEASE(m_pBuffer);
 }

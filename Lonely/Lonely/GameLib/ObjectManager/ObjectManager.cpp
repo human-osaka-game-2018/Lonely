@@ -69,7 +69,7 @@ void ObjectManager::Render()
 }
 
 //‚±‚ÌƒNƒ‰ƒX‚ğ”h¶‚µ‚½ƒNƒ‰ƒX‚ğ“o˜^‚·‚é
-void ObjectManager::ResisterObject(Object* object)
+void ObjectManager::RegisterObject(Object* object)
 {
 	m_pObjectVec.push_back(object);
 }

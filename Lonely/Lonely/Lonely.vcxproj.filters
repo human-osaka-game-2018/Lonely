@@ -44,14 +44,35 @@
     <Filter Include="リソース ファイル\GameLib\SceneManager\SceneBase">
       <UniqueIdentifier>{c5b81caf-e3d5-4fef-8e15-9cc1cbb8d0c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\CameraBase">
-      <UniqueIdentifier>{0bde4360-8c2a-4bf1-9532-2d547d5a5a6a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\GameLib\ObjectManager">
       <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
     </Filter>
     <Filter Include="リソース ファイル\GameLib\2DHelper">
       <UniqueIdentifier>{e7601e84-543d-491e-bfbd-32e26a77db6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\Sprite">
+      <UniqueIdentifier>{20ee150b-d9c1-463a-9b07-ab02103c6078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\DirectInput">
+      <UniqueIdentifier>{004c1b7e-2e83-46ad-8bd1-15db0597914e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\DirectInput\InputBase">
+      <UniqueIdentifier>{099a93f3-4844-4648-974d-db15167174ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\DirectInput\InputBase\KeyBoard">
+      <UniqueIdentifier>{81f66442-8443-4095-a357-8adcccc9a097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\DirectInput\InputBase\Mouse">
+      <UniqueIdentifier>{165b7b58-1aeb-4c42-a29f-5cd51f50e73d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\TitleScene\TitleMenu">
+      <UniqueIdentifier>{fd9b6d96-88c1-410e-a612-d361f460e5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Player">
+      <UniqueIdentifier>{618d8506-841e-44fd-a888-efc74d3525dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\CameraManager">
+      <UniqueIdentifier>{0bde4360-8c2a-4bf1-9532-2d547d5a5a6a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -88,22 +109,10 @@
     <ClCompile Include="GameLib\SceneManager\SceneManager.cpp">
       <Filter>リソース ファイル\GameLib\SceneManager</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\Cursor.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleBackGround.cpp">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleCamera.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleLogo.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleMenu1.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleMenu2.cpp">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleScene.cpp">
@@ -117,9 +126,6 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp">
       <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\Camera\Camera.cpp">
-      <Filter>リソース ファイル\Scene\CameraBase</Filter>
     </ClCompile>
     <ClCompile Include="Game\Main\Main.cpp">
       <Filter>リソース ファイル\Main</Filter>
@@ -136,8 +142,62 @@
     <ClCompile Include="GameLib\ObjectManager\ObjectManager.cpp">
       <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
     </ClCompile>
+    <ClCompile Include="GameLib\Sprite\Sprite.cpp">
+      <Filter>リソース ファイル\GameLib\Sprite</Filter>
+    </ClCompile>
     <ClCompile Include="GameLib\2DHelper\2DHelper.cpp">
       <Filter>リソース ファイル\GameLib\2DHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\DXInput\InputBase\Keyboard\Keyboard.cpp">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase\KeyBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\DXInput\InputBase\Mouse\Mouse.cpp">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\DXInput\InputBase\InputBase.cpp">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\DXInput\DXInput.cpp">
+      <Filter>リソース ファイル\GameLib\DirectInput</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu\TitleMenu.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuPressEnter.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuGameStart.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuGameEnd.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuCursor.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\ObjectManager\Object2DBase.cpp">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\ObjectManager\Object3DBase.cpp">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI.cpp">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\Player.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\CameraManager\CameraBase.cpp">
+      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\CameraManager\CameraManager.cpp">
+      <Filter>リソース ファイル\Scene\CameraManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,22 +234,10 @@
     <ClInclude Include="GameLib\SceneManager\SceneManager.h">
       <Filter>リソース ファイル\GameLib\SceneManager</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\Cursor.h">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleBackGround.h">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleCamera.h">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleLogo.h">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleMenu1.h">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleMenu2.h">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleScene.h">
@@ -204,9 +252,6 @@
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h">
       <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\Camera\Camera.h">
-      <Filter>リソース ファイル\Scene\CameraBase</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Main\Main.h">
       <Filter>リソース ファイル\Main</Filter>
     </ClInclude>
@@ -219,8 +264,65 @@
     <ClInclude Include="GameLib\ObjectManager\ObjectManager.h">
       <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
     </ClInclude>
+    <ClInclude Include="GameLib\Sprite\Sprite.h">
+      <Filter>リソース ファイル\GameLib\Sprite</Filter>
+    </ClInclude>
     <ClInclude Include="GameLib\2DHelper\2DHelper.h">
       <Filter>リソース ファイル\GameLib\2DHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\DXInput\InputBase\Mouse\DIM.h">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\DXInput\InputBase\Keyboard\Keyboard.h">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase\KeyBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\DXInput\InputBase\Mouse\Mouse.h">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\DXInput\InputBase\InputBase.h">
+      <Filter>リソース ファイル\GameLib\DirectInput\InputBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\DXInput\DXInput.h">
+      <Filter>リソース ファイル\GameLib\DirectInput</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu\TitleMenu.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuPressEnter.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuGameStart.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuGameEnd.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuCursor.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\ObjectManager\Object2DBase.h">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\ObjectManager\Object3DBase.h">
+      <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI.h">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\Player.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\Drone.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\CameraManager\CameraBase.h">
+      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\CameraManager\CameraManager.h">
+      <Filter>リソース ファイル\Scene\CameraManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

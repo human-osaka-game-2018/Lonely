@@ -7,7 +7,6 @@
 #pragma once
 
 #include "d3d9.h"
-//#include "..\GameLib.h"
 
 /** 
 * @brief IndexBufferŠÖŒW‚Ìˆ—‚âî•ñ‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX

@@ -6,13 +6,10 @@
 
 #pragma once
 
-//#include "../GameLib.h"
 #include "Texture.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "d3dx9math.h"
-
-
 
 #define FVF_SIMPLE_3D		(D3DFVF_XYZ | D3DFVF_DIFFUSE)
 #define FVF_SIMPLE_TEX_3D   (D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1)
@@ -20,14 +17,18 @@
 #define	FVF_MESH_TEX_VERTEX	(D3DFVF_XYZ | D3DFVF_NORMAL | D3DFVF_TEX1 | D3DFVF_DIFFUSE);
 
 
-// シンプルな頂点情報
+/** 
+* @brief シンプルな頂点情報
+*/
 struct SimpleVertex
 {
 	float x, y, z;
 	DWORD color;
 };
 
-// シンプルなテクスチャ―付き頂点情報
+/** 
+* @brief シンプルなテクスチャ―付き頂点情報
+*/
 struct SimpleTexVertex
 {
 	float x, y, z;
@@ -35,6 +36,9 @@ struct SimpleTexVertex
 	float u, v;
 };
 
+/**
+* @brief 
+*/
 struct MeshVertex
 {
 	float x, y, z;
@@ -49,12 +53,14 @@ struct MeshVertex
 
 struct MaterialData
 {
-	Texture			texture;	// テクスチャ―
-	D3DMATERIAL9	material;		// マテリアル
+	Texture			texture;	        // テクスチャ―
+	D3DMATERIAL9	material;		    // マテリアル
 };
 
 
-// モデル情報
+/** 
+* @brief モデル情報
+*/
 struct MeshData
 {
 	UINT				fvf;			// フォーマット
@@ -70,10 +76,13 @@ struct MeshData
 };
 
 
-// モデルクラス
+/** 
+* @brief モデルクラス
+*/
 class Model
 {
 public:
+
 	Model();
 	~Model();
 
@@ -125,6 +134,7 @@ private:
 	virtual void InitMaterial();
 
 protected:
+
 	UINT			m_meshNum;		// メッシュ数
 	UINT			m_materialNum;	// マテリアル数
 

@@ -13,7 +13,9 @@
 #include "Font\Font.h"
 #include "SceneManager\SceneManager.h"
 #include "ObjectManager\ObjectManager.h"
+#include "Sprite\Sprite.h"
 #include "2DHelper\2DHelper.h"
+#include "DXInput\DXInput.h"
 
 /**
 * @brief 解放を行うマクロ
@@ -85,6 +87,21 @@ public:
 	*/
 	SceneManager* GetSceneManager() { return &m_sceneManager; }
 
+	/**
+	* @brief ObjectManagerの取得を行う関数
+	*/
+	ObjectManager* GetObjectManager() { return &m_objectManager; }
+
+	/**
+	* @brief Helper2Dの取得を行う関数
+	*/
+	Helper2D* GetHelper2D() { return &m_helper2D; }
+
+	/**
+	* @brief DirectInputの取得を行う関数
+	*/
+	DXInput* GetDXInput() { return &m_dxInput; }
+
 public:
 
 	/**GameLibの実体*/
@@ -99,9 +116,15 @@ private:
 	FbxModel	   m_fbx;
 	SceneManager   m_sceneManager;
 	ObjectManager  m_objectManager;
+	Helper2D       m_helper2D;
+	DXInput        m_dxInput;
 
 };
 
 #define	DEBUGFONT		(GameLib::Instance.GetDebugFont())
 #define	INPUT			(GameLib::Instance.GetInput())
 #define	SCENEMANAGER	(GameLib::Instance.GetSceneManager())
+#define WINDOW          (GameLib::Instance.GetWindow())
+#define DIRECT_3DDEVICE (GameLib::Instance.GetDirect3DDevice())
+#define HELPER_2D       (GameLib::Instance.GetHelper2D())
+#define DIRECT_INPUT    (GameLib::Instance.GetDXInput())

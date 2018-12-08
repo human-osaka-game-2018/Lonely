@@ -40,6 +40,16 @@ public:
 	*/
 	HWND GetHandle() { return m_hWnd; }
 
+	/** 
+	* @brief ウィンドウの横幅取得
+	*/
+	int GetWidth(void) const { return m_width; }
+
+	/** 
+	* @brief ウィンドウの縦幅取得
+	*/
+	int GetHeight(void) const { return m_height; }
+
 	/**
 	* @briefウィンドウモードを変更する関数
 	*/

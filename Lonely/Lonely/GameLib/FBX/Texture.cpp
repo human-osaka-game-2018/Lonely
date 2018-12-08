@@ -12,10 +12,10 @@
 // テクスチャーデータ
 struct TextureData
 {
-	UINT				width;		// テクスチャーの幅
-	UINT				height;		// テクスチャーの高さ
-	UINT				srcWidth;	// 画像の幅
-	UINT				srcHeight;	// 画像の高さ
+	UINT				width;		// テクスチャーの元の幅
+	UINT				height;		// テクスチャーの元の高さ
+	UINT				srcWidth;	// DirectXに保存されたテクスチャの幅
+	UINT				srcHeight;	// DirectXに保存されたテクスチャの高さ
 	IDirect3DTexture9*	pTexture;	// 生成したテクスチャーのポインタ
 };
 

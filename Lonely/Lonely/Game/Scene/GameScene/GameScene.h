@@ -5,6 +5,7 @@
 */
 
 #pragma once
+
 #include"../../../GameLib/SceneManager/SceneBase/SceneBase.h"
 
 /**
@@ -14,15 +15,18 @@ class GameScene : public SceneBase
 {
 public:
 
-	/**
-	* @brief コンストラクタ
-	*/
 	GameScene();
+	~GameScene();
 
 	/**
-	* @briefデストラクタ
+	* @brief 初期化関数 
 	*/
-	~GameScene();
+	bool Initialize();
+
+	/**
+	* @brief 解放関数
+	*/
+	void Finalize();
 
 	/**
 	* @brief 操作関数
@@ -37,28 +41,3 @@ public:
 private:
 	
 };
-
-GameScene::GameScene()
-{
-}
-
-GameScene::~GameScene()
-{
-}
-
-//void GameScene::Run() 
-//{
-//	
-//}
-
-void GameScene::Update()
-{
-	//キーUpdate
-	//オブジェクトのコントロール
-	//カメラのコントロール
-}
-
-void GameScene::Render()
-{
-	//オブジェクトのレンダー
-}

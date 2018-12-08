@@ -6,16 +6,16 @@
 
 #pragma once
 
-#include "../../../GameLib/ObjectManager/Object.h"
+#include "../../../GameLib/ObjectManager/Object2DBase.h"
 #include "../../../GameLib/DirectX/DirectX.h"
 #include "../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../GameLib/FBX/VertexBuffer.h"
+#include "../../../GameLib/FBX/Texture.h"
 
 
 /**
 * @brief タイトルの背景関係の処理をまとめたクラス
 */
-class TitleBackGround : public Object
+class TitleBackGround : public Object2DBase
 {
 public:
 	
@@ -24,7 +24,7 @@ public:
 
 	/**
 	* @brief 初期化する関数
-	* @param 
+	* @return 初期化が上手くできていないとFALSE 
 	*/
 	bool Initialize();
 
@@ -45,6 +45,4 @@ public:
 
 private:
 
-	Texture       m_texture;
-	VertexBuffer  m_vertexBuffer;
 };

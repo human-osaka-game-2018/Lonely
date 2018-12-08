@@ -5,6 +5,9 @@
 */
 
 #include "TitleScene.h"
+#include "TitleBackGround.h"
+#include "TitleLogo.h"
+#include "TitleMenu/TitleMenu.h"
 
 TitleScene::TitleScene()
 {
@@ -12,13 +15,17 @@ TitleScene::TitleScene()
 
 TitleScene::~TitleScene()
 {
+	Finalize();
 }
 
 //操作を更新する
 void TitleScene::Update()
 {
-	//オブジェクトUpdate 
+	//シーンを切り替えるかどうかをチェックする
+
+	//このシーンのオブジェクトの更新を行う
 	m_pObjectManager->Update();
+
 	//カメラUpdate
 	//m_pCamera->Update();
 }
@@ -34,17 +41,17 @@ void TitleScene::Render()
 bool TitleScene::Initialize()
 {
 	//オブジェクトをNEWして、オブまねのVectorにつめる
-	m_pObjectManager->ResisterObject(new TitleBackGround);
+	m_pObjectManager->RegisterObject(new TitleBackGround);
+	m_pObjectManager->RegisterObject(new TitleMenu);
+	m_pObjectManager->RegisterObject(new TitleLogo);
 	return true;
-	//return true;
-	//m_pObjectManager->ResisterObject(new TitleLogo);
-	//m_pObjectManager->ResisterObject(new Cursor);
-	//m_pObjectManager->ResisterObject(new TitleMenu1);
-	//m_pObjectManager->ResisterObject(new TitleMenu2);
+	//m_pObjectManager->RegisterObject(new Cursor);
+	//m_pObjectManager->RegisterObject(new TitleMenu);
+	//m_pObjectManager->RegisterObject(new TitleMenu2);
 }
 
 //解放する
 void TitleScene::Finalize()
 {
-
+	m_pObjectManager->ReleaseObject();
 }

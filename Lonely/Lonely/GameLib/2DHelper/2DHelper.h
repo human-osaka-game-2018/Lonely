@@ -1,18 +1,21 @@
-/**
-* @file 2DHelper.h
-* @brief 2DHelperクラスのヘッダファイル
-* @author 佐川 嗣苑
-*/
-
+///**
+//* @file 2DHelper.h
+//* @brief 2DHelperクラスのヘッダファイル
+//* @author 佐川 嗣苑
+//*/
+//
 #pragma once
 
-#include "../DirectX/DirectX.h"
-#include "../FBX/Texture.h"
-
-
-#define FVF_SIMPLE_2D		(D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
-#define FVF_SIMPLE_TEX_2D   (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
-
+#include <windows.h>
+//
+//#include "../DirectX/DirectX.h"
+//#include "../FBX/Texture.h"
+//
+//
+//#define FVF_SIMPLE_2D		(D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
+//#define FVF_SIMPLE_TEX_2D   (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
+//
+//
 
 // シンプルなテクスチャ―付き頂点情報
 struct Simple2DVertex
@@ -23,136 +26,58 @@ struct Simple2DVertex
 	float u, v;
 };
 
-
-/**	
-* @brief スプライトクラス
+/**
+* @brief ２Dのゲームのよく使用する処理をまとめたクラス
 */
-class Sprite
+class Helper2D
 {
 public:
-	Sprite();
-	~Sprite();
 
-	/** 
-	* @brief スプライトの生成
-	* @param 
-	* @return
-	*/
-	bool Create(const char* pTexturePath = NULL);
-	
-	/** 
-	* @brief スプライトの解放
-	*/
-	void Finalize();
-
-
-	/** 
-	* @brief スプライト描画
-	*/
-	void Render();
-
-	/** 
-	* @brief スプライトの座標設定
-	* @param
-	* @param 
-	*/
-	void SetPos(float x, float y);
-
-	/** 
-	* @brief スプライトのサイズ設定
-	* @param 
-	* @param 
-	*/
-	void SetSize(float width, float height);
-
-	/** 
-	* @brief スプライトの回転設定
-	* @param 
-	*/
-	void SetRotation(float angle);
-
-	/** 
-	* @brief スプライトの原点設定
-	* @param 
-	* @param
-	*/
-	void SetOrigin(float x, float y);
-
-	/** 
-	* @brief スプライトのUV設定
-	* @param 
-	* @param
-	* @param
-	*/
-	void SetUV(int u, int v, int width, int height);
-
-	/** 
-	* @brief スプライトのカラー設定
-	* @param 
-	*/
-	void SetColor(D3DCOLOR color);
-
-	/** 
-	* @brief スプライトの座標取得
-	*/
-	float GetX() const { return m_x; }
+	Helper2D();
+	~Helper2D();
 
 	/**
-	* @brief スプライトの座標取得
+	* @brief 中心点から横幅、縦幅を使って矩形を作る関数
+	* @param 頂点情報
+	* @param 中心点のX座標
+	* @param 中心点のY座標
+	* @param 中心点からの横幅
+	* @param 中心点からの縦幅
+	* @param 矩形の右のTU（デフォルトなら１を代入）
+	* @param 矩形の下のTV（デフォルトなら１を代入）
+	* @param 矩形の左のTU（デフォルトなら０を代入）
+	* @param 矩形の上のTV（デフォルトなら０を代入）
 	*/
-	float GetY() const { return m_y; }
-
-	/** 
-	* @brief スプライトのサイズ取得
-	*/
-	float GetWidth() const { return m_width; }
-
-	/**
-	* @brief スプライトのサイズ取得
-	*/
-	float GetHeight() const { return m_height; }
-
-	/** 
-	* @brief スプライトの回転設定
-	*/
-	float GetRotation() const { return m_angle; }
-
-	/** 
-	* @brief スプライトの原点設定
-	*/
-	float GetOriginX() const { return m_cx; }
+	void SetVerticesFromCenterType(Simple2DVertex* vertices, float posCenterX, float posCenterY, float posWidthFromCenter, float posHeightFromCenter, float rightTU = 1.0f, float bottomTV = 1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
 	/**
-	* @brief スプライトの原点設定
+	* @brief 左上頂点から横幅、縦幅を使って矩形を作る関数
+	* @param 頂点情報
+	* @param 左上頂点のX座標
+	* @param 左上頂点のY座標
+	* @param 矩形の横幅
+	* @param 矩形の縦幅
+	* @param 矩形の右のTU（デフォルトなら１を代入）
+	* @param 矩形の下のTV（デフォルトなら１を代入）
+	* @param 矩形の左のTU（デフォルトなら０を代入）
+	* @param 矩形の上のTV（デフォルトなら０を代入）
 	*/
-	float GetOriginY() const { return m_cy; }
+	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY, float rectWidth, float rectHeight, float rightTU = 1.0f, float bottomTV =1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
-	/** 
-	* @brief スプライトのUV取得
+	/**
+	* @brief 矩形４頂点の色情報を変える関数
+	* @param 頂点の先頭アドレス
+	* @param 変えたい色情報（ARGB） 
 	*/
-	float GetU() const { return m_u1; }
-	float GetV() const { return m_v1; }
-	float GetUWidth() const { return m_u2 - m_u1; }
-	float GetVHeight() const { return m_v2 - m_v1; }
+	void SetVerticesColor(Simple2DVertex* vertices, DWORD color);
 
-	/** 
-	* @brief スプライトのカラー設定
+	/**
+	* @brief １頂点の色情報を変える関数
+	* @param 頂点の先頭アドレス
+	* @param 変えたい色情報（ARGB）
 	*/
-	D3DCOLOR GetColor() const { return m_color; }
-
-	/** 
-	* @brief テクスチャーの取得
-	*/
-	Texture* GetTexture(void) { return &m_texture; }
+	void SetVertexColor(Simple2DVertex* vertices, DWORD color);
 
 private:
-	float		m_x, m_y;
-	float		m_width, m_height;
-	float		m_u1, m_v1;
-	float		m_u2, m_v2;
-	float		m_angle;
-	float		m_cx, m_cy;
-	D3DCOLOR	m_color;
-	Texture		m_texture;
-};
 
+};

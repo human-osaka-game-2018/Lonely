@@ -30,6 +30,11 @@ bool GameLib::Initialize(const wchar_t* pName, int width, int height, bool isFul
 	{
 		return false;
 	}
+	//DirectInputの初期化
+	if (!m_dxInput.Initialize(m_window.GetHandle()))
+	{
+		return false;
+	}
 	// フォントの初期化
 	if (!m_font.Initialize())
 	{
@@ -48,7 +53,7 @@ bool GameLib::Initialize(const wchar_t* pName, int width, int height, bool isFul
 }
 
 // DirectXLibの解放
-void GameLib::Finalize(void)
+void GameLib::Finalize()
 {
 	// フォントの解放
 	m_font.Finalize();
@@ -63,32 +68,36 @@ void GameLib::Finalize(void)
 }
 
 // メインループ
-void GameLib::MainLoop(void)
+void GameLib::MainLoop()
 {
-	// メインループ
 	while (!m_window.IsQuitMessage())
 	{
 		if (!m_window.UpdateMessage())
 		{
-			// 入力の更新
-			m_input.Update();
-			// シーンの更新
+			//入力情報を更新する
+			m_dxInput.UpdataInputState();
+
+			//シーンの更新
 			m_sceneManager.Update();
 
-			// 描画
-			{
-				m_directX.BeginRenderScene();
+			//このフレームで入力された情報を保存する
+			m_dxInput.StorePrevInputState();
 
-				// 画面のクリア
-				m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, 0x00000000, 1.0f, 0);
-				// デフォルト描画設定の設定
-				m_directX.SetDefaultRenderState();
+			// 画面のクリア
+			m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, 0x00000000, 1.0f, 0);
 
-				// シーンの描画
-				m_sceneManager.Render();
+			//描画可能状態にする
+			m_directX.BeginRenderScene();
+				
+			// デフォルト描画設定
+			m_directX.SetDefaultRenderState();
 
-				m_directX.EndRenderScene();
-			}
+			// シーンの描画
+			m_sceneManager.Render();
+
+			//描画不可能状態にする
+			m_directX.EndRenderScene();
+			
 			// 画面の表示
 			m_directX.FlipDisp();
 		}

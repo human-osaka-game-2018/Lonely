@@ -6,7 +6,6 @@
 
 #pragma once
 
-//#include "..\GameLib.h"
 #include "d3d9.h"
 
 /**

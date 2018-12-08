@@ -1,6 +1,6 @@
 /**
-* @file	Direct3D.h
-* @brief Direct3Dクラスのヘッダファイル
+* @file	Direct3D.cpp
+* @brief Direct3Dクラスのソースファイル
 * @author 佐川　嗣苑
 */
 

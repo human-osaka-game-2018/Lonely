@@ -5,7 +5,9 @@
 */
 
 #pragma once
+
 #include "Object.h"
+#include <vector>
 
 /**
 * オブジェクトを管理するクラス
@@ -41,7 +43,7 @@ public:
 	* @brief オブジェクトを登録する関数
 	* @param 登録したい派生クラスのポインタ
 	*/
-	void ResisterObject(Object*);
+	void RegisterObject(Object*);
 
 	/**
 	* @brief オブジェクトを解放する関数

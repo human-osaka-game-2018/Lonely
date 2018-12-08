@@ -9,13 +9,6 @@
 //#include "..\GameLib.h"
 #include "SceneBase\SceneBase.h"
 
-enum SCENE_STATE
-{
-	INIT,
-	MAIN,
-	RELEASE
-};
-
 /**
 * シーンを管理するクラス
 */
@@ -40,11 +33,18 @@ public:
 	//const char* GetSceneName(void);
 
 private:
-	SceneBase* m_pScene;
-	int m_sceneState = INIT;//!< シーンがどんな状態なのかを保存する
-													   
+
+	SceneBase* m_pScene;											   
 };
 
+//旧バージョンのシーンマネージャ、戻すかもしれないから置いている
+//enum SCENE_STATE
+//{
+//	INIT,
+//	MAIN,
+//	RELEASE
+//};
+//
 //class SceneManager
 //{
 //public:

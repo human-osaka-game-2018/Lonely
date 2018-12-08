@@ -17,7 +17,7 @@ Object::~Object()
 
 bool Object::Initialize()
 {
-	return false;
+	return true;
 }
 
 void Object::Finalize()

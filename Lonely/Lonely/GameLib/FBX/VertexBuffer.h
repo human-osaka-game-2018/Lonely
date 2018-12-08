@@ -6,7 +6,6 @@
 
 #pragma once
 
-//#include "../../GameLib/GameLib.h"
 #include "d3d9.h"
 
 /**
@@ -16,24 +15,25 @@ class VertexBuffer
 {
 public:
 
-	VertexBuffer(void);
-	~VertexBuffer(void);
+	VertexBuffer();
+	~VertexBuffer();
 
 	/**
 	* @brief バッファの生成を行う関数
 	* @param 
 	* @param 
+	* @return 
 	*/
 	bool Create(UINT size, const void* pData = NULL);
 	/** 
 	* @brief バッファの解放を行う関数
 	*/
-	void Finalize(void);
+	void Finalize();
 
 	/** 
 	* @brief バッファの取得を行う関数
 	*/
-	IDirect3DVertexBuffer9*	GetBuffer(void) { return m_pBuffer; }
+	IDirect3DVertexBuffer9*	GetBuffer() { return m_pBuffer; }
 
 private:
 

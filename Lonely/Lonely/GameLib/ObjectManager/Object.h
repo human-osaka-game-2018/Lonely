@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include <vector>
-
 /**
 * @brief Object‚ÌŠî’êƒNƒ‰ƒX
 */
@@ -38,6 +36,7 @@ public:
 	*/
 	virtual void Render();
 
-private:
+protected:
 
+	bool canRender = true; //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
 };

@@ -34,7 +34,7 @@ void Player::Finalize()
 //XV‚·‚é
 void Player::Update()
 {
-	;
+	
 }
 
 //•`‰æ‚·‚é

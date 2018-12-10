@@ -29,9 +29,7 @@ public:
 
 	/**シーンの遷移を行う関数*/
 	bool ChangeScene(SceneBase* pScene);
-	//// シーン名の取得
-	//const char* GetSceneName(void);
-
+	
 private:
 
 	SceneBase* m_pScene;											   

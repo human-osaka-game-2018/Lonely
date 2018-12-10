@@ -49,7 +49,7 @@ void UI::Finalize()
 void UI::Update()
 {
 	//毎フレーム、一定値までロゴを大きくする処理
-	if (logoWidth <= 450.f)
+	if (logoWidth <= 200.f)
 	{
 		logoHeight += 4.f;
 		logoWidth += 6.f;

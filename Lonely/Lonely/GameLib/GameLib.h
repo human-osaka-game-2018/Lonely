@@ -13,6 +13,7 @@
 #include "Font\Font.h"
 #include "SceneManager\SceneManager.h"
 #include "ObjectManager\ObjectManager.h"
+#include "CameraManager\CameraManager.h"
 #include "Sprite\Sprite.h"
 #include "2DHelper\2DHelper.h"
 #include "DXInput\DXInput.h"
@@ -92,6 +93,13 @@ public:
 	*/
 	ObjectManager* GetObjectManager() { return &m_objectManager; }
 
+
+	/**
+	* @brief CameraManager‚Ìæ“¾‚ğs‚¤ŠÖ”
+	*/
+	CameraManager* GetCameraManager() { return &m_cameraManager; }
+
+
 	/**
 	* @brief Helper2D‚Ìæ“¾‚ğs‚¤ŠÖ”
 	*/
@@ -116,6 +124,7 @@ private:
 	FbxModel	   m_fbx;
 	SceneManager   m_sceneManager;
 	ObjectManager  m_objectManager;
+	CameraManager  m_cameraManager;
 	Helper2D       m_helper2D;
 	DXInput        m_dxInput;
 

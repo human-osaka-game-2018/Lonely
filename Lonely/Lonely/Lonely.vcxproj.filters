@@ -68,11 +68,14 @@
     <Filter Include="リソース ファイル\Scene\TitleScene\TitleMenu">
       <UniqueIdentifier>{fd9b6d96-88c1-410e-a612-d361f460e5b5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Player">
-      <UniqueIdentifier>{618d8506-841e-44fd-a888-efc74d3525dc}</UniqueIdentifier>
+    <Filter Include="リソース ファイル\GameLib\CameraManager">
+      <UniqueIdentifier>{71b45950-e6fd-46ed-9f17-b7c48881afd4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\CameraManager">
-      <UniqueIdentifier>{0bde4360-8c2a-4bf1-9532-2d547d5a5a6a}</UniqueIdentifier>
+    <Filter Include="リソース ファイル\Scene\GameScene\Camera">
+      <UniqueIdentifier>{e40cf4ab-05c4-406d-a90b-57ce29ff6c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\SharedInformation">
+      <UniqueIdentifier>{175cfda2-e1d7-4e3f-b04d-5b6ab3ac9fe1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -117,9 +120,6 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleScene.cpp">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\GameCamera.cpp">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
@@ -184,20 +184,23 @@
     <ClCompile Include="Game\Scene\GameScene\UI.cpp">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Player\Player.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClCompile Include="GameLib\CameraManager\CameraBase.cpp">
+      <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClCompile Include="GameLib\CameraManager\CameraManager.cpp">
+      <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\CameraManager\CameraBase.cpp">
-      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\CameraManager\CameraManager.cpp">
-      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    <ClCompile Include="Game\Scene\GameScene\Drone.cpp">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +245,6 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleScene.h">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\GameCamera.h">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\GameScene.h">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
@@ -309,20 +309,23 @@
     <ClInclude Include="Game\Scene\GameScene\UI.h">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Player\Player.h">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClInclude Include="GameLib\CameraManager\CameraBase.h">
+      <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClInclude Include="GameLib\CameraManager\CameraManager.h">
+      <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Player\Drone.h">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h">
+      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\CameraManager\CameraBase.h">
-      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h">
+      <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\CameraManager\CameraManager.h">
-      <Filter>リソース ファイル\Scene\CameraManager</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Drone.h">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h">
+      <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

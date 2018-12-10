@@ -7,6 +7,7 @@
 #pragma once
 
 #include "../../ObjectManager/ObjectManager.h"
+#include "../../CameraManager/CameraManager.h"
 
 /**
 * シーンの基底クラス
@@ -29,5 +30,5 @@ public:
 protected:
 	
 	ObjectManager* m_pObjectManager;	    //!< ObjectManagerクラスのインスタンスへのポインタ
-	//Object* m_pObject;					//!< ObjectManagerクラスのインスタンスへのポインタ変数
+	CameraManager* m_pCameraManager;        //!< CameraManagerクラスのインスタンスへのポインタ
 };

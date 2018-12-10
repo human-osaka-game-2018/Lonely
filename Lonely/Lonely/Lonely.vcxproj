@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\2DHelper\2DHelper.cpp" />
+    <ClCompile Include="GameLib\CameraManager\CameraBase.cpp" />
+    <ClCompile Include="GameLib\CameraManager\CameraManager.cpp" />
     <ClCompile Include="GameLib\DirectX\DirectX.cpp" />
     <ClCompile Include="GameLib\DXInput\DXInput.cpp" />
     <ClCompile Include="GameLib\DXInput\InputBase\InputBase.cpp" />
@@ -43,14 +45,12 @@
     <ClCompile Include="GameLib\Window\Window.cpp" />
     <ClCompile Include="Game\Main\Main.cpp" />
     <ClCompile Include="Game\Main\TestMain.cpp" />
-    <ClCompile Include="Game\Scene\CameraManager\CameraBase.cpp" />
-    <ClCompile Include="Game\Scene\CameraManager\CameraManager.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\GameCamera.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Drone.cpp" />
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Player\Player.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI.cpp" />
     <ClCompile Include="Game\Scene\TitleScene\TitleBackGround.cpp" />
     <ClCompile Include="Game\Scene\TitleScene\TitleLogo.cpp" />
@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\2DHelper\2DHelper.h" />
+    <ClInclude Include="GameLib\CameraManager\CameraBase.h" />
+    <ClInclude Include="GameLib\CameraManager\CameraManager.h" />
     <ClInclude Include="GameLib\DirectX\DirectX.h" />
     <ClInclude Include="GameLib\DXInput\DXInput.h" />
     <ClInclude Include="GameLib\DXInput\InputBase\InputBase.h" />
@@ -86,14 +88,12 @@
     <ClInclude Include="GameLib\Sprite\Sprite.h" />
     <ClInclude Include="GameLib\Window\Window.h" />
     <ClInclude Include="Game\Main\Main.h" />
-    <ClInclude Include="Game\Scene\CameraManager\CameraBase.h" />
-    <ClInclude Include="Game\Scene\CameraManager\CameraManager.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h" />
-    <ClInclude Include="Game\Scene\GameScene\GameCamera.h" />
+    <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h" />
+    <ClInclude Include="Game\Scene\GameScene\Drone.h" />
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />
-    <ClInclude Include="Game\Scene\GameScene\Player\Drone.h" />
-    <ClInclude Include="Game\Scene\GameScene\Player\Player.h" />
-    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h" />
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
+    <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h" />
     <ClInclude Include="Game\Scene\GameScene\UI.h" />
     <ClInclude Include="Game\Scene\TitleScene\TitleBackGround.h" />
     <ClInclude Include="Game\Scene\TitleScene\TitleLogo.h" />

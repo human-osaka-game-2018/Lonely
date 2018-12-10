@@ -9,6 +9,7 @@
 
 SceneBase::SceneBase()
 	: m_pObjectManager(GameLib::Instance.GetObjectManager())
+	, m_pCameraManager(GameLib::Instance.GetCameraManager())
 {
 }
 

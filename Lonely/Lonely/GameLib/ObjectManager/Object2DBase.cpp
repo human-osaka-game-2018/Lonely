@@ -1,7 +1,7 @@
 /**
 * @file Object2DBase.cpp
 * @brief Object2DBaseクラスのソースファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #include "Object2DBase.h"
@@ -31,4 +31,3 @@ void Object2DBase::Update()
 void Object2DBase::Render()
 {
 }
-

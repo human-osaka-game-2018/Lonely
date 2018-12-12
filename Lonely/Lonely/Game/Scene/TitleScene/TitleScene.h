@@ -1,10 +1,11 @@
 /**
 * @file TitleScene.h
 * @brief TitleSceneクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once
+
 #include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
 
 /**

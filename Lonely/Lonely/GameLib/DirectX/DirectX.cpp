@@ -1,7 +1,7 @@
 /**
 * @file	Direct3D.cpp
 * @brief Direct3Dクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa　嗣苑
 */
 
 #include "DirectX.h"
@@ -74,13 +74,13 @@ void DirectX::Finalize()
 // 描画シーンの開始
 void DirectX::BeginRenderScene()
 {
-	if (m_pDevice) m_pDevice->BeginScene();
+	if (m_pDevice != nullptr) m_pDevice->BeginScene();
 }
 
 // 描画シーンの終了
 void DirectX::EndRenderScene()
 {
-	if (m_pDevice) m_pDevice->EndScene();
+	if (m_pDevice != nullptr) m_pDevice->EndScene();
 }
 
 // バックバッファのクリア

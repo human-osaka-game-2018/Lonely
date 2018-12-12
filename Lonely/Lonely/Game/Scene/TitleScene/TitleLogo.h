@@ -1,7 +1,7 @@
 /**
 * @file TitleLogo.h
 * @brief TitleLogoクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once

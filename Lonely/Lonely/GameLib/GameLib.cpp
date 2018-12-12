@@ -1,12 +1,12 @@
 /**
 * @file GameLib.cpp
 * @brief GameLibクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "GameLib.h"
 
-// DirectXLibの実体定義
+// GameLibの実体定義
 GameLib GameLib::Instance;
 
 GameLib::GameLib()

@@ -44,7 +44,6 @@
     <ClCompile Include="GameLib\Sprite\Sprite.cpp" />
     <ClCompile Include="GameLib\Window\Window.cpp" />
     <ClCompile Include="Game\Main\Main.cpp" />
-    <ClCompile Include="Game\Main\TestMain.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Drone.cpp" />
@@ -87,7 +86,6 @@
     <ClInclude Include="GameLib\SceneManager\SceneManager.h" />
     <ClInclude Include="GameLib\Sprite\Sprite.h" />
     <ClInclude Include="GameLib\Window\Window.h" />
-    <ClInclude Include="Game\Main\Main.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h" />
     <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h" />
     <ClInclude Include="Game\Scene\GameScene\Drone.h" />

@@ -1,7 +1,7 @@
 /**
 * @file 2DHelper.cpp
 * @brief 2DHelperクラスのソースファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 #include "2DHelper.h"

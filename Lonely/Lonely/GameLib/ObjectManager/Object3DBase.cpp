@@ -1,7 +1,7 @@
 /**
 * @file Object3DBase.cpp
 * @brief Object3DBaseクラスのソースファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #include "Object3DBase.h"
@@ -31,4 +31,3 @@ void Object3DBase::Update()
 void Object3DBase::Render()
 {
 }
-

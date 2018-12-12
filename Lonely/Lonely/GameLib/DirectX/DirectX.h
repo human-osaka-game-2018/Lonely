@@ -1,7 +1,7 @@
 /**
 * @file	Direct3D.h
 * @brief Direct3Dクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once
@@ -106,6 +106,3 @@ private:
 	IDirect3DDevice9*		m_pDevice;
 	D3DPRESENT_PARAMETERS	m_d3dpp;
 };
-
-
-

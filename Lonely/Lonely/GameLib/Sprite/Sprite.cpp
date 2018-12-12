@@ -1,7 +1,7 @@
 /**
 * @file Sprite.cpp
 * @brief Spriteクラスのソースファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 #include "../GameLib.h"

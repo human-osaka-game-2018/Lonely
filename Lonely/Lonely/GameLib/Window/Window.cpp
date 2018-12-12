@@ -1,7 +1,7 @@
 /**
 * @file	Window.cpp
 * @brief Windowクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "Window.h"

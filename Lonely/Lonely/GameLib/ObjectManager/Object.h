@@ -1,7 +1,7 @@
 /**
 * @file Object.h
 * @brief Objectクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

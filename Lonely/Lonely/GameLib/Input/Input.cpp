@@ -1,7 +1,7 @@
 /**
 * @file	Input.cpp
 * @brief Inputクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "Input.h"

@@ -1,7 +1,7 @@
 /**
 * @file Sprite.h
 * @brief Spriteクラスのヘッダファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 #pragma once

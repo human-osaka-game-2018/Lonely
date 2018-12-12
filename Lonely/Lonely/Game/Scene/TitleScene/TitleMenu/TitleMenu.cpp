@@ -1,7 +1,7 @@
 /**
 * @file TitleMenu.cpp
 * @brief TitleMenuクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "TitleMenu.h"

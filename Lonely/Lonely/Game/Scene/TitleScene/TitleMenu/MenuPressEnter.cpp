@@ -1,7 +1,7 @@
 /**
 * @file MenuPressEnter.cpp
 * @brief MenuPressEnterクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "MenuPressEnter.h"

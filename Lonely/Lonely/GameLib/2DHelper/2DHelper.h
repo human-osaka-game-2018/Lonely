@@ -1,7 +1,7 @@
 ///**
 //* @file 2DHelper.h
 //* @brief 2DHelperクラスのヘッダファイル
-//* @author 佐川 嗣苑
+//* @author shion-sagawa
 //*/
 //
 #pragma once

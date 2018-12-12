@@ -1,16 +1,13 @@
 /**
 * @file UI.h
 * @brief UIのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once
 
 #include "../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../GameLib/DirectX/DirectX.h"
 #include "../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../GameLib/FBX/VertexBuffer.h"
-#include "../../../GameLib/FBX/Texture.h"
 
 /**
 * @brief UIの処理をまとめたクラス
@@ -47,6 +44,6 @@ public:
 
 private:
 
-	float logoWidth = 30.f;            //!< タイトルロゴの中心点からの横幅
-	float logoHeight = 20.f;           //!< タイトルロゴの中心点からの縦幅
+	float logoWidth = 100.f;            //!< タイトルロゴの中心点からの横幅
+	float logoHeight = 100.f;           //!< タイトルロゴの中心点からの縦幅
 };

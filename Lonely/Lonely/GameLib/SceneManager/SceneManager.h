@@ -1,7 +1,7 @@
 /**
 * @file SceneManager.h
 * @brief SceneManagerクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

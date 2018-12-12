@@ -1,7 +1,7 @@
 /**
 * @file IndexBuffer.cpp
 * @brief IndexBufferクラスのソースファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 #include "IndexBuffer.h"

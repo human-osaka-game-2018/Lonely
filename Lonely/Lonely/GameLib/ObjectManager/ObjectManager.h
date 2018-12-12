@@ -1,7 +1,7 @@
 /**
 * @file ObjectManager.h
 * @brief ObjectManagerクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

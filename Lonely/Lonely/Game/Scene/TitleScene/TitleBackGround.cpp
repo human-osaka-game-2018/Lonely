@@ -1,7 +1,7 @@
 /**
 * @file TitleBackGround.cpp
 * @brief TitleBackGroundクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "TitleBackGround.h"

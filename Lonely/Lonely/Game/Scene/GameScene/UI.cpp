@@ -1,7 +1,7 @@
 /**
 * @file UI.cpp
 * @brief UIクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "UI.h"
@@ -31,9 +31,9 @@ bool UI::Initialize()
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>((float)m_texture.GetHeight());
 
 	//頂点の座標をセット
-	HELPER_2D->SetVerticesFromCenterType(m_vertices
-		, static_cast<float>(WINDOW->GetWidth()) / 2
-		, static_cast<float>(WINDOW->GetHeight()) / 4
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices
+		, 20
+		, static_cast<float>(WINDOW->GetHeight()) -150
 		, logoWidth, logoHeight);
 
 	return true;
@@ -48,26 +48,16 @@ void UI::Finalize()
 //更新する
 void UI::Update()
 {
-	//毎フレーム、一定値までロゴを大きくする処理
-	if (logoWidth <= 200.f)
-	{
-		logoHeight += 4.f;
-		logoWidth += 6.f;
-
-		//頂点の座標をセット
-		HELPER_2D->SetVerticesFromCenterType(m_vertices
-			, static_cast<float>(WINDOW->GetWidth()) / 2
-			, static_cast<float>(WINDOW->GetHeight()) / 3
-			, logoWidth, logoHeight);
-
-	}
 }
 
+//描画する
 void UI::Render()
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
+	// 頂点に入れるデータを設定
+	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 	//テクスチャの設定
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
 	//描画

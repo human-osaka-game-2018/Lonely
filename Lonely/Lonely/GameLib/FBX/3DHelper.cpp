@@ -1,7 +1,7 @@
 /**
 * @file 3DHelper.cpp
 * @brief 3DHelperクラスのソースファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 

@@ -1,7 +1,7 @@
 /**
 * @file SceneManager.cpp
 * @brief SceneManagerクラスのソースファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #include "../GameLib.h"

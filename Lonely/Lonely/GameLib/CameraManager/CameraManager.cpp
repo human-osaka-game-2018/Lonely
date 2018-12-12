@@ -8,6 +8,8 @@
 #include "CameraManager.h"
 #include "../GameLib.h"
 
+
+
 CameraManager::CameraManager()
 	: m_pCamera(nullptr)
 {}

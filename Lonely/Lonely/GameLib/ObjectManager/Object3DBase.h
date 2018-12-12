@@ -1,7 +1,7 @@
 /**
 * @file Object3DBase.h
 * @brief Object3DBaseクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

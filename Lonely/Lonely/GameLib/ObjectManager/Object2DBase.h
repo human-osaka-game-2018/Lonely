@@ -1,7 +1,7 @@
 /**
 * @file Object2DBase.h
 * @brief Object2DBaseクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

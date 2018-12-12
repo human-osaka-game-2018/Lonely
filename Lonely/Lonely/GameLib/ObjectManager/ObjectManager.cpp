@@ -1,7 +1,7 @@
 /**
 * @file ObjectManager.cpp
 * @brief ObjectManagerクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "ObjectManager.h"

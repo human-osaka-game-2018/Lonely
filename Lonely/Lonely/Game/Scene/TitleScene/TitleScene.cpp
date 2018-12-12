@@ -1,7 +1,7 @@
 /**
 * @file TitleScene.h
 * @brief TitleSceneクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "TitleScene.h"

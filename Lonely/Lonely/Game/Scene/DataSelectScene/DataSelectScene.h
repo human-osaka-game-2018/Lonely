@@ -1,7 +1,7 @@
 /**
 * @file DataSelectScene.h
 * @brief DataSelectSceneクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once

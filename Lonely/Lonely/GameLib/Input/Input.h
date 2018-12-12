@@ -1,7 +1,7 @@
 /**
 * @file	Input.h
 * @brief Inputクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once
@@ -93,6 +93,3 @@ private:
 	/** KeyInfo構造体の実態 */
 	KeyInfo	m_keyState;
 };
-
-
-

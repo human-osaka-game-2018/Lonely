@@ -1,7 +1,7 @@
 /**
 * @file 3DHelper.h
 * @brief 3DHelperクラスのヘッダファイル
-* @author 佐川 嗣苑
+* @author shion-sagawa
 */
 
 #pragma once

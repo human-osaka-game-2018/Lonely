@@ -1,7 +1,7 @@
 /**
 * @file MenuGameStart.cpp
 * @brief MenuGameStartクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "MenuGameStart.h"

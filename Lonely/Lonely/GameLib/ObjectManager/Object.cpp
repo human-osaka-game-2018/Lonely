@@ -1,7 +1,7 @@
 /**
 * @file Object.cpp
 * @brief Objectクラスのソースファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #include "Object.h"
@@ -31,4 +31,3 @@ void Object::Update()
 void Object::Render()
 {
 }
-

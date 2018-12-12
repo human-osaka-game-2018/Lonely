@@ -1,7 +1,7 @@
 /**
 * @file TitleLogo.cpp
 * @brief TitleLogoクラスのソースファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #include "TitleLogo.h"

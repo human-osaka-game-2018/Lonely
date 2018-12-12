@@ -1,7 +1,7 @@
 /**
 * @file MenuGameStart.h
 * @brief MenuGameStartクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once

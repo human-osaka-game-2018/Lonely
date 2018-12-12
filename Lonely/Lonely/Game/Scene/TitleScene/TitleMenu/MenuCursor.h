@@ -1,7 +1,7 @@
 /**
 * @file MenuCursor.h
 * @brief MenuCursorクラスのヘッダファイル
-* @author 佐川　嗣苑
+* @author shion-sagawa
 */
 
 #pragma once

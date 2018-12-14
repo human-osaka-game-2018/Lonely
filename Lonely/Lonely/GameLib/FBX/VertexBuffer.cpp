@@ -1,6 +1,6 @@
 /**
-* @file VertexBuffer.h
-* @brief VertexBufferクラスのヘッダファイル
+* @file VertexBuffer.cpp
+* @brief VertexBufferクラスのソースファイル
 * @author shion-sagawa
 */
 

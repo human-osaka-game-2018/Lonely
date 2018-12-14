@@ -1,6 +1,6 @@
 /**
-* @file	Direct3D.cpp
-* @brief Direct3Dクラスのソースファイル
+* @file	DirectX.cpp
+* @brief DirectXクラスのソースファイル
 * @author shion-sagawa　嗣苑
 */
 

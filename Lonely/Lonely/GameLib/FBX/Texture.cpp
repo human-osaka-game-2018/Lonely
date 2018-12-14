@@ -1,6 +1,6 @@
 /**
-* @file Texture.h
-* @brief Textureクラスのヘッダファイル
+* @file Texture.cpp
+* @brief Textureクラスのソースファイル
 * @author shion-sagawa
 */
 

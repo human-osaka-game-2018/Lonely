@@ -312,9 +312,9 @@ void FbxModel::LoadPosition(UINT meshIdx, FbxMesh* pMesh)
 		int index = pIndex[vtxIdx];
 		FbxVector4& pos = source[index];
 
-		pVertices[vtxIdx].x = -(float)pos[0];
-		pVertices[vtxIdx].y = (float)pos[1];
-		pVertices[vtxIdx].z = (float)pos[2];
+		pVertices[vtxIdx].x = -static_cast<float>(pos[0]);
+		pVertices[vtxIdx].y = static_cast<float>(pos[1]);
+		pVertices[vtxIdx].z = static_cast<float>(pos[2]);
 		pVertices[vtxIdx].nx = 0.0f;
 		pVertices[vtxIdx].ny = 1.0f;
 		pVertices[vtxIdx].nz = 0.0f;
@@ -344,9 +344,9 @@ void FbxModel::LoadNormal(UINT meshIdx, FbxMesh* pMesh)
 	{
 		FbxVector4& normal = normals[vtxIdx];
 
-		pVertices[vtxIdx].nx = -(float)normal[0];
-		pVertices[vtxIdx].ny = (float)normal[1];
-		pVertices[vtxIdx].nz = (float)normal[2];
+		pVertices[vtxIdx].nx = -static_cast<float>(normal[0]);
+		pVertices[vtxIdx].ny = static_cast<float>(normal[1]);
+		pVertices[vtxIdx].nz = static_cast<float>(normal[2]);
 	}
 	pVertexBuffer->Unlock();
 }
@@ -372,8 +372,8 @@ void FbxModel::LoadUV(UINT meshIdx, FbxMesh* pMesh)
 	{
 		FbxVector2& uvSet = uvSets[vtxIdx];
 
-		pVertices[vtxIdx].u = (float)uvSet[0];
-		pVertices[vtxIdx].v = (float)(1.0 - uvSet[1]);
+		pVertices[vtxIdx].u = static_cast<float>(uvSet[0]);
+		pVertices[vtxIdx].v = static_cast<float>(1.0 - uvSet[1]);
 	}
 	pVertexBuffer->Unlock();
 }
@@ -554,7 +554,7 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 			//	オフセット行列保存
 			for (int i = 0; i < 16; i++)
 			{
-				pBone->offset.m[i / 4][i % 4] = (float)OffsetM[i];
+				pBone->offset.m[i / 4][i % 4] = static_cast<float>(OffsetM[i]);
 			}
 			//	キーフレーム読み込み
 			LoadKeyFrames("default", bone_no, pCluster->GetLink());
@@ -587,7 +587,7 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 				if (4 <= weightCount) continue;
 
 				pVertices[vtxIdx].index[weightCount] = bone_no;
-				pVertices[vtxIdx].weight[weightCount] = (float)wgt[i];
+				pVertices[vtxIdx].weight[weightCount] = static_cast<float>(wgt[i]);
 			}
 		}
 	}
@@ -637,7 +637,7 @@ void FbxModel::LoadKeyFrames(std::string name, int bone, FbxNode* pBoneNode)
 		FbxDouble* mat = (FbxDouble*)m;
 		for (int i = 0; i < 16; i++)
 		{
-			pMotion->Key[bone][f].m[i / 4][i % 4] = (float)mat[i];
+			pMotion->Key[bone][f].m[i / 4][i % 4] = static_cast<float>(mat[i]);
 		}
 
 		time += 1.0 / 60.0;

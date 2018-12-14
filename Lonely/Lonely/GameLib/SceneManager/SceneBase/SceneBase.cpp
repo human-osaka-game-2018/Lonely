@@ -1,6 +1,6 @@
 /**
-* @file SceneBase.h
-* @brief SceneBaseクラスのヘッダファイル
+* @file SceneBase.cpp
+* @brief SceneBaseクラスのソースファイル
 * @author shion-sagawa
 */
 

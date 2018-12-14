@@ -1,6 +1,6 @@
 /**
-* @file TitleBackGround.h
-* @brief TitleBackGroundクラスのヘッダファイル
+* @file TitleBackground.h
+* @brief TitleBackgroundクラスのヘッダファイル
 * @author shion-sagawa
 */
 
@@ -15,12 +15,12 @@
 /**
 * @brief タイトルの背景関係の処理をまとめたクラス
 */
-class TitleBackGround : public Object2DBase
+class TitleBackground : public Object2DBase
 {
 public:
 	
-	TitleBackGround();
-	~TitleBackGround();
+	TitleBackground();
+	~TitleBackground();
 
 	/**
 	* @brief 初期化する関数

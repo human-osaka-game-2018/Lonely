@@ -1,24 +1,24 @@
 /**
-* @file TitleBackGround.cpp
-* @brief TitleBackGroundクラスのソースファイル
+* @file TitleBackground.cpp
+* @brief TitleBackgroundクラスのソースファイル
 * @author shion-sagawa
 */
 
-#include "TitleBackGround.h"
+#include "TitleBackground.h"
 #include "../../../GameLib/GameLib.h"
 
-TitleBackGround::TitleBackGround()
+TitleBackground::TitleBackground()
 {
 	Initialize();
 }
 
-TitleBackGround::~TitleBackGround()
+TitleBackground::~TitleBackground()
 {
 	Finalize();
 }
 
 //初期化する
-bool TitleBackGround::Initialize()
+bool TitleBackground::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
 	if (!m_texture.Load("../Graphics/Title_BG.jpg"))
@@ -29,7 +29,7 @@ bool TitleBackGround::Initialize()
 	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
 	// テクスチャが2の累乗でないときに効果を発揮する
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
-	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>((float)m_texture.GetHeight());
+	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 	
 	float WINDOW_WIDTH  = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
@@ -40,16 +40,16 @@ bool TitleBackGround::Initialize()
 }
 
 //解放する
-void TitleBackGround::Finalize()
+void TitleBackground::Finalize()
 {
 	m_texture.Finalize();
 }
 
-void TitleBackGround::Update()
+void TitleBackground::Update()
 {
 }
 
-void TitleBackGround::Render()
+void TitleBackground::Render()
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();

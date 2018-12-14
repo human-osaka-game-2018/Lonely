@@ -20,8 +20,8 @@
 Model::Model(void)
 	: m_meshNum(0)
 	, m_materialNum(0)
-	, m_pMesh(NULL)
-	, m_pMaterial(NULL)
+	, m_pMesh(nullptr)
+	, m_pMaterial(nullptr)
 {
 }
 
@@ -641,7 +641,7 @@ void Model::Render(void)
 // モデルと線の当たり判定
 int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDist, D3DXVECTOR3* pOut)
 {
-	if (pDist == NULL) return -1;
+	if (pDist == nullptr) return -1;
 
 	D3DXMATRIX invWorld;
 	// モデルの向きに合わせるために逆行列を作成する
@@ -654,7 +654,7 @@ int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDis
 	D3DXVec3Normalize(&vec, &vec);
 
 	int primNum = 0;
-	int ret = -1;
+	int ret = -1;//うまいことメッシュと当たらなかったら-１のままになる
 	// 全てのメッシュと当たっているかの判定をしていく
 	for (UINT i = 0; i < m_meshNum; i++)
 	{
@@ -670,7 +670,7 @@ int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDis
 		// 交点をワールド空間に戻す
 		D3DXVec3TransformCoord(pOut, pOut, &m_world);
 		// 交点までの距離がレイの長さより遠ければ当たらない
-		float hitDist = D3DXVec3Length(&(*pOut - *pPos));
+		float hitDist = D3DXVec3Length(&(*pOut - *pPos));//ベクトルの大きさを出す関数
 		if (*pDist < hitDist)
 		{
 			return -1;
@@ -762,7 +762,7 @@ bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXV
 	この右辺の式が④の右辺の式と一致したので次の式で|n|を出せることになります。
 	⑤ |n| = n・(p1 ? p)
 	*/
-	float ndist = D3DXVec3Dot(&(p1 - pos), &normal);
+	float ndist = D3DXVec3Dot(&(p1 - pos), &normal);//3角形の１頂点と、当たり判定をしたい中心点
 
 	/*
 	5.交点までの長さ(t)を求める方法(完結編)
@@ -833,7 +833,7 @@ bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXV
 int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut)
 {
 	MeshData* pMesh = GetMesh(i);
-	if (pMesh->vertexBuffer.GetBuffer() == NULL) return -1;
+	if (pMesh->vertexBuffer.GetBuffer() == nullptr) return -1;
 
 	IDirect3DVertexBuffer9* pVertexBuffer = pMesh->vertexBuffer.GetBuffer();
 	IDirect3DIndexBuffer9* pIndexBuffer = pMesh->indexNum ? pMesh->indexBuffer.GetBuffer() : NULL;
@@ -860,6 +860,7 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 
 	float neart = 10000.0f;
 	int index1, index2, index3;
+
 	// 面の数だけ当たり判定を行う
 	for (UINT primIdx = 0; primIdx < pMesh->primNum; primIdx++)
 	{

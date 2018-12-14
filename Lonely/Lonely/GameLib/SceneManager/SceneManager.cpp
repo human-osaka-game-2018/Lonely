@@ -8,7 +8,7 @@
 #include "SceneManager.h"
 
 SceneManager::SceneManager()
-	: m_pScene(NULL)
+	: m_pScene(nullptr)
 {}
 
 SceneManager::~SceneManager()
@@ -19,7 +19,7 @@ SceneManager::~SceneManager()
 /**シーン管理の初期化*/
 void SceneManager::Initialize()
 {
-	m_pScene = NULL;
+	m_pScene = nullptr;
 }
 
 /**シーン管理の解放*/

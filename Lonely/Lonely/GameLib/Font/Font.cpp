@@ -9,7 +9,7 @@
 
 Font::Font()
 	: m_fontSize(0)
-	, m_pFont(NULL)
+	, m_pFont(nullptr)
 {
 }
 
@@ -22,7 +22,7 @@ Font::~Font()
 bool Font::Initialize(int size)
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
-	if (pDevice == NULL) return false;
+	if (pDevice == nullptr) return false;
 
 	D3DXFONT_DESCA desc;
 	desc.Height = size;
@@ -62,7 +62,7 @@ int Font::GetHeight()
 // メッセージの表示
 void Font::DrawText(int X, int Y, D3DCOLOR color, const char* pText)
 {
-	if (m_pFont == NULL) return;
+	if (m_pFont == nullptr) return;
 
 	RECT rect;
 	SetRect(&rect, 0, 0, 0, 0);

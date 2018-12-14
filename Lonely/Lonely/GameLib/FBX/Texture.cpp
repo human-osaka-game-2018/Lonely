@@ -87,7 +87,7 @@ static const TextureData* LoadTexture(const char* pFileName)
 // テクスチャーの解放
 void ReleaseTexture(IDirect3DTexture9* pTexture)
 {
-	if (pTexture == NULL) return;
+	if (pTexture == nullptr) return;
 
 	for (int i = 0; i < TEXTURE_MAX; i++)
 	{
@@ -112,7 +112,7 @@ Texture::Texture(void)
 	, m_height(0)
 	, m_srcWidth(0)
 	, m_srcHeight(0)
-	, m_pTexture(NULL)
+	, m_pTexture(nullptr)
 {
 }
 
@@ -125,7 +125,7 @@ Texture::~Texture(void)
 bool Texture::Load(const char* pFileName)
 {
 	const TextureData* pData = LoadTexture(pFileName);
-	if (pData == NULL) return false;
+	if (pData == nullptr) return false;
 
 	m_pTexture = pData->pTexture;
 	m_srcWidth = pData->srcWidth;
@@ -176,9 +176,9 @@ bool Texture::CreateFromMemory(const void* pData, UINT size)
 // テクスチャーの解放
 void Texture::Finalize(void)
 {
-	if (m_pTexture)
+	if (m_pTexture != nullptr)
 	{
 		ReleaseTexture(m_pTexture);
-		m_pTexture = NULL;
+		m_pTexture = nullptr;
 	}
 }

@@ -6,10 +6,6 @@
 
 #include "ObjectManager.h"
 
-
-////オブジェクトマネージャの実態
-//ObjectManager* ObjectManager::m_pObjectManager = nullptr;
-
 ObjectManager::ObjectManager()
 {
 }
@@ -18,27 +14,6 @@ ObjectManager::~ObjectManager()
 {
 	//オブジェクトの全開放の関数を呼ぶ
 }
-//
-////インスタンスを生成する
-//ObjectManager* ObjectManager::GetInstance()
-//{
-//	if (m_pObjectManager == nullptr)
-//	{
-//		m_pObjectManager = new ObjectManager;
-//	}
-//	return m_pObjectManager;
-//}
-//
-////インスタンスを破棄する
-//void ObjectManager::ReleaseInstance()
-//{
-//	//まずObjectManagerが持っているObjectのVector配列を初期化する
-//	ReleaseObject();
-//
-//	//そのあとこのインスタンスを破棄する
-//	delete m_pObjectManager;
-//	m_pObjectManager = nullptr;
-//}
 
 //初期化する
 void ObjectManager::Initialize()

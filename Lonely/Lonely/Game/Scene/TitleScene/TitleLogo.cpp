@@ -28,7 +28,7 @@ bool TitleLogo::Initialize()
 
 	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
-	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>((float)m_texture.GetHeight());
+	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
 	//頂点の座標をセット
 	HELPER_2D->SetVerticesFromCenterType(m_vertices

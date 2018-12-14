@@ -32,8 +32,8 @@ bool Sprite::Create(const char* pTexturePath)
 		{
 			return false;
 		}
-		width = (float)m_texture.GetSrcWidth();
-		height = (float)m_texture.GetSrcHeight();
+		width = static_cast<float>(m_texture.GetSrcWidth());
+		height = static_cast<float>(m_texture.GetSrcHeight());
 	}
 
 	SetPos(0.0f, 0.0f);
@@ -82,12 +82,12 @@ void Sprite::SetOrigin(float x, float y)
 // スプライトのUV設定
 void Sprite::SetUV(int u, int v, int width, int height)
 {
-	float imageW = (float)m_texture.GetWidth();
-	float imageH = (float)m_texture.GetHeight();
-	m_u1 = (float)(u) / imageW;
-	m_v1 = (float)(v) / imageH;
-	m_u2 = (float)(u + width) / imageW;
-	m_v2 = (float)(v + height) / imageH;
+	float imageW = static_cast<float>(m_texture.GetWidth());
+	float imageH = static_cast<float>(m_texture.GetHeight());
+	m_u1 = static_cast<float>(u) / imageW;
+	m_v1 = static_cast<float>(v) / imageH;
+	m_u2 = static_cast<float>(u + width) / imageW;
+	m_v2 = static_cast<float>(v + height) / imageH;
 }
 
 // スプライトのカラー設定

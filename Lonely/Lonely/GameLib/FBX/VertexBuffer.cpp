@@ -8,7 +8,7 @@
 #include "../GameLib.h"
 
 VertexBuffer::VertexBuffer()
-	: m_pBuffer(NULL)
+	: m_pBuffer(nullptr)
 {}
 VertexBuffer::~VertexBuffer()
 {
@@ -26,7 +26,7 @@ bool VertexBuffer::Create(UINT size, const void* pVertices)
 		return NULL;
 	}
 
-	if (pVertices)
+	if (pVertices != nullptr)
 	{
 		void* pData;
 		// バッファをロックしてデータを書き込む

@@ -33,7 +33,7 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lPa
 
 // コンストラクタ
 Window::Window(void)
-	: m_hWnd(NULL)
+	: m_hWnd(nullptr)
 	, m_isQuitMessage(false)
 	, m_width(0)
 	, m_height(0)
@@ -89,7 +89,7 @@ bool Window::Create(const wchar_t* pName, int width, int height)
 		NULL,
 		GetModuleHandle(NULL),
 		NULL);
-	if (m_hWnd == NULL)
+	if (m_hWnd == nullptr)
 	{
 		return false;
 	}

@@ -23,7 +23,7 @@ public:
 	* @param 
 	* @param 
 	*/
-	bool Create(UINT size, const UINT16* pIndeces = NULL);
+	bool Create(UINT size, const UINT16* pIndeces = nullptr);
 
 	/** 
 	* @brief バッファの解放を行う関数

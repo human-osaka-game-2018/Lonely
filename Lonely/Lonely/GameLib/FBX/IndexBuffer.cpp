@@ -8,8 +8,10 @@
 #include "../GameLib.h"
 
 IndexBuffer::IndexBuffer(void)
-	: m_pBuffer(NULL)
-{}
+	: m_pBuffer(nullptr)
+{
+}
+
 IndexBuffer::~IndexBuffer(void)
 {
 	Finalize();

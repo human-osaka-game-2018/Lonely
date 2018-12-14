@@ -7,8 +7,8 @@
 #include "DirectX.h"
 
 DirectX::DirectX()
-	: m_pD3D(NULL)
-	, m_pDevice(NULL)
+	: m_pD3D(nullptr)
+	, m_pDevice(nullptr)
 {
 }
 
@@ -21,7 +21,7 @@ DirectX::~DirectX()
 // DirectXの初期化
 bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 {
-	if (m_pD3D != NULL || m_pDevice != NULL) return false;
+	if (m_pD3D != nullptr || m_pDevice != nullptr) return false;
 
 	// IDirect3D9オブジェクトの作成
 	if ((m_pD3D = Direct3DCreate9(D3D_SDK_VERSION)) == NULL)
@@ -86,13 +86,13 @@ void DirectX::EndRenderScene()
 // バックバッファのクリア
 void DirectX::ClearBackBuffer(DWORD target, D3DCOLOR color, float depth, DWORD stencil)
 {
-	if (m_pDevice) m_pDevice->Clear(0, NULL, target, color, depth, stencil);
+	if (m_pDevice != nullptr) m_pDevice->Clear(0, NULL, target, color, depth, stencil);
 }
 
 // 画面のフリップ
 void DirectX::FlipDisp()
 {
-	if (m_pDevice == NULL) return;
+	if (m_pDevice == nullptr) return;
 
 	if (FAILED(m_pDevice->Present(NULL, NULL, NULL, NULL)))
 	{

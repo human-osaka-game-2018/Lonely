@@ -1,6 +1,6 @@
 /**
-* @file TitleScene.h
-* @brief TitleSceneクラスのヘッダファイル
+* @file TitleScene.cpp
+* @brief TitleSceneクラスのソースファイル
 * @author shion-sagawa
 */
 
@@ -41,7 +41,7 @@ void TitleScene::Render()
 bool TitleScene::Initialize()
 {
 	//オブジェクトをNEWして、オブまねのVectorにつめる
-	m_pObjectManager->RegisterObject(new TitleBackGround);
+	m_pObjectManager->RegisterObject(new TitleBackground);
 	m_pObjectManager->RegisterObject(new TitleMenu);
 	m_pObjectManager->RegisterObject(new TitleLogo);
 	return true;

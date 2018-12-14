@@ -1,6 +1,6 @@
 /**
-* @file	Direct3D.h
-* @brief Direct3Dクラスのヘッダファイル
+* @file	DirectX.h
+* @brief DirectXクラスのヘッダファイル
 * @author shion-sagawa
 */
 
@@ -17,7 +17,7 @@
 #define SAFE_RELEASE(x) { if(x) { (x)->Release(); (x) = NULL; } }
 
 /** 
-* @brief DirectX３D関係の処理や情報ををまとめたクラス
+* @brief DirectX関係の処理や情報ををまとめたクラス
 */
 class DirectX
 {

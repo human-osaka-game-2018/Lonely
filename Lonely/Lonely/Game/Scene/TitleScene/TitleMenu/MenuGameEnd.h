@@ -1,6 +1,6 @@
 /**
-* @file MenuGameEnd.h
-* @brief MenuGameEndクラスのヘッダファイル
+* @file MenuGameEnd.cpp
+* @brief MenuGameEndクラスのソースファイル
 * @author shion-sagawa
 */
 

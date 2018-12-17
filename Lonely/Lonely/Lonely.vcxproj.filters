@@ -80,6 +80,9 @@
     <Filter Include="リソース ファイル\Scene\GameScene\UI">
       <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Scene\DataSelectScene\Object">
+      <UniqueIdentifier>{28ef63bf-97f5-404e-b61b-17be4cdc39b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\DirectX\DirectX.cpp">
@@ -196,38 +199,53 @@
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\CatCursor.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\Data1.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\Data2.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\Data3.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\MiniCursor.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\SelectBackground.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\SelectCursorInformation\SelectCursorInformation.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
+    <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -345,38 +363,53 @@
     <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\CatCursor.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\Data1.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\Data2.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\Data3.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\MiniCursor.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectBackground.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\SelectCursorInformation\SelectCursorInformation.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
-      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

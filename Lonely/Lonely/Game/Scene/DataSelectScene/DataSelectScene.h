@@ -7,6 +7,7 @@
 #pragma once
 
 #include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "SelectCursorInformation/SelectCursorInformation.h"
 
 /**
 * @brief データセレクトシーンのクラス
@@ -40,30 +41,6 @@ public:
 
 private:
 
+	SelectCursorInformation m_selectCursorInformation;
+
 };
-
-DataSelectScene::DataSelectScene()
-{
-}
-
-DataSelectScene::~DataSelectScene()
-{
-}
-
-bool DataSelectScene::Initialize()
-{
-}
-
-void DataSelectScene::Finalize()
-{
-}
-
-void DataSelectScene::Update()
-{
-
-}
-
-void DataSelectScene::Render()
-{
-
-}

@@ -40,5 +40,5 @@ public:
 
 protected:
 
-	bool canRender = true;         //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
+	bool m_canRender = true;         //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
 };

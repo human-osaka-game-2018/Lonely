@@ -50,8 +50,17 @@
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\UI.cpp" />
-    <ClCompile Include="Game\Scene\TitleScene\TitleBackGround.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp" />
+    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp" />
     <ClCompile Include="Game\Scene\TitleScene\TitleLogo.cpp" />
     <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuCursor.cpp" />
     <ClCompile Include="Game\Scene\TitleScene\TitleMenu\MenuGameEnd.cpp" />
@@ -92,8 +101,17 @@
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h" />
-    <ClInclude Include="Game\Scene\GameScene\UI.h" />
-    <ClInclude Include="Game\Scene\TitleScene\TitleBackGround.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UI.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h" />
+    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h" />
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h" />
     <ClInclude Include="Game\Scene\TitleScene\TitleLogo.h" />
     <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuCursor.h" />
     <ClInclude Include="Game\Scene\TitleScene\TitleMenu\MenuGameEnd.h" />
@@ -164,6 +182,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>false</ConformanceMode>
       <PreprocessorDefinitions>K_PLUGIN;K_FBXSDK;K_NODLL;K_DLLINFO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalDependencies>libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>

@@ -9,6 +9,7 @@
 
 #include "../../../GameLib/ObjectManager/Object3DBase.h"
 #include "../../../GameLib/FBX/FBX.h"
+#include "SharedInformation/SharedInformation.h"
 
 /**
 * @brief プレイヤー関係の処理をまとめたクラス
@@ -49,9 +50,12 @@ private:
 
 	FbxModel	m_fbxModel;
 	Model		m_shpere;
-	D3DXVECTOR3 m_playerPos;
+	D3DXVECTOR3 m_position;
 	float		m_playerRadius;
 	float		m_playerSpeed;
+	float       m_playerDirection;
 
-	FbxModel    m_fbxStage;
+	SharedInformation* m_pSharedInformation;
+
+	FbxModel    m_fbxStage;//今はとりあえずこのクラスに置いているだけ
 };

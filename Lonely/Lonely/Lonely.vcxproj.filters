@@ -196,6 +196,9 @@
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
     </ClCompile>
+     <ClCompile Include="Data1.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
@@ -377,6 +380,9 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+      </ClInclude>
+    <ClInclude Include="Data1.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

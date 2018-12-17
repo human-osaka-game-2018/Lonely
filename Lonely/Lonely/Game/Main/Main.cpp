@@ -11,7 +11,7 @@
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	// GameLibの初期化
-	GameLib::Instance.Initialize(L"DirectXLib", 1280, 720, false);
+	GameLib::Instance.Initialize(L"Lonely", 1280, 720, false);
 
 	// システムシーンへ遷移する
 	SCENEMANAGER->ChangeScene(new TitleScene);

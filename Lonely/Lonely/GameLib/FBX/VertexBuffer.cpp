@@ -9,7 +9,10 @@
 
 VertexBuffer::VertexBuffer()
 	: m_pBuffer(nullptr)
-{}
+{
+
+}
+
 VertexBuffer::~VertexBuffer()
 {
 	Finalize();

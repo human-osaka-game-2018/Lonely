@@ -39,12 +39,21 @@ bool TitleMenu::Initialize()
 		return false;
 	}
 
+
+	// SoundsManagerインスタンス生成後に1度のみ行う。
+	bool isSuccess = soundsManager.Initialize();
+	const TCHAR* filePath = _T("../Sounds/SE/スマホ猫/cry1.mp3");
+	isSuccess = soundsManager.AddFile(filePath, _T("cry1"));
+
+
 	return true;
 }
 
 //解放する
 void TitleMenu::Finalize()
 {
+	SoundLibCWrapper_Free();
+
 }
 
 //更新する
@@ -56,6 +65,9 @@ void TitleMenu::Update()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
+			//BGMを鳴らす
+			bool isSuccess = soundsManager.Start(_T("cry1"), false);
+
 			m_step = STEP2;
 		}
 		break;
@@ -72,8 +84,12 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
+			//BGMを鳴らす
+			bool isSuccess = soundsManager.Start(_T("cry1"), false);
+
 			//ゲームシーンへ
 			SCENEMANAGER->ChangeScene(new GameScene);
+			
 		}
 		break;
 
@@ -88,8 +104,11 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
+			//BGMを鳴らす
+			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 			//ゲーム終了
 			PostQuitMessage(0);
+			
 		}
 		break;	
 	}

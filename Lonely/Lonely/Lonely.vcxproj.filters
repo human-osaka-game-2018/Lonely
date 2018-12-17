@@ -77,6 +77,9 @@
     <Filter Include="リソース ファイル\Scene\GameScene\SharedInformation">
       <UniqueIdentifier>{175cfda2-e1d7-4e3f-b04d-5b6ab3ac9fe1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\UI">
+      <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\DirectX\DirectX.cpp">
@@ -111,9 +114,6 @@
     </ClCompile>
     <ClCompile Include="GameLib\SceneManager\SceneManager.cpp">
       <Filter>リソース ファイル\GameLib\SceneManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleBackGround.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleLogo.cpp">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
@@ -178,9 +178,6 @@
     <ClCompile Include="GameLib\ObjectManager\Object3DBase.cpp">
       <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI.cpp">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
-    </ClCompile>
     <ClCompile Include="GameLib\CameraManager\CameraBase.cpp">
       <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClCompile>
@@ -198,6 +195,39 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +263,6 @@
     </ClInclude>
     <ClInclude Include="GameLib\SceneManager\SceneManager.h">
       <Filter>リソース ファイル\GameLib\SceneManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleBackGround.h">
-      <Filter>リソース ファイル\Scene\TitleScene</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleLogo.h">
       <Filter>リソース ファイル\Scene\TitleScene</Filter>
@@ -300,9 +327,6 @@
     <ClInclude Include="GameLib\ObjectManager\Object3DBase.h">
       <Filter>リソース ファイル\GameLib\ObjectManager</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI.h">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
-    </ClInclude>
     <ClInclude Include="GameLib\CameraManager\CameraBase.h">
       <Filter>リソース ファイル\GameLib\CameraManager</Filter>
     </ClInclude>
@@ -320,6 +344,39 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h">
       <Filter>リソース ファイル\Scene\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

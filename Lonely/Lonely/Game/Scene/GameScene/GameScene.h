@@ -1,12 +1,25 @@
 /**
 * @file GameScene.h
 * @brief GameSceneクラスのヘッダファイル
-* @author 佐川
+* @author shion-sagawa
 */
 
 #pragma once
 
-#include"../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "SharedInformation/SharedInformation.h"
+
+
+#ifdef  _DEBUG
+#pragma comment(lib, "../../../SoundLib/Lib/SoundLibDebug.lib")
+
+#else
+#pragma comment(lib, "../../../SoundLib/Lib/SoundLibRelease.lib")
+#endif // _DEBUG
+
+#include "../../../SoundLib/Include/SoundsManager.h"
+#include "../../../SoundLib/Include/SoundLibCWrapper.h"
+
 
 /**
 * @brief ゲームシーンのクラス
@@ -40,4 +53,8 @@ public:
 
 private:
 	
+	SharedInformation m_sharedInformation;    //!< 共有クラスの実体
+
+	SoundLib::SoundsManager soundsManager;
+
 };

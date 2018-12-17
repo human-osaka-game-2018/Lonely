@@ -16,16 +16,6 @@ class ObjectManager
 {
 public:
 
-	///**
-	//* @brief インスタンスを生成する関数
-	//*/
-	//static ObjectManager* GetInstance();
-
-	///**
-	//* @brief インスタンスを破棄する関数
-	//*/
-	//static void ReleaseInstance();
-
 	ObjectManager();
 	~ObjectManager();
 

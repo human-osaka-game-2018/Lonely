@@ -65,6 +65,14 @@ public:
 	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY, float rectWidth, float rectHeight, float rightTU = 1.0f, float bottomTV =1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
 	/**
+	* @brief 左上頂点から横幅、縦幅を使って矩形を作る関数
+	* @param 頂点情報
+	* @param 左上頂点のX座標
+	* @param 左上頂点のY座標
+	*/
+	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY);
+
+	/**
 	* @brief 矩形４頂点の色情報を変える関数
 	* @param 頂点の先頭アドレス
 	* @param 変えたい色情報（ARGB） 

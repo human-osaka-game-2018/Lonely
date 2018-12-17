@@ -6,6 +6,7 @@
 
 #include "TitleMenu.h"
 #include "../../GameScene/GameScene.h"
+#include "../../DataSelectScene/DataSelectScene.h"
 #include "../../../../GameLib/GameLib.h"
 
 
@@ -88,12 +89,13 @@ void TitleMenu::Update()
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 
 			//ƒQ[ƒ€ƒV[ƒ“‚Ö
-			SCENEMANAGER->ChangeScene(new GameScene);
+			SCENEMANAGER->ChangeScene(new DataSelectScene);
 			
 		}
 		break;
 
 	case STEP3:
+
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
 			m_step = STEP2;

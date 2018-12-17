@@ -35,7 +35,7 @@ bool MenuGameStart::Initialize()
 		, 80.f);
 
 	//Žn‚ß‚Í•`‰æ‚µ‚È‚¢
-	canRender = false;
+	m_canRender = false;
 
 	return true;
 }
@@ -52,14 +52,14 @@ void MenuGameStart::Update(int step)
 	if (step != STEP1)
 	{
 		//ƒXƒeƒbƒv‚PˆÈŠO‚Í•`‰æ‚·‚é
-		canRender = true;
+		m_canRender = true;
 	}
 }
 
 //•`‰æ‚·‚é
 void MenuGameStart::Render()
 {
-	if (canRender == false)
+	if (m_canRender == false)
 	{
 		return;
 	}

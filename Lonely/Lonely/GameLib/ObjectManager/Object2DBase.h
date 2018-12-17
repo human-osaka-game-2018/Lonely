@@ -44,5 +44,5 @@ protected:
 
 	Texture         m_texture;
 	Simple2DVertex  m_vertices[4]; //!< ‹éŒ`‚Ì4’¸“_
-	bool canRender = true;         //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
+	bool m_canRender = true;       //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
 };

@@ -25,7 +25,7 @@ Data1::~Data1()
 bool Data1::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/Title_BG.jpg"))
+	if (!m_texture.Load("../Graphics/save.png"))
 	{
 		return false;
 	}
@@ -38,7 +38,7 @@ bool Data1::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 400.f, 400.f, 500.f, 700.f, u, v);
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 50.f, 100.f, 365.f, 520.f, u, v);
 
 	return true;
 }

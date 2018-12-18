@@ -48,6 +48,7 @@
     <ClCompile Include="Game\Scene\DataSelectScene\Data2.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\Data3.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp" />
+    <ClCompile Include="Game\Scene\DataSelectScene\SelectStateManager.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Drone.cpp" />
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="Game\Scene\DataSelectScene\Data2.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\Data3.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h" />
+    <ClInclude Include="Game\Scene\DataSelectScene\SelectStateManager.h" />
     <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h" />
     <ClInclude Include="Game\Scene\GameScene\Drone.h" />
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />

@@ -2,6 +2,7 @@
 #include "DataSelectScene.h"
 #include "Data1.h"
 #include "Data2.h"
+#include "Data3.h"
 
 DataSelectScene::DataSelectScene()
 {
@@ -18,6 +19,7 @@ bool DataSelectScene::Initialize()
 	//オブジェクトをNEWして、オブまねのVectorにつめる
 	m_pObjectManager->RegisterObject(new Data1);
 	m_pObjectManager->RegisterObject(new Data2);
+	m_pObjectManager->RegisterObject(new Data3);
 
 	return true;
 }

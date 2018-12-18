@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Data1.cpp" />
     <ClCompile Include="GameLib\2DHelper\2DHelper.cpp" />
     <ClCompile Include="GameLib\CameraManager\CameraBase.cpp" />
     <ClCompile Include="GameLib\CameraManager\CameraManager.cpp" />
@@ -45,6 +44,9 @@
     <ClCompile Include="GameLib\Sprite\Sprite.cpp" />
     <ClCompile Include="GameLib\Window\Window.cpp" />
     <ClCompile Include="Game\Main\Main.cpp" />
+    <ClCompile Include="Game\Scene\DataSelectScene\Data1.cpp" />
+    <ClCompile Include="Game\Scene\DataSelectScene\Data2.cpp" />
+    <ClCompile Include="Game\Scene\DataSelectScene\Data3.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Drone.cpp" />
@@ -71,7 +73,6 @@
     <ClCompile Include="Game\Scene\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Data1.h" />
     <ClInclude Include="GameLib\2DHelper\2DHelper.h" />
     <ClInclude Include="GameLib\CameraManager\CameraBase.h" />
     <ClInclude Include="GameLib\CameraManager\CameraManager.h" />
@@ -97,6 +98,9 @@
     <ClInclude Include="GameLib\SceneManager\SceneManager.h" />
     <ClInclude Include="GameLib\Sprite\Sprite.h" />
     <ClInclude Include="GameLib\Window\Window.h" />
+    <ClInclude Include="Game\Scene\DataSelectScene\Data1.h" />
+    <ClInclude Include="Game\Scene\DataSelectScene\Data2.h" />
+    <ClInclude Include="Game\Scene\DataSelectScene\Data3.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h" />
     <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h" />
     <ClInclude Include="Game\Scene\GameScene\Drone.h" />

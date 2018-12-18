@@ -231,6 +231,14 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+       <ClCompile Include="Game\Scene\DataSelectScene\Data1.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Data2.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Data3.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +390,13 @@
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
       </ClInclude>
     <ClInclude Include="Data1.h">
+     <ClInclude Include="Game\Scene\DataSelectScene\Data1.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Data2.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Data3.h">
       <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
     </ClInclude>
   </ItemGroup>

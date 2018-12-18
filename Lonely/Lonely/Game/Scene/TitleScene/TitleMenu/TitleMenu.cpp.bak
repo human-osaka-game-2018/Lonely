@@ -89,8 +89,12 @@ void TitleMenu::Update()
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 
 			//ƒQ[ƒ€ƒV[ƒ“‚Ö
-			SCENEMANAGER->ChangeScene(new DataSelectScene);
+<<<<<<< HEAD
+			SCENEMANAGER->ChangeScene(new GameScene);
 			
+=======
+			SCENEMANAGER->ChangeScene(new DataSelectScene);
+>>>>>>> [issue#8 add] ãƒ•ã‚¡ã‚¤ãƒ«ã®è¿½åŠ 
 		}
 		break;
 

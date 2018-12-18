@@ -41,29 +41,3 @@ public:
 private:
 
 };
-
-DataSelectScene::DataSelectScene()
-{
-}
-
-DataSelectScene::~DataSelectScene()
-{
-}
-
-bool DataSelectScene::Initialize()
-{
-}
-
-void DataSelectScene::Finalize()
-{
-}
-
-void DataSelectScene::Update()
-{
-
-}
-
-void DataSelectScene::Render()
-{
-
-}

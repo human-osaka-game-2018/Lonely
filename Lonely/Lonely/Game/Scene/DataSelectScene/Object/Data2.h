@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../GameLib/DirectX/DirectX.h"
+#include "../../../../GameLib/ObjectManager/Object2DBase.h"
+#include "../../../../GameLib/DirectX/DirectX.h"
 
 /**
 * @brief データ関係の処理をまとめたクラス

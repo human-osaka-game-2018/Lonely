@@ -1,8 +1,8 @@
 
 #include "DataSelectScene.h"
-#include "Data1.h"
-#include "Data2.h"
-#include "Data3.h"
+#include "Object/Data1.h"
+#include "Object/Data2.h"
+#include "Object/Data3.h"
 
 DataSelectScene::DataSelectScene()
 {

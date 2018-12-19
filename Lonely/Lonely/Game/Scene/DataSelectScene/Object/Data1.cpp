@@ -1,28 +1,28 @@
 /**
-* @file Data3.cpp
-* @brief Data3クラスのソースファイル
+* @file Data1.cpp
+* @brief Data1クラスのソースファイル
 * @author shion-sagawa
 */
 
-#include "Data3.h"
-#include "../../../GameLib/GameLib.h"
-#include "../../../GameLib/DirectX/DirectX.h"
-#include "../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../GameLib/FBX/Texture.h"
+#include "Data1.h"
+#include "../../../../GameLib/GameLib.h"
+#include "../../../../GameLib/DirectX/DirectX.h"
+#include "../../../../GameLib/2DHelper/2DHelper.h"
+#include "../../../../GameLib/FBX/Texture.h"
 
 
-Data3::Data3()
+Data1::Data1()
 {
 	Initialize();
 }
 
-Data3::~Data3()
+Data1::~Data1()
 {
 	Finalize();
 }
 
 //初期化する
-bool Data3::Initialize()
+bool Data1::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
 	if (!m_texture.Load("../Graphics/save.png"))
@@ -38,22 +38,22 @@ bool Data3::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 880.f, 100.f, 365.f, 520.f, u, v);
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 50.f, 100.f, 365.f, 520.f, u, v);
 
 	return true;
 }
 
 //解放する
-void Data3::Finalize()
+void Data1::Finalize()
 {
 	m_texture.Finalize();
 }
 
-void Data3::Update()
+void Data1::Update()
 {
 }
 
-void Data3::Render()
+void Data1::Render()
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();

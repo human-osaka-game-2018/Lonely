@@ -243,6 +243,9 @@
     <ClCompile Include="Game\Scene\DataSelectScene\SelectStateManager.cpp">
       <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\SelectBackground.cpp">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\DirectX\DirectX.h">
@@ -404,6 +407,9 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\DataSelectScene\SelectStateManager.h">
       <Filter>リソース ファイル\Scene\DataSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectBackground.h">
+      <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

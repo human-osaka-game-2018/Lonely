@@ -7,6 +7,7 @@
 #pragma once
 
 #include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "SelectCursorInformation/SelectCursorInformation.h"
 
 /**
 * @brief データセレクトシーンのクラス
@@ -39,5 +40,7 @@ public:
 	void Render();
 
 private:
+
+	SelectCursorInformation m_selectCursorInformation;
 
 };

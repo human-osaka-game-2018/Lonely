@@ -50,6 +50,7 @@
     <ClCompile Include="Game\Scene\DataSelectScene\Object\Data2.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\Object\Data3.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\Object\MiniCursor.cpp" />
+    <ClCompile Include="Game\Scene\DataSelectScene\Object\SelectBackground.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\SelectCursorInformation\SelectCursorInformation.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="Game\Scene\DataSelectScene\Object\Data2.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\Object\Data3.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\Object\MiniCursor.h" />
+    <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectBackground.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\SelectCursorInformation\SelectCursorInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h" />

@@ -38,7 +38,7 @@ bool Data2::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 465.f, 100.f, 365.f, 520.f, u, v);
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 450.f, 100.f, 380.f, 520.f, u, v);
 
 	return true;
 }

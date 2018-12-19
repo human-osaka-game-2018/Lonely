@@ -95,6 +95,7 @@ void TitleMenu::Update()
 		break;
 
 	case STEP3:
+
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
 			m_step = STEP2;

@@ -1,4 +1,4 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
+?¿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -22,6 +22,8 @@
     <ClCompile Include="GameLib\2DHelper\2DHelper.cpp" />
     <ClCompile Include="GameLib\CameraManager\CameraBase.cpp" />
     <ClCompile Include="GameLib\CameraManager\CameraManager.cpp" />
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBase.cpp" />
+    <ClCompile Include="GameLib\CollisionManager\CollisionManager.cpp" />
     <ClCompile Include="GameLib\DirectX\DirectX.cpp" />
     <ClCompile Include="GameLib\DXInput\DXInput.cpp" />
     <ClCompile Include="GameLib\DXInput\InputBase\InputBase.cpp" />
@@ -58,7 +60,6 @@
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp" />
@@ -78,6 +79,8 @@
     <ClInclude Include="GameLib\2DHelper\2DHelper.h" />
     <ClInclude Include="GameLib\CameraManager\CameraBase.h" />
     <ClInclude Include="GameLib\CameraManager\CameraManager.h" />
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBase.h" />
+    <ClInclude Include="GameLib\CollisionManager\CollisionManager.h" />
     <ClInclude Include="GameLib\DirectX\DirectX.h" />
     <ClInclude Include="GameLib\DXInput\DXInput.h" />
     <ClInclude Include="GameLib\DXInput\InputBase\InputBase.h" />
@@ -114,7 +117,6 @@
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h" />
-    <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UI.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h" />

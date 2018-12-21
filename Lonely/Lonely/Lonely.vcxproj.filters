@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+?�<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="リソース ファイル">
@@ -82,6 +82,11 @@
     </Filter>
     <Filter Include="リソース ファイル\Scene\DataSelectScene\Object">
       <UniqueIdentifier>{28ef63bf-97f5-404e-b61b-17be4cdc39b1}</UniqueIdentifier>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager">
+      <UniqueIdentifier>{3b3f21be-d251-4141-af38-91cc486717b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager\CollisionBase">
+      <UniqueIdentifier>{9b3cf815-3d73-49a2-9238-efd8be4bbbfa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -244,8 +249,23 @@
     <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp">
+    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionManager.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBase.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -408,8 +428,26 @@
     <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionManager.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
+      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBase.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

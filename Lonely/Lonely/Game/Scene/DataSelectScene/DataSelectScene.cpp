@@ -1,10 +1,17 @@
+/**
+* @file DataSelectScene.cpp
+* @brief DataSelectSceneクラスのソースファイル
+* @author shion-sagawa
+*/
 
 #include "DataSelectScene.h"
 #include "Object/CatCursor.h"
+#include "Object/MiniCursor.h"
 #include "Object/Data1.h"
 #include "Object/Data2.h"
 #include "Object/Data3.h"
 #include "Object/SelectBackground.h"
+#include "Object/SelectMenuFrame.h"
 
 DataSelectScene::DataSelectScene()
 {
@@ -24,6 +31,8 @@ bool DataSelectScene::Initialize()
 	m_pObjectManager->RegisterObject(new Data1);
 	m_pObjectManager->RegisterObject(new Data2);
 	m_pObjectManager->RegisterObject(new Data3);
+	m_pObjectManager->RegisterObject(new SelectMenuFrame(&m_selectCursorInformation));
+	m_pObjectManager->RegisterObject(new MiniCursor(&m_selectCursorInformation));
 	
 	return true;
 }

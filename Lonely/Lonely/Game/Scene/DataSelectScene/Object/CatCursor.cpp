@@ -57,8 +57,6 @@ void CatCursor::Update()
 	static int prevCatCursorState = DATA1;
 	int catCursorState = m_pSelectCursorInformation->GetCatCursorState();
 
-	//ƒL[‘€ì
-
 
 	if (catCursorState == prevCatCursorState)
 	{

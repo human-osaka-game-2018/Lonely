@@ -26,6 +26,7 @@ enum MINI_CORSOR_STATE
 	CONTINUE,     //!< 「続きから」を選択しているとき
 	NEWGAME,      //!< 「初めから」を選択しているとき
 	BACK,         //!< 「戻る」を選択しているとき
+	NOT_RENDER    //!<  描画されないとき
 };
 
 
@@ -67,11 +68,11 @@ public://セッターとゲッター
 	
 private:
 
-	void SelectCursorInformation::UpdateCatCursorState();
-	void SelectCursorInformation::UpdateMiniCursorState();
+	void UpdateCatCursorState();
+	void UpdateMiniCursorState();
 
 	int  m_catCursorState = DATA1;        //!< 猫型カーソルの状態
-	int  m_miniCursorState = CONTINUE;    //!< ミニカーソル（続きから、初めから、戻る）の状態
+	int  m_miniCursorState = NOT_RENDER;  //!< ミニカーソル（続きから、初めから、戻る）の状態
 	bool m_catCursorIsActive = true;      //!< 猫型カーソルが主導権を持っているか                       
 	bool m_miniCursorIsActive = false;    //!< ミニカーソルが主導権を持っているか
 

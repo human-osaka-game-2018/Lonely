@@ -35,7 +35,7 @@ bool MenuCursor::Initialize()
 		, 30.f);
 
 	//始めは描画しない
-	canRender = false;
+	m_canRender = false;
 
 	return true;
 }
@@ -52,12 +52,12 @@ void MenuCursor::Update(int step)
 	if (step == STEP1)
 	{
 		//ステップ１は描画しない
-		canRender = false;
+		m_canRender = false;
 	}
 	if (step == STEP2)
 	{
 		//描画する
-		canRender = true;
+		m_canRender = true;
 		//頂点の座標をセット
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 3
@@ -68,7 +68,7 @@ void MenuCursor::Update(int step)
 	if (step == STEP3)
 	{
 		//描画する
-		canRender = true;
+		m_canRender = true;
 		//頂点の座標をセット
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 3
@@ -81,7 +81,7 @@ void MenuCursor::Update(int step)
 //描画する
 void MenuCursor::Render()
 {
-	if (canRender == false)
+	if (m_canRender == false)
 	{
 		return;
 	}

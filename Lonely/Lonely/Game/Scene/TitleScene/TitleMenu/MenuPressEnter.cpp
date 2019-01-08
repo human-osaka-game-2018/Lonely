@@ -64,7 +64,7 @@ void MenuPressEnter::Update(int step)
 	else {
 
 		//ƒXƒeƒbƒv‚PˆÈŠO‚Í•`‰æ‚µ‚È‚¢
-		canRender = false;
+		m_canRender = false;
 	}
 }
 	
@@ -72,7 +72,7 @@ void MenuPressEnter::Update(int step)
 //•`‰æ‚·‚é
 void MenuPressEnter::Render()
 {
-	if (canRender == false)
+	if (m_canRender == false)
 	{
 		return;
 	}

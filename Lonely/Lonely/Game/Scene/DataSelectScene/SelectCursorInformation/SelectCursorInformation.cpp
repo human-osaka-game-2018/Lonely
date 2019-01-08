@@ -37,7 +37,7 @@ void SelectCursorInformation::Update()
 void SelectCursorInformation::UpdateCatCursorState()
 {
 	//ミニカーソルが主導権を持っているとき
-	if (m_miniCursorIsActive)
+	if (m_catCursorIsActive == false)
 	{
 		return;
 	}
@@ -59,6 +59,7 @@ void SelectCursorInformation::UpdateCatCursorState()
 		{
 			m_miniCursorIsActive = true;
 			m_catCursorIsActive = false;
+			m_miniCursorState = CONTINUE;
 		}
 		break;
 
@@ -76,6 +77,7 @@ void SelectCursorInformation::UpdateCatCursorState()
 		{
 			m_miniCursorIsActive = true;
 			m_catCursorIsActive = false;
+			m_miniCursorState = CONTINUE;
 		}
 		break;
 
@@ -93,6 +95,7 @@ void SelectCursorInformation::UpdateCatCursorState()
 		{
 			m_miniCursorIsActive = true;
 			m_catCursorIsActive = false;
+			m_miniCursorState = CONTINUE;
 		}
 		break;
 	}
@@ -100,8 +103,8 @@ void SelectCursorInformation::UpdateCatCursorState()
 
 void SelectCursorInformation::UpdateMiniCursorState()
 {
-	//ミニカーソルが主導権を持っているとき
-	if (m_catCursorIsActive)
+	//猫型カーソルが主導権を持っているとき
+	if (m_miniCursorIsActive == false)
 	{
 		return;
 	}
@@ -113,11 +116,11 @@ void SelectCursorInformation::UpdateMiniCursorState()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
-			m_catCursorState = BACK;
+			m_miniCursorState = BACK;
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_DOWN))
 		{
-			m_catCursorState = NEWGAME;
+			m_miniCursorState = NEWGAME;
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
@@ -129,11 +132,12 @@ void SelectCursorInformation::UpdateMiniCursorState()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
-			m_catCursorState = CONTINUE;
+			m_miniCursorState = CONTINUE;
+
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_DOWN))
 		{
-			m_catCursorState = BACK;
+			m_miniCursorState = BACK;
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
@@ -145,16 +149,17 @@ void SelectCursorInformation::UpdateMiniCursorState()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
-			m_catCursorState = NEWGAME;
+			m_miniCursorState = NEWGAME;
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_DOWN))
 		{
-			m_catCursorState = CONTINUE;
+			m_miniCursorState = CONTINUE;
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
 			m_catCursorIsActive = true;
 			m_miniCursorIsActive = false;
+			m_miniCursorState = NOT_RENDER;
 		}
 		break;
 	}

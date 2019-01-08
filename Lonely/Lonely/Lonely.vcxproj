@@ -58,9 +58,6 @@
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
     <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\IconMusic.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp" />
@@ -117,9 +114,6 @@
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h" />
-    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h" />
-    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h" />
-    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\IconMusic.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UI.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h" />

@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleLogo.h
-* @brief TitleLogoƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief TitleLogoã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -13,7 +13,7 @@
 #include "../../../GameLib/FBX/Texture.h"
 
 /**
-* @brief ƒ^ƒCƒgƒ‹ƒƒS‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class TitleLogo : public Object2DBase
 {
@@ -24,29 +24,29 @@ public:
 
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
 	* @param
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 
 
 private:
 
-	float logoWidth = 30.f;            //!< ƒ^ƒCƒgƒ‹ƒƒS‚Ì’†S“_‚©‚ç‚Ì‰¡•
-	float logoHeight = 20.f;           //!< ƒ^ƒCƒgƒ‹ƒƒS‚Ì’†S“_‚©‚ç‚Ìc•
+	float logoWidth = 30.f;            //!< ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã®ä¸­å¿ƒç‚¹ã‹ã‚‰ã®æ¨ªå¹…
+	float logoHeight = 20.f;           //!< ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã®ä¸­å¿ƒç‚¹ã‹ã‚‰ã®ç¸¦å¹…
 };

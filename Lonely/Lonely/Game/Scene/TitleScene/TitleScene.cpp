@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleScene.cpp
-* @brief TitleSceneƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief TitleSceneã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,51 +18,51 @@ TitleScene::~TitleScene()
 	Finalize();
 }
 
-//‘€ì‚ðXV‚·‚é
+//æ“ä½œã‚’æ›´æ–°ã™ã‚‹
 void TitleScene::Update()
 {
-	//ƒV[ƒ“‚ðØ‚è‘Ö‚¦‚é‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN‚·‚é
+	//ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹
 
 
-	//BGM‚ð–Â‚ç‚·
+	//BGMã‚’é³´ã‚‰ã™
 	bool isSuccess = soundsManager.Start(_T("TitleBGM"), true);
 
-	//‚±‚ÌƒV[ƒ“‚ÌƒIƒuƒWƒFƒNƒg‚ÌXV‚ðs‚¤
+	//ã“ã®ã‚·ãƒ¼ãƒ³ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ›´æ–°ã‚’è¡Œã†
 	m_pObjectManager->Update();
 
-	//ƒJƒƒ‰Update
+	//ã‚«ãƒ¡ãƒ©Update
 	//m_pCamera->Update();
 
 
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void TitleScene::Render()
 {
-	//ƒIƒuƒWƒFƒNƒg‚ÌRender
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Render
 	m_pObjectManager->Render();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool TitleScene::Initialize()
 {
-	//ƒIƒuƒWƒFƒNƒg‚ðNEW‚µ‚ÄAƒIƒu‚Ü‚Ë‚ÌVector‚É‚Â‚ß‚é
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’NEWã—ã¦ã€ã‚ªãƒ–ã¾ã­ã®Vectorã«ã¤ã‚ã‚‹
 	m_pObjectManager->RegisterObject(new TitleBackground);
 	m_pObjectManager->RegisterObject(new TitleMenu);
 	m_pObjectManager->RegisterObject(new TitleLogo);
 
-	// SoundsManagerƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚É1“x‚Ì‚Ýs‚¤B
+	// SoundsManagerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«1åº¦ã®ã¿è¡Œã†ã€‚
 	bool isSuccess = soundsManager.Initialize();
-	// ‰¹ºƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
-	// ‘æ2ˆø”‚Í‰¹ºƒtƒ@ƒCƒ‹‚ðŽ¯•Ê‚·‚é‚½‚ß‚Ì”CˆÓ‚Ì•¶Žš—ñ‚ðƒL[‚Æ‚µ‚ÄŽw’è‚·‚éB
-	// ‚±‚ÌŒã‚Ì‘€ìŠÖ”‚ÌŒÄ‚Ño‚µŽž‚É‚ÍA‚±‚±‚ÅÝ’è‚µ‚½ƒL[‚ðŽw’è‚µ‚Ä‰¹º‚ðŽ¯•Ê‚·‚éB
+	// éŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
+	// ç¬¬2å¼•æ•°ã¯éŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è­˜åˆ¥ã™ã‚‹ãŸã‚ã®ä»»æ„ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã¨ã—ã¦æŒ‡å®šã™ã‚‹ã€‚
+	// ã“ã®å¾Œã®æ“ä½œé–¢æ•°ã®å‘¼ã³å‡ºã—æ™‚ã«ã¯ã€ã“ã“ã§è¨­å®šã—ãŸã‚­ãƒ¼ã‚’æŒ‡å®šã—ã¦éŸ³å£°ã‚’è­˜åˆ¥ã™ã‚‹ã€‚
 	const TCHAR* filePath = _T("../Sounds/BGM/TitleBGM.mp3");
 	isSuccess = soundsManager.AddFile(filePath, _T("TitleBGM"));
 
 	return true;
 }
 
-//‰ð•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void TitleScene::Finalize()
 {
 	m_pObjectManager->ReleaseObject();

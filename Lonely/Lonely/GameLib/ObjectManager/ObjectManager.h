@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file ObjectManager.h
-* @brief ObjectManagerƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief ObjectManagerã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -10,7 +10,7 @@
 #include <vector>
 
 /**
-* ƒIƒuƒWƒFƒNƒg‚ğŠÇ—‚·‚éƒNƒ‰ƒX
+* ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹
 */
 class ObjectManager
 {
@@ -20,38 +20,37 @@ public:
 	~ObjectManager();
 
 	/**
-	* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éŠÖ”
+	* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹é–¢æ•°
 	*/
 	void Initialize();
 
 	/**
-	* @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ”jŠü‚·‚éŠÖ”
+	* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç ´æ£„ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 	
 	/**
-	* @brief ƒIƒuƒWƒFƒNƒg‚ğ“o˜^‚·‚éŠÖ”
-	* @param “o˜^‚µ‚½‚¢”h¶ƒNƒ‰ƒX‚Ìƒ|ƒCƒ“ƒ^
+	* @brief ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç™»éŒ²ã™ã‚‹é–¢æ•°
+	* @param ç™»éŒ²ã—ãŸã„æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ³ã‚¿
 	*/
 	void RegisterObject(Object*);
 
 	/**
-	* @brief ƒIƒuƒWƒFƒNƒg‚ğ‰ğ•ú‚·‚éŠÖ”
+	* @brief ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void ReleaseObject();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 	
 private:
 
-	std::vector<Object*> m_pObjectVec;				//!< ObjectƒNƒ‰ƒX‚Ì
-	//static ObjectManager* m_pObjectManager;					//!< ObjectManagerƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^•Ï”
+	std::vector<Object*> m_pObjectVec;				//!< Objectã‚¯ãƒ©ã‚¹ãƒã‚¤ãƒ³ã‚¿ã®Vectoré…åˆ—
 };

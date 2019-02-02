@@ -1,13 +1,13 @@
-/**
+ï»¿/**
 * @file Object.h
-* @brief ObjectƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Objectã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #pragma once
 
 /**
-* @brief Object‚ÌŠî’êƒNƒ‰ƒX
+* @brief Objectã®åŸºåº•ã‚¯ãƒ©ã‚¹
 */
 class Object
 {
@@ -17,26 +17,26 @@ public:
 	virtual ~Object();
 
 	/**
-	* @brief ‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brief åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Finalize();
 
 	/**
-	* @brief ‘€ì‚ÌXV‚ğs‚¤ŠÖ”
+	* @brief æ“ä½œã®æ›´æ–°ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Update();
 
 	/**
-	* @brief •`‰æ‚ğs‚¤ŠÖ”
+	* @brief æç”»ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Render();
 
 protected:
 
-	bool m_canRender = true; //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
+	bool m_canRender = true; //!<ã€€æç”»ã§ãã‚‹ã‹ã©ã†ã‹
 };

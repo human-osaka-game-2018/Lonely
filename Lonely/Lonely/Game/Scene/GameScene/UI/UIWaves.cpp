@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIWaves.cpp
-* @brief UIWavesƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief UIWavesã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -17,17 +17,17 @@ UIWaves::~UIWaves()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool UIWaves::Initialize()
 {
-	// assetsƒtƒHƒ‹ƒ_“à‚Ìbridge.png‚ğƒeƒNƒXƒ`ƒƒ[‚Æ‚µ‚Ä“Ç‚İ‚İ
+	// assetsãƒ•ã‚©ãƒ«ãƒ€å†…ã®bridge.pngã‚’ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã¨ã—ã¦èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/UIWaves.png"))
 	{
 		return false;
 	}
 
-	// ƒeƒNƒXƒ`ƒƒ[ƒTƒCƒY‚©‚ç‰æ‘œƒTƒCƒY‚ÌUV‚ğæ“¾(‰æ‘œ‚ª2‚Ì—İæ‚Å‚ ‚ê‚Î1.0f‚É‚È‚é)
-	// ƒeƒNƒXƒ`ƒƒ‚ª2‚Ì—İæ‚Å‚È‚¢‚Æ‚«‚ÉŒø‰Ê‚ğ”­Šö‚·‚é
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚µã‚¤ã‚ºã‹ã‚‰ç”»åƒã‚µã‚¤ã‚ºã®UVã‚’å–å¾—(ç”»åƒãŒ2ã®ç´¯ä¹—ã§ã‚ã‚Œã°1.0fã«ãªã‚‹)
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒ2ã®ç´¯ä¹—ã§ãªã„ã¨ãã«åŠ¹æœã‚’ç™ºæ®ã™ã‚‹
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
@@ -39,7 +39,7 @@ bool UIWaves::Initialize()
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void UIWaves::Finalize()
 {
 	m_texture.Finalize();
@@ -54,12 +54,12 @@ void UIWaves::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//’¸“_‚É“ü‚ê‚éƒf[ƒ^‚ğİ’è
+	//é ‚ç‚¹ã«å…¥ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®š
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 
-	//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
 
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 }

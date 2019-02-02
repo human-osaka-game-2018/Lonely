@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file VertexBuffer.cpp
-* @brief VertexBufferƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief VertexBufferã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,12 +18,12 @@ VertexBuffer::~VertexBuffer()
 	Finalize();
 }
 
-// ’¸“_ƒoƒbƒtƒ@‚Ì¶¬
+// é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆ
 bool VertexBuffer::Create(UINT size, const void* pVertices)
 {
 	IDirect3DVertexBuffer9* pVertexBuffer;
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
-	// Žw’è‚µ‚½ƒTƒCƒY‚Ì’¸“_ƒoƒbƒtƒ@‚ðì¬
+	// æŒ‡å®šã—ãŸã‚µã‚¤ã‚ºã®é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã‚’ä½œæˆ
 	if (FAILED(pDevice->CreateVertexBuffer(size, 0, 0, D3DPOOL_MANAGED, &pVertexBuffer, NULL)))
 	{
 		return NULL;
@@ -32,7 +32,7 @@ bool VertexBuffer::Create(UINT size, const void* pVertices)
 	if (pVertices != nullptr)
 	{
 		void* pData;
-		// ƒoƒbƒtƒ@‚ðƒƒbƒN‚µ‚Äƒf[ƒ^‚ð‘‚«ž‚Þ
+		// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 		if (SUCCEEDED(pVertexBuffer->Lock(0, size, &pData, 0)))
 		{
 			memcpy(pData, pVertices, size);

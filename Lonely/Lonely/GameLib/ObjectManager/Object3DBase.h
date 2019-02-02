@@ -1,15 +1,16 @@
-/**
+ï»¿/**
 * @file Object3DBase.h
-* @brief Object3DBaseƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Object3DBaseã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
-
 #pragma once
+
+#include <d3dx9math.h>
 
 #include "Object.h"
 
 /**
-* @brief 3DƒIƒuƒWƒFƒNƒg‚ÌŠî’ê‚Æ‚È‚éƒNƒ‰ƒX
+* @brief 3Dã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åŸºåº•ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹
 */
 class Object3DBase : public Object
 {
@@ -19,26 +20,32 @@ public:
 	virtual ~Object3DBase();
 
 	/**
-	* @brief ‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brief åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Finalize();
 
 	/**
-	* @brief ‘€ì‚ÌXV‚ğs‚¤ŠÖ”
+	* @brief æ“ä½œã®æ›´æ–°ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Update();
 
 	/**
-	* @brief •`‰æ‚ğs‚¤ŠÖ”
+	* @brief æç”»ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Render();
 
+	D3DXVECTOR3 GetPosition() { return m_position; }
+
+	D3DXVECTOR3 GetFollowingPositionExceptY() { return m_followingPositionExceptY; };
+
 protected:
 
-	bool m_canRender = true;         //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
+	bool        m_canRender = true;            //!< æç”»ã§ãã‚‹ã‹ã©ã†ã‹
+	D3DXVECTOR3 m_position;                    //!< ä½ç½®
+	D3DXVECTOR3 m_followingPositionExceptY;    //!< Yä»¥å¤–,ç§»å‹•ã•ã›ãŸå¾Œã®ä½ç½®
 };

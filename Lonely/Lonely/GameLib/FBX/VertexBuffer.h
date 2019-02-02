@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file VertexBuffer.h
-* @brief VertexBufferƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief VertexBufferã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,7 +9,7 @@
 #include "d3d9.h"
 
 /**
-* @brief ƒo[ƒeƒbƒNƒXƒoƒbƒtƒ@‚Ìˆ—‚âî•ñ‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ãƒãƒ¼ãƒ†ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã®å‡¦ç†ã‚„æƒ…å ±ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class VertexBuffer
 {
@@ -19,19 +19,19 @@ public:
 	~VertexBuffer();
 
 	/**
-	* @brief ƒoƒbƒtƒ@‚Ì¶¬‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆã‚’è¡Œã†é–¢æ•°
 	* @param 
 	* @param 
 	* @return 
 	*/
 	bool Create(UINT size, const void* pData = NULL);
 	/** 
-	* @brief ƒoƒbƒtƒ@‚Ì‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief ƒoƒbƒtƒ@‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	IDirect3DVertexBuffer9*	GetBuffer() { return m_pBuffer; }
 

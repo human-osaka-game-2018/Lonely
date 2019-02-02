@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TestCamera.h
-* @brief TestCameraƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief TestCameraã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -11,7 +11,7 @@
 #include "../SharedInformation/SharedInformation.h"
 
 /**
-* @brief ƒQ[ƒ€ƒV[ƒ“‚ÌƒNƒ‰ƒX
+* @brief ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã®ã‚¯ãƒ©ã‚¹
 */
 class TestCamera : public CameraBase
 {
@@ -21,27 +21,28 @@ public:
 	~TestCamera();
 
 	/**
-	* @brief ‰Šú‰»ŠÖ”
+	* @brief åˆæœŸåŒ–é–¢æ•°
 	*/
 	void Initialize();
 
 	/**
-	* @brief ‰ğ•úŠÖ”
+	* @brief è§£æ”¾é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 private:
 
-	D3DXMATRIXA16 m_matProjection;             //!< ƒvƒƒWƒFƒNƒVƒ‡ƒ“s—ñ
-	float m_perspective;                       //!< ƒJƒƒ‰‚Ì‹–ìŠp‚ğ•Ï‚¦‚é‚½‚ß‚Ì•Ï”
-	D3DXVECTOR3 m_position;                    //!< ƒJƒƒ‰‚ÌˆÊ’u
-	D3DXVECTOR3 m_lookAt;                      //!< ’‹“_‚ÌˆÊ’u
-	D3DXVECTOR3 m_rotation;                    //!< ƒJƒƒ‰‚Ì‰ñ“]Šp“x
+	D3DXMATRIXA16 m_matProjection;             //!< ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³è¡Œåˆ—
+	float m_perspective;                       //!< ã‚«ãƒ¡ãƒ©ã®è¦–é‡è§’ã‚’å¤‰ãˆã‚‹ãŸã‚ã®å¤‰æ•°
+	D3DXVECTOR3 m_position;                    //!< ã‚«ãƒ¡ãƒ©ã®ä½ç½®
+	D3DXVECTOR3 m_lookAt;                      //!< æ³¨è¦–ç‚¹ã®ä½ç½®
+	D3DXVECTOR3 m_rotation;                    //!< ã‚«ãƒ¡ãƒ©ã®å›è»¢è§’åº¦
+	D3DXMATRIX  m_matView;
 
-	SharedInformation* m_pSharedInformation;     //!< ‹¤—LƒNƒ‰ƒX‚Ìƒ|ƒCƒ“ƒ^
+	SharedInformation* m_pSharedInformation;     //!< å…±æœ‰ã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ³ã‚¿
 };

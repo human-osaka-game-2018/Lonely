@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file MenuCursor.cpp
-* @brief MenuCursorƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief MenuCursorã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,47 +18,47 @@ MenuCursor::~MenuCursor()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool MenuCursor::Initialize()
 {
-	//ƒeƒNƒXƒ`ƒƒ[“Ç‚Ýž‚Ý
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/menuCursor.png"))
 	{
 		return false;
 	}
 
-	//’¸“_‚ÌÀ•W‚ðƒZƒbƒg
+	//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth()) / 2
 		, static_cast<float>(WINDOW->GetHeight()) / 16 * 13
 		, 30.f
 		, 30.f);
 
-	//Žn‚ß‚Í•`‰æ‚µ‚È‚¢
+	//å§‹ã‚ã¯æç”»ã—ãªã„
 	m_canRender = false;
 
 	return true;
 }
 
-//‰ð•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void MenuCursor::Finalize()
 {
 	m_texture.Finalize();
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void MenuCursor::Update(int step)
 {
 	if (step == STEP1)
 	{
-		//ƒXƒeƒbƒv‚P‚Í•`‰æ‚µ‚È‚¢
+		//ã‚¹ãƒ†ãƒƒãƒ—ï¼‘ã¯æç”»ã—ãªã„
 		m_canRender = false;
 	}
 	if (step == STEP2)
 	{
-		//•`‰æ‚·‚é
+		//æç”»ã™ã‚‹
 		m_canRender = true;
-		//’¸“_‚ÌÀ•W‚ðƒZƒbƒg
+		//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 3
 			, static_cast<float>(WINDOW->GetHeight()) / 16 * 11
@@ -67,9 +67,9 @@ void MenuCursor::Update(int step)
 	}
 	if (step == STEP3)
 	{
-		//•`‰æ‚·‚é
+		//æç”»ã™ã‚‹
 		m_canRender = true;
-		//’¸“_‚ÌÀ•W‚ðƒZƒbƒg
+		//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 3
 			, static_cast<float>(WINDOW->GetHeight()) / 16 * 13
@@ -78,7 +78,7 @@ void MenuCursor::Update(int step)
 	}
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void MenuCursor::Render()
 {
 	if (m_canRender == false)
@@ -89,8 +89,8 @@ void MenuCursor::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//ƒeƒNƒXƒ`ƒƒ‚ÌÝ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 }

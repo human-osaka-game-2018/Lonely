@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIFootsteps.h
-* @brief UIFootstepsƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief UIFootstepsã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,7 +12,7 @@
 
 
 /**
-* @brief ‘«‰¹Š´’mŠÖŒW‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief è¶³éŸ³æ„ŸçŸ¥é–¢ä¿‚ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class UIFootsteps : public Object2DBase
 {
@@ -22,23 +22,23 @@ public:
 	~UIFootsteps();
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file GameScene.h
-* @brief GameSceneƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief GameSceneã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -8,6 +8,8 @@
 
 #include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
 #include "SharedInformation/SharedInformation.h"
+#include "../../../GameLib/CollisionManager/CollisionManager.h"
+#include "Player\Sumahoneko.h"
 
 
 #ifdef  _DEBUG
@@ -22,7 +24,7 @@
 
 
 /**
-* @brief ƒQ[ƒ€ƒV[ƒ“‚ÌƒNƒ‰ƒX
+* @brief ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã®ã‚¯ãƒ©ã‚¹
 */
 class GameScene : public SceneBase
 {
@@ -32,29 +34,29 @@ public:
 	~GameScene();
 
 	/**
-	* @brief ‰Šú‰»ŠÖ” 
+	* @brief åˆæœŸåŒ–é–¢æ•° 
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•úŠÖ”
+	* @brief è§£æ”¾é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 
 private:
 	
-	SharedInformation m_sharedInformation;    //!< ‹¤—LƒNƒ‰ƒX‚ÌÀ‘Ì
-
-	SoundLib::SoundsManager soundsManager;
+	SharedInformation        m_sharedInformation;    //!< å…±æœ‰ã‚¯ãƒ©ã‚¹ã®å®Ÿä½“
+	CollisionManager*        m_pCollisionManager;    //!< å½“ãŸã‚Šåˆ¤å®šç®¡ç†ã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ³ã‚¿
+	SoundLib::SoundsManager* m_pSoundsManager;
 
 };

@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	Font.cpp
-* @brief FontƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Fontã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,7 +18,7 @@ Font::~Font()
 	Finalize();
 }
 
-// ƒtƒHƒ“ƒg‚Ì¶¬
+// ãƒ•ã‚©ãƒ³ãƒˆã®ç”Ÿæˆ
 bool Font::Initialize(int size)
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
@@ -46,35 +46,35 @@ bool Font::Initialize(int size)
 	return true;
 }
 
-// ƒtƒHƒ“ƒg‚Ì”jŠü
+// ãƒ•ã‚©ãƒ³ãƒˆã®ç ´æ£„
 void Font::Finalize()
 {
 	SAFE_RELEASE(m_pFont);
 	m_fontSize = 0;
 }
 
-// ƒtƒHƒ“ƒg‚Ì‚‚³‚ğæ“¾
+// ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•ã‚’å–å¾—
 int Font::GetHeight()
 {
 	return m_fontSize;
 }
 
-// ƒƒbƒZ[ƒW‚Ì•\¦
+// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤º
 void Font::DrawText(int X, int Y, D3DCOLOR color, const char* pText)
 {
 	if (m_pFont == nullptr) return;
 
 	RECT rect;
 	SetRect(&rect, 0, 0, 0, 0);
-	// •`‰æ”ÍˆÍ‚Ìæ“¾
+	// æç”»ç¯„å›²ã®å–å¾—
 	m_pFont->DrawTextA(NULL, pText, -1, &rect, DT_LEFT | DT_CALCRECT, color);
 
-	// •`‰æ
+	// æç”»
 	OffsetRect(&rect, X, Y);
 	m_pFont->DrawTextA(NULL, pText, -1, &rect, DT_LEFT, color);
 }
 
-// ƒƒbƒZ[ƒW‚Ì•\¦
+// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤º
 void Font::DrawFormatText(int X, int Y, D3DCOLOR color, const char* pFormat, ...)
 {
 	char temp[MAX_PATH];

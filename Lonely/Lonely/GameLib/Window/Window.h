@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	Window.h
-* @brief WindowƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Windowã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 #pragma once
@@ -8,7 +8,7 @@
 #include <Windows.h>
 
 /**
-* @brief ƒEƒBƒ“ƒhƒEŠÖŒW‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦é–¢ä¿‚ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class Window
 {
@@ -18,62 +18,62 @@ public:
 	~Window();
 
 	/**
-	* @brief ƒEƒBƒ“ƒhƒE¶¬‚ğs‚¤ŠÖ”
-	* @param ƒEƒBƒ“ƒhƒE‚Ì–¼‘O
-	* @param ƒEƒBƒ“ƒhƒE‚Ì‰¡•
-	* @param ƒEƒBƒ“ƒhƒE‚Ìc•
+	* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ç”Ÿæˆã‚’è¡Œã†é–¢æ•°
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®åå‰
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…
 	*/
 	bool Create(const wchar_t* pName, int width, int height);
 
 	/**
-	* @brief ƒƒbƒZ[ƒW‚ÌXV
+	* @brief ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®æ›´æ–°
 	*/
 	bool UpdateMessage();
 
 	/**
-	* @brief I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚é‚©
+	* @brief çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹ã‹
 	*/
 	bool IsQuitMessage() { return m_isQuitMessage; }
 
 	/**
-	* @briefƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹‚Ìæ“¾
+	* @briefã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã®å–å¾—
 	*/
 	HWND GetHandle() { return m_hWnd; }
 
 	/** 
-	* @brief ƒEƒBƒ“ƒhƒE‚Ì‰¡•æ“¾
+	* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…å–å¾—
 	*/
 	int GetWidth(void) const { return m_width; }
 
 	/** 
-	* @brief ƒEƒBƒ“ƒhƒE‚Ìc•æ“¾
+	* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…å–å¾—
 	*/
 	int GetHeight(void) const { return m_height; }
 
 	/**
-	* @briefƒEƒBƒ“ƒhƒEƒ‚[ƒh‚ğ•ÏX‚·‚éŠÖ”
+	* @briefã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰ã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
 	*/
 	//void ChangeDisplayMode();
 
 	/**
-	* @brief ƒEƒBƒ“ƒhƒE‚Ìƒpƒ‰ƒ[ƒ^‚ğ‰Šú‰»‚·‚éŠÖ”
+	* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
 	*/
 	//void InitPresentParameters();
 
 private:
 
-	/** ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹ */
+	/** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ« */
 	HWND m_hWnd;	
 
-	/** ƒEƒBƒ“ƒhƒE‚©ƒtƒ‹ƒXƒNƒŠ[ƒ“‚© */
+	/** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‹ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‹ */
 	bool m_isWindowMode;
 
-	/** I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚é‚© */
+	/** çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹ã‹ */
 	bool m_isQuitMessage;
 
-	/** ƒEƒBƒ“ƒhƒE‚Ì‰¡• */
+	/** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹… */
 	int  m_width;
 
-	/** ƒEƒBƒ“ƒhƒE‚Ìc• */
+	/** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹… */
 	int  m_height;
 };

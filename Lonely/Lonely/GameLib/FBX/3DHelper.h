@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file 3DHelper.h
-* @brief 3DHelperƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief 3DHelperã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,7 +18,7 @@
 
 
 /** 
-* @brief ƒVƒ“ƒvƒ‹‚È’¸“_î•ñ
+* @brief ã‚·ãƒ³ãƒ—ãƒ«ãªé ‚ç‚¹æƒ…å ±
 */
 struct SimpleVertex
 {
@@ -27,7 +27,7 @@ struct SimpleVertex
 };
 
 /** 
-* @brief ƒVƒ“ƒvƒ‹‚ÈƒeƒNƒXƒ`ƒƒ\•t‚«’¸“_î•ñ
+* @brief ã‚·ãƒ³ãƒ—ãƒ«ãªãƒ†ã‚¯ã‚¹ãƒãƒ£â€•ä»˜ãé ‚ç‚¹æƒ…å ±
 */
 struct SimpleTexVertex
 {
@@ -46,38 +46,38 @@ struct MeshVertex
 	DWORD color;
 	float u, v;
 
-	// ƒXƒLƒ“ƒƒbƒVƒ…—p
+	// ã‚¹ã‚­ãƒ³ãƒ¡ãƒƒã‚·ãƒ¥ç”¨
 	BYTE index[4];
 	float weight[4];
 };
 
 struct MaterialData
 {
-	Texture			texture;	        // ƒeƒNƒXƒ`ƒƒ\
-	D3DMATERIAL9	material;		    // ƒ}ƒeƒŠƒAƒ‹
+	Texture			texture;	        // ãƒ†ã‚¯ã‚¹ãƒãƒ£â€•
+	D3DMATERIAL9	material;		    // ãƒãƒ†ãƒªã‚¢ãƒ«
 };
 
 
 /** 
-* @brief ƒ‚ƒfƒ‹î•ñ
+* @brief ãƒ¢ãƒ‡ãƒ«æƒ…å ±
 */
 struct MeshData
 {
-	UINT				fvf;			// ƒtƒH[ƒ}ƒbƒg
-	D3DPRIMITIVETYPE	primType;		// ƒvƒŠƒ~ƒeƒBƒu‚Ì•`‰æ•û–@
-	UINT				primNum;		// ƒvƒŠƒ~ƒeƒBƒu”
-	UINT				vertexNum;		// ’¸“_”
-	UINT				vertexStride;	// 1’¸“_•Ó‚è‚ÌƒTƒCƒY
-	UINT				indexNum;		// ƒCƒ“ƒfƒbƒNƒX”
-	UINT				materialIndex;	// ƒ}ƒeƒŠƒAƒ‹”Ô†
+	UINT				fvf;			// ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+	D3DPRIMITIVETYPE	primType;		// ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–ã®æç”»æ–¹æ³•
+	UINT				primNum;		// ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–æ•°
+	UINT				vertexNum;		// é ‚ç‚¹æ•°
+	UINT				vertexStride;	// 1é ‚ç‚¹è¾ºã‚Šã®ã‚µã‚¤ã‚º
+	UINT				indexNum;		// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹æ•°
+	UINT				materialIndex;	// ãƒãƒ†ãƒªã‚¢ãƒ«ç•ªå·
 
-	VertexBuffer		vertexBuffer;	// —v“_ƒoƒbƒtƒ@
-	IndexBuffer			indexBuffer;	// ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@
+	VertexBuffer		vertexBuffer;	// è¦ç‚¹ãƒãƒƒãƒ•ã‚¡
+	IndexBuffer			indexBuffer;	// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡
 };
 
 
 /** 
-* @brief ƒ‚ƒfƒ‹ƒNƒ‰ƒX
+* @brief ãƒ¢ãƒ‡ãƒ«ã‚¯ãƒ©ã‚¹
 */
 class Model
 {
@@ -87,58 +87,58 @@ public:
 	~Model();
 
 
-	// ‰Šú‰»
+	// åˆæœŸåŒ–
 	bool Initialize(UINT meshNum, UINT materialNum);
-	// ‰ğ•ú
+	// è§£æ”¾
 	virtual void Finalize();
 
-	// •`‰æ
+	// æç”»
 	virtual void Render();
 
-	// ƒƒbƒVƒ…”‚Ìæ“¾
+	// ãƒ¡ãƒƒã‚·ãƒ¥æ•°ã®å–å¾—
 	UINT GetMeshNum() const { return m_meshNum; }
-	// ƒ}ƒeƒŠƒAƒ‹”‚Ìæ“¾
+	// ãƒãƒ†ãƒªã‚¢ãƒ«æ•°ã®å–å¾—
 	UINT GetMaterialNum() const { return m_materialNum; }
-	// ƒ[ƒ‹ƒhs—ñ‚Ìæ“¾
+	// ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã®å–å¾—
 	MeshData* GetMesh(UINT i) { return &m_pMesh[i]; }
-	// ƒ[ƒ‹ƒhs—ñ‚Ìæ“¾
+	// ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã®å–å¾—
 	MaterialData* GetMaterial(UINT i) { return &m_pMaterial[i]; }
 
-	// ƒ[ƒ‹ƒhs—ñ‚Ìæ“¾
+	// ãƒ¯ãƒ¼ãƒ«ãƒ‰è¡Œåˆ—ã®å–å¾—
 	D3DXMATRIX* GetWorld() { return &m_world; }
 
 public:
-	// ƒ‚ƒfƒ‹‚Ì¶¬
+	// ãƒ¢ãƒ‡ãƒ«ã®ç”Ÿæˆ
 	bool CreateTriangle();
-	// ƒ‚ƒfƒ‹‚Ì¶¬
+	// ãƒ¢ãƒ‡ãƒ«ã®ç”Ÿæˆ
 	bool Create3DAxis(bool x = true, bool y = true, bool z = true);
-	// ƒ‚ƒfƒ‹‚Ì¶¬
+	// ãƒ¢ãƒ‡ãƒ«ã®ç”Ÿæˆ
 	bool CreateShpere(int divideCount = 24, const char* pTexturePath = NULL);
 
-	// ƒtƒ‰ƒXƒ^ƒ€—Ìˆæ•—ƒ‚ƒfƒ‹(ƒƒCƒ„[ƒtƒŒ[ƒ€)‚Ì¶¬
+	// ãƒ•ãƒ©ã‚¹ã‚¿ãƒ é ˜åŸŸé¢¨ãƒ¢ãƒ‡ãƒ«(ãƒ¯ã‚¤ãƒ¤ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ )ã®ç”Ÿæˆ
 	bool CreateViewFrustum();
-	// ƒJƒƒ‰•—ƒ‚ƒfƒ‹(ƒƒCƒ„[ƒtƒŒ[ƒ€)‚Ì¶¬
+	// ã‚«ãƒ¡ãƒ©é¢¨ãƒ¢ãƒ‡ãƒ«(ãƒ¯ã‚¤ãƒ¤ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ )ã®ç”Ÿæˆ
 	bool CreateCamera();
 
 
-	// ü‚Ì“–‚½‚è”»’è
+	// ç·šã®å½“ãŸã‚Šåˆ¤å®š
 	int RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDist, D3DXVECTOR3* pOut);
 
 private:
-	// ü‚Ì“–‚½‚è”»’è
+	// ç·šã®å½“ãŸã‚Šåˆ¤å®š
 	int RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut);
-	// ü‚Ì“–‚½‚è”»’è
+	// ç·šã®å½“ãŸã‚Šåˆ¤å®š
 	bool RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXVECTOR3 vec, D3DXVECTOR3* pOut, float* pDist);
 
-	// ƒ}ƒeƒŠƒAƒ‹‚Ì‰Šú‰»
+	// ãƒãƒ†ãƒªã‚¢ãƒ«ã®åˆæœŸåŒ–
 	virtual void InitMaterial();
 
 protected:
 
-	UINT			m_meshNum;		// ƒƒbƒVƒ…”
-	UINT			m_materialNum;	// ƒ}ƒeƒŠƒAƒ‹”
+	UINT			m_meshNum;		// ãƒ¡ãƒƒã‚·ãƒ¥æ•°
+	UINT			m_materialNum;	// ãƒãƒ†ãƒªã‚¢ãƒ«æ•°
 
-	MeshData*		m_pMesh;		// ƒƒbƒVƒ…î•ñ
-	MaterialData*	m_pMaterial;	// ƒ}ƒeƒŠƒAƒ‹î•ñ
-	D3DXMATRIX		m_world;		// ƒ[ƒ‹ƒhƒ}ƒgƒŠƒbƒNƒX
+	MeshData*		m_pMesh;		// ãƒ¡ãƒƒã‚·ãƒ¥æƒ…å ±
+	MaterialData*	m_pMaterial;	// ãƒãƒ†ãƒªã‚¢ãƒ«æƒ…å ±
+	D3DXMATRIX		m_world;		// ãƒ¯ãƒ¼ãƒ«ãƒ‰ãƒãƒˆãƒªãƒƒã‚¯ã‚¹
 };

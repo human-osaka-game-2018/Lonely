@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	Input.cpp
-* @brief InputƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Inputã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -15,7 +15,7 @@ Input::~Input()
 	Finalize();
 }
 
-// “ü—ÍƒVƒXƒeƒ€‚Ì‰Šú‰»
+// å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–
 void Input::Initialize()
 {
 	for (int i = 0; i < KeyBindMax; i++)
@@ -26,45 +26,45 @@ void Input::Initialize()
 	m_keyState.keyStateOld = 0;
 }
 
-// “ü—ÍƒVƒXƒeƒ€‚Ì‰ğ•ú
+// å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®è§£æ”¾
 void Input::Finalize()
 {
-	//‰ğ•ú‚Í•K—v‚È‚¢‚ªAƒL[“ü—Íî•ñ‚ğ‚O‚Å‰Šú‰»‚µ‚Ä‚¢‚é
+	//è§£æ”¾ã¯å¿…è¦ãªã„ãŒã€ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ã‚’ï¼ã§åˆæœŸåŒ–ã—ã¦ã„ã‚‹
 	Initialize();
 }
 
-// “ü—Íó‹µ‚ÌXV
+// å…¥åŠ›çŠ¶æ³ã®æ›´æ–°
 void Input::Update()
 {
 	BYTE keyboardState[256];
-	// ƒL[ƒ{[ƒhó‘Ô‚Ìæ“¾
+	// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰çŠ¶æ…‹ã®å–å¾—
 	GetKeyboardState(keyboardState);
 
 	int keyState = 0;
 	for (int i = 0; i < KeyBindMax; i++)
 	{
-		// ƒL[‚ªƒoƒCƒ“ƒh‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎƒXƒ‹[‚·‚é
+		// ã‚­ãƒ¼ãŒãƒã‚¤ãƒ³ãƒ‰ã•ã‚Œã¦ã„ãªã‘ã‚Œã°ã‚¹ãƒ«ãƒ¼ã™ã‚‹
 		int key = m_keyState.keyBind[i];
 		if (key == -1) continue;
 
-		// “ü—Í‚³‚ê‚Ä‚¢‚éê‡‚ÍƒL[‚Ìƒrƒbƒg‚ğ—§‚Ä‚é
+		// å…¥åŠ›ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã‚­ãƒ¼ã®ãƒ“ãƒƒãƒˆã‚’ç«‹ã¦ã‚‹
 		if (keyboardState[key] & 0x80)
 		{
 			keyState |= (1 << i);
 		}
 	}
-	// ƒXƒe[ƒg‚ÌXV
+	// ã‚¹ãƒ†ãƒ¼ãƒˆã®æ›´æ–°
 	m_keyState.keyStateOld = m_keyState.keyState;
 	m_keyState.keyState = keyState;
 }
 
-// ƒL[ƒoƒCƒ“ƒh‚Ìİ’è
+// ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã®è¨­å®š
 void Input::BindKey(EKeyBind key, int keycode)
 {
 	m_keyState.keyBind[key] = keycode;
 }
 
-// ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©H
+// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ï¼Ÿ
 bool Input::IsKeyPress(EKeyBind key)
 {
 	int bit = (1 << key);
@@ -72,7 +72,7 @@ bool Input::IsKeyPress(EKeyBind key)
 	return (state & bit) ? true : false;
 }
 
-// ƒL[‚ª‰Ÿ‚³‚ê‚½‚©H
+// ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‹ï¼Ÿ
 bool Input::IsKeyPush(EKeyBind key)
 {
 	int bit = (1 << key);
@@ -80,7 +80,7 @@ bool Input::IsKeyPush(EKeyBind key)
 	return (state & bit) ? true : false;
 }
 
-// ƒL[‚ª—£‚³‚ê‚½‚©H
+// ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸã‹ï¼Ÿ
 bool Input::IsKeyReleases(EKeyBind key)
 {
 	int bit = (1 << key);

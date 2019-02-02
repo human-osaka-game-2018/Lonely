@@ -1,6 +1,6 @@
-/**
+﻿/**
 * @file 3DHelper.cpp
-* @brief 3DHelper�N���X�̃\�[�X�t�@�C��
+* @brief 3DHelperクラスのソースファイル
 * @author shion-sagawa
 */
 
@@ -47,35 +47,35 @@ bool Model::Initialize(UINT meshNum, UINT materialNum)
 	return true;
 }
 
-// ���f���̉��
+// モデルの解放
 void Model::Finalize(void)
 {
 	SAFE_DELETE_ARRAY(m_pMesh);
 	SAFE_DELETE_ARRAY(m_pMaterial);
 }
 
-// �}�e���A�����̏�����
+// マテリアル情報の初期化
 void Model::InitMaterial(void)
 {
 	D3DMATERIAL9 material;
-	//	�ގ��ݒ�
-	//	�A���r�G���g(��)�J���[
+	//	材質設定
+	//	アンビエント(環境)カラー
 	material.Ambient.r = 1.0f;
 	material.Ambient.g = 1.0f;
 	material.Ambient.b = 1.0f;
 	material.Ambient.a = 1.0f;
-	//	�f�B�t���[�Y(�f�ނ�)�J���[
+	//	ディフューズ(素材の)カラー
 	material.Diffuse.r = 1.0f;
 	material.Diffuse.g = 1.0f;
 	material.Diffuse.b = 1.0f;
 	material.Diffuse.a = 1.0f;
-	//	�X�y�L�����[�i�e�J��j�J���[
+	//	スペキュラー（テカり）カラー
 	material.Specular.r = 1.0f;
 	material.Specular.g = 1.0f;
 	material.Specular.b = 1.0f;
 	material.Specular.a = 1.0f;
 	material.Power = 15.0f;
-	//	�G�~�b�V�u�i�����j
+	//	エミッシブ（発光）
 	material.Emissive.r = 0.0f;
 	material.Emissive.g = 0.0f;
 	material.Emissive.b = 0.0f;
@@ -87,12 +87,12 @@ void Model::InitMaterial(void)
 	}
 }
 
-// ���f���̐���
+// モデルの生成
 bool Model::CreateTriangle(void)
 {
 	float width = 1.0f;
 	float height = sqrtf(3.0f) * width;
-	// �摜�T�C�Y�ɍ��킹��UV���ǉ��������_�f�[�^
+	// 画像サイズに合わせてUVも追加した頂点データ
 	const SimpleVertex vertices[] =
 	{
 		{ -width,	0.0f,	0.0f,		0xffafafff },
@@ -101,7 +101,7 @@ bool Model::CreateTriangle(void)
 	};
 
 	Initialize(1, 1);
-	// ���_�o�b�t�@�̐���
+	// 頂点バッファの生成
 	MeshData* pMesh = GetMesh(0);
 	if (!pMesh->vertexBuffer.Create(sizeof(vertices), vertices))
 	{
@@ -119,7 +119,7 @@ bool Model::CreateTriangle(void)
 	return true;
 }
 
-// ���f���̐���
+// モデルの生成
 bool Model::Create3DAxis(bool x, bool y, bool z)
 {
 	const float width = 0.002f;
@@ -132,10 +132,10 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 
 	D3DXVECTOR3 vec(adjust, 0.0f, height);
 	D3DXVec3Normalize(&vec, &vec);
-	// ���_�f�[�^
+	// 頂点データ
 	const SimpleVertex vertices[] =
 	{
-		// X�̎�
+		// Xの軸
 		{ 0.0f,				-width,			-width,		0xffff0000 & (x ? flag : 0) },
 	{ 0.0f,				-width,			 width,		0xffff0000 & (x ? flag : 0) },
 	{ 0.0f,				 width,			 width,		0xffff0000 & (x ? flag : 0) },
@@ -144,14 +144,14 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 	{ height,			-width,			 width,		0xffff0000 & (x ? flag : 0) },
 	{ height,			 width,			 width,		0xffff0000 & (x ? flag : 0) },
 	{ height,			 width,			-width,		0xffff0000 & (x ? flag : 0) },
-	// X�̖��
+	// Xの矢印
 	{ height,			-top_width,	-top_width,		0xffff0000 & (x ? flag : 0) },
 	{ height,			-top_width,	 top_width,		0xffff0000 & (x ? flag : 0) },
 	{ height,			 top_width,	 top_width,		0xffff0000 & (x ? flag : 0) },
 	{ height,			 top_width,	-top_width,		0xffff0000 & (x ? flag : 0) },
 	{ top,					  0.0f,		  0.0f,		0xffff0000 & (x ? flag : 0) },
 
-	// Y�̎�
+	// Yの軸
 	{ -width,			0.0f,			-width,		0xff00ff00 & (y ? flag : 0) },
 	{ -width,			0.0f,			 width,		0xff00ff00 & (y ? flag : 0) },
 	{ width,			0.0f,			 width,		0xff00ff00 & (y ? flag : 0) },
@@ -160,14 +160,14 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 	{ -width,			height,			 width,		0xff00ff00 & (y ? flag : 0) },
 	{ width,			height,			 width,		0xff00ff00 & (y ? flag : 0) },
 	{ width,			height,			-width,		0xff00ff00 & (y ? flag : 0) },
-	// Y�̖��
+	// Yの矢印
 	{ -top_width,		height,		-top_width,		0xff00ff00 & (y ? flag : 0) },
 	{ -top_width,		height,		 top_width,		0xff00ff00 & (y ? flag : 0) },
 	{ top_width,		height,		 top_width,		0xff00ff00 & (y ? flag : 0) },
 	{ top_width,		height,		-top_width,		0xff00ff00 & (y ? flag : 0) },
 	{ 0.0f,			top,			  0.0f,		0xff00ff00 & (y ? flag : 0) },
 
-	// Z�̎�
+	// Zの軸
 	{ -width,			-width,		0.0f,					0xff0000ff & (z ? flag : 0) },
 	{ -width,			 width,		0.0f,					0xff0000ff & (z ? flag : 0) },
 	{ width,			 width,		0.0f,					0xff0000ff & (z ? flag : 0) },
@@ -176,7 +176,7 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 	{ -width + adjust,	 width,		height,					0xff0000ff & (z ? flag : 0) },
 	{ width + adjust,	 width,		height,					0xff0000ff & (z ? flag : 0) },
 	{ width + adjust,	-width,		height,					0xff0000ff & (z ? flag : 0) },
-	// Z�̖��
+	// Zの矢印
 	{ -top_width + adjust,	-top_width,		height,			0xff0000ff & (z ? flag : 0) },
 	{ -top_width + adjust,	 top_width,		height,			0xff0000ff & (z ? flag : 0) },
 	{ top_width + adjust,	 top_width,		height,			0xff0000ff & (z ? flag : 0) },
@@ -240,12 +240,12 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 	}
 
 	Initialize(1, 1);
-	// ���_�o�b�t�@�̐���
+	// 頂点バッファの生成
 	if (!GetMesh(0)->vertexBuffer.Create(sizeof(vertices), vertices))
 	{
 		return false;
 	}
-	// �C���f�b�N�X�o�b�t�@�̐���
+	// インデックスバッファの生成
 	if (!GetMesh(0)->indexBuffer.Create(sizeof(indeces), indeces))
 	{
 		return false;
@@ -262,15 +262,15 @@ bool Model::Create3DAxis(bool x, bool y, bool z)
 	return true;
 }
 
-// ���f���̐���
+// モデルの生成
 bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 {
 	const float radius = 1.0f;
 	const int DivideMax = 32;
-	//	�v���~�e�B�u�̕\�����̐���
+	//	プリミティブの表示数の制限
 	divideCount = (divideCount > DivideMax) ? DivideMax : (divideCount < 4) ? 4 : divideCount;
 
-	//	��̃v���~�e�B�u����̊p�x
+	//	一つのプリミティブ当りの角度
 	float angle = D3DXToRadian(360.0f / divideCount);
 
 	float distu = 1.0f / (divideCount);
@@ -279,12 +279,12 @@ bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 	float tv = 0;
 
 	const int VertexNumMax = (DivideMax * (DivideMax / 2 - 2) * 2 + DivideMax * 2) * 3;
-	//	�X�t�B�A�̒��_�̐ݒ�
+	//	スフィアの頂点の設定
 	MeshVertex vertices[VertexNumMax];
 
 	int index = 0;
 	int i, j;
-	//	�X�t�B�A�̏㕔
+	//	スフィアの上部
 	for (i = 0; i < divideCount; i++)
 	{
 		vertices[index + 0].x = 0;
@@ -322,7 +322,7 @@ bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 	tu = 0;
 	tv += distv;
 
-	//	�X�t�B�A�̒���
+	//	スフィアの中部
 	for (i = 1; i < divideCount / 2 - 1; i++)
 	{
 		for (j = 0; j < divideCount; j++)
@@ -395,7 +395,7 @@ bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 		tv += distv;
 	}
 
-	//	�X�t�B�A�̉���
+	//	スフィアの下部
 	for (i = 0; i < divideCount; i++) {
 		vertices[index + 0].x = sinf(i*angle) * radius * sinf((divideCount / 2 - 1)*angle);
 		vertices[index + 0].y = cosf((divideCount / 2 - 1)*angle) * radius;
@@ -432,7 +432,7 @@ bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 	}
 
 	Initialize(1, 1);
-	// ���_�o�b�t�@�̐���
+	// 頂点バッファの生成
 	if (!GetMesh(0)->vertexBuffer.Create(sizeof(vertices), vertices))
 	{
 		return false;
@@ -459,14 +459,14 @@ bool Model::CreateShpere(int divideCount, const char* pTexturePath)
 	return true;
 }
 
-// �t���X�^���̈敗�̃��f���̐���
+// フラスタム領域風のモデルの生成
 bool Model::CreateViewFrustum(void)
 {
 	const float width_front = 1.0f;
 	const float width_back = 3.0f;
 	const float back = 5.0f;
 
-	// ���_�f�[�^
+	// 頂点データ
 	const SimpleVertex vertices[] =
 	{
 		{ -width_front,			-width_front,		0.0f,		0xff000000 },
@@ -488,12 +488,12 @@ bool Model::CreateViewFrustum(void)
 	};
 
 	Initialize(1, 1);
-	// ���_�o�b�t�@�̐���
+	// 頂点バッファの生成
 	if (!GetMesh(0)->vertexBuffer.Create(sizeof(vertices), vertices))
 	{
 		return false;
 	}
-	// �C���f�b�N�X�o�b�t�@�̐���
+	// インデックスバッファの生成
 	if (!GetMesh(0)->indexBuffer.Create(sizeof(indeces), indeces))
 	{
 		return false;
@@ -510,7 +510,7 @@ bool Model::CreateViewFrustum(void)
 	return true;
 }
 
-// �J���������f���̐���
+// カメラ風モデルの生成
 bool Model::CreateCamera(void)
 {
 	const float width = 1.0f;
@@ -519,7 +519,7 @@ bool Model::CreateCamera(void)
 	const float camera_front_z = 3.5f;
 	const float camera_front_w = 0.75f;
 
-	// ���_�f�[�^
+	// 頂点データ
 	const SimpleVertex vertices[] =
 	{
 		{ -width,			-width,				0.0f,			0xff000000 },
@@ -568,12 +568,12 @@ bool Model::CreateCamera(void)
 	}
 
 	Initialize(1, 1);
-	// ���_�o�b�t�@�̐���
+	// 頂点バッファの生成
 	if (!GetMesh(0)->vertexBuffer.Create(sizeof(vertices), vertices))
 	{
 		return false;
 	}
-	// �C���f�b�N�X�o�b�t�@�̐���
+	// インデックスバッファの生成
 	if (!GetMesh(0)->indexBuffer.Create(sizeof(indeces), indeces))
 	{
 		return false;
@@ -591,7 +591,7 @@ bool Model::CreateCamera(void)
 }
 
 
-// ���f���`��
+// モデル描画
 void Model::Render(void)
 {
 	if (m_materialNum == 0) return;
@@ -602,7 +602,7 @@ void Model::Render(void)
 	for (UINT matIdx = 0; matIdx < m_materialNum; matIdx++)
 	{
 		MaterialData* pMaterial = GetMaterial(matIdx);
-		// �e�N�X�`���[�̐ݒ�
+		// テクスチャーの設定
 		pDevice->SetTexture(0, pMaterial->texture.GetD3DTexture());
 
 		pDevice->SetMaterial(&pMaterial->material);
@@ -614,22 +614,22 @@ void Model::Render(void)
 				continue;
 			}
 
-			// ���_�o�b�t�@�̐ݒ�
+			// 頂点バッファの設定
 			pDevice->SetStreamSource(0, pMesh->vertexBuffer.GetBuffer(), 0, pMesh->vertexStride);
 
-			// ���_�t�H�[�}�b�g�̎w��
+			// 頂点フォーマットの指定
 			pDevice->SetFVF(pMesh->fvf);
 
 			if (pMesh->indexNum)
 			{
-				// �C���f�b�N�X�o�b�t�@�̐ݒ�
+				// インデックスバッファの設定
 				pDevice->SetIndices(pMesh->indexBuffer.GetBuffer());
-				// �`��
+				// 描画
 				pDevice->DrawIndexedPrimitive(pMesh->primType, 0, 0, pMesh->vertexNum, 0, pMesh->primNum);
 			}
 			else
 			{
-				// �`��
+				// 描画
 				pDevice->DrawPrimitive(pMesh->primType, 0, pMesh->primNum);
 			}
 		}
@@ -638,24 +638,24 @@ void Model::Render(void)
 
 
 
-// ���f���Ɛ��̓����蔻��
+// モデルと線の当たり判定
 int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDist, D3DXVECTOR3* pOut)
 {
 	if (pDist == nullptr) return -1;
 
 	D3DXMATRIX invWorld;
-	// ���f���̌����ɍ��킹�邽�߂ɋt�s����쐬����
+	// モデルの向きに合わせるために逆行列を作成する
 	D3DXMatrixInverse(&invWorld, NULL, &m_world);
 
 	D3DXVECTOR3 pos, vec;
-	// ���C�̍��W�ƌ��������f���ɍ��킹��
+	// レイの座標と向きをモデルに合わせる
 	D3DXVec3TransformCoord(&pos, pPos, &invWorld);
 	D3DXVec3TransformCoord(&vec, pVec, &invWorld);
 	D3DXVec3Normalize(&vec, &vec);
 
 	int primNum = 0;
-	int ret = -1;//���܂����ƃ��b�V���Ɠ�����Ȃ�������-�P�̂܂܂ɂȂ�
-	// �S�Ẵ��b�V���Ɠ������Ă��邩�̔�������Ă���
+	int ret = -1;//うまいことメッシュと当たらなかったら-１のままになる
+	// 全てのメッシュと当たっているかの判定をしていく
 	for (UINT i = 0; i < m_meshNum; i++)
 	{
 		int retTemp = RayPick(i, &pos, &vec, pOut);
@@ -667,142 +667,148 @@ int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDis
 	}
 	if (ret != -1)
 	{
-		// ��_�����[���h��Ԃɖ߂�
+		// 交点をワールド空間に戻す
 		D3DXVec3TransformCoord(pOut, pOut, &m_world);
-		// ��_�܂ł̋��������C�̒�����艓����Γ�����Ȃ�
-		float hitDist = D3DXVec3Length(&(*pOut - *pPos));//�x�N�g���̑傫�����o���֐�
+		// 交点までの距離がレイの長さより遠ければ当たらない
+		float hitDist = D3DXVec3Length(&(*pOut - *pPos));//ベクトルの大きさを出す関数
 		if (*pDist < hitDist)
 		{
 			return -1;
 		}
-		*pDist = hitDist;
+		//*pDist = hitDist;
 	}
 	return ret;
 }
 
 
 /*
-�ʂƐ��̓����蔻��
-����͂悭�g����n�ʂƂ̓����蔻��̎������w�т܂��B
+面と線の当たり判定
+今回はよく使われる地面との当たり判定の実装を学びます。
 
-�����蔻��ŕK�v�ȏ��͌�_(������ʒu)�̎Z�o�ł��B
-�ł͌�_�����߂���@���������Ă����܂��傤�B
+当たり判定で必要な情報は交点(当たる位置)の算出です。
+では交点を求める方法を実装していきましょう。
 
-�Q�l�y�[�W
-http://gameworkslab.jp/2018/10/20/�ʂƐ��̓����蔻��i�T�v�ҁj/
+参考ページ
+http://gameworkslab.jp/2018/10/20/面と線の当たり判定（概要編）/
 */
 bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXVECTOR3 vec, D3DXVECTOR3* pOut, float* pDist)
 {
 	D3DXVECTOR3 p1 = pTriangle[0];
 	D3DXVECTOR3 p2 = pTriangle[1];
 	D3DXVECTOR3 p3 = pTriangle[2];
-	// neart�͌��������ʂ̒��ōł��n�_����߂�����
+	// neartは交差した面の中で最も始点から近い長さ
 	float neart = *pDist;
 
 	/*
-	1.��_�����߂鎮
+	1.交点を求める式
 
-	���_(p)�������(vec)��L�΂������ɖ�(p1, p2, p3)�ƌ�������_(p')�����߂鎮�͉��L�ƂȂ�܂��B
-	�@ p' = p + vec * t
+	視点(p)から向き(vec)を伸ばした時に面(p1, p2, p3)と交差する点(p')を求める式は下記となります。
+	① p' = p + vec * t
 
-	�����Ō�_(p')�����߂�ɂ͎n�_(p)�ƌ���(vec)�͕������Ă��܂�������(t)���������Ă��܂���B
-	�Ȃ̂Ő悸�͒���(t)�����߂�K�v������܂��B
+	ここで交点(p')を求めるには始点(p)と向き(vec)は分かっていますが長さ(t)が分かっていません。
+	なので先ずは長さ(t)を求める必要があります。
 
 
-	2.��_�܂ł̒��������߂���@
+	2.交点までの長さを求める方法
 
-	��_�܂ł̒���(t)�����߂�ɂ͎O�p�֐����g���܂��B
-	���Fcos�� = c / a
+	交点までの長さ(t)を求めるには三角関数を使います。
+	式：cosθ = c / a
 
-	�ł͎n�_(p)�����(p1, p2, p3)�ɐ����Ȑ�(n)�ƒ���(|n|)��������Β���(t)���o���܂��B
-	������O�p�֐��̎��ɒu�������܂��B
-	���Fcos�� = |n| / t
+	では始点(p)から面(p1, p2, p3)に垂直な線(n)と長さ(|n|)が分かれば長さ(t)が出せます。
+	これを三角関数の式に置き換えます。
+	式：cosθ = |n| / t
 
-	����� t ���������ɕϊ������
-	�A t = |n| / cos��
+	これを t を解く式に変換すると
+	② t = |n| / cosθ
 
-	���̎���������Β���(t)���o��̂Ō�_(p')���o���܂��B
+	この式を解ければ長さ(t)が出るので交点(p')が出せます。
 	*/
 
 	/*
-	3.�ʂƐ����Ȑ������߂���@
+	3.面と垂直な線を求める方法
 
-	�ʂ̖@�������߂�ɂ͊O�ς��g���܂��B
-	���Fa��b = |a||b|sin�Ƃ̒����������������Ȑ�
+	面の法線を求めるには外積を使います。
+	式：aｘb = |a||b|sinθの長さを持った垂直な線
 
-	�ʂ̕�1(p2 ? p1)�ƕ�2(p3 ? p1)�ŊO�ς��s���ΐ����Ȑ����o�܂��B
-	�B (p2 ? p1)��(p3 ? p1) = |(p2 ? p1)||(p3 ? p1)|sin�Ƃ̒����������������Ȑ�
+	面の辺1(p2 ? p1)と辺2(p3 ? p1)で外積を行えば垂直な線が出ます。
+	③ (p2 ? p1)ｘ(p3 ? p1) = |(p2 ? p1)||(p3 ? p1)|sinθの長さを持った垂直な線
 
-	���̎��ŏo���x�N�g���𐳋K������Β�����1�̒P�ʃx�N�g���ɂȂ�̂ŁA
-	�����Ȍ����̒P�ʃx�N�g�����o���܂��B
+	この式で出たベクトルを正規化すれば長さが1の単位ベクトルになるので、
+	垂直な向きの単位ベクトルが出せます。
 
 	*/
 	D3DXVECTOR3 normal;
 	D3DXVec3Cross(&normal, &(p2 - p1), &(p3 - p1));
 
-	// �@���ƃ��C�̌��������������Ă��Ȃ��ꍇ�͓�����Ȃ�
+	// 法線とレイの向きが向き合っていない場合は当たらない
 	if (D3DXVec3Dot(&normal, &vec) > 0.0f) return false;
 
 	/*
-	4.�ʂƐ����Ȑ��̒���(|n|)�����߂���@
+	4.面と垂直な線の長さ(|n|)を求める方法
 
-	|n|�͎O�p�֐��ŋ��߂邱�Ƃ��ł��܂��B
-	���Fcos�� = |n| / |(p1 ? p)|
+	|n|は三角関数で求めることができます。
+	式：cosθ = |n| / |(p1 ? p)|
 
-	���̎���|n|���������ɂ���Ǝ��̎��ɂȂ�܂��B
-	�C |n| = |(p1 ? p)|cos��
+	この式を|n|を解く式にすると次の式になります。
+	④ |n| = |(p1 ? p)|cosθ
 
-	���̎��̃Ƃ͖@��(n)�Ɠ_���王�_�ւ̌���(p1 ? p)�̊p�x�����Ă͂܂�܂��B
-	�Ȃ̂�cos�Ƃ��o���ɂ͓��ς��g���܂��B
-	���Fn�E(p1 ? p) = |n||(p1 ? p)|cos��
+	この時のθは法線(n)と点から視点への向き(p1 ? p)の角度が当てはまります。
+	なのでcosθを出すには内積を使います。
+	式：n・(p1 ? p) = |n||(p1 ? p)|cosθ
 
-	���̎��� n �𐳋K�����Ă����Β�����1�ƂȂ�̂Ŏ��̎����o���܂��B
-	���Fn�E(p1 ? p) = |(p1 ? p)|cos��
+	この時に n を正規化しておけば長さが1となるので次の式が出せます。
+	式：n・(p1 ? p) = |(p1 ? p)|cosθ
 
-	���̉E�ӂ̎����C�̉E�ӂ̎��ƈ�v�����̂Ŏ��̎���|n|���o���邱�ƂɂȂ�܂��B
-	�D |n| = n�E(p1 ? p)
+	この右辺の式が④の右辺の式と一致したので次の式で|n|を出せることになります。
+	⑤ |n| = n・(p1 ? p)
 	*/
-	float ndist = D3DXVec3Dot(&(p1 - pos), &normal);//3�p�`�̂P���_�ƁA�����蔻������������S�_
+	float ndist = D3DXVec3Dot(&(p1 - pos), &normal);//3角形の１頂点と、当たり判定をしたい中心点
 
 	/*
-	5.��_�܂ł̒���(t)�����߂���@(������)
+	5.交点までの長さ(t)を求める方法(完結編)
 
-	��̇D�̎���|n|�͏o���̂ōŌ��cos�Ƃ��o����t���Z�o���܂��B
-	�A t = |n| / cos��
+	上の⑤の式で|n|は出たので最後にcosθを出してtを算出します。
+	② t = |n| / cosθ
 
-	���̎��̃Ƃ͖@��(n)�Ɛ��̌���(vec)�̊p�x�����Ă͂܂�܂��B
-	������cos�Ƃ��o���ɂ͓��ς��g���܂��B
-	���Fn�Evec = |n||vec|cos��
+	この時のθは法線(n)と線の向き(vec)の角度が当てはまります。
+	ここもcosθを出すには内積を使います。
+	式：n・vec = |n||vec|cosθ
 
-	���ꂼ�ꐳ�K�����Ă���Β�����1�ɂȂ�̂�
-	�E n�Evec = cos��
-	�ƂȂ�܂��B
+	それぞれ正規化してあれば長さは1になるので
+	⑥ n・vec = cosθ
+	となります。
 
-	����Œ���(t)�����������ł��܂��B
-	�F t = (n�E(p1 ? p)) / (vec�En)
+	これで長さ(t)を解く式ができます。
+	⑦ t = (n・(p1 ? p)) / (vec・n)
 	*/
 	float costheta = D3DXVec3Dot(&vec, &normal);
+
+	if (costheta == 0.f)
+	{
+		return false;
+	}
+
 	float t = ndist / costheta;
 
-	// ��_������A���͑��̖ʂ���������ΏՓ˂��Ă��Ȃ�
+	// 交点が後方、又は他の面よりも遠ければ衝突していない
 	if (t < 0.0f || neart < t) return false;
 
 	/*
-	6.��_�̎Z�o(���v�Z)
+	6.交点の算出(実計算)
 
-	�����܂łɋ��߂����̒���(t)����@�̎����g���Č�_�����߂܂�
-	�@ p' = p + vec * t
+	ここまでに求めた線の長さ(t)から①の式を使って交点を求めます
+	① p' = p + vec * t
 	*/
 	D3DXVECTOR3 p = pos + vec * t;
 
 	/*
-	7.�Փ˂���_(p')���ʂ̒��ɂ��邩�̔���
+	7.衝突する点(p')が面の中にあるかの判定
 
-	��(p1, p2, p3)��3�_�̓����Ɍ�_(p')�������Ă��邩���`�F�b�N���܂��B
+	面(p1, p2, p3)の3点の内側に交点(p')が入っているかをチェックします。
 
-	�菇�Ƃ��Ă͉��L��2�ł��B
-	�E���ꂼ����q���ӂƌ�_�̊O�ς��Ƃ��Đ����Ȑ����o���B
-	�E�@���Ə�Ōv�Z���������Ȑ��œ��ς���0�ȉ��̒l�ɂȂ��Ă���Γ����ɂȂ�
+	手順としては下記の2つです。
+	・それぞれを繋ぐ辺と交点の外積をとって垂直な線を出す。
+	・法線と上で計算した垂直な線で内積して0以下の値になっていれば内側にない
 	*/
 	D3DXVECTOR3 vec1, vec2, vec3;
 	D3DXVec3Cross(&vec1, &(p1 - p), &(p2 - p1));
@@ -814,13 +820,13 @@ bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXV
 	if (D3DXVec3Dot(&vec3, &normal) < 0.0f) return false;
 
 	/*
-	8.�{���ɏՓ˂����ʂ��H
+	8.本当に衝突した面か？
 
-	�Փ˂��Ă���̂ŏՓˏ󋵂�ۑ����Ă����܂��B
-	����͉��L��ۑ����Ă��܂��B
+	衝突しているので衝突状況を保存していきます。
+	今回は下記を保存しています。
 
-	�E����������_
-	�E��_�܂ł̋���
+	・当たった交点
+	・交点までの距離
 	*/
 
 	*pOut = p;
@@ -829,7 +835,7 @@ bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXV
 	return true;
 }
 
-// ���f���Ɛ��̓����蔻��
+// モデルと線の当たり判定
 int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut)
 {
 	MeshData* pMesh = GetMesh(i);
@@ -844,11 +850,11 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 	case D3DPT_TRIANGLELIST:
 		break;
 	default:
-		// TRAIANGLESTRIP��TRIANGLELIST�ȊO�͖��Ή�
+		// TRAIANGLESTRIPとTRIANGLELIST以外は未対応
 		return -1;
 	}
 
-	// ��������Ƃ�n�_�ƌ���
+	// 当たりをとる始点と向き
 	D3DXVECTOR3 pos(*pPos), vec(*pVec);
 
 	UINT16* pIndexData = NULL;
@@ -861,10 +867,10 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 	float neart = 10000.0f;
 	int index1, index2, index3;
 
-	// �ʂ̐����������蔻����s��
+	// 面の数だけ当たり判定を行う
 	for (UINT primIdx = 0; primIdx < pMesh->primNum; primIdx++)
 	{
-		// �ʂ��\������C���f�b�N�X�̎擾
+		// 面を構成するインデックスの取得
 		switch (pMesh->primType)
 		{
 		case D3DPT_TRIANGLESTRIP:
@@ -878,7 +884,7 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 			index3 = primIdx * 3 + 2;
 			break;
 		}
-		// �C���f�b�N�X�o�b�t�@������ꍇ�͂�������g�p����
+		// インデックスバッファがある場合はそちらを使用する
 		if (pIndexData)
 		{
 			index1 = pIndexData[index1];
@@ -886,7 +892,7 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 			index3 = pIndexData[index3];
 		}
 
-		// ���_�̍��W���������o��
+		// 頂点の座標部分を取り出す
 		D3DXVECTOR3 Triangle[3] =
 		{
 			*(D3DXVECTOR3*)(pVertexData + pMesh->vertexStride * index1),

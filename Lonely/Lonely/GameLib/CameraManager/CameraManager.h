@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file CameraManager.h
-* @brief CameraManagerƒNƒ‰ƒX‚Ìƒwƒbƒ_
+* @brief CameraManagerã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€
 * @author shion-sagawa
 */
 
@@ -13,7 +13,7 @@
 #include "CameraBase.h"
 
 /**
-* @brief ƒJƒƒ‰‚ğ“o˜^‚µA‚»‚ê‚ğ“n‚µ‚½‚è‚·‚éƒNƒ‰ƒX
+* @brief ã‚«ãƒ¡ãƒ©ã‚’ç™»éŒ²ã—ã€ãã‚Œã‚’æ¸¡ã—ãŸã‚Šã™ã‚‹ã‚¯ãƒ©ã‚¹
 */
 class CameraManager
 {
@@ -23,27 +23,27 @@ public:
 	~CameraManager();
 
 	/**
-	* @brierf ‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brierf åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief XV‚ğs‚¤ŠÖ”
+	* @brief æ›´æ–°ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief ƒJƒƒ‰‚ğ•ÏX‚·‚éŠÖ”
-	* @param •ÏX‚µ‚½‚¢ƒJƒƒ‰ƒNƒ‰ƒX‚ÌƒAƒhƒŒƒX
+	* @brief ã‚«ãƒ¡ãƒ©ã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
+	* @param å¤‰æ›´ã—ãŸã„ã‚«ãƒ¡ãƒ©ã‚¯ãƒ©ã‚¹ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	*/
 	void  ChangeCamera(CameraBase* pCamera);
 
 private:
 
-	CameraBase * m_pCamera;     //!< ƒJƒƒ‰ID‚Ìƒ}ƒbƒv”z—ñ
+	CameraBase * m_pCamera;     //!< ã‚«ãƒ¡ãƒ©IDã®ãƒãƒƒãƒ—é…åˆ—
 };

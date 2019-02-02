@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file 2DHelper.cpp
-* @brief 2DHelperƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief 2DHelperã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -14,7 +14,7 @@ Helper2D::~Helper2D()
 {
 }
 
-//’†S“_‚©‚ç‰¡•c•‚ðŽg‚Á‚ÄA‹éŒ`‚ðì‚éŠÖ”
+//ä¸­å¿ƒç‚¹ã‹ã‚‰æ¨ªå¹…ç¸¦å¹…ã‚’ä½¿ã£ã¦ã€çŸ©å½¢ã‚’ä½œã‚‹é–¢æ•°
 void Helper2D::SetVerticesFromCenterType(Simple2DVertex* vertices, float posCenterX, float posCenterY, float posWidthFromCenter, float posHeightFromCenter, float rightTU, float bottomTV, float leftTU, float topTV)
 {
 	vertices[0] = { posCenterX - posWidthFromCenter,  posCenterY - posHeightFromCenter, 0.0f, 1.0f, 0xffffffff,  leftTU,    topTV };
@@ -23,7 +23,7 @@ void Helper2D::SetVerticesFromCenterType(Simple2DVertex* vertices, float posCent
 	vertices[3] = { posCenterX - posWidthFromCenter,  posCenterY + posHeightFromCenter, 0.0f, 1.0f, 0xffffffff,  leftTU, bottomTV };
 }
 
-//¶ã’¸“_‚©‚ç‰¡•c•‚ðŽg‚Á‚ÄA‹éŒ`‚ðì‚éŠÖ”
+//å·¦ä¸Šé ‚ç‚¹ã‹ã‚‰æ¨ªå¹…ç¸¦å¹…ã‚’ä½¿ã£ã¦ã€çŸ©å½¢ã‚’ä½œã‚‹é–¢æ•°
 void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY, float rectWidth, float rectHeight, float rightTU, float bottomTV, float leftTU, float topTV)
 {
 	vertices[0] = { posLeftTopX            ,  posLeftTopY             , 0.0f, 1.0f, 0xffffffff,  leftTU,    topTV };
@@ -32,14 +32,14 @@ void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLef
 	vertices[3] = { posLeftTopX            ,  posLeftTopY + rectHeight, 0.0f, 1.0f, 0xffffffff,  leftTU, bottomTV };
 }
 
-//¶ã’¸“_’†Sƒ^ƒCƒv‚Ì‹éŒ`‚ÌA’¸“_À•W‚¾‚¯ƒZƒbƒg‚·‚éŠÖ”
+//ï¿½ï¿½ï¿½ã’¸ï¿½_ï¿½ï¿½ï¿½Sï¿½^ï¿½Cï¿½vï¿½Ì‹ï¿½ï¿½`ï¿½ÌAï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
 void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY)
 {
-	//ˆÚ“®‚·‚é—Ê‚ðŒvŽZ‚Åo‚·
+	//ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê‚ï¿½ï¿½vï¿½Zï¿½Åoï¿½ï¿½
 	float movementX = vertices[0].x - posLeftTopX;
 	float movementY = vertices[0].y - posLeftTopY;
 	
-	//“o˜^‚³‚ê‚Ä‚¢‚é’¸“_À•W‚ðˆÚ“®‚³‚¹‚é
+	//ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é’¸ï¿½_ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	vertices[0].x = vertices[0].x - movementX;
 	vertices[0].y = vertices[0].y - movementY;
 
@@ -53,8 +53,20 @@ void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLef
 	vertices[3].y = vertices[3].y - movementY;
 }
 
+//TUã€TVã‚’å¤‰ãˆã‚‹é–¢æ•°
+void Helper2D::SetVerticesTuTv(Simple2DVertex* vertices, float rightTU, float bottomTV, float leftTU, float topTV)
+{
+	vertices[0].u = leftTU;
+	vertices[0].v = topTV;
+	vertices[1].u = rightTU;
+	vertices[1].v = topTV;
+	vertices[2].u = rightTU;
+	vertices[2].v = bottomTV;
+	vertices[3].u = leftTU;
+	vertices[3].v = bottomTV;
+}
 
-//‹éŒ`‚ÌFî•ñ‚ð•Ï‚¦‚éŠÖ”
+//çŸ©å½¢ã®è‰²æƒ…å ±ã‚’å¤‰ãˆã‚‹é–¢æ•°
 void Helper2D::SetVerticesColor(Simple2DVertex* vertices, DWORD color)
 {
 	vertices[0].color = color;
@@ -63,7 +75,7 @@ void Helper2D::SetVerticesColor(Simple2DVertex* vertices, DWORD color)
 	vertices[3].color = color;
 }
 
-//1’¸“_‚ÌFî•ñ‚ð•Ï‚¦‚éŠÖ”
+//1é ‚ç‚¹ã®è‰²æƒ…å ±ã‚’å¤‰ãˆã‚‹é–¢æ•°
 void Helper2D::SetVertexColor(Simple2DVertex* vertices, DWORD color)
 {
 	vertices->color = color;

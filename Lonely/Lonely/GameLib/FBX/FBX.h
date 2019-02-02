@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file FBX.h
-* @brief FBXƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief FBXã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -24,7 +24,7 @@
 static const int MOTION_MAX = 256;
 static const int BONE_MAX = 256;
 
-// ƒ{[ƒ“î•ñ
+// ãƒœãƒ¼ãƒ³æƒ…å ±
 struct Bone
 {
 	char		name[64];
@@ -32,41 +32,41 @@ struct Bone
 	D3DXMATRIX	transform;
 };
 
-//	ƒAƒjƒ[ƒVƒ‡ƒ“
+//	ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 struct Motion
 {
 	Motion() {}
 
-	UINT					numFrame;		// ƒtƒŒ[ƒ€”
-	std::vector<D3DXMATRIX> Key[BONE_MAX];	// ƒL[ƒtƒŒ[ƒ€
+	UINT					numFrame;		// ãƒ•ãƒ¬ãƒ¼ãƒ æ•°
+	std::vector<D3DXMATRIX> Key[BONE_MAX];	// ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ 
 };
 
 
-// FBXƒ‚ƒfƒ‹ƒNƒ‰ƒX
+// FBXãƒ¢ãƒ‡ãƒ«ã‚¯ãƒ©ã‚¹
 class FbxModel: public Model
 {
 public:
 	FbxModel(void);
 	~FbxModel(void);
 
-	// FBXƒƒbƒVƒ…‚Ì“Ç‚İ‚İ
+	// FBXãƒ¡ãƒƒã‚·ãƒ¥ã®èª­ã¿è¾¼ã¿
 	bool Load(const char* pFilename);
-	// FBXƒƒbƒVƒ…‚Ì‰ğ•ú
+	// FBXãƒ¡ãƒƒã‚·ãƒ¥ã®è§£æ”¾
 	void Finalize(void);
 
-	// FBXƒƒbƒVƒ…‚Ì•`‰æ
+	// FBXãƒ¡ãƒƒã‚·ãƒ¥ã®æç”»
 	void Render(void);
 
 
-	// ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿ
 	void Play(std::string name);
-	// ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌXV
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®æ›´æ–°
 	void Animate(float sec = 1.0f / 60.0f);
 
 private:
 	void Skinning(void);
 
-	// FBX‚Ì‰ğÍ
+	// FBXã®è§£æ
 	bool LoadMesh(UINT meshIdx, FbxMesh* pMesh);
 	void LoadIndeces(UINT meshIdx, FbxMesh* pMesh);
 	void LoadPosition(UINT meshIdx, FbxMesh* pMesh);
@@ -81,12 +81,12 @@ private:
 	void LoadMotion(std::string name, const char* pFilename);
 
 private:
-	char							m_rootDir[MAX_PATH];	// ƒ‹[ƒgƒpƒX
-	std::string						m_playMotion;			// ƒ‚[ƒVƒ‡ƒ“–¼
-	float							m_frame;				// ƒtƒŒ[ƒ€
-	int								m_startFrame;			// ŠJnƒtƒŒ[ƒ€
-	UINT							m_boneNum;				// ƒ{[ƒ“”
-	Bone							m_bone[BONE_MAX];		// ƒ{[ƒ“î•ñ
-	std::map<std::string, Motion>	m_motion;				// ƒ‚[ƒVƒ‡ƒ“
-	std::vector<MeshVertex*>		m_pVertices;			// ’¸“_ƒf[ƒ^
+	char							m_rootDir[MAX_PATH];	// ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹
+	std::string						m_playMotion;			// ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³å
+	float							m_frame;				// ãƒ•ãƒ¬ãƒ¼ãƒ 
+	int								m_startFrame;			// é–‹å§‹ãƒ•ãƒ¬ãƒ¼ãƒ 
+	UINT							m_boneNum;				// ãƒœãƒ¼ãƒ³æ•°
+	Bone							m_bone[BONE_MAX];		// ãƒœãƒ¼ãƒ³æƒ…å ±
+	std::map<std::string, Motion>	m_motion;				// ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³
+	std::vector<MeshVertex*>		m_pVertices;			// é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿
 };

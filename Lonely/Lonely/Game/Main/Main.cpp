@@ -1,24 +1,24 @@
-/**
+ï»¿/**
 * @file Main.cpp
-* @brief ƒGƒ“ƒgƒŠ[ŠÖ”‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief ã‚¨ãƒ³ãƒˆãƒªãƒ¼é–¢æ•°ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #include "../../GameLib/GameLib.h"
 #include "../Scene/TitleScene/TitleScene.h"
 
-// ƒGƒ“ƒgƒŠ[ƒ|ƒCƒ“ƒg
+// ã‚¨ãƒ³ãƒˆãƒªãƒ¼ãƒã‚¤ãƒ³ãƒˆ
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// GameLib‚Ì‰Šú‰»
+	// GameLibã®åˆæœŸåŒ–
 	GameLib::Instance.Initialize(L"Lonely", 1280, 720, false);
 
-	// ƒVƒXƒeƒ€ƒV[ƒ“‚Ö‘JˆÚ‚·‚é
+	// ã‚·ã‚¹ãƒ†ãƒ ã‚·ãƒ¼ãƒ³ã¸é·ç§»ã™ã‚‹
 	SCENEMANAGER->ChangeScene(new TitleScene);
 
 	GameLib::Instance.MainLoop();
 
-	// DirectXLib‚Ì‰ğ•ú
+	// DirectXLibã®è§£æ”¾
 	GameLib::Instance.Finalize();
 
 	return 0;

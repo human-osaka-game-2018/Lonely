@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleBackground.h
-* @brief TitleBackgroundƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief TitleBackgroundã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -13,7 +13,7 @@
 
 
 /**
-* @brief ƒ^ƒCƒgƒ‹‚Ì”wŒiŠÖŒW‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ã‚¿ã‚¤ãƒˆãƒ«ã®èƒŒæ™¯é–¢ä¿‚ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class TitleBackground : public Object2DBase
 {
@@ -23,23 +23,23 @@ public:
 	~TitleBackground();
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE 
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE 
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

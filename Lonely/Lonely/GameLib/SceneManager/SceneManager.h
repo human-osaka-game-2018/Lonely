@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file SceneManager.h
-* @brief SceneManagerƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief SceneManagerã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -10,7 +10,7 @@
 #include "SceneBase\SceneBase.h"
 
 /**
-* ƒV[ƒ“‚ğŠÇ—‚·‚éƒNƒ‰ƒX
+* ã‚·ãƒ¼ãƒ³ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹
 */
 class SceneManager
 {
@@ -18,16 +18,16 @@ public:
 	SceneManager(void);
 	~SceneManager(void);
 
-	/**‰Šú‰»‚ğs‚¤ŠÖ”*/
+	/**åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°*/
 	void Initialize(void);
-	/**‰ğ•ú‚ğs‚¤ŠÖ”*/
+	/**è§£æ”¾ã‚’è¡Œã†é–¢æ•°*/
 	void Finalize(void);
-	/**‘€ì‚ÌXV‚ğs‚¤ŠÖ”*/
+	/**æ“ä½œã®æ›´æ–°ã‚’è¡Œã†é–¢æ•°*/
 	void Update(void);
-	/**•`‰æ‚ğs‚¤ŠÖ”*/
+	/**æç”»ã‚’è¡Œã†é–¢æ•°*/
 	void Render(void);
 
-	/**ƒV[ƒ“‚Ì‘JˆÚ‚ğs‚¤ŠÖ”*/
+	/**ã‚·ãƒ¼ãƒ³ã®é·ç§»ã‚’è¡Œã†é–¢æ•°*/
 	bool ChangeScene(SceneBase* pScene);
 	
 private:
@@ -35,7 +35,7 @@ private:
 	SceneBase* m_pScene;											   
 };
 
-//‹Œƒo[ƒWƒ‡ƒ“‚ÌƒV[ƒ“ƒ}ƒl[ƒWƒƒA–ß‚·‚©‚à‚µ‚ê‚È‚¢‚©‚ç’u‚¢‚Ä‚¢‚é
+//æ—§ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®ã‚·ãƒ¼ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£ã€æˆ»ã™ã‹ã‚‚ã—ã‚Œãªã„ã‹ã‚‰ç½®ã„ã¦ã„ã‚‹
 //enum SCENE_STATE
 //{
 //	INIT,
@@ -46,32 +46,32 @@ private:
 //class SceneManager
 //{
 //public:
-//	///**ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éŠÖ”*/
+//	///**ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹é–¢æ•°*/
 //	//static SceneManager* GetInstance();
-//	///**ƒCƒ“ƒXƒ^ƒ“ƒX‚ğ”jŠü‚·‚éŠÖ”*/
+//	///**ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç ´æ£„ã™ã‚‹é–¢æ•°*/
 //	//void ReleaseInstance();
-//	/**‰Šú‰»‚·‚éŠÖ”*/
+//	/**åˆæœŸåŒ–ã™ã‚‹é–¢æ•°*/
 //	void Initialize(void);
-//	/**ƒQ[ƒ€‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚ÄÀs‚·‚éŠÖ”*/
+//	/**ã‚²ãƒ¼ãƒ ã®å‡¦ç†ã‚’ã¾ã¨ã‚ã¦å®Ÿè¡Œã™ã‚‹é–¢æ•°*/
 //	void DevideSceneOperation();
 //
 //private:
-//	/**ƒRƒ“ƒXƒgƒ‰ƒNƒ^*/
+//	/**ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿*/
 //	SceneManager();
-//	/**ƒfƒXƒgƒ‰ƒNƒ^*/
+//	/**ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿*/
 //	~SceneManager();
-//	/**ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚éŠÖ”*/
+//	/**ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹é–¢æ•°*/
 //	void ChangeScene();
-//	/**‘€ìŠÖ”*/
+//	/**æ“ä½œé–¢æ•°*/
 //	void Update();
-//	/**•`‰æŠÖ”*/
+//	/**æç”»é–¢æ•°*/
 //	void Render();
 //
-//	static SceneManager*  m_pSceneManager;             //!< SceneManagerƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^•Ï”
-//	SceneBase* m_pScene = nullptr;					   //!< SceneƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^•Ï”
-//	int m_currentScene = TITLE_SCENE;				   //!< ¡‚Ç‚ÌƒV[ƒ“‚È‚Ì‚©‚ğ•Û‘¶‚·‚é
-//	int m_nextScene = DATA_SELECT_SCENE;			   //!< Ÿ‚Ç‚ÌƒV[ƒ“‚È‚Ì‚©‚ğ•Û‘¶‚·‚é
-//	int m_sceneState = INIT;						   //!< ƒV[ƒ“‚ª‚Ç‚ñ‚Èó‘Ô‚È‚Ì‚©‚ğ•Û‘¶‚·‚é
+//	static SceneManager*  m_pSceneManager;             //!< SceneManagerã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¸ã®ãƒã‚¤ãƒ³ã‚¿å¤‰æ•°
+//	SceneBase* m_pScene = nullptr;					   //!< Sceneã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¸ã®ãƒã‚¤ãƒ³ã‚¿å¤‰æ•°
+//	int m_currentScene = TITLE_SCENE;				   //!< ä»Šã©ã®ã‚·ãƒ¼ãƒ³ãªã®ã‹ã‚’ä¿å­˜ã™ã‚‹
+//	int m_nextScene = DATA_SELECT_SCENE;			   //!< æ¬¡ã©ã®ã‚·ãƒ¼ãƒ³ãªã®ã‹ã‚’ä¿å­˜ã™ã‚‹
+//	int m_sceneState = INIT;						   //!< ã‚·ãƒ¼ãƒ³ãŒã©ã‚“ãªçŠ¶æ…‹ãªã®ã‹ã‚’ä¿å­˜ã™ã‚‹
 //	
 //	
 //};
@@ -82,14 +82,14 @@ private:
 //{
 //	if (m_pSceneManager == nullptr) 
 //	{ 
-//		m_pSceneManager = new SceneManager;						//ƒV[ƒ“ƒ}ƒl[ƒWƒƒ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é
+//		m_pSceneManager = new SceneManager;						//ã‚·ãƒ¼ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
 //	}
 //	return m_pSceneManager;
 //}
 //
 //void SceneManager::ReleaseInstance()
 //{
-//	delete m_pSceneManager;										//ƒV[ƒ“ƒ}ƒl[ƒWƒƒ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ”jŠü‚·‚é
+//	delete m_pSceneManager;										//ã‚·ãƒ¼ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç ´æ£„ã™ã‚‹
 //	m_pSceneManager = nullptr;
 //}
 //
@@ -102,7 +102,7 @@ private:
 //
 //	switch (m_nextScene)
 //	{
-//	case SCENE_ID::TITLE_SCENE:									//ƒ^ƒCƒgƒ‹ƒV[ƒ“‚ÉˆÚ‚é‚Æ‚«
+//	case SCENE_ID::TITLE_SCENE:									//ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³ã«ç§»ã‚‹ã¨ã
 //
 //		delete m_pScene;
 //
@@ -110,7 +110,7 @@ private:
 //		m_pScene = new TitleScene();
 //
 //		break;
-//	case SCENE_ID::DATA_SELECT_SCENE:							//ƒf[ƒ^ƒZƒŒƒNƒgƒV[ƒ“‚ÉˆÚ‚é‚Æ‚«
+//	case SCENE_ID::DATA_SELECT_SCENE:							//ãƒ‡ãƒ¼ã‚¿ã‚»ãƒ¬ã‚¯ãƒˆã‚·ãƒ¼ãƒ³ã«ç§»ã‚‹ã¨ã
 //
 //		delete m_pScene;
 //
@@ -118,7 +118,7 @@ private:
 //		m_pScene = new DataSelectScene();
 //
 //		break;
-//	case SCENE_ID::GAME_SCENE:									//ƒQ[ƒ€ƒV[ƒ“‚ÉˆÚ‚é‚Æ‚«
+//	case SCENE_ID::GAME_SCENE:									//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã«ç§»ã‚‹ã¨ã
 //
 //		delete m_pScene;
 //
@@ -137,18 +137,18 @@ private:
 //	switch (m_sceneState)
 //	{
 //	case INIT:
-//		m_pScene->Init();										//ƒV[ƒ“‚Å‚Ìî•ñ‚ğ‰Šú‰»‚·‚é
+//		m_pScene->Init();										//ã‚·ãƒ¼ãƒ³ã§ã®æƒ…å ±ã‚’åˆæœŸåŒ–ã™ã‚‹
 //		break;
 //	case MAIN:
 //		//m_pScene->UpdateInput
-//		m_pScene->Update();										//ƒQ[ƒ€‚Ì‘€ìˆ—‚ğs‚¤
-//		m_pScene->Render();										//ƒQ[ƒ€‚Ì•`‰æˆ—‚ğs‚¤
+//		m_pScene->Update();										//ã‚²ãƒ¼ãƒ ã®æ“ä½œå‡¦ç†ã‚’è¡Œã†
+//		m_pScene->Render();										//ã‚²ãƒ¼ãƒ ã®æç”»å‡¦ç†ã‚’è¡Œã†
 //		break;
 //	case RELEASE:
-//		m_pScene->Release();									//ƒV[ƒ“‚Å‚Ìî•ñ‚ğ‰ğ•ú‚·‚é
+//		m_pScene->Release();									//ã‚·ãƒ¼ãƒ³ã§ã®æƒ…å ±ã‚’è§£æ”¾ã™ã‚‹
 //		break;
 //	}
 //
-//	m_pScene->UpdateNextScene(&m_nextScene);					//ƒV[ƒ“‚Ìî•ñ‚ğV‚µ‚­‚·‚é
-//	ChangeScene();												//ƒV[ƒ“‚ªØ‚è‘Ö‚¦‚é•K—v‚ª‚ ‚ê‚ÎØ‚è‘Ö‚¦‚é
+//	m_pScene->UpdateNextScene(&m_nextScene);					//ã‚·ãƒ¼ãƒ³ã®æƒ…å ±ã‚’æ–°ã—ãã™ã‚‹
+//	ChangeScene();												//ã‚·ãƒ¼ãƒ³ãŒåˆ‡ã‚Šæ›¿ãˆã‚‹å¿…è¦ãŒã‚ã‚Œã°åˆ‡ã‚Šæ›¿ãˆã‚‹
 //}

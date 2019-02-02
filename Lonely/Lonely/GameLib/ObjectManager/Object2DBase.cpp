@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Object2DBase.cpp
-* @brief Object2DBaseƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Object2DBaseã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 

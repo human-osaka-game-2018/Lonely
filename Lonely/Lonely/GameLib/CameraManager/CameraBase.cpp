@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file CameraBase.cpp
-* @brief CameraBaseƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief CameraBaseã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 

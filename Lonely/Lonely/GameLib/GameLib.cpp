@@ -1,12 +1,12 @@
-/**
+ï»¿/**
 * @file GameLib.cpp
-* @brief GameLibƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief GameLibã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #include "GameLib.h"
 
-// GameLib‚ÌÀ‘Ì’è‹`
+// GameLibã®å®Ÿä½“å®šç¾©
 GameLib GameLib::Instance;
 
 GameLib::GameLib()
@@ -17,88 +17,95 @@ GameLib::~GameLib()
 {
 }
 
-// DirectXLib‚Ì‰Šú‰»
+// DirectXLibã®åˆæœŸåŒ–
 bool GameLib::Initialize(const wchar_t* pName, int width, int height, bool isFullscreen)
 {
-	// ƒEƒBƒ“ƒhƒE‚Ì¶¬
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç”Ÿæˆ
 	if (!m_window.Create(pName, width, height))
 	{
 		return false;
 	}
-	// DirectXƒVƒXƒeƒ€‚Ì‰Šú‰»
+	// DirectXã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–
 	if (!m_directX.Initialize(m_window.GetHandle(), width, height, isFullscreen))
 	{
 		return false;
 	}
-	//DirectInput‚Ì‰Šú‰»
+	//DirectInputã®åˆæœŸåŒ–
 	if (!m_dxInput.Initialize(m_window.GetHandle()))
 	{
 		return false;
 	}
-	// ƒtƒHƒ“ƒg‚Ì‰Šú‰»
+	// ãƒ•ã‚©ãƒ³ãƒˆã®åˆæœŸåŒ–
 	if (!m_font.Initialize())
 	{
 		return false;
 	}
+	//ã‚µã‚¦ãƒ³ãƒ‰ã®åˆæœŸåŒ–
+	if (!m_soundsManager.Initialize())
+	{
+		return false;
+	}
 
-	// ƒIƒuƒWƒFƒNƒgƒ}ƒl[ƒWƒƒ
+	// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒãƒãƒ¼ã‚¸ãƒ£
 
 
-	// ƒV[ƒ“ƒVƒXƒeƒ€‚Ì‰Šú‰»
+	// ã‚·ãƒ¼ãƒ³ã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–
 	m_sceneManager.Initialize();
-	// “ü—ÍƒVƒXƒeƒ€‚Ì‰Šú‰»
+	// å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–
 	m_input.Initialize();
 
 	return true;
 }
 
-// DirectXLib‚Ì‰ğ•ú
+// DirectXLibã®è§£æ”¾
 void GameLib::Finalize()
 {
-	// ƒtƒHƒ“ƒg‚Ì‰ğ•ú
+	// ãƒ•ã‚©ãƒ³ãƒˆã®è§£æ”¾
 	m_font.Finalize();
-	// “ü—ÍƒVƒXƒeƒ€‚Ì‰ğ•ú
+	// å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®è§£æ”¾
 	m_input.Finalize();
-	//ƒIƒuƒWƒFƒNƒgƒ}ƒl[ƒWƒƒ‚Ì‰ğ•ú
+	// ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ã®è§£æ”¾
+	SoundLibCWrapper_Free();
+	// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒãƒãƒ¼ã‚¸ãƒ£ã®è§£æ”¾
 	m_objectManager.Finalize();
-	// ƒV[ƒ“ƒVƒXƒeƒ€‚Ì‰ğ•ú
+	// ã‚·ãƒ¼ãƒ³ã‚·ã‚¹ãƒ†ãƒ ã®è§£æ”¾
 	m_sceneManager.Finalize();
-	// DirectX‚Ì‰ğ•ú
+	// DirectXã®è§£æ”¾
 	m_directX.Finalize();
 }
 
-// ƒƒCƒ“ƒ‹[ƒv
+// ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—
 void GameLib::MainLoop()
 {
 	while (!m_window.IsQuitMessage())
 	{
 		if (!m_window.UpdateMessage())
 		{
-			//“ü—Íî•ñ‚ğXV‚·‚é
+			//å…¥åŠ›æƒ…å ±ã‚’æ›´æ–°ã™ã‚‹
 			m_dxInput.UpdataInputState();
 
-			//ƒV[ƒ“‚ÌXV
+			//ã‚·ãƒ¼ãƒ³ã®æ›´æ–°
 			m_sceneManager.Update();
 
-			//‚±‚ÌƒtƒŒ[ƒ€‚Å“ü—Í‚³‚ê‚½î•ñ‚ğ•Û‘¶‚·‚é
+			//ã“ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã§å…¥åŠ›ã•ã‚ŒãŸæƒ…å ±ã‚’ä¿å­˜ã™ã‚‹
 			m_dxInput.StorePrevInputState();
 
-			// ‰æ–Ê‚ÌƒNƒŠƒA
-			m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, 0x00000000, 1.0f, 0);
+			// ç”»é¢ã®ã‚¯ãƒªã‚¢
+			m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER /*| D3DCLEAR_STENCIL*/, 0xFF000000, 1.0f, 0);
 
-			//•`‰æ‰Â”\ó‘Ô‚É‚·‚é
+			//æç”»å¯èƒ½çŠ¶æ…‹ã«ã™ã‚‹
 			m_directX.BeginRenderScene();
 				
-			// ƒfƒtƒHƒ‹ƒg•`‰æİ’è
+			// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆæç”»è¨­å®š
 			m_directX.SetDefaultRenderState();
 
-			// ƒV[ƒ“‚Ì•`‰æ
+			// ã‚·ãƒ¼ãƒ³ã®æç”»
 			m_sceneManager.Render();
 
-			//•`‰æ•s‰Â”\ó‘Ô‚É‚·‚é
+			//æç”»ä¸å¯èƒ½çŠ¶æ…‹ã«ã™ã‚‹
 			m_directX.EndRenderScene();
 			
-			// ‰æ–Ê‚Ì•\¦
+			// ç”»é¢ã®è¡¨ç¤º
 			m_directX.FlipDisp();
 		}
 	}

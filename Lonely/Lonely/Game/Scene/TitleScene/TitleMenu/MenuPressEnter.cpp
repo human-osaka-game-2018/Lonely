@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file MenuPressEnter.cpp
-* @brief MenuPressEnterƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief MenuPressEnterã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,16 +18,16 @@ MenuPressEnter::~MenuPressEnter()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool MenuPressEnter::Initialize()
 {
-	//ƒeƒNƒXƒ`ƒƒ[“Ç‚İ‚İ
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/pressEnter.png"))
 	{
 		return false;
 	}
 
-	//’¸“_‚ÌÀ•W‚ğƒZƒbƒg
+	//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth()) / 2
 		, static_cast<float>(WINDOW->GetHeight()) / 4 * 3
@@ -37,23 +37,23 @@ bool MenuPressEnter::Initialize()
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void MenuPressEnter::Finalize()
 {
 	m_texture.Finalize();
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void MenuPressEnter::Update(int step)
 {
 	if (step == STEP1) {
-		//ƒtƒŒ[ƒ€Œo‰ß‚ÅFî•ñ‚ğ•Ï‚¦‚é
+		//ãƒ•ãƒ¬ãƒ¼ãƒ çµŒéã§è‰²æƒ…å ±ã‚’å¤‰ãˆã‚‹
 		frameCount++;
 		if (frameCount > 60)
 		{
 			static DWORD regulateColor = static_cast<DWORD>(0xffffffff);
 
-			//ƒJƒ‰[‚ªˆê’è’l’B‚µ‚½‚çAƒtƒŒ[ƒ€ƒJƒEƒ“ƒg‚ğ0‚É–ß‚·
+			//ã‚«ãƒ©ãƒ¼ãŒä¸€å®šå€¤é”ã—ãŸã‚‰ã€ãƒ•ãƒ¬ãƒ¼ãƒ ã‚«ã‚¦ãƒ³ãƒˆã‚’0ã«æˆ»ã™
 			(regulateColor <= static_cast<DWORD>(0x02ffffff)) ? frameCount = 0 : frameCount;
 
 			regulateColor -= static_cast<DWORD>(0x03000000);
@@ -63,13 +63,13 @@ void MenuPressEnter::Update(int step)
 	}
 	else {
 
-		//ƒXƒeƒbƒv‚PˆÈŠO‚Í•`‰æ‚µ‚È‚¢
+		//ã‚¹ãƒ†ãƒƒãƒ—ï¼‘ä»¥å¤–ã¯æç”»ã—ãªã„
 		m_canRender = false;
 	}
 }
 	
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void MenuPressEnter::Render()
 {
 	if (m_canRender == false)
@@ -80,8 +80,8 @@ void MenuPressEnter::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 }

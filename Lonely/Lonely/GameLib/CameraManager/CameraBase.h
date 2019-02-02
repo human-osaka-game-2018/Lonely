@@ -1,13 +1,13 @@
-/**
+ï»¿/**
 * @file CameraBase.h
-* @brief CameraBaseƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief CameraBaseã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #pragma once
 
 /**
-* @brief ƒJƒƒ‰‚ÌŠî’êƒNƒ‰ƒX
+* @brief ã‚«ãƒ¡ãƒ©ã®åŸºåº•ã‚¯ãƒ©ã‚¹
 */
 class CameraBase
 {
@@ -17,17 +17,17 @@ public:
 	virtual~CameraBase();
 
 	/**
-	* @brief ‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brief åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	virtual void Update();
 

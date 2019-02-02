@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIHitPoint.cpp
-* @brief UIHitPointƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief UIHitPointã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -8,6 +8,7 @@
 #include "../../../../GameLib/GameLib.h"
 
 UIHitPoint::UIHitPoint()
+	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
 {
 	Initialize();
 }
@@ -17,17 +18,17 @@ UIHitPoint::~UIHitPoint()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool UIHitPoint::Initialize()
 {
-	// assetsƒtƒHƒ‹ƒ_“à‚Ìbridge.png‚ğƒeƒNƒXƒ`ƒƒ[‚Æ‚µ‚Ä“Ç‚İ‚İ
+	// assetsãƒ•ã‚©ãƒ«ãƒ€å†…ã®bridge.pngã‚’ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã¨ã—ã¦èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/UIHitPoint.png"))
 	{
 		return false;
 	}
 
-	// ƒeƒNƒXƒ`ƒƒ[ƒTƒCƒY‚©‚ç‰æ‘œƒTƒCƒY‚ÌUV‚ğæ“¾(‰æ‘œ‚ª2‚Ì—İæ‚Å‚ ‚ê‚Î1.0f‚É‚È‚é)
-	// ƒeƒNƒXƒ`ƒƒ‚ª2‚Ì—İæ‚Å‚È‚¢‚Æ‚«‚ÉŒø‰Ê‚ğ”­Šö‚·‚é
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚µã‚¤ã‚ºã‹ã‚‰ç”»åƒã‚µã‚¤ã‚ºã®UVã‚’å–å¾—(ç”»åƒãŒ2ã®ç´¯ä¹—ã§ã‚ã‚Œã°1.0fã«ãªã‚‹)
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãŒ2ã®ç´¯ä¹—ã§ãªã„ã¨ãã«åŠ¹æœã‚’ç™ºæ®ã™ã‚‹
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
@@ -39,7 +40,7 @@ bool UIHitPoint::Initialize()
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void UIHitPoint::Finalize()
 {
 	m_texture.Finalize();
@@ -47,6 +48,23 @@ void UIHitPoint::Finalize()
 
 void UIHitPoint::Update()
 {
+	m_hp = m_pSharedInformation->GetHp();
+	if (m_hp == 3)
+	{
+	}
+	else if (m_hp == 2)
+	{
+		HELPER_2D->SetVerticesTuTv(m_vertices, 695.f / 2048.f, 137.f / 512.f, 348.f / 2048.f, 0.f);
+	}
+	else if (m_hp == 1)
+	{
+		HELPER_2D->SetVerticesTuTv(m_vertices, 1043.f / 2048.f, 137.f / 512.f, 696.f / 2048.f, 0.f);
+	}
+	else if (m_hp == 0)
+	{
+		HELPER_2D->SetVerticesTuTv(m_vertices, 1391.f / 2048.f, 137.f / 512.f, 1044.f / 2048.f, 0.f);
+	}
+	
 }
 
 void UIHitPoint::Render()
@@ -54,12 +72,12 @@ void UIHitPoint::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//’¸“_‚É“ü‚ê‚éƒf[ƒ^‚ğİ’è
+	//é ‚ç‚¹ã«å…¥ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®š
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 
-	//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
 
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 }

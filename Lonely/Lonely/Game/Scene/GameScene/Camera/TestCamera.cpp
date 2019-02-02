@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TestCamera.cpp
-* @brief TestCameraƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief TestCameraã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -17,22 +17,22 @@ TestCamera::~TestCamera()
 {
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 void TestCamera::Initialize()
 {
 	m_position = { 0.f,10.f,-10.f };
-	m_lookAt = { 0.0f,0.f,0.f };
+	m_lookAt = { 0.0f,3.f,0.f };
 	m_rotation = { 0.f,0.f,0.f };
-	m_perspective = D3DX_PI / 4;
+	m_perspective = D3DX_PI / 3;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void TestCamera::Finalize()
 {
 
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void TestCamera::Update()
 {
 
@@ -95,19 +95,59 @@ void TestCamera::Update()
 		m_rotation.y += cameraRotationSpeed;
 	}
 
-	//ƒJƒƒ‰‚ğƒvƒŒƒCƒ„[‚ªˆÚ“®‚µ‚½•ª‚¾‚¯ˆÚ“®‚³‚¹‚é
-	D3DXVECTOR3 movement = m_pSharedInformation->GetPlayerMovement();
-	m_position.x += movement.x;
-	m_position.y += movement.y;
-	m_position.z += movement.z;
-	m_lookAt.x += movement.x;
-	m_lookAt.y += movement.y;
-	m_lookAt.z += movement.z;
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_I))
+	{
+		m_position.y += 0.1f;
+	}
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_K))
+	{
+		m_position.y -= 0.1f;
+	}
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_J))
+	{
+		m_position.x += 0.1f;
+	}
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_L))
+	{
+		m_position.x -= 0.1f;
+	}
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_P))
+	{
+		if (m_perspective >= 0.7f) 
+		{
+			m_perspective += 0.02f;
+
+			if (m_perspective >= 1.3f)
+			{
+				m_perspective = 1.3f;
+			}
+		}
+	}
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_O))
+	{
+		if (m_perspective <= 1.3f)
+		{
+			m_perspective -= 0.02f;
+			if (m_perspective <= 0.7f)
+			{
+				m_perspective = 0.7f;
+			}
+		}
+	}
+
+	//ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚„æ³¨è¦–ä½ç½®ã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®ã¨é–¢é€£ã•ã›ã‚‹ãŸã‚
+	D3DXVECTOR3 position = m_pSharedInformation->GetPlayerPosition();
+	m_position.x = position.x;
+	m_position.y = position.y;
+	m_position.z = position.z;
+	m_lookAt.x = position.x;
+	m_lookAt.y = position.y + 3.f;
+	m_lookAt.z = position.z;
 
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	////ƒ[ƒ‹ƒhƒgƒ‰ƒ“ƒXƒtƒH[ƒ€iâ‘ÎÀ•W•ÏŠ·j
+	////ãƒ¯ãƒ¼ãƒ«ãƒ‰ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ï¼ˆçµ¶å¯¾åº§æ¨™å¤‰æ›ï¼‰
 	D3DXMATRIXA16 matWorld, matMovement;
 
 	D3DXMatrixIdentity(&matWorld);
@@ -117,41 +157,45 @@ void TestCamera::Update()
 	pDevice->SetTransform(D3DTS_WORLD, &matWorld);
 
 
-	//// ƒrƒ…[ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€i‹“_À•W•ÏŠ·j
-	//D3DXVECTOR3 vecEyePt(m_position.x, m_position.y, m_position.z);  //ƒJƒƒ‰i‹“_jˆÊ’u
-	D3DXVECTOR3 vecEyePt(0.f, 10.f, -10.f);                            //ƒJƒƒ‰i‹“_jˆÊ’u
-	D3DXVECTOR3 vecLookatPt(m_lookAt.x, m_lookAt.y, m_lookAt.z);       //’‹ˆÊ’u
-	D3DXVECTOR3 vecUpVec(0.0f, 1.0f, 0.0f);                            //ã•ûˆÊ’u
+	//// ãƒ“ãƒ¥ãƒ¼ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ï¼ˆè¦–ç‚¹åº§æ¨™å¤‰æ›ï¼‰
+	D3DXVECTOR3 vecEyePt(0.f, 10.f, -10.f);                            //ã‚«ãƒ¡ãƒ©ï¼ˆè¦–ç‚¹ï¼‰ä½ç½®
+	D3DXVECTOR3 vecLookatPt(m_lookAt.x, m_lookAt.y, m_lookAt.z);       //æ³¨è¦–ä½ç½®
+	D3DXVECTOR3 vecUpVec(0.0f, 1.0f, 0.0f);                            //ä¸Šæ–¹ä½ç½®
 
-	D3DXMATRIXA16 matView;                                             //ƒrƒ…[s—ñ
-	D3DXMATRIXA16 matRotationX, matRotationY;                          //‰ñ“]s—ñ
+	//D3DXMATRIXA16 matView;                                           //ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—
+	D3DXMATRIXA16 matRotationX, matRotationY;                          //å›è»¢è¡Œåˆ—
 
-	//ƒJƒƒ‰ˆÊ’u‚ğ‰ñ“]‚³‚¹‚é
+	//åŸç‚¹ã§ã‚«ãƒ¡ãƒ©ä½ç½®ã‚’å›è»¢ã•ã›ã‚‹
 	D3DXMatrixRotationX(&matRotationX, m_rotation.x);
 	D3DXMatrixRotationY(&matRotationY, m_rotation.y);
 	D3DXVec3TransformCoord(&vecEyePt, &vecEyePt, &matRotationX); 
 	D3DXVec3TransformCoord(&vecEyePt, &vecEyePt, &matRotationY); 
 
-	//‰ñ“]‚³‚¹‚½ƒJƒƒ‰‚ğŒ´“_‚É‚¸‚ç‚µ‚½•ª‚¾‚¯–ß‚·
-	vecEyePt.x += m_position.x + 0.f;
-	vecEyePt.y += m_position.y - 10.f;
-	vecEyePt.z += m_position.z + 10.f;
+	//åŸç‚¹ã§å›è»¢ã•ã›ãŸã‚«ãƒ¡ãƒ©ã‚’ã€ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®ã¾ã§ç§»å‹•ã•ã›ã‚‹å‡¦ç†
+	D3DXMATRIXA16 trans;
+	D3DXMatrixTranslation(&trans, m_position.x, m_position.y, m_position.z);
+	D3DXVec3TransformCoord(&vecEyePt, &vecEyePt, &trans);
 
-	//‰ñ“]‚³‚¹‚½Œã‚ÌƒJƒƒ‰‚ÌˆÊ’u‚ğ‹¤—LƒNƒ‰ƒX‚É•Û‘¶‚·‚é
+
+	//å›è»¢ã•ã›ãŸå¾Œã®ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’å…±æœ‰ã‚¯ãƒ©ã‚¹ã«ä¿å­˜ã™ã‚‹
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•æ–¹å‘ã‚’ç®—å‡ºã™ã‚‹ã¨ãã«ä½¿ã†
 	m_pSharedInformation->SetCameraPosition(vecEyePt);
-	//‰ñ“]Šp“x‚ğ‹¤—LƒNƒ‰ƒX‚É•Û‘¶‚·‚é
+	//å›è»¢è§’åº¦ã‚’å…±æœ‰ã‚¯ãƒ©ã‚¹ã«ä¿å­˜ã™ã‚‹
 	m_pSharedInformation->SetCameraDirection(m_rotation.y);
 
-	D3DXMatrixLookAtLH(&matView, &vecEyePt, &vecLookatPt, &vecUpVec);
-	pDevice->SetTransform(D3DTS_VIEW, &matView);
+	//ãƒ“ãƒ¥ãƒ¼è¡Œåˆ—ã‚’ç®—å‡º
+	D3DXMatrixLookAtLH(&m_matView, &vecEyePt, &vecLookatPt, &vecUpVec);
+	m_pSharedInformation->SetMatView(&m_matView);
+	
+	pDevice->SetTransform(D3DTS_VIEW, &m_matView);
 
 
-	//// ƒvƒƒWƒFƒNƒVƒ‡ƒ“ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€iË‰e•ÏŠ·j
-	D3DXMatrixPerspectiveFovLH(&m_matProjection, m_perspective, 1.0f, 1.0f, 1000.0f);
+	//// ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚·ãƒ§ãƒ³ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ ï¼ˆå°„å½±å¤‰æ›ï¼‰
+	D3DXMatrixPerspectiveFovLH(&m_matProjection, m_perspective, 1.0f, 1.0f, 1500.0f);
 	pDevice->SetTransform(D3DTS_PROJECTION, &m_matProjection);
 
 
-	// ƒ‰ƒCƒg‚ğ‚ ‚Ä‚é ”’F‚Å‹¾–Ê”½Ë‚ ‚è‚Éİ’è
+	// ãƒ©ã‚¤ãƒˆã‚’ã‚ã¦ã‚‹ ç™½è‰²ã§é¡é¢åå°„ã‚ã‚Šã«è¨­å®š
 	D3DXVECTOR3 vecDirection(0, 0, 1);
 	D3DLIGHT9 light;
 	ZeroMemory(&light, sizeof(D3DLIGHT9));

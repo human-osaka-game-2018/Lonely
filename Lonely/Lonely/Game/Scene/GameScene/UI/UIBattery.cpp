@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIBattery.cpp
-* @brief UIBatteryƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief UIBatteryã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -17,10 +17,10 @@ UIBattery::~UIBattery()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool UIBattery::Initialize()
 {
-	// assetsƒtƒHƒ‹ƒ_“à‚Ìbridge.png‚ðƒeƒNƒXƒ`ƒƒ[‚Æ‚µ‚Ä“Ç‚Ýž‚Ý
+	// assetsãƒ•ã‚©ãƒ«ãƒ€å†…ã®bridge.pngã‚’ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã¨ã—ã¦èª­ã¿è¾¼ã¿
 	/*if (!m_texture.Load("../Graphics/UIFootsteps.png"))
 	{
 		return false;
@@ -34,7 +34,7 @@ bool UIBattery::Initialize()
 	return true;
 }
 
-//‰ð•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void UIBattery::Finalize()
 {
 	m_texture.Finalize();
@@ -49,15 +49,15 @@ void UIBattery::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//’¸“_‚É“ü‚ê‚éƒf[ƒ^‚ðÝ’è
+	//é ‚ç‚¹ã«å…¥ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®š
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 
-	//ƒeƒNƒXƒ`ƒƒ‚ÌÝ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
 
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 
-	//[“d‚ª‰½“‚©‚ð•`‰æ‚·‚é
+	//å……é›»ãŒä½•ï¼…ã‹ã‚’æç”»ã™ã‚‹
 	DEBUGFONT->DrawText(50, 680, 0xffffffff, "100%");
 }

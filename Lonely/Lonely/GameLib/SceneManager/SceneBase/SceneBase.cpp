@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file SceneBase.cpp
-* @brief SceneBaseƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief SceneBaseã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 

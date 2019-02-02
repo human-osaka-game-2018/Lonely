@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Object2DBase.h
-* @brief Object2DBaseƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Object2DBaseã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -11,7 +11,7 @@
 #include "../FBX/Texture.h"
 
 /**
-* @brief ‚QDƒIƒuƒWƒFƒNƒg‚ÌŠî’ê‚Æ‚È‚éƒNƒ‰ƒX
+* @brief ï¼’Dã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åŸºåº•ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹
 */
 class Object2DBase: public Object
 {
@@ -21,28 +21,28 @@ public:
 	virtual ~Object2DBase();
 
 	/**
-	* @brief ‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brief åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Finalize();
 
 	/**
-	* @brief ‘€ì‚ÌXV‚ğs‚¤ŠÖ”
+	* @brief æ“ä½œã®æ›´æ–°ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Update();
 
 	/**
-	* @brief •`‰æ‚ğs‚¤ŠÖ”
+	* @brief æç”»ã‚’è¡Œã†é–¢æ•°
 	*/
 	virtual void Render();
 
 protected:
 
 	Texture         m_texture;
-	Simple2DVertex  m_vertices[4]; //!< ‹éŒ`‚Ì4’¸“_
-	bool m_canRender = true;       //!<@•`‰æ‚Å‚«‚é‚©‚Ç‚¤‚©
+	Simple2DVertex  m_vertices[4];         //!< çŸ©å½¢ã®4é ‚ç‚¹
+	bool            m_canRender = true;    //!<ã€€æç”»ã§ãã‚‹ã‹ã©ã†ã‹
 };

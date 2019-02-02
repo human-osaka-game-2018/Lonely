@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file SceneManager.cpp
-* @brief SceneManagerƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief SceneManagerã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -16,37 +16,37 @@ SceneManager::~SceneManager()
 	Finalize();
 }
 
-/**ƒV[ƒ“ŠÇ—‚Ì‰Šú‰»*/
+/**ã‚·ãƒ¼ãƒ³ç®¡ç†ã®åˆæœŸåŒ–*/
 void SceneManager::Initialize()
 {
 	m_pScene = nullptr;
 }
 
-/**ƒV[ƒ“ŠÇ—‚Ì‰ð•ú*/
+/**ã‚·ãƒ¼ãƒ³ç®¡ç†ã®è§£æ”¾*/
 void SceneManager::Finalize()
 {
-	// ÅŒã‚Í‰ð•ú‚µ‚ÄI‚í‚é
+	// æœ€å¾Œã¯è§£æ”¾ã—ã¦çµ‚ã‚ã‚‹
 	if (m_pScene) { m_pScene->Finalize(); }
 	SAFE_DELETE(m_pScene);
 }
 
-/**ƒV[ƒ“‚ÌXV*/
+/**ã‚·ãƒ¼ãƒ³ã®æ›´æ–°*/
 void SceneManager::Update()
 {
 	if (m_pScene) m_pScene->Update();
 }
 
-/**ƒV[ƒ“‚Ì•`‰æ*/
+/**ã‚·ãƒ¼ãƒ³ã®æç”»*/
 void SceneManager::Render()
 {
 	if (m_pScene) m_pScene->Render();
 
 }
 
-/**ƒV[ƒ“‚Ì‘JˆÚ*/
+/**ã‚·ãƒ¼ãƒ³ã®é·ç§»*/
 bool SceneManager::ChangeScene(SceneBase* pScene)
 {
-	// Œ»Ý‚ÌƒV[ƒ“‚ð‰ð•ú‚·‚é
+	// ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³ã‚’è§£æ”¾ã™ã‚‹
 	if (m_pScene)
 	{
 		m_pScene->Finalize();
@@ -54,7 +54,7 @@ bool SceneManager::ChangeScene(SceneBase* pScene)
 	}
 
 	bool ret = true;
-	// ŽŸ‚ÌƒV[ƒ“‚ª‚ ‚ê‚Î‰Šú‰»‚·‚é
+	// æ¬¡ã®ã‚·ãƒ¼ãƒ³ãŒã‚ã‚Œã°åˆæœŸåŒ–ã™ã‚‹
 	if (pScene)
 	{
 		ret = pScene->Initialize();

@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UI.cpp
-* @brief UIƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief UIã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -17,50 +17,56 @@ UI::~UI()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool UI::Initialize()
 {
-	// assetsƒtƒHƒ‹ƒ_“à‚Ìbridge.png‚ğƒeƒNƒXƒ`ƒƒ[‚Æ‚µ‚Ä“Ç‚İ‚İ
+	//m_pTexStrage = GameLib::Instance.GetTexStorage();
+
+	//m_pTexStrage->CreateTex(_T("sumahoGamen"), _T("../Graphics/smart phone.png"));
+
+	// assetsãƒ•ã‚©ãƒ«ãƒ€å†…ã®bridge.pngã‚’ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã¨ã—ã¦èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/smart phone.png"))
 	{
 		return false;
 	}
 
-	// ƒeƒNƒXƒ`ƒƒ[ƒTƒCƒY‚©‚ç‰æ‘œƒTƒCƒY‚ÌUV‚ğæ“¾(‰æ‘œ‚ª2‚Ì—İæ‚Å‚ ‚ê‚Î1.0f‚É‚È‚é)
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚µã‚¤ã‚ºã‹ã‚‰ç”»åƒã‚µã‚¤ã‚ºã®UVã‚’å–å¾—(ç”»åƒãŒ2ã®ç´¯ä¹—ã§ã‚ã‚Œã°1.0fã«ãªã‚‹)
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
-	//’¸“_‚ÌÀ•W‚ğƒZƒbƒg
+	//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices
-		, 20
-		, 100
+		, 30
+		, 30
 		, logoWidth, logoHeight);
 
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void UI::Finalize()
 {
 	m_texture.Finalize();
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void UI::Update()
 {
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void UI::Render()
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
+	pDirectX->SetRenderMode(DirectX::Normal, true);
 
-	// ’¸“_‚É“ü‚ê‚éƒf[ƒ^‚ğİ’è
+	// é ‚ç‚¹ã«å…¥ã‚Œã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®š
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
-	//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//•`‰æ
+	//pDevice->SetTexture(0, m_pTexStrage->GetTex(_T("sumahoGamen")));
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 
 }

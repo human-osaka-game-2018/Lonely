@@ -3,33 +3,38 @@
 * @brief CollisionBaseクラスのヘッダファイル
 * @author shion-sagawa
 */
-
 #pragma once
 
-#include "../../ObjectManager/Object3DBase.h"
+#include "../../ObjectManager/Object.h"
+#include "../EnumCollision/Enum_CollisionShape.h"
 
 /**
-* @brief
+* @brief 当たり判定の形の基底クラス
 */
 class CollisionBase
 {
 public:
 
-	CollisionBase() = delete;
-	~CollisionBase();
+	CollisionBase();
+	virtual ~CollisionBase();
 
 	/**
-	* @brief 引数ありのコンストラクタ
-	* @param オーナーのアドレス
-	* @param どの当たり判定グループに属するか
+	* @brief 衝突を起こしているときの挙動を行う関数
 	*/
-	CollisionBase(Object3DBase* owner, int type);
+	void OnCollision(CollisionBase* collider,bool collisionStateIsRiding);
+
 
 	int GetType() { return m_type; }
+	void SetType(int type) { m_type = type; }
 
-private:
+	int GetShape() { return m_shape; }
+
+	Object* GetOwner() { return m_owner; }
+
 	
-	Object3DBase* m_owner;    //!< オーナーのアドレス
+protected:
+	
+	Object*       m_owner;    //!< オーナーのアドレス
 	int           m_type;     //!< どの当たり判定グループに属するか
-
+	int           m_shape;    //!< どんな形で当たり判定をとるか
 };

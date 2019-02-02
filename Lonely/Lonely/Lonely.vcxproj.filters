@@ -1,4 +1,4 @@
-?�<?xml version="1.0" encoding="utf-8"?>
+﻿?�<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="リソース ファイル">
@@ -44,9 +44,6 @@
     <Filter Include="リソース ファイル\GameLib\SceneManager\SceneBase">
       <UniqueIdentifier>{c5b81caf-e3d5-4fef-8e15-9cc1cbb8d0c2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\GameLib\ObjectManager">
-      <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\GameLib\2DHelper">
       <UniqueIdentifier>{e7601e84-543d-491e-bfbd-32e26a77db6f}</UniqueIdentifier>
     </Filter>
@@ -77,16 +74,37 @@
     <Filter Include="リソース ファイル\Scene\GameScene\SharedInformation">
       <UniqueIdentifier>{175cfda2-e1d7-4e3f-b04d-5b6ab3ac9fe1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\UI">
-      <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\Scene\DataSelectScene\Object">
       <UniqueIdentifier>{28ef63bf-97f5-404e-b61b-17be4cdc39b1}</UniqueIdentifier>
     <Filter Include="リソース ファイル\GameLib\CollisionManager">
-      <UniqueIdentifier>{3b3f21be-d251-4141-af38-91cc486717b4}</UniqueIdentifier>
+      <UniqueIdentifier>{a7b43583-945d-417d-9a22-a052146a29a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="リソース ファイル\GameLib\CollisionManager\CollisionBase">
-      <UniqueIdentifier>{9b3cf815-3d73-49a2-9238-efd8be4bbbfa}</UniqueIdentifier>
+      <UniqueIdentifier>{dcc5572c-95c3-4d38-ab40-944bdb184dd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Trigar">
+      <UniqueIdentifier>{4209d7f3-c164-4828-8877-c1e651066045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Enemy">
+      <UniqueIdentifier>{6d59b336-bbbb-41be-a6fd-053661a55f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Stage">
+      <UniqueIdentifier>{07c162e2-1547-45d9-980f-d3a76788dc68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\StageObject">
+      <UniqueIdentifier>{e5463999-249a-48c4-aa0f-e327a10d4562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager\EnumCollision">
+      <UniqueIdentifier>{47534c30-225a-45e0-908a-78806d26793e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Player">
+      <UniqueIdentifier>{193fdcdd-6c2f-4d22-97d9-893ade496348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\ObjectManager">
+      <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Trigar\UI">
+      <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,12 +216,6 @@
     <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp">
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Drone.cpp">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Sumahoneko.cpp">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClCompile>
@@ -232,25 +244,25 @@
       <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
@@ -266,6 +278,51 @@
     </ClCompile>
     <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBase.cpp">
       <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBox.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarQR.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarCharging.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Enemy\Pasoken.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Enemy\EnemyBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\PlayerBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\StageObject\StageMovableObject.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\StageObject\StageStopedObject.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarMovable.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -377,11 +434,23 @@
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h">
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Drone.h">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Sumahoneko.h">
-      <Filter>リソース ファイル\Scene\GameScene</Filter>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
@@ -410,10 +479,10 @@
     <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.h">
       <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
@@ -425,7 +494,7 @@
     <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h">
@@ -448,6 +517,57 @@
     </ClInclude>
     <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBase.h">
       <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBox.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarQR.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarCharging.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Enemy\Pasoken.h">
+      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h">
+      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarBase.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionType.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionShape.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Enemy\EnemyBase.h">
+      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\PlayerBase.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\Drone.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageMovableObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarMovable.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

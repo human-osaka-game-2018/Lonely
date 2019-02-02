@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file ObjectManager.cpp
-* @brief ObjectManagerƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief ObjectManagerã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,47 +12,47 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
-	//ƒIƒuƒWƒFƒNƒg‚Ì‘SŠJ•ú‚ÌŠÖ”‚ğŒÄ‚Ô
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å…¨é–‹æ”¾ã®é–¢æ•°ã‚’å‘¼ã¶
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 void ObjectManager::Initialize()
 {
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void ObjectManager::Finalize()
 {
 	ReleaseObject();
 }
 
-//‚±‚ÌƒNƒ‰ƒX‚ğ”h¶‚µ‚½ƒNƒ‰ƒX‚Ì‘€ìŠÖ”‚ğŒÄ‚Ô
+//ã“ã®ã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã—ãŸã‚¯ãƒ©ã‚¹ã®æ“ä½œé–¢æ•°ã‚’å‘¼ã¶
 void ObjectManager::Update()
 {
-	for (int i = 0; i < m_pObjectVec.size(); i++)
+	for (unsigned int i = 0; i < m_pObjectVec.size(); i++)
 	{
 		m_pObjectVec[i]->Update();
 	}
 }
 
-//‚±‚ÌƒNƒ‰ƒX‚ğ”h¶‚µ‚½ƒNƒ‰ƒX‚Ì•`‰æŠÖ”‚ğŒÄ‚Ô
+//ã“ã®ã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã—ãŸã‚¯ãƒ©ã‚¹ã®æç”»é–¢æ•°ã‚’å‘¼ã¶
 void ObjectManager::Render()
 {
-	for (int i = 0; i < m_pObjectVec.size(); i++) {
+	for (unsigned int i = 0; i < m_pObjectVec.size(); i++) {
 		m_pObjectVec[i]->Render();
 	}
 }
 
-//‚±‚ÌƒNƒ‰ƒX‚ğ”h¶‚µ‚½ƒNƒ‰ƒX‚ğ“o˜^‚·‚é
+//ã“ã®ã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã—ãŸã‚¯ãƒ©ã‚¹ã‚’ç™»éŒ²ã™ã‚‹
 void ObjectManager::RegisterObject(Object* object)
 {
 	m_pObjectVec.push_back(object);
 }
 
-//‚±‚ÌƒNƒ‰ƒX‚ğ”h¶‚µ‚½ƒNƒ‰ƒX‚ğ‰ğ•ú‚·‚é
+//ã“ã®ã‚¯ãƒ©ã‚¹ã‚’æ´¾ç”Ÿã—ãŸã‚¯ãƒ©ã‚¹ã‚’è§£æ”¾ã™ã‚‹
 void ObjectManager::ReleaseObject()
 {
-	//Vector”z—ñ‚Ì—v‘f‚ª‚O‚È‚çŠÖ”‚©‚ç”²‚¯‚é
+	//Vectoré…åˆ—ã®è¦ç´ ãŒï¼ãªã‚‰é–¢æ•°ã‹ã‚‰æŠœã‘ã‚‹
 	if (m_pObjectVec.size() == 0)
 	{
 		return;
@@ -63,8 +63,8 @@ void ObjectManager::ReleaseObject()
 		delete pI;
 	}
 
-	//—v‘f”‚ğ‚O‚É‚·‚é
+	//è¦ç´ æ•°ã‚’ï¼ã«ã™ã‚‹
 	m_pObjectVec.clear();
-	//ƒLƒƒƒpƒVƒeƒB[‚ğ‚O‚É‚·‚é
+	//ã‚­ãƒ£ãƒ‘ã‚·ãƒ†ã‚£ãƒ¼ã‚’ï¼ã«ã™ã‚‹
 	m_pObjectVec.shrink_to_fit();
 }

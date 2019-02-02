@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleMenu.cpp
-* @brief TitleMenuƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief TitleMenuã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -20,7 +20,7 @@ TitleMenu::~TitleMenu()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool TitleMenu::Initialize()
 {
 	if (!m_menuPressEnter.Initialize())
@@ -41,23 +41,23 @@ bool TitleMenu::Initialize()
 	}
 
 
-	// SoundsManagerƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚É1“x‚Ì‚İs‚¤B
+	// SoundsManagerã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆå¾Œã«1åº¦ã®ã¿è¡Œã†ã€‚
 	bool isSuccess = soundsManager.Initialize();
-	const TCHAR* filePath = _T("../Sounds/SE/ƒXƒ}ƒz”L/cry1.mp3");
+	const TCHAR* filePath = _T("../Sounds/SE/ã‚¹ãƒãƒ›çŒ«/cry1.mp3");
 	isSuccess = soundsManager.AddFile(filePath, _T("cry1"));
 
 
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void TitleMenu::Finalize()
 {
 	SoundLibCWrapper_Free();
 
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void TitleMenu::Update()
 {
 	switch (m_step)
@@ -66,7 +66,7 @@ void TitleMenu::Update()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGM‚ğ–Â‚ç‚·
+			//BGMã‚’é³´ã‚‰ã™
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 
 			m_step = STEP2;
@@ -85,10 +85,10 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGM‚ğ–Â‚ç‚·
+			//BGMã‚’é³´ã‚‰ã™
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 
-			//ƒQ[ƒ€ƒV[ƒ“‚Ö
+			//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã¸
 			SCENEMANAGER->ChangeScene(new DataSelectScene);
 			
 		}
@@ -106,9 +106,9 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGM‚ğ–Â‚ç‚·
+			//BGMã‚’é³´ã‚‰ã™
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
-			//ƒQ[ƒ€I—¹
+			//ã‚²ãƒ¼ãƒ çµ‚äº†
 			PostQuitMessage(0);
 			
 		}
@@ -121,7 +121,7 @@ void TitleMenu::Update()
 	m_menuCursor.Update(m_step);
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void TitleMenu::Render()
 {
 	m_menuPressEnter.Render();

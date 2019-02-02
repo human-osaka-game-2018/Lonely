@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	Font.h
-* @brief FontƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Fontã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,7 +12,7 @@
 #undef DrawText
 
 /** 
-* @brief FontŠÖŒW‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief Fonté–¢ä¿‚ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class Font
 {
@@ -22,46 +22,46 @@ public:
 	~Font();
 
 	/** 
-	* @brief ƒtƒHƒ“ƒg‚ğ¶¬‚·‚éŠÖ”
-	* @param ƒtƒHƒ“ƒg‚ÌƒTƒCƒY
-	* @return ƒtƒHƒ“ƒg‚ğì¬‚Å‚«‚Ä‚¢‚½‚çTRUE
+	* @brief ãƒ•ã‚©ãƒ³ãƒˆã‚’ç”Ÿæˆã™ã‚‹é–¢æ•°
+	* @param ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+	* @return ãƒ•ã‚©ãƒ³ãƒˆã‚’ä½œæˆã§ãã¦ã„ãŸã‚‰TRUE
 	*/
 	bool Initialize(int size = 30);
 
 	/** 
-	* @briefƒtƒHƒ“ƒg‚ğ”jŠü‚·‚éŠÖ”
+	* @briefãƒ•ã‚©ãƒ³ãƒˆã‚’ç ´æ£„ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief ƒtƒHƒ“ƒg‚Ì‚‚³‚ğæ“¾‚·‚éŠÖ”
-	* @return ƒtƒHƒ“ƒg‚Ì‚‚³
+	* @brief ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•ã‚’å–å¾—ã™ã‚‹é–¢æ•°
+	* @return ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•
 	*/
 	int GetHeight();
 
 	/** 
-	* @brief ƒƒbƒZ[ƒW‚Ì•\¦‚ğs‚¤ŠÖ”
-	* @param •`‰æ‚µ‚½‚¢”ÍˆÍ‚Ì‰¡•
-	* @param •`‰æ‚µ‚½‚¢”ÍˆÍ‚Ìc•
-	* @param ƒtƒHƒ“ƒg‚ÌƒJƒ‰[
-	* @param •`‰æ‚µ‚½‚¢ƒtƒHƒ“ƒg‚Ì“à—e
+	* @brief ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤ºã‚’è¡Œã†é–¢æ•°
+	* @param æç”»ã—ãŸã„ç¯„å›²ã®æ¨ªå¹…
+	* @param æç”»ã—ãŸã„ç¯„å›²ã®ç¸¦å¹…
+	* @param ãƒ•ã‚©ãƒ³ãƒˆã®ã‚«ãƒ©ãƒ¼
+	* @param æç”»ã—ãŸã„ãƒ•ã‚©ãƒ³ãƒˆã®å†…å®¹
 	*/
 	void DrawText(int X, int Y, D3DCOLOR color, const char* pText);
 	
 	/** 
-	* @brief ƒƒbƒZ[ƒW‚Ì•\¦‚ğs‚¤ŠÖ”
-	* @param •`‰æ‚µ‚½‚¢”ÍˆÍ‚Ì‰¡•
-	* @param •`‰æ‚µ‚½‚¢”ÍˆÍ‚Ìc•
-	* @param ƒtƒHƒ“ƒg‚ÌƒJƒ‰[
-	* @param ƒtƒHƒ“ƒg‚ÌƒtƒH[ƒ}ƒbƒg
+	* @brief ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®è¡¨ç¤ºã‚’è¡Œã†é–¢æ•°
+	* @param æç”»ã—ãŸã„ç¯„å›²ã®æ¨ªå¹…
+	* @param æç”»ã—ãŸã„ç¯„å›²ã®ç¸¦å¹…
+	* @param ãƒ•ã‚©ãƒ³ãƒˆã®ã‚«ãƒ©ãƒ¼
+	* @param ãƒ•ã‚©ãƒ³ãƒˆã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 	*/
 	void DrawFormatText(int X, int Y, D3DCOLOR color, const char* pFormat, ...);
 
 private:
 
-	/** ƒtƒHƒ“ƒg‚Ì‚‚³‚ğ•Û‘¶‚·‚é•Ï” */
+	/** ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•ã‚’ä¿å­˜ã™ã‚‹å¤‰æ•° */
 	int			m_fontSize;
 
-	/** ƒtƒHƒ“ƒg‚Ìî•ñ‚ğ‚Â */
+	/** ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã‚’æŒã¤ */
 	ID3DXFont*	m_pFont;
 };

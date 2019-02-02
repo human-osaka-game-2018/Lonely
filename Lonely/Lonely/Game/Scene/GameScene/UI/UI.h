@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UI.h
-* @brief UI‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief UIã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -8,9 +8,10 @@
 
 #include "../../../../GameLib/ObjectManager/Object2DBase.h"
 #include "../../../../GameLib/2DHelper/2DHelper.h"
+#include "../../../../GameLib/TexStorage/TexStorage.h"
 
 /**
-* @brief UI‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief UIã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class UI : public Object2DBase
 {
@@ -21,29 +22,31 @@ public:
 
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
 	* @param
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 
 
 private:
 
-	float logoWidth = 200.f;            //!< ƒ^ƒCƒgƒ‹ƒƒS‚Ì’†S“_‚©‚ç‚Ì‰¡•
-	float logoHeight = 400.f;           //!< ƒ^ƒCƒgƒ‹ƒƒS‚Ì’†S“_‚©‚ç‚Ìc•
+	float logoWidth = 230.f;            //!< ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã®ä¸­å¿ƒç‚¹ã‹ã‚‰ã®æ¨ªå¹…
+	float logoHeight = 400.f;           //!< ã‚¿ã‚¤ãƒˆãƒ«ãƒ­ã‚´ã®ä¸­å¿ƒç‚¹ã‹ã‚‰ã®ç¸¦å¹…
+
+	TexStorage* m_pTexStrage;
 };

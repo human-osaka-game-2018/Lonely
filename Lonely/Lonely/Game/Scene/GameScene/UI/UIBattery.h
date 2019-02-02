@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIBattery.h
-* @brief UIBatteryƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief UIBatteryã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,7 +12,7 @@
 
 
 /**
-* @brief [“dŠÖŒW‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief å……é›»é–¢ä¿‚ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class UIBattery : public Object2DBase
 {
@@ -22,23 +22,23 @@ public:
 	~UIBattery();
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

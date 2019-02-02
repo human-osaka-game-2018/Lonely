@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file IndexBuffer.cpp
-* @brief IndexBufferƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief IndexBufferã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -16,12 +16,12 @@ IndexBuffer::~IndexBuffer(void)
 {
 	Finalize();
 }
-// ƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@‚Ì¶¬
+// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆ
 bool IndexBuffer::Create(UINT size, const UINT16* pIndeces)
 {
 	IDirect3DIndexBuffer9* pIndexBuffer;
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
-	// 16byteŒ^‚ÌƒCƒ“ƒfƒbƒNƒXƒoƒbƒtƒ@‚ðì¬
+	// 16byteåž‹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ•ã‚¡ã‚’ä½œæˆ
 	if (FAILED(pDevice->CreateIndexBuffer(size, 0, D3DFMT_INDEX16, D3DPOOL_MANAGED, &pIndexBuffer, NULL)))
 	{
 		return NULL;
@@ -29,7 +29,7 @@ bool IndexBuffer::Create(UINT size, const UINT16* pIndeces)
 	if (pIndeces)
 	{
 		void* pData;
-		// ƒoƒbƒtƒ@‚ðƒƒbƒN‚µ‚Äƒf[ƒ^‚ð‘‚«ž‚Þ
+		// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 		if (SUCCEEDED(pIndexBuffer->Lock(0, size, &pData, 0)))
 		{
 			memcpy(pData, pIndeces, size);

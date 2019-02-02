@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Texture.h
-* @brief TextureƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Textureã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,7 +9,7 @@
 #include "d3d9.h"
 
 /**
-* @brief ƒeƒNƒXƒ`ƒƒŠÖŒW‚Ìˆ—‚âî•ñ‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£é–¢ä¿‚ã®å‡¦ç†ã‚„æƒ…å ±ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class Texture
 {
@@ -19,53 +19,53 @@ public:
 	~Texture();
 
 	/** 
-	* @brief ƒeƒNƒXƒ`ƒƒ[‚Ì“Ç‚İ‚İ
+	* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®èª­ã¿è¾¼ã¿
 	*/
 	bool Load(const char* pFileName);
 
 	/** 
-	* @brief ƒeƒNƒXƒ`ƒƒ[‚Ì“Ç‚İ‚İ‚ğs‚¤ŠÖ”
+	* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®èª­ã¿è¾¼ã¿ã‚’è¡Œã†é–¢æ•°
 	* @param 
 	* @param 
 	*/
 	bool CreateFromMemory(const void* pData, UINT size);
 	
 	/** 
-	* @brief ƒeƒNƒXƒ`ƒƒ[‚Ì‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief ‰¡•‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief æ¨ªå¹…ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	UINT GetWidth() const { return m_width; }
 	
 	/** 
-	* @brief c•‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ç¸¦å¹…ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	UINT GetHeight() const { return m_height; }
 
 	/** 
-	* @brief ‰æ‘œ‚Ì‰¡•‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ç”»åƒã®æ¨ªå¹…ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	UINT GetSrcWidth() const { return m_srcWidth; }
 
 	/** 
-	* @brief ‰æ‘œ‚Ìc•‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ç”»åƒã®ç¸¦å¹…ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	UINT GetSrcHeight() const { return m_srcHeight; }
 
 	/** 
-	* @brief D3DƒeƒNƒXƒ`ƒƒ\‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief D3Dãƒ†ã‚¯ã‚¹ãƒãƒ£â€•ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	IDirect3DTexture9* GetD3DTexture() { return m_pTexture; }
 
 private:
 
-	UINT				m_width;		// ƒeƒNƒXƒ`ƒƒ[‚Ì•
-	UINT				m_height;		// ƒeƒNƒXƒ`ƒƒ[‚Ì‚‚³
-	UINT				m_srcWidth;		// ‰æ‘œ‚Ì•
-	UINT				m_srcHeight;	// ‰æ‘œ‚Ì‚‚³
-	IDirect3DTexture9*	m_pTexture;		// ¶¬‚µ‚½ƒeƒNƒXƒ`ƒƒ[‚Ìƒ|ƒCƒ“ƒ^
+	UINT				m_width;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®å¹…
+	UINT				m_height;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®é«˜ã•
+	UINT				m_srcWidth;		// ç”»åƒã®å¹…
+	UINT				m_srcHeight;	// ç”»åƒã®é«˜ã•
+	IDirect3DTexture9*	m_pTexture;		// ç”Ÿæˆã—ãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®ãƒã‚¤ãƒ³ã‚¿
 
 };

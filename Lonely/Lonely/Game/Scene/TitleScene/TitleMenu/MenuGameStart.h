@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file MenuGameStart.h
-* @brief MenuGameStartƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief MenuGameStartã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -13,7 +13,7 @@
 
 
 /**
-* @brief ƒ^ƒCƒgƒ‹ƒƒjƒ…iGAME STARTj‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ãƒ‹ãƒ¥ï¼ˆGAME STARTï¼‰ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class MenuGameStart : public Object2DBase
 {
@@ -24,24 +24,24 @@ public:
 
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
-	* @param ƒ^ƒCƒgƒ‹ƒƒjƒ…[‚Ì‰½”Ô‚ÌƒXƒeƒbƒv‚©
+	* @brief æ“ä½œé–¢æ•°
+	* @param ã‚¿ã‚¤ãƒˆãƒ«ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ä½•ç•ªã®ã‚¹ãƒ†ãƒƒãƒ—ã‹
 	*/
 	void Update(int step);
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

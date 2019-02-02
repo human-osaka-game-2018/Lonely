@@ -1,7 +1,7 @@
-
+ï»¿
 /**
 * @file CameraManager.cpp
-* @brief CameraManagerƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief CameraManagerã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -19,37 +19,37 @@ CameraManager::~CameraManager()
 	Finalize();
 }
 
-//‰Šú‰»
+//åˆæœŸåŒ–
 void CameraManager::Initialize()
 {
 	m_pCamera = nullptr;
 }
 
-//‰ð•ú
+//è§£æ”¾
 void CameraManager::Finalize()
 {
-	// ÅŒã‚Í‰ð•ú‚µ‚ÄI‚í‚é
+	// æœ€å¾Œã¯è§£æ”¾ã—ã¦çµ‚ã‚ã‚‹
 	if (m_pCamera) { m_pCamera->Finalize(); }
 	SAFE_DELETE(m_pCamera);
 }
 
-//ƒJƒƒ‰‚ÌXV
+//ã‚«ãƒ¡ãƒ©ã®æ›´æ–°
 void CameraManager::Update()
 {
 	if (m_pCamera) m_pCamera->Update();
 }
 
-//ƒJƒƒ‰‚Ì•ÏX
+//ã‚«ãƒ¡ãƒ©ã®å¤‰æ›´
 void CameraManager::ChangeCamera(CameraBase* pCamera)
 {
-	// Œ»Ý‚ÌƒV[ƒ“‚ð‰ð•ú‚·‚é
+	// ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³ã‚’è§£æ”¾ã™ã‚‹
 	if (m_pCamera)
 	{
 		m_pCamera->Finalize();
 		SAFE_DELETE(m_pCamera);
 	}
 
-	// ŽŸ‚ÌƒV[ƒ“‚ª‚ ‚ê‚Î‰Šú‰»‚·‚é
+	// æ¬¡ã®ã‚·ãƒ¼ãƒ³ãŒã‚ã‚Œã°åˆæœŸåŒ–ã™ã‚‹
 	if (pCamera)
 	{
 		pCamera->Initialize();

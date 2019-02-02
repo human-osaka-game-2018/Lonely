@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Sprite.cpp
-* @brief SpriteƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Spriteã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -21,7 +21,7 @@ Sprite::~Sprite(void)
 	Finalize();
 }
 
-// ƒXƒvƒ‰ƒCƒg‚Ì¶¬
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ç”Ÿæˆ
 bool Sprite::Create(const char* pTexturePath)
 {
 	float width = 1.0f;
@@ -46,40 +46,40 @@ bool Sprite::Create(const char* pTexturePath)
 	return true;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚Ì‰ğ•ú
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®è§£æ”¾
 void Sprite::Finalize(void)
 {
 	m_texture.Finalize();
 }
 
-// ƒXƒvƒ‰ƒCƒg‚ÌÀ•Wİ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åº§æ¨™è¨­å®š
 void Sprite::SetPos(float x, float y)
 {
 	m_x = x;
 	m_y = y;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒYİ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚ºè¨­å®š
 void Sprite::SetSize(float width, float height)
 {
 	m_width = width;
 	m_height = height;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚Ì‰ñ“]İ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å›è»¢è¨­å®š
 void Sprite::SetRotation(float angle)
 {
 	m_angle = angle;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚ÌŒ´“_İ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åŸç‚¹è¨­å®š
 void Sprite::SetOrigin(float x, float y)
 {
 	m_cx = x;
 	m_cy = y;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚ÌUVİ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®UVè¨­å®š
 void Sprite::SetUV(int u, int v, int width, int height)
 {
 	float imageW = static_cast<float>(m_texture.GetWidth());
@@ -90,14 +90,14 @@ void Sprite::SetUV(int u, int v, int width, int height)
 	m_v2 = static_cast<float>(v + height) / imageH;
 }
 
-// ƒXƒvƒ‰ƒCƒg‚ÌƒJƒ‰[İ’è
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚«ãƒ©ãƒ¼è¨­å®š
 void Sprite::SetColor(D3DCOLOR color)
 {
 	m_color = color;
 }
 
 
-// ƒXƒvƒ‰ƒCƒg•`‰æ
+// ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæç”»
 void Sprite::Render(void)
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();

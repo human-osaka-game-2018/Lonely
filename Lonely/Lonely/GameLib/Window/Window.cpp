@@ -1,23 +1,23 @@
-/**
+ï»¿/**
 * @file	Window.cpp
-* @brief WindowƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Windowã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #include "Window.h"
 
-// ƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒ[
+// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ãƒ¼
 static LRESULT CALLBACK WndProc(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uiMsg)
 	{
-	case WM_DESTROY:			//•Â‚¶‚éƒ{ƒ^ƒ“‚ÅƒEƒBƒ“ƒhƒE‚ğ”jŠü
+	case WM_DESTROY:			//é–‰ã˜ã‚‹ãƒœã‚¿ãƒ³ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç ´æ£„
 		PostQuitMessage(0);
 		break;
 	case WM_KEYDOWN:
 		switch ((CHAR)wParam)
 		{
-		case VK_ESCAPE:			//ESCAPEƒL[‚ÅƒEƒBƒ“ƒhƒE‚ğ”jŠü
+		case VK_ESCAPE:			//ESCAPEã‚­ãƒ¼ã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç ´æ£„
 			PostQuitMessage(0);
 			break;
 
@@ -27,11 +27,11 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lPa
 
 		break;
 	}
-	// Šù’è‚ÌƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ‚ğŒÄ‚Ño‚·
+	// æ—¢å®šã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’å‘¼ã³å‡ºã™
 	return DefWindowProc(hWnd, uiMsg, wParam, lParam);
 }
 
-// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 Window::Window(void)
 	: m_hWnd(nullptr)
 	, m_isQuitMessage(false)
@@ -40,16 +40,16 @@ Window::Window(void)
 {
 }
 
-// ƒfƒXƒgƒ‰ƒNƒ^
+// ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 Window::~Window(void)
 {
 }
 
-// ƒEƒBƒ“ƒhƒE‚Ì¶¬
+// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç”Ÿæˆ
 bool Window::Create(const wchar_t* pName, int width, int height)
 {
 	WNDCLASSEX wndClass;
-	// ƒEƒCƒ“ƒhƒE‚Ìİ’è
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¨­å®š
 	wndClass.cbSize = sizeof(WNDCLASSEX);
 	wndClass.style = CS_HREDRAW | CS_VREDRAW;
 	wndClass.lpfnWndProc = WndProc;
@@ -71,13 +71,13 @@ bool Window::Create(const wchar_t* pName, int width, int height)
 	Rect.top = 0;
 	Rect.right = width;
 	Rect.bottom = height;
-	// ƒEƒBƒ“ƒhƒE‚ÌƒXƒ^ƒCƒ‹‚É‡‚í‚¹‚½“KØ‚ÈƒTƒCƒY‚ğæ“¾‚·‚é
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¹ã‚¿ã‚¤ãƒ«ã«åˆã‚ã›ãŸé©åˆ‡ãªã‚µã‚¤ã‚ºã‚’å–å¾—ã™ã‚‹
 	AdjustWindowRect(&Rect, dwStyle, false);
 
 	width = Rect.right - Rect.left;
 	height = Rect.bottom - Rect.top;
 
-	// ƒEƒCƒ“ƒhƒE‚Ì¶¬
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ç”Ÿæˆ
 	m_hWnd = CreateWindowW(wndClass.lpszClassName,
 		pName,
 		dwStyle,
@@ -96,28 +96,28 @@ bool Window::Create(const wchar_t* pName, int width, int height)
 
 	m_width = width;
 	m_height = height;
-	// ƒEƒCƒ“ƒhƒE‚Ì•\¦
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤º
 	ShowWindow(m_hWnd, SW_SHOW);
 	UpdateWindow(m_hWnd);
 
 	return true;
 }
 
-// ƒƒbƒZ[ƒW‚ÌXV
+// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®æ›´æ–°
 bool Window::UpdateMessage(void)
 {
 	MSG msg;
-	// ƒƒbƒZ[ƒW‚ª‘¶İ‚·‚é‚©Šm”F
+	// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå­˜åœ¨ã™ã‚‹ã‹ç¢ºèª
 	if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 	{
-		// I—¹’Ê’m‚ª—ˆ‚Ä‚¢‚éê‡‚Í”²‚¯‚é
+		// çµ‚äº†é€šçŸ¥ãŒæ¥ã¦ã„ã‚‹å ´åˆã¯æŠœã‘ã‚‹
 		if (msg.message == WM_QUIT)
 		{
 			m_isQuitMessage = true;
 		}
 		else
 		{
-			// ƒƒbƒZ[ƒW‚ğƒEƒCƒ“ƒhƒEƒvƒƒV[ƒWƒƒ‚É“]‘—
+			// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã«è»¢é€
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
 		}
@@ -129,7 +129,7 @@ bool Window::UpdateMessage(void)
 //void Window::ChangeDisplayMode(void)
 //{
 //	HRESULT hr = NULL;
-//	m_isWindowMode = !m_isWindowMode;//ˆá‚¤ƒ‚[ƒh‚ğ‘ã“ü
+//	m_isWindowMode = !m_isWindowMode;//é•ã†ãƒ¢ãƒ¼ãƒ‰ã‚’ä»£å…¥
 //
 //	if (m_isWindowMode) {
 //		g_D3dPresentParameters = d3dppWin;
@@ -142,13 +142,13 @@ bool Window::UpdateMessage(void)
 //	FreeDx();
 //	soundsManager.Initialize();
 //	BuildDXDevice();
-//	//‰æ‘œ‚Ìˆø—p
+//	//ç”»åƒã®å¼•ç”¨
 //	LoadTexture();
 //	LoadFont();
 //
 //	if (FAILED(hr)) {
 //		if (hr == D3DERR_DEVICELOST) {
-//			DeviceLost = true;//–¼c
+//			DeviceLost = true;//åæ®‹
 //		}
 //		if (hr == D3DERR_DRIVERINTERNALERROR) {
 //			DestroyWindow(hWnd);

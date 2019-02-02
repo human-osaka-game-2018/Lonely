@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file SceneBase.h
-* @brief SceneBaseƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief SceneBaseã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -10,7 +10,7 @@
 #include "../../CameraManager/CameraManager.h"
 
 /**
-* ƒV[ƒ“‚ÌŠî’êƒNƒ‰ƒX
+* ã‚·ãƒ¼ãƒ³ã®åŸºåº•ã‚¯ãƒ©ã‚¹
 */
 class SceneBase
 {
@@ -19,16 +19,16 @@ public:
 	SceneBase();
 	virtual ~SceneBase();
 
-	/**‰Šú‰»ŠÖ”*/
+	/**åˆæœŸåŒ–é–¢æ•°*/
 	virtual bool Initialize() = 0;
-	/**‰ğ•úŠÖ”*/
+	/**è§£æ”¾é–¢æ•°*/
 	virtual void Finalize() = 0;
-	/**‘€ìŠÖ”*/
+	/**æ“ä½œé–¢æ•°*/
 	virtual void Update() = 0;
-	/**•`‰æŠÖ”*/
+	/**æç”»é–¢æ•°*/
 	virtual void Render() = 0;
 protected:
 	
-	ObjectManager* m_pObjectManager;	    //!< ObjectManagerƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^
-	CameraManager* m_pCameraManager;        //!< CameraManagerƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Ö‚Ìƒ|ƒCƒ“ƒ^
+	ObjectManager* m_pObjectManager;	    //!< ObjectManagerã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¸ã®ãƒã‚¤ãƒ³ã‚¿
+	CameraManager* m_pCameraManager;        //!< CameraManagerã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¸ã®ãƒã‚¤ãƒ³ã‚¿
 };

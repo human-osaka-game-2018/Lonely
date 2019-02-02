@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIBar.h
-* @brief UIBarƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief UIBarã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,7 +12,7 @@
 
 
 /**
-* @brief ƒQ[ƒ€ƒV[ƒ“‚Ì‰º‚Ìƒo[‚ÌƒNƒ‰ƒX
+* @brief ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã®ä¸‹ã®ãƒãƒ¼ã®ã‚¯ãƒ©ã‚¹
 */
 class UIBar : public Object2DBase
 {
@@ -22,23 +22,23 @@ public:
 	~UIBar();
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

@@ -1,10 +1,11 @@
-/**
+ï»¿/**
 * @file GameScene.cpp
-* @brief GameSceneƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief GameSceneã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #include "GameScene.h"
+#include "../../../GameLib/GameLib.h"
 #include "Camera\TestCamera.h"
 #include "UI\UI.h"
 #include "UI\UIBar.h"
@@ -12,9 +13,19 @@
 #include "UI\UIHitPoint.h"
 #include "UI\UIWaves.h"
 #include "UI\UIBattery.h"
-#include "Sumahoneko.h"
+#include "Stage\Stage.h"
+#include "Player\Sumahoneko.h"
+#include "Enemy\Pasoken.h"
+#include "Trigar\TrigarCharging.h"
+#include "Trigar\TrigarMovable.h"
+#include "Trigar\TrigarQR.h"
+#include "StageObject\StageMovableObject.h"
+#include "StageObject\StageStopedObject.h"
+#include "GameOver\GameOver.h"
 
 GameScene::GameScene()
+	: m_pCollisionManager(GameLib::Instance.GetCollisionManager())
+	, m_pSoundsManager(GameLib::Instance.GetSoundsManager())
 {
 }
 
@@ -24,64 +35,79 @@ GameScene::~GameScene()
 }
 
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool GameScene::Initialize()
 {
-	//ƒQ[ƒ€ƒV[ƒ“‚Å‚Ç‚ÌƒJƒƒ‰‚ðŽg‚¤‚©Ý’è‚·‚é
+	//ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã§ã©ã®ã‚«ãƒ¡ãƒ©ã‚’ä½¿ã†ã‹è¨­å®šã™ã‚‹
 	m_pCameraManager->ChangeCamera(new TestCamera);
 
-	//ObjectManager‚ÌVector”z—ñ‚ÉƒQ[ƒ€ƒV[ƒ“‚ÅŽg‚¤ƒNƒ‰ƒX‚ð“o˜^‚·‚é
+	m_pObjectManager->RegisterObject(new Stage);
+	Sumahoneko* pSumahoneko = new Sumahoneko;
+	m_pObjectManager->RegisterObject(static_cast<Object*>(pSumahoneko));
+	m_pObjectManager->RegisterObject(new Pasoken);
+	m_pObjectManager->RegisterObject(new StageMovableObject(&D3DXVECTOR3(10.f, 0.f, 10.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f),&D3DXVECTOR3(1.5f,1.5f,1.5f), pSumahoneko));
+	m_pObjectManager->RegisterObject(new StageMovableObject(&D3DXVECTOR3(80.f, 0.f, 20.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f), &D3DXVECTOR3(1.5f, 1.5f, 1.5f), pSumahoneko));
+	m_pObjectManager->RegisterObject(new StageMovableObject(&D3DXVECTOR3(20.f, 0.f, 80.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f), &D3DXVECTOR3(1.5f, 1.5f, 1.5f), pSumahoneko));
+	
+
+	//ObjectManagerã®Vectoré…åˆ—ã«ã‚²ãƒ¼ãƒ ã‚·ãƒ¼ãƒ³ã§ä½¿ã†ã‚¯ãƒ©ã‚¹ã‚’ç™»éŒ²ã™ã‚‹
+	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(50.f, 0.f, 0.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(0.f, 0.f, 50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(-50.f, 0.f, -50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(-100.f, 0.f, -80.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+
+
+	//m_pObjectManager->RegisterObject(new GameOver);
 	m_pObjectManager->RegisterObject(new UI);
 	m_pObjectManager->RegisterObject(new UIBar);
 	m_pObjectManager->RegisterObject(new UIFootsteps);
 	m_pObjectManager->RegisterObject(new UIWaves);
 	m_pObjectManager->RegisterObject(new UIHitPoint);
 	m_pObjectManager->RegisterObject(new UIBattery);
-	m_pObjectManager->RegisterObject(new Sumahoneko);
-	/*m_pObjectManager->RegisterObject(new TitleBackground);
-	m_pObjectManager->RegisterObject(new TitleMenu);
-	m_pObjectManager->RegisterObject(new TitleLogo);*/
+	//m_pObjectManager->RegisterObject(new GameOver);
 
-	// SoundsManagerƒCƒ“ƒXƒ^ƒ“ƒX¶¬Œã‚É1“x‚Ì‚Ýs‚¤B
-	bool isSuccess = soundsManager.Initialize();
-	// ‰¹ºƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
-	// ‘æ2ˆø”‚Í‰¹ºƒtƒ@ƒCƒ‹‚ðŽ¯•Ê‚·‚é‚½‚ß‚Ì”CˆÓ‚Ì•¶Žš—ñ‚ðƒL[‚Æ‚µ‚ÄŽw’è‚·‚éB
-	// ‚±‚ÌŒã‚Ì‘€ìŠÖ”‚ÌŒÄ‚Ño‚µŽž‚É‚ÍA‚±‚±‚ÅÝ’è‚µ‚½ƒL[‚ðŽw’è‚µ‚Ä‰¹º‚ðŽ¯•Ê‚·‚éB
+	// ç¬¬2å¼•æ•°ã¯éŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è­˜åˆ¥ã™ã‚‹ãŸã‚ã®ä»»æ„ã®æ–‡å­—åˆ—ã‚’ã‚­ãƒ¼ã¨ã—ã¦æŒ‡å®šã™ã‚‹ã€‚
+	// ã“ã®å¾Œã®æ“ä½œé–¢æ•°ã®å‘¼ã³å‡ºã—æ™‚ã«ã¯ã€ã“ã“ã§è¨­å®šã—ãŸã‚­ãƒ¼ã‚’æŒ‡å®šã—ã¦éŸ³å£°ã‚’è­˜åˆ¥ã™ã‚‹ã€‚
 	const TCHAR* filePath = _T("../Sounds/BGM/GameBGM.mp3");
-	isSuccess = soundsManager.AddFile(filePath, _T("GameBGM"));
+	m_pSoundsManager->AddFile(filePath, _T("GameBGM"));
 	
 
 
 	return true;
 }
 
-//‰ð•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void GameScene::Finalize()
 {
 	m_pObjectManager->ReleaseObject();
 
-	bool isSuccess = soundsManager.Stop(_T("GameBGM"));
-	SoundLibCWrapper_Free();
+	m_pSoundsManager->Stop(_T("GameBGM"));
 }
 
 
-//‘€ì‚ðXV‚·‚é
+//æ“ä½œã‚’æ›´æ–°ã™ã‚‹
 void GameScene::Update()
 {
-	//BGM‚ð–Â‚ç‚·
-	bool isSuccess = soundsManager.Start(_T("GameBGM"), true);
+	//BGMã‚’é³´ã‚‰ã™
+	bool isSuccess = m_pSoundsManager->Start(_T("GameBGM"), true);
 
+	//å½“ãŸã‚Šåˆ¤å®šã‚’ç™»éŒ²ã•ã‚Œã¦ã‚‹ã®ã‚’è§£é™¤ã™ã‚‹
+	//å½“ãŸã‚Šåˆ¤å®šã®ç™»éŒ²ã¯ãã‚Œãžã‚Œã®ã‚¯ãƒ©ã‚¹ã§è¡Œã†
+	m_pCollisionManager->ReleaseCollision();
 
-	//‚±‚ÌƒV[ƒ“‚ÌƒIƒuƒWƒFƒNƒg‚ÌXV‚ðs‚¤
+	//ã“ã®ã‚·ãƒ¼ãƒ³ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ›´æ–°ã‚’è¡Œã†
 	m_pObjectManager->Update();
 
-	//ƒJƒƒ‰Update
+	//å½“ãŸã‚Šåˆ¤å®šã‚’è¡Œã†
+	m_pCollisionManager->Update();
+
+	//ã‚«ãƒ¡ãƒ©Update
 	m_pCameraManager->Update();
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void GameScene::Render()
 {
-	//ƒIƒuƒWƒFƒNƒg‚ÌRender
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®Render
 	m_pObjectManager->Render();
 }

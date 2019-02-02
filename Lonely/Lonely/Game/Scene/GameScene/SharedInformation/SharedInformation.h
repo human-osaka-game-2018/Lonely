@@ -1,65 +1,66 @@
-/**
+ï»¿/**
 * @file SharedInformation.h
-* @brief SharedInformationƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief SharedInformationã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #pragma once
 
 #include <d3dx9math.h>
+#include "../../../../GameLib/FBX/FBX.h"
 
 /**
-* @brief ‹¤—L‚µ‚½‚¢î•ñ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief å…±æœ‰ã—ãŸã„æƒ…å ±ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class SharedInformation
 {
 public:
 
 	/**
-	* @brief ƒvƒŒƒCƒ„[‚ª‚Ç‚ÌƒLƒƒƒ‰‚ğ“®‚©‚µ‚Ä‚¢‚é‚©
+	* @brief ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã©ã®ã‚­ãƒ£ãƒ©ã‚’å‹•ã‹ã—ã¦ã„ã‚‹ã‹
 	*/
 	enum PLAYER_INITIATIVE
 	{
-		SUMAHONEKO,        //!< ƒXƒ}ƒz”L‚ğ‘€ì‚µ‚Ä‚¢‚é‚Æ‚«
-		DRONE              //!< ƒhƒ[ƒ“‚ğ‘€ì‚µ‚Ä‚¢‚é‚Æ‚«
+		SUMAHONEKO,        //!< ã‚¹ãƒãƒ›çŒ«ã‚’æ“ä½œã—ã¦ã„ã‚‹ã¨ã
+		DRONE              //!< ãƒ‰ãƒ­ãƒ¼ãƒ³ã‚’æ“ä½œã—ã¦ã„ã‚‹ã¨ã
 	};
 
 	/**
-	* @brief ƒJƒƒ‰‚Ìƒ‚[ƒh
+	* @brief ã‚«ãƒ¡ãƒ©ã®ãƒ¢ãƒ¼ãƒ‰
 	*/
 	enum CAMERA_MODE
 	{
-		DEFAULT_CAMERA,    //!< ’Êí‚ÌƒJƒƒ‰
-		APULI_CAMERA       //!< ƒXƒ}ƒz”L‚ÌƒAƒvƒŠ‚ÌƒJƒƒ‰
+		DEFAULT_CAMERA,    //!< é€šå¸¸ã®ã‚«ãƒ¡ãƒ©
+		APULI_CAMERA       //!< ã‚¹ãƒãƒ›çŒ«ã®ã‚¢ãƒ—ãƒªã®ã‚«ãƒ¡ãƒ©
 	};
 
 	SharedInformation();
 	~SharedInformation();
 
 	/**
-	* @brief ‰Šú‰»ŠÖ”
+	* @brief åˆæœŸåŒ–é–¢æ•°
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•úŠÖ”
+	* @brief è§£æ”¾é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‹¤—LƒNƒ‰ƒX‚ÌƒAƒhƒŒƒX‚ğæ“¾‚·‚éŠÖ”
+	* @brief å…±æœ‰ã‚¯ãƒ©ã‚¹ã®ã‚¢ãƒ‰ãƒ¬ã‚¹ã‚’å–å¾—ã™ã‚‹é–¢æ•°
 	*/
 	SharedInformation* GetSharedInformation() { return &Instance; }
 
 
 public:
 
-	static SharedInformation Instance;    //!< ‹¤—Lî•ñƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+	static SharedInformation Instance;    //!< å…±æœ‰æƒ…å ±ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 
 
-public: //ƒZƒbƒ^[‚ÆƒQƒbƒ^[
+public: //ã‚»ãƒƒã‚¿ãƒ¼ã¨ã‚²ãƒƒã‚¿ãƒ¼
 	
-	//ƒvƒŒƒCƒ„[‚ÌˆÊ’u
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®
 	void SetPlayerPosition(D3DXVECTOR3 playerPosition) {
 		m_playerPosition.x = playerPosition.x;
 		m_playerPosition.y = playerPosition.y;
@@ -68,7 +69,7 @@ public: //ƒZƒbƒ^[‚ÆƒQƒbƒ^[
 
 	D3DXVECTOR3 GetPlayerPosition() { return m_playerPosition; };
 
-	//ƒJƒƒ‰‚ÌˆÊ’u
+	//ã‚«ãƒ¡ãƒ©ã®ä½ç½®
 	void SetCameraPosition(D3DXVECTOR3 cameraPosition) { 
 		m_cameraPosition.x = cameraPosition.x;
 		m_cameraPosition.y = cameraPosition.y;
@@ -77,7 +78,7 @@ public: //ƒZƒbƒ^[‚ÆƒQƒbƒ^[
 
 	D3DXVECTOR3 GetCameraPosition() { return m_cameraPosition; };
 
-	//ƒvƒŒƒCƒ„[‚ªˆÚ“®‚µ‚½—Ê
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç§»å‹•ã—ãŸé‡
 	void SetPlayerMovement(D3DXVECTOR3 playerMovement) { 
 		m_playerMovement.x = playerMovement.x; 
 		m_playerMovement.y = playerMovement.y;
@@ -86,30 +87,52 @@ public: //ƒZƒbƒ^[‚ÆƒQƒbƒ^[
 
 	D3DXVECTOR3 GetPlayerMovement() { return m_playerMovement; };
 
-	//ƒJƒƒ‰‚ÌŒü‚«
+	//ã‚«ãƒ¡ãƒ©ã®å‘ã
 	void SetCameraDirection(float cameraDirection) { m_cameraDirection = cameraDirection; };
 
 	float GetCameraDirection() { return m_cameraDirection; };
 
-	//ƒJƒƒ‰‚Ìƒ‚[ƒh
+	//ã‚«ãƒ¡ãƒ©ã®ãƒ¢ãƒ¼ãƒ‰
 	void SetCameraMode(int cameraMode) { m_cameraMode = cameraMode; };
 
 	int GetCameraMode() { return m_cameraMode; };
 
-	//“®‚©‚µ‚Ä‚éƒLƒƒƒ‰‚Í’N‚©
+	//å‹•ã‹ã—ã¦ã‚‹ã‚­ãƒ£ãƒ©ã¯èª°ã‹
 	void SetPlayerInitiative(int playerInitiative) { m_playerInitiative = playerInitiative; };
 
 	int GetPlayerInitiative() { return m_playerInitiative; };
 
+	//ãƒ“ãƒ¥ãƒ¼é€†è¡Œåˆ—
+	void SetInverseView(D3DXMATRIXA16 matInverseView) { m_matInverseView = matInverseView; };
 
+	D3DXMATRIXA16 GetInverseView() { return m_matInverseView; };
 
+	//ãƒãƒ¼ã‚ºç”»é¢ãƒ•ãƒ©ã‚°
+	void SetGameState(int gameState) { m_gameState = gameState; };
+
+	int GetGameState() { return m_gameState; };
+
+	//ã‚¹ãƒ†ãƒ¼ã‚¸ã®FBXãƒ¢ãƒ‡ãƒ«
+	void SetStageFbx(FbxModel* pStageFbx) { m_pStageFbx = pStageFbx; };
+	FbxModel* GetStageFbx() { return m_pStageFbx; };
+
+	void SetMatView(D3DXMATRIX* matView) { m_matView = matView; };
+	D3DXMATRIX* GetMatView() { return m_matView; };
+
+	void SetHp(int hp) { m_hp = hp; }
+	int GetHp() { return m_hp; }
 
 private:
 
-	D3DXVECTOR3 m_playerPosition;     //!< ƒvƒŒƒCƒ„[‚ÌˆÊ’u
-	D3DXVECTOR3 m_cameraPosition;     //!< ƒJƒƒ‰‚ÌˆÊ’u
-	D3DXVECTOR3 m_playerMovement;     //!< ƒvƒŒƒCƒ„[‚ªˆÚ“®‚µ‚½—Ê
-	float       m_cameraDirection;    //!< ƒJƒƒ‰‚ÌŒü‚«
-	int         m_cameraMode;         //!< ƒJƒƒ‰‚ª‚Ç‚Ìƒ‚[ƒh‚©
-	int         m_playerInitiative;   //!< ƒvƒŒƒCƒ„[‚Ì‘€ì‚Ìå“±Œ ‚Í’N‚ª‚Á‚Ä‚¢‚é‚©@
+	D3DXMATRIXA16 m_matInverseView;    //!< ãƒ“ãƒ¥ãƒ¼é€†è¡Œåˆ—
+	D3DXVECTOR3   m_playerPosition;    //!< ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½ç½®
+	D3DXVECTOR3   m_cameraPosition;    //!< ã‚«ãƒ¡ãƒ©ã®ä½ç½®
+	D3DXVECTOR3   m_playerMovement;    //!< ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒç§»å‹•ã—ãŸé‡
+	float         m_cameraDirection;   //!< ã‚«ãƒ¡ãƒ©ã®å‘ã
+	int           m_cameraMode;        //!< ã‚«ãƒ¡ãƒ©ãŒã©ã®ãƒ¢ãƒ¼ãƒ‰ã‹
+	int           m_playerInitiative;  //!< ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ“ä½œã®ä¸»å°æ¨©ã¯èª°ãŒæŒã£ã¦ã„ã‚‹ã‹ã€€
+	int           m_gameState;         //!< ã‚²ãƒ¼ãƒ ãŒä¸€æ¬¡åœæ­¢ã—ã¦ã„ã‚‹ã‹ãªã©ã®çŠ¶æ…‹
+	FbxModel*     m_pStageFbx;         //!< ã‚¹ãƒ†ãƒ¼ã‚¸ã®FBXã®ãƒã‚¤ãƒ³ã‚¿
+	D3DXMATRIX*   m_matView;
+	int           m_hp = 3;   
 };

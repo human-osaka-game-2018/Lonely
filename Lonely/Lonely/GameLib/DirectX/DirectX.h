@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	DirectX.h
-* @brief DirectXƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief DirectXã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -12,91 +12,91 @@
 #pragma comment(lib, "d3dx9.lib")
 
 /**
-* @brief ‰ğ•úˆ—‚ğs‚¤ƒ}ƒNƒ
+* @brief è§£æ”¾å‡¦ç†ã‚’è¡Œã†ãƒã‚¯ãƒ­
 */
 #define SAFE_RELEASE(x) { if(x) { (x)->Release(); (x) = NULL; } }
 
 /** 
-* @brief DirectXŠÖŒW‚Ìˆ—‚âî•ñ‚ğ‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief DirectXé–¢ä¿‚ã®å‡¦ç†ã‚„æƒ…å ±ã‚’ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class DirectX
 {
 public:
 
 	/** 
-	* @brief •`‰æƒ‚[ƒh
+	* @brief æç”»ãƒ¢ãƒ¼ãƒ‰
 	*/
 	enum ERenderMode
 	{
-		Normal,		//!< ‘‚«‚İ 
-		Add,		//!< ‰ÁZ 
-		Subtract,	//!< Œ¸Z 
-		Multiple,	//!< æZ 
+		Normal,		//!< æ›¸ãè¾¼ã¿ 
+		Add,		//!< åŠ ç®— 
+		Subtract,	//!< æ¸›ç®— 
+		Multiple,	//!< ä¹—ç®— 
 	};
 
 	DirectX();
 	~DirectX();
 
 	/** 
-	* @brief DirectX‚Ì‰Šú‰»‚ğs‚¤ŠÖ”
-	* @param ƒEƒBƒ“ƒhƒEƒnƒ“ƒhƒ‹
-	* @param ƒEƒBƒ“ƒhƒE‚Ì‰¡•
-	* @param ƒEƒBƒ“ƒhƒE‚Ìc•
-	* @param ƒEƒBƒ“ƒhƒE‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚©‚Ç‚¤‚©
-	* @return ‰Šú‰»‚ªŠ®—¹‚µ‚½‚çTRUE
+	* @brief DirectXã®åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…
+	* @param ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‹ã©ã†ã‹
+	* @return åˆæœŸåŒ–ãŒå®Œäº†ã—ãŸã‚‰TRUE
 	*/
 	bool Initialize(HWND hWnd, int width, int height, bool isFullscreen);
 	
 	/** 
-	* @brief DirectX‚ÌI—¹ˆ—‚ğs‚¤ŠÖ”
+	* @brief DirectXã®çµ‚äº†å‡¦ç†ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief •`‰æƒV[ƒ“‚ÌŠJn‚ğéŒ¾‚·‚éŠÖ”
+	* @brief æç”»ã‚·ãƒ¼ãƒ³ã®é–‹å§‹ã‚’å®£è¨€ã™ã‚‹é–¢æ•°
 	*/
 	void BeginRenderScene();
 
 	/** 
-	* @brief •`‰æƒV[ƒ“‚ÌI—¹‚ğéŒ¾‚·‚éŠÖ”
+	* @brief æç”»ã‚·ãƒ¼ãƒ³ã®çµ‚äº†ã‚’å®£è¨€ã™ã‚‹é–¢æ•°
 	*/
 	void EndRenderScene();
 
 	/** 
-	* @brief ƒoƒbƒNƒoƒbƒtƒ@‚ÌƒNƒŠƒA‚ğs‚¤ŠÖ”
-	* @param ƒXƒeƒ“ƒVƒ‹Aƒ^[ƒQƒbƒgA[“xƒoƒbƒtƒ@‚Ì‘g‚İ‡‚í‚¹
-	* @param ƒNƒŠƒA‚µ‚½‚¢ƒJƒ‰[
-	* @param [“xƒoƒbƒtƒ@‚ğƒNƒŠƒA‚·‚éZ’li0‚©‚ç‚P‚Ü‚Åj
-	* @param ƒXƒeƒ“ƒVƒ‹ƒoƒbƒtƒ@‚ğƒNƒŠƒA‚·‚é’l
+	* @brief ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢ã‚’è¡Œã†é–¢æ•°
+	* @param ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ã€ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã€æ·±åº¦ãƒãƒƒãƒ•ã‚¡ã®çµ„ã¿åˆã‚ã›
+	* @param ã‚¯ãƒªã‚¢ã—ãŸã„ã‚«ãƒ©ãƒ¼
+	* @param æ·±åº¦ãƒãƒƒãƒ•ã‚¡ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹Zå€¤ï¼ˆ0ã‹ã‚‰ï¼‘ã¾ã§ï¼‰
+	* @param ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒãƒƒãƒ•ã‚¡ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹å€¤
 	*/
 	void ClearBackBuffer(DWORD target, D3DCOLOR color, float depth = 1.0f, DWORD stencil = 0);
 	
 	/** 
-	* @brief ‰æ–Ê‚ÌƒtƒŠƒbƒv‚ğs‚¤ŠÖ”
+	* @brief ç”»é¢ã®ãƒ•ãƒªãƒƒãƒ—ã‚’è¡Œã†é–¢æ•°
 	*/
 	void FlipDisp();
 
 	/** 
-	* @brief ‰Šú‚Ì•`‰æƒXƒe[ƒg‚Ìİ’è‚ğs‚¤ŠÖ”
+	* @brief åˆæœŸã®æç”»ã‚¹ãƒ†ãƒ¼ãƒˆã®è¨­å®šã‚’è¡Œã†é–¢æ•°
 	*/
 	void SetDefaultRenderState();
 
 	/** 
-	* @brief •`‰æƒXƒe[ƒg‚Ìİ’è‚ğs‚¤ŠÖ”
-	* @param ‚Ç‚Ì•`‰æƒXƒe[ƒgƒ‚[ƒh‚É‚·‚é‚©
-	* @param “§–¾‰»‚ğ‰Â”\‚Æ‚·‚é‚©
+	* @brief æç”»ã‚¹ãƒ†ãƒ¼ãƒˆã®è¨­å®šã‚’è¡Œã†é–¢æ•°
+	* @param ã©ã®æç”»ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¢ãƒ¼ãƒ‰ã«ã™ã‚‹ã‹
+	* @param é€æ˜åŒ–ã‚’å¯èƒ½ã¨ã™ã‚‹ã‹
 	*/
 	void SetRenderMode(ERenderMode mode, bool enableAlpha);
 
 	/** 
-	* @brief Direct3DƒIƒuƒWƒFƒNƒg‚Ìæ“¾‚ğs‚¤ŠÖ”
-	* @return Direct3DƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒX
+	* @brief Direct3Dã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—ã‚’è¡Œã†é–¢æ•°
+	* @return Direct3Dã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	*/
 	IDirect3D9* GetDirect3D() { return m_pD3D; }
 
 	/** 
-	* @brief Direct3DDeviceƒIƒuƒWƒFƒNƒg‚Ìæ“¾‚ğs‚¤ŠÖ”
-	* @return Direct3DDeviceƒIƒuƒWƒFƒNƒg‚ÌƒAƒhƒŒƒX
+	* @brief Direct3DDeviceã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—ã‚’è¡Œã†é–¢æ•°
+	* @return Direct3DDeviceã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	*/
 	IDirect3DDevice9* GetDirect3DDevice() { return m_pDevice; }
 

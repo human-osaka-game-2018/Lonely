@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Sprite.h
-* @brief SpriteƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Spriteã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -14,7 +14,7 @@
 #define FVF_SIMPLE_TEX_2D   (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
 
 /**	
-* @brief ƒXƒvƒ‰ƒCƒgƒNƒ‰ƒX
+* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚¯ãƒ©ã‚¹
 */
 class Sprite
 {
@@ -24,52 +24,52 @@ public:
 	~Sprite();
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚Ì¶¬
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ç”Ÿæˆ
 	* @param 
 	* @return
 	*/
 	bool Create(const char* pTexturePath = NULL);
 	
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚Ì‰ğ•ú
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®è§£æ”¾
 	*/
 	void Finalize();
 
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg•`‰æ
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆæç”»
 	*/
 	void Render();
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌÀ•Wİ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åº§æ¨™è¨­å®š
 	* @param
 	* @param 
 	*/
 	void SetPos(float x, float y);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒYİ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚ºè¨­å®š
 	* @param 
 	* @param 
 	*/
 	void SetSize(float width, float height);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚Ì‰ñ“]İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å›è»¢è¨­å®š
 	* @param 
 	*/
 	void SetRotation(float angle);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌŒ´“_İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åŸç‚¹è¨­å®š
 	* @param 
 	* @param
 	*/
 	void SetOrigin(float x, float y);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌUVİ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®UVè¨­å®š
 	* @param 
 	* @param
 	* @param
@@ -77,48 +77,48 @@ public:
 	void SetUV(int u, int v, int width, int height);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌƒJƒ‰[İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚«ãƒ©ãƒ¼è¨­å®š
 	* @param 
 	*/
 	void SetColor(D3DCOLOR color);
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌÀ•Wæ“¾
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åº§æ¨™å–å¾—
 	*/
 	float GetX() const { return m_x; }
 
 	/**
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌÀ•Wæ“¾
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åº§æ¨™å–å¾—
 	*/
 	float GetY() const { return m_y; }
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒYæ“¾
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚ºå–å¾—
 	*/
 	float GetWidth() const { return m_width; }
 
 	/**
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌƒTƒCƒYæ“¾
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚µã‚¤ã‚ºå–å¾—
 	*/
 	float GetHeight() const { return m_height; }
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚Ì‰ñ“]İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å›è»¢è¨­å®š
 	*/
 	float GetRotation() const { return m_angle; }
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌŒ´“_İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åŸç‚¹è¨­å®š
 	*/
 	float GetOriginX() const { return m_cx; }
 
 	/**
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌŒ´“_İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®åŸç‚¹è¨­å®š
 	*/
 	float GetOriginY() const { return m_cy; }
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌUVæ“¾
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®UVå–å¾—
 	*/
 	float GetU() const { return m_u1; }
 	float GetV() const { return m_v1; }
@@ -126,12 +126,12 @@ public:
 	float GetVHeight() const { return m_v2 - m_v1; }
 
 	/** 
-	* @brief ƒXƒvƒ‰ƒCƒg‚ÌƒJƒ‰[İ’è
+	* @brief ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®ã‚«ãƒ©ãƒ¼è¨­å®š
 	*/
 	D3DCOLOR GetColor() const { return m_color; }
 
 	/** 
-	* @brief ƒeƒNƒXƒ`ƒƒ[‚Ìæ“¾
+	* @brief ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®å–å¾—
 	*/
 	Texture* GetTexture(void) { return &m_texture; }
 

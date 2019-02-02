@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Object3DBase.cpp
-* @brief Object3DBaseƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Object3DBaseã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 

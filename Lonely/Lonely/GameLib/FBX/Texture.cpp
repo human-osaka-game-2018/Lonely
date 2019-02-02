@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file Texture.cpp
-* @brief TextureƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief Textureã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,14 +9,14 @@
 
 #define	TEXTURE_MAX	1000
 
-// ƒeƒNƒXƒ`ƒƒ[ƒf[ƒ^
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ãƒ‡ãƒ¼ã‚¿
 struct TextureData
 {
-	UINT				width;		// ƒeƒNƒXƒ`ƒƒ[‚ÌŒ³‚Ì•
-	UINT				height;		// ƒeƒNƒXƒ`ƒƒ[‚ÌŒ³‚Ì‚‚³
-	UINT				srcWidth;	// DirectX‚É•Û‘¶‚³‚ê‚½ƒeƒNƒXƒ`ƒƒ‚Ì•
-	UINT				srcHeight;	// DirectX‚É•Û‘¶‚³‚ê‚½ƒeƒNƒXƒ`ƒƒ‚Ì‚‚³
-	IDirect3DTexture9*	pTexture;	// ¶¬‚µ‚½ƒeƒNƒXƒ`ƒƒ[‚Ìƒ|ƒCƒ“ƒ^
+	UINT				width;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®å…ƒã®å¹…
+	UINT				height;		// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®å…ƒã®é«˜ã•
+	UINT				srcWidth;	// DirectXã«ä¿å­˜ã•ã‚ŒãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ã®å¹…
+	UINT				srcHeight;	// DirectXã«ä¿å­˜ã•ã‚ŒãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ã®é«˜ã•
+	IDirect3DTexture9*	pTexture;	// ç”Ÿæˆã—ãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®ãƒã‚¤ãƒ³ã‚¿
 };
 
 struct LoadedTextureInfo
@@ -27,7 +27,7 @@ struct LoadedTextureInfo
 };
 static LoadedTextureInfo g_loadedTextures[TEXTURE_MAX] = {};
 
-// ƒeƒNƒXƒ`ƒƒ[‚Ì“Ç‚İ‚İ
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®èª­ã¿è¾¼ã¿
 static const TextureData* LoadTexture(const char* pFileName)
 {
 	for (int i = 0; i < TEXTURE_MAX; i++)
@@ -49,28 +49,28 @@ static const TextureData* LoadTexture(const char* pFileName)
 
 		IDirect3DTexture9* pTexture;
 		D3DXIMAGE_INFO info;
-		// ƒtƒ@ƒCƒ‹‚©‚çƒeƒNƒXƒ`ƒƒ[‚ğ¶¬‚·‚é
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚’ç”Ÿæˆã™ã‚‹
 		HRESULT hr = D3DXCreateTextureFromFileExA(
 			GameLib::Instance.GetDirect3DDevice(),	// Direct3DDevice
-			pFileName,				// ƒtƒ@ƒCƒ‹–¼
-			D3DX_DEFAULT,			// ‰¡•(D3DX_DEFAULT‚Åƒtƒ@ƒCƒ‹‚©‚ç”»’è)
-			D3DX_DEFAULT,			// ‚‚³(D3DX_DEFAULT‚Åƒtƒ@ƒCƒ‹‚©‚ç”»’è)
-			1,						// ƒ~ƒbƒvƒ}ƒbƒv‚Ì”
-			0,						// g—p—p“r
-			D3DFMT_A8R8G8B8,		// ƒtƒH[ƒ}ƒbƒg
-			D3DPOOL_MANAGED,		// ƒƒ‚ƒŠ‚ÌŠÇ—İ’è
-			D3DX_FILTER_NONE,		// ƒtƒBƒ‹ƒ^[İ’è
-			D3DX_DEFAULT,			// ƒ~ƒbƒvƒ}ƒbƒvƒtƒBƒ‹ƒ^[‚Ìİ’è
-			0x00000000,				// ƒJƒ‰[ƒL[
-			&info,					// ‰æ‘œî•ñ
-			NULL,					// ƒpƒŒƒbƒgƒf[ƒ^
-			&pTexture);				// ¶¬‚µ‚½ƒeƒNƒXƒ`ƒƒ[‚ÌŠi”[æ
+			pFileName,				// ãƒ•ã‚¡ã‚¤ãƒ«å
+			D3DX_DEFAULT,			// æ¨ªå¹…(D3DX_DEFAULTã§ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åˆ¤å®š)
+			D3DX_DEFAULT,			// é«˜ã•(D3DX_DEFAULTã§ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰åˆ¤å®š)
+			1,						// ãƒŸãƒƒãƒ—ãƒãƒƒãƒ—ã®æ•°
+			0,						// ä½¿ç”¨ç”¨é€”
+			D3DFMT_A8R8G8B8,		// ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+			D3DPOOL_MANAGED,		// ãƒ¡ãƒ¢ãƒªã®ç®¡ç†è¨­å®š
+			D3DX_FILTER_NONE,		// ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼è¨­å®š
+			D3DX_DEFAULT,			// ãƒŸãƒƒãƒ—ãƒãƒƒãƒ—ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã®è¨­å®š
+			0x00000000,				// ã‚«ãƒ©ãƒ¼ã‚­ãƒ¼
+			&info,					// ç”»åƒæƒ…å ±
+			NULL,					// ãƒ‘ãƒ¬ãƒƒãƒˆãƒ‡ãƒ¼ã‚¿
+			&pTexture);				// ç”Ÿæˆã—ãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®æ ¼ç´å…ˆ
 		if (SUCCEEDED(hr))
 		{
 			D3DSURFACE_DESC desc;
-			// ¶¬‚µ‚½ƒeƒNƒXƒ`ƒƒ[‚Ìî•ñ‚ğæ“¾
+			// ç”Ÿæˆã—ãŸãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®æƒ…å ±ã‚’å–å¾—
 			pTexture->GetLevelDesc(0, &desc);
-			// ƒeƒNƒXƒ`ƒƒ[î•ñ‚Ìİ’è
+			// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼æƒ…å ±ã®è¨­å®š
 			pInfo->texData.pTexture = pTexture;
 			pInfo->texData.srcWidth = info.Width;
 			pInfo->texData.srcHeight = info.Height;
@@ -84,7 +84,7 @@ static const TextureData* LoadTexture(const char* pFileName)
 	return NULL;
 }
 
-// ƒeƒNƒXƒ`ƒƒ[‚Ì‰ğ•ú
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®è§£æ”¾
 void ReleaseTexture(IDirect3DTexture9* pTexture)
 {
 	if (pTexture == nullptr) return;
@@ -121,7 +121,7 @@ Texture::~Texture(void)
 	Finalize();
 }
 
-// ƒeƒNƒXƒ`ƒƒ[‚Ì“Ç‚İ‚İ
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®èª­ã¿è¾¼ã¿
 bool Texture::Load(const char* pFileName)
 {
 	const TextureData* pData = LoadTexture(pFileName);
@@ -135,7 +135,7 @@ bool Texture::Load(const char* pFileName)
 	return true;
 }
 
-// ƒeƒNƒXƒ`ƒƒ[‚Ì“Ç‚İ‚İ
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®èª­ã¿è¾¼ã¿
 bool Texture::CreateFromMemory(const void* pData, UINT size)
 {
 	IDirect3DTexture9* pTexture;
@@ -173,7 +173,7 @@ bool Texture::CreateFromMemory(const void* pData, UINT size)
 	return true;
 }
 
-// ƒeƒNƒXƒ`ƒƒ[‚Ì‰ğ•ú
+// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®è§£æ”¾
 void Texture::Finalize(void)
 {
 	if (m_pTexture != nullptr)

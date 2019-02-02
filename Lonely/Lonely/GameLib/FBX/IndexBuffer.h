@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file IndexBuffer.h
-* @brief IndexBufferƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief IndexBufferã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,7 +9,7 @@
 #include "d3d9.h"
 
 /** 
-* @brief IndexBufferŠÖŒW‚Ìˆ—‚âî•ñ‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief IndexBufferé–¢ä¿‚ã®å‡¦ç†ã‚„æƒ…å ±ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class IndexBuffer
 {
@@ -19,19 +19,19 @@ public:
 	~IndexBuffer();
 
 	/** 
-	* @brief ƒoƒbƒtƒ@‚Ì¶¬‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆã‚’è¡Œã†é–¢æ•°
 	* @param 
 	* @param 
 	*/
 	bool Create(UINT size, const UINT16* pIndeces = nullptr);
 
 	/** 
-	* @brief ƒoƒbƒtƒ@‚Ì‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief ƒoƒbƒtƒ@‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ãƒãƒƒãƒ•ã‚¡ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	IDirect3DIndexBuffer9*	GetBuffer() { return m_pBuffer; }
 

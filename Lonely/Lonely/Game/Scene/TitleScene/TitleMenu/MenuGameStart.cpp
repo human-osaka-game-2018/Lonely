@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file MenuGameStart.cpp
-* @brief MenuGameStartƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief MenuGameStartã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -18,45 +18,45 @@ MenuGameStart::~MenuGameStart()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool MenuGameStart::Initialize()
 {
-	//ƒeƒNƒXƒ`ƒƒ[“Ç‚Ýž‚Ý
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼èª­ã¿è¾¼ã¿
 	if (!m_texture.Load("../Graphics/gameStart.png"))
 	{
 		return false;
 	}
 
-	//’¸“_‚ÌÀ•W‚ðƒZƒbƒg
+	//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth()) / 2
 		, static_cast<float>(WINDOW->GetHeight()) / 16 * 11
 		, 200.f
 		, 80.f);
 
-	//Žn‚ß‚Í•`‰æ‚µ‚È‚¢
+	//å§‹ã‚ã¯æç”»ã—ãªã„
 	m_canRender = false;
 
 	return true;
 }
 
-//‰ð•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void MenuGameStart::Finalize()
 {
 	m_texture.Finalize();
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void MenuGameStart::Update(int step)
 {
 	if (step != STEP1)
 	{
-		//ƒXƒeƒbƒv‚PˆÈŠO‚Í•`‰æ‚·‚é
+		//ã‚¹ãƒ†ãƒƒãƒ—ï¼‘ä»¥å¤–ã¯æç”»ã™ã‚‹
 		m_canRender = true;
 	}
 }
 
-//•`‰æ‚·‚é
+//æç”»ã™ã‚‹
 void MenuGameStart::Render()
 {
 	if (m_canRender == false)
@@ -67,8 +67,8 @@ void MenuGameStart::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//ƒeƒNƒXƒ`ƒƒ‚ÌÝ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 }

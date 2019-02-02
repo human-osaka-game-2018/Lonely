@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleScene.h
-* @brief TitleSceneƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief TitleSceneã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -20,7 +20,7 @@
 
 
 /**
-* @brief ƒ^ƒCƒgƒ‹ƒV[ƒ“‚ÌƒNƒ‰ƒX
+* @brief ã‚¿ã‚¤ãƒˆãƒ«ã‚·ãƒ¼ãƒ³ã®ã‚¯ãƒ©ã‚¹
 */
 class TitleScene : public SceneBase
 {
@@ -30,22 +30,22 @@ public:
 	~TitleScene();
 
 	/**
-	* @brief ‰Šú‰»ŠÖ”
+	* @brief åˆæœŸåŒ–é–¢æ•°
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•úŠÖ”
+	* @brief è§£æ”¾é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 

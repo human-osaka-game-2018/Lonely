@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file UIHitPoint.h
-* @brief UIHitPointƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief UIHitPointã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,10 +9,11 @@
 #include "../../../../GameLib/ObjectManager/Object2DBase.h"
 #include "../../../../GameLib/DirectX/DirectX.h"
 #include "../../../../GameLib/2DHelper/2DHelper.h"
+#include "../SharedInformation/SharedInformation.h"
 
 
 /**
-* @brief UI‚ÌHPŠÖŒW‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief UIã®HPé–¢ä¿‚ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class UIHitPoint : public Object2DBase
 {
@@ -22,26 +23,28 @@ public:
 	~UIHitPoint();
 
 	/**
-	* @brief ‰Šú‰»‚·‚éŠÖ”
-	* @return ‰Šú‰»‚ªãè‚­‚Å‚«‚Ä‚¢‚È‚¢‚ÆFALSE
+	* @brief åˆæœŸåŒ–ã™ã‚‹é–¢æ•°
+	* @return åˆæœŸåŒ–ãŒä¸Šæ‰‹ãã§ãã¦ã„ãªã„ã¨FALSE
 	*/
 	bool Initialize();
 
 	/**
-	* @brief ‰ğ•ú‚·‚éŠÖ”
+	* @brief è§£æ”¾ã™ã‚‹é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ‘€ìŠÖ”
+	* @brief æ“ä½œé–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Render();
 
 private:
 
+	SharedInformation* m_pSharedInformation;
+	int                m_hp;
 };

@@ -1,12 +1,13 @@
-/**
+ï»¿/**
 * @file SharedInformation.cpp
-* @brief SharedInformationƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief SharedInformationã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
 #include "SharedInformation.h"
+#include "EnumGameState.h"
 
-// GameLib‚ÌÀ‘Ì’è‹`
+// GameLibã®å®Ÿä½“å®šç¾©
 SharedInformation SharedInformation::Instance;
 
 SharedInformation::SharedInformation()
@@ -15,6 +16,7 @@ SharedInformation::SharedInformation()
 	, m_cameraDirection(0.f)
 	, m_cameraMode(DEFAULT_CAMERA)
 	, m_playerInitiative(SUMAHONEKO)
+	, m_gameState(PLAY)
 {
 	Initialize();
 }
@@ -24,10 +26,10 @@ SharedInformation::~SharedInformation()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool SharedInformation::Initialize()
 {
-	//ƒZ[ƒuƒf[ƒ^‚Ìî•ñ‚Å‰Šú‰»‚·‚é
+	//ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®æƒ…å ±ã§åˆæœŸåŒ–ã™ã‚‹
 	//m_playerPosition = SaveData->GetPlayerPosition();
 	//m_cameraPosition = SaveData->GetPlayerPosition();
 	//m_cameraMode = saveData->GetCameraMode();
@@ -35,8 +37,8 @@ bool SharedInformation::Initialize()
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void SharedInformation::Finalize()
 {
-	//ƒZ[ƒuƒf[ƒ^‚Ì•Û‘¶
+	//ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜
 }

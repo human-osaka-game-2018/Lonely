@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	Input.h
-* @brief InputƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief Inputã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -9,14 +9,14 @@
 #include <windows.h>
 
 /** 
-* @brief DirectInputŠÖŒW‚Ìˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief DirectInputé–¢ä¿‚ã®å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class Input
 {
 public:
 
 	/**
-	* @brief ƒL[“ü—Í‚Ì\‘¢‘Ì
+	* @brief ã‚­ãƒ¼å…¥åŠ›ã®æ§‹é€ ä½“
 	*/
 	enum EKeyBind
 	{
@@ -24,10 +24,10 @@ public:
 		A,		//!< A
 		B,		//!< B
 
-		Up,		//!< ª
-		Down,	//!< «
-		Left,	//!< ©
-		Right,	//!< ¨
+		Up,		//!< â†‘
+		Down,	//!< â†“
+		Left,	//!< â†
+		Right,	//!< â†’
 
 
 		KeyBindMax,
@@ -37,51 +37,51 @@ public:
 	~Input();
 
 	/** 
-	* @brief “ü—ÍƒVƒXƒeƒ€‚Ì‰Šú‰»‚ğs‚¤ŠÖ”
+	* @brief å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Initialize();
 
 	/** 
-	* @brief “ü—ÍƒVƒXƒeƒ€‚Ì‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief å…¥åŠ›ã‚·ã‚¹ãƒ†ãƒ ã®è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/** 
-	* @brief “ü—Íó‹µ‚ÌXV‚ğs‚¤ŠÖ”
+	* @brief å…¥åŠ›çŠ¶æ³ã®æ›´æ–°ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Update();
 
 	/** 
-	* @brief ƒL[ƒoƒCƒ“ƒh‚Ìİ’è‚ğs‚¤ŠÖ”
-	* @param ƒL[“ü—Íî•ñ‚ğ‚Ü‚Æ‚ß‚½\‘¢‘Ì
-	* @param ‚Ç‚ÌƒL[“ü—Íî•ñ‚ª—~‚µ‚¢‚©
+	* @brief ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã®è¨­å®šã‚’è¡Œã†é–¢æ•°
+	* @param ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ã‚’ã¾ã¨ã‚ãŸæ§‹é€ ä½“
+	* @param ã©ã®ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ãŒæ¬²ã—ã„ã‹
 	*/
 	void BindKey(EKeyBind key, int keycode);
 
 	/** 
-	* @brief ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚©‚ğæ“¾‚·‚éŠÖ”
-	* @param ƒL[“ü—Íî•ñ‚ğ‚Ü‚Æ‚ß‚½\‘¢‘Ì
-	* @return ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çTRUE
+	* @brief ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’å–å¾—ã™ã‚‹é–¢æ•°
+	* @param ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ã‚’ã¾ã¨ã‚ãŸæ§‹é€ ä½“
+	* @return ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰TRUE
 	*/
 	bool IsKeyPress(EKeyBind key);
 
 	/**
-	* @brief ƒL[‚ª‰Ÿ‚³‚ê‚½‚©H
-	* @param “ü—Íî•ñ‚ğ‚Ü‚Æ‚ß‚½\‘¢‘Ì
-	* @return ƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚çTRUE
+	* @brief ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‹ï¼Ÿ
+	* @param å…¥åŠ›æƒ…å ±ã‚’ã¾ã¨ã‚ãŸæ§‹é€ ä½“
+	* @return ã‚­ãƒ¼ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰TRUE
 	*/
 	bool IsKeyPush(EKeyBind key);
 
 	/** 
-	* @brief ƒL[‚ª—£‚³‚ê‚½‚©æ“¾‚·‚éŠÖ”
-	* @return ƒL[‚ª—£‚³‚ê‚Ä‚¢‚½‚çTRUE
+	* @brief ã‚­ãƒ¼ãŒé›¢ã•ã‚ŒãŸã‹å–å¾—ã™ã‚‹é–¢æ•°
+	* @return ã‚­ãƒ¼ãŒé›¢ã•ã‚Œã¦ã„ãŸã‚‰TRUE
 	*/
 	bool IsKeyReleases(EKeyBind key);
 
 private:
 	
 	/**
-	* @brief ƒL[“ü—Íî•ñ‚ğ‚Â\‘¢‘Ì
+	* @brief ã‚­ãƒ¼å…¥åŠ›æƒ…å ±ã‚’æŒã¤æ§‹é€ ä½“
 	*/
 	struct KeyInfo
 	{
@@ -90,6 +90,6 @@ private:
 		int keyStateOld;
 	};
 
-	/** KeyInfo\‘¢‘Ì‚ÌÀ‘Ô */
+	/** KeyInfoæ§‹é€ ä½“ã®å®Ÿæ…‹ */
 	KeyInfo	m_keyState;
 };

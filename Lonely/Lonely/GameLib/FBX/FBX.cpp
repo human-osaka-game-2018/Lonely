@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file FBX.cpp
-* @brief FBXƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief FBXã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -27,7 +27,7 @@ FbxModel::~FbxModel(void)
 	Finalize();
 }
 
-// FBX‚Ì“Ç‚İ‚İ
+// FBXã®èª­ã¿è¾¼ã¿
 bool FbxModel::Load(const char* pFileName)
 {
 	strcpy_s(m_rootDir, pFileName);
@@ -38,11 +38,11 @@ bool FbxModel::Load(const char* pFileName)
 	}
 	m_rootDir[i] = '\0';
 
-	// FBX‚Ìƒ}ƒl[ƒWƒƒ[‚ÆƒCƒ“ƒ|[ƒ^[‚Ì¶¬
+	// FBXã®ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã¨ã‚¤ãƒ³ãƒãƒ¼ã‚¿ãƒ¼ã®ç”Ÿæˆ
 	FbxManager* pManager = FbxManager::Create();
 	FbxScene* pScene = FbxScene::Create(pManager, "");
 
-	// ƒtƒ@ƒCƒ‹‚ÌƒCƒ“ƒ|[ƒg
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 	FbxImporter* pImpoter = FbxImporter::Create(pManager, "");
 	pImpoter->Initialize(pFileName);
 	pImpoter->Import(pScene);
@@ -50,29 +50,29 @@ bool FbxModel::Load(const char* pFileName)
 
 
 	fbxsdk::FbxGeometryConverter converter(pManager);
-	// ƒ}ƒeƒŠƒAƒ‹‚Æ1ƒƒbƒVƒ…–ˆ‚É•ª‚¯‚é
+	// ãƒãƒ†ãƒªã‚¢ãƒ«ã¨1ãƒ¡ãƒƒã‚·ãƒ¥æ¯ã«åˆ†ã‘ã‚‹
 	converter.SplitMeshesPerMaterial(pScene, true);
-	// ‘S‚Ä‚ğOŠpŒ`‚É‚·‚é
+	// å…¨ã¦ã‚’ä¸‰è§’å½¢ã«ã™ã‚‹
 	converter.Triangulate(pScene, true);
 
-	// ƒƒbƒVƒ…•ª‚Ìƒoƒbƒtƒ@‚ğŠm•Û
+	// ãƒ¡ãƒƒã‚·ãƒ¥åˆ†ã®ãƒãƒƒãƒ•ã‚¡ã‚’ç¢ºä¿
 	UINT meshNum = (UINT)pScene->GetSrcObjectCount<FbxMesh>();
-	// ƒ}ƒeƒŠƒAƒ‹•ª‚Ìƒoƒbƒtƒ@‚ğŠm•Û
+	// ãƒãƒ†ãƒªã‚¢ãƒ«åˆ†ã®ãƒãƒƒãƒ•ã‚¡ã‚’ç¢ºä¿
 	UINT materialNum = meshNum;
 
-	// ƒ‚ƒfƒ‹‚Ì‰Šú‰»
+	// ãƒ¢ãƒ‡ãƒ«ã®åˆæœŸåŒ–
 	Initialize(meshNum, materialNum);
 
 	m_boneNum = 0;
 	ZeroMemory(m_bone, sizeof(m_bone));
 
-	//	ƒ‚[ƒVƒ‡ƒ“î•ñæ“¾
+	//	ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³æƒ…å ±å–å¾—
 	FbxArray<FbxString*> names;
 	pScene->FillAnimStackNameArray(names);
 
 	int StartFrame = 0;
 	if (names != NULL) {
-		//	ƒ‚[ƒVƒ‡ƒ“‚ª‘¶İ‚·‚é‚Æ‚«
+		//	ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ã¨ã
 		FbxTakeInfo* take = pScene->GetTakeInfo(names[0]->Buffer());
 		FbxLongLong start = take->mLocalTimeSpan.GetStart().Get();
 		FbxLongLong stop = take->mLocalTimeSpan.GetStop().Get();
@@ -85,7 +85,7 @@ bool FbxModel::Load(const char* pFileName)
 
 
 	m_pVertices.resize(meshNum);
-	// ƒƒbƒVƒ…’PˆÊ‚Å“WŠJ‚µ‚Ä‚¢‚­
+	// ãƒ¡ãƒƒã‚·ãƒ¥å˜ä½ã§å±•é–‹ã—ã¦ã„ã
 	for (UINT i = 0; i < meshNum; i++)
 	{
 		FbxMesh* pMesh = pScene->GetSrcObject<FbxMesh>(i);
@@ -99,7 +99,7 @@ bool FbxModel::Load(const char* pFileName)
 
 		UINT size = (UINT)(pMeshData->vertexNum * sizeof(MeshVertex));
 		MeshVertex* pVertices;
-		// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+		// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 		pMeshData->vertexBuffer.GetBuffer()->Lock(0, size, (void**)&pVertices, 0);
 
 		m_pVertices[i] = new MeshVertex[size];
@@ -117,7 +117,7 @@ bool FbxModel::Load(const char* pFileName)
 	return true;
 }
 
-// ƒƒbƒVƒ…‚Ì‰ğ•ú
+// ãƒ¡ãƒƒã‚·ãƒ¥ã®è§£æ”¾
 void FbxModel::Finalize(void)
 {
 	for (size_t i = 0; i < m_pVertices.size(); i++)
@@ -131,7 +131,7 @@ void FbxModel::Finalize(void)
 	Model::Finalize();
 }
 
-// FBXƒƒbƒVƒ…‚Ì•`‰æ
+// FBXãƒ¡ãƒƒã‚·ãƒ¥ã®æç”»
 void FbxModel::Render(void)
 {
 	Skinning();
@@ -147,19 +147,19 @@ void FbxModel::Play(std::string name)
 
 void FbxModel::Animate(float sec)
 {
-	//	ƒ‚[ƒVƒ‡ƒ“ŠÔ‚ÌXV
+	//	ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³æ™‚é–“ã®æ›´æ–°
 	m_frame += sec * 60.0f;
 
-	//	ƒ‹[ƒvƒ`ƒFƒbƒN
+	//	ãƒ«ãƒ¼ãƒ—ãƒã‚§ãƒƒã‚¯
 	if (m_frame >= m_motion[m_playMotion].numFrame - 1)
 	{
-		// ƒ‹[ƒv
+		// ãƒ«ãƒ¼ãƒ—
 		m_frame = 0;
 	}
 }
 
 
-//	ƒ{[ƒ“s—ñ‚Ì•âŠÔ
+//	ãƒœãƒ¼ãƒ³è¡Œåˆ—ã®è£œé–“
 static void MatrixInterporate(D3DXMATRIX& out, D3DXMATRIX& A, D3DXMATRIX B, float rate)
 {
 	out = A * (1.0f - rate) + B * rate;
@@ -174,22 +174,22 @@ void FbxModel::Skinning(void)
 	if (pMotion->numFrame < 0) return;
 
 	float Frame = m_frame;
-	//	”z—ñ—p•Ï”
+	//	é…åˆ—ç”¨å¤‰æ•°
 	int f = (int)Frame;
-	//	s—ñ€”õ
+	//	è¡Œåˆ—æº–å‚™
 	D3DXMATRIX KeyMatrix[256];
 	for (UINT b = 0; b < m_boneNum; b++)
 	{
 		if (pMotion->Key[b].empty()) continue;
-		//	s—ñ•âŠÔ
+		//	è¡Œåˆ—è£œé–“
 		D3DXMATRIX m;
 		MatrixInterporate(m, pMotion->Key[b][f], pMotion->Key[b][f + 1], Frame - (int)Frame);
 		m_bone[b].transform = m;
-		//	ƒL[ƒtƒŒ[ƒ€
+		//	ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ 
 		KeyMatrix[b] = m_bone[b].offset * m;
 	}
 
-	//	’¸“_•ÏŒ`
+	//	é ‚ç‚¹å¤‰å½¢
 	for (UINT meshIdx = 0; meshIdx < m_meshNum; meshIdx++)
 	{
 		MeshData* pMeshData = GetMesh(meshIdx);
@@ -197,19 +197,19 @@ void FbxModel::Skinning(void)
 
 		UINT size = (UINT)(pMeshData->vertexNum * sizeof(MeshVertex));
 		MeshVertex* pVertices;
-		// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+		// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 		pMeshData->vertexBuffer.GetBuffer()->Lock(0, size, (void**)&pVertices, 0);
 		for (UINT v = 0; v < pMeshData->vertexNum; v++)
 		{
-			//	’¸“_ * ƒ{[ƒ“s—ñ
-			// b = v”Ô–Ú‚Ì’¸“_‚Ì‰e‹¿ƒ{[ƒ“[n]
+			//	é ‚ç‚¹ * ãƒœãƒ¼ãƒ³è¡Œåˆ—
+			// b = vç•ªç›®ã®é ‚ç‚¹ã®å½±éŸ¿ãƒœãƒ¼ãƒ³[n]
 			if (pVertices[v].weight[0] <= 0) continue;
 
 			pVertices[v].x = 0;
 			pVertices[v].y = 0;
 			pVertices[v].z = 0;
 
-			//	‰e‹¿ŒÂ”•ªƒ‹[ƒv
+			//	å½±éŸ¿å€‹æ•°åˆ†ãƒ«ãƒ¼ãƒ—
 			for (int n = 0; n < 4; n++)
 			{
 				if (pVertices[v].weight[n] <= 0) break;
@@ -219,7 +219,7 @@ void FbxModel::Skinning(void)
 				float x = pSrcVertices[v].x;
 				float y = pSrcVertices[v].y;
 				float z = pSrcVertices[v].z;
-				//	À•W‚ğ‰e‹¿—Í•ªˆÚ“®
+				//	åº§æ¨™ã‚’å½±éŸ¿åŠ›åˆ†ç§»å‹•
 				pVertices[v].x += (x*KeyMatrix[b]._11 + y * KeyMatrix[b]._21 + z * KeyMatrix[b]._31 + 1 * KeyMatrix[b]._41)*pVertices[v].weight[n];
 				pVertices[v].y += (x*KeyMatrix[b]._12 + y * KeyMatrix[b]._22 + z * KeyMatrix[b]._32 + 1 * KeyMatrix[b]._42)*pVertices[v].weight[n];
 				pVertices[v].z += (x*KeyMatrix[b]._13 + y * KeyMatrix[b]._23 + z * KeyMatrix[b]._33 + 1 * KeyMatrix[b]._43)*pVertices[v].weight[n];
@@ -227,7 +227,7 @@ void FbxModel::Skinning(void)
 				float nx = pSrcVertices[v].nx;
 				float ny = pSrcVertices[v].ny;
 				float nz = pSrcVertices[v].nz;
-				//	–@ü‚ğ‰e‹¿—Í•ª•ÏŠ·
+				//	æ³•ç·šã‚’å½±éŸ¿åŠ›åˆ†å¤‰æ›
 				pVertices[v].nx += (nx*KeyMatrix[b]._11 + ny * KeyMatrix[b]._21 + nz * KeyMatrix[b]._31)*pVertices[v].weight[n];
 				pVertices[v].ny += (nx*KeyMatrix[b]._12 + ny * KeyMatrix[b]._22 + nz * KeyMatrix[b]._32)*pVertices[v].weight[n];
 				pVertices[v].nz += (nx*KeyMatrix[b]._13 + ny * KeyMatrix[b]._23 + nz * KeyMatrix[b]._33)*pVertices[v].weight[n];
@@ -237,7 +237,7 @@ void FbxModel::Skinning(void)
 	}
 }
 
-// FBX‚Ì‰ğÍ
+// FBXã®è§£æ
 bool FbxModel::LoadMesh(UINT meshIdx, FbxMesh* pMesh)
 {
 	LoadIndeces(meshIdx, pMesh);
@@ -266,7 +266,7 @@ void FbxModel::LoadIndeces(UINT meshIdx, FbxMesh* pMesh)
 
 	IDirect3DIndexBuffer9* pIndexBuffer = pMeshData->indexBuffer.GetBuffer();
 	UINT16* pIndeces;
-	// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 	pIndexBuffer->Lock(0, size, (void**)&pIndeces, 0);
 
 	for (int polyIdx = 0; polyIdx < polyCount; polyIdx++)
@@ -286,12 +286,12 @@ void FbxModel::LoadPosition(UINT meshIdx, FbxMesh* pMesh)
 	UINT size = (UINT)(vertexNum * sizeof(MeshVertex));
 
 	FbxVector4* source = pMesh->GetControlPoints();
-	// ƒƒbƒVƒ…‚Ìƒgƒ‰ƒ“ƒXƒtƒH[ƒ€
+	// ãƒ¡ãƒƒã‚·ãƒ¥ã®ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ 
 	FbxVector4 T = pMesh->GetNode()->GetGeometricTranslation(FbxNode::eSourcePivot);
 	FbxVector4 R = pMesh->GetNode()->GetGeometricRotation(FbxNode::eSourcePivot);
 	FbxVector4 S = pMesh->GetNode()->GetGeometricScaling(FbxNode::eSourcePivot);
 	FbxAMatrix TRS = FbxAMatrix(T, R, S);
-	//	‘S’¸“_•ÏŠ·
+	//	å…¨é ‚ç‚¹å¤‰æ›
 	for (int v = 0; v < pMesh->GetControlPointsCount(); v++)
 	{
 		source[v] = TRS.MultT(source[v]);
@@ -303,7 +303,7 @@ void FbxModel::LoadPosition(UINT meshIdx, FbxMesh* pMesh)
 
 	IDirect3DVertexBuffer9* pVertexBuffer = pMeshData->vertexBuffer.GetBuffer();
 	MeshVertex* pVertices;
-	// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 	pVertexBuffer->Lock(0, size, (void**)&pVertices, 0);
 
 	int* pIndex = pMesh->GetPolygonVertices();
@@ -337,7 +337,7 @@ void FbxModel::LoadNormal(UINT meshIdx, FbxMesh* pMesh)
 	IDirect3DVertexBuffer9* pVertexBuffer = pMeshData->vertexBuffer.GetBuffer();
 
 	MeshVertex* pVertices;
-	// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 	pVertexBuffer->Lock(0, size, (void**)&pVertices, 0);
 
 	for (int vtxIdx = 0; vtxIdx < normals.Size(); vtxIdx++)
@@ -365,7 +365,7 @@ void FbxModel::LoadUV(UINT meshIdx, FbxMesh* pMesh)
 	IDirect3DVertexBuffer9* pVertexBuffer = pMeshData->vertexBuffer.GetBuffer();
 
 	MeshVertex* pVertices;
-	// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 	pVertexBuffer->Lock(0, size, (void**)&pVertices, 0);
 
 	for (int vtxIdx = 0; vtxIdx < uvSets.Size(); vtxIdx++)
@@ -398,7 +398,7 @@ void FbxModel::LoadColor(UINT meshIdx, FbxMesh* pMesh)
 
 			UINT size = pMeshData->vertexNum * sizeof(MeshVertex);
 			MeshVertex* pVertices;
-			// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+			// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 			pVertexBuffer->Lock(0, size, (void**)&pVertices, 0);
 
 			FbxLayerElementArrayTemplate<FbxColor>& colors = pColor->GetDirectArray();
@@ -423,7 +423,7 @@ void FbxModel::LoadMaterial(UINT matIdx, FbxMesh* pMesh)
 	FbxLayerElementMaterial* pElementMaterial = pMesh->GetElementMaterial();
 	if (pElementMaterial)
 	{
-		// ƒ}ƒeƒŠƒAƒ‹‰ğÍ
+		// ãƒãƒ†ãƒªã‚¢ãƒ«è§£æ
 		int index = pElementMaterial->GetIndexArray().GetAt(0);
 
 		FbxSurfaceMaterial* pMaterial = pMesh->GetNode()->GetSrcObject<FbxSurfaceMaterial>(index);
@@ -431,7 +431,7 @@ void FbxModel::LoadMaterial(UINT matIdx, FbxMesh* pMesh)
 		{
 			FbxProperty prop = pMaterial->FindProperty(FbxSurfaceMaterial::sDiffuse);
 
-			//	ƒeƒNƒXƒ`ƒƒ“Ç‚İ‚İ
+			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£èª­ã¿è¾¼ã¿
 			const char* filename = NULL;
 			int fileTextureCount = prop.GetSrcObjectCount<FbxFileTexture>();
 			if (fileTextureCount > 0) {
@@ -448,19 +448,19 @@ void FbxModel::LoadMaterial(UINT matIdx, FbxMesh* pMesh)
 			}
 			if (filename == NULL) return;
 
-			//	ƒeƒNƒXƒ`ƒƒ[‚Ìæ“¾
+			//	ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®å–å¾—
 			char* pFileName;
 			size_t size = 0;
 			FbxUTF8ToAnsi(filename, pFileName, &size);
 
-			// PSD‚ªg—p‚³‚ê‚Ä‚¢‚éê‡‚Í“Ç‚ß‚È‚¢‚Ì‚ÅTGA‚Å‚·
+			// PSDãŒä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹å ´åˆã¯èª­ã‚ãªã„ã®ã§TGAã§è©¦ã™
 			char* ext = (char*)strstr(pFileName, ".psd");
 			if (ext)
 			{
 				strcpy_s(ext, 5, ".tga");
 			}
 
-			char path[MAX_PATH];
+			/*char path[MAX_PATH];
 			if (strstr(pFileName, "\\"))
 			{
 				strcpy_s(path, pFileName);
@@ -470,7 +470,30 @@ void FbxModel::LoadMaterial(UINT matIdx, FbxMesh* pMesh)
 				strcpy_s(path, m_rootDir);
 				strcat_s(path, "/texture/");
 				strcat_s(path, pFileName);
+			}*/
+			// Fbxç”»åƒã¯å…¨ã¦ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹ã®textureãƒ•ã‚©ãƒ«ãƒ€å†…ã«è¿½åŠ ã™ã‚‹ã‚ˆã†ã«å¤‰æ›´
+			// â€»ã‚°ãƒ©ãƒ•ã‚£ãƒƒã‚«ãƒ¼ãŒãã¡ã‚“ã¨å‡ºåŠ›ã§ãã‚‹ã‚ˆã†ã«ãªã£ãŸã‚‰æœ€åˆã®å†…å®¹ã‚’ä½¿ç”¨ã—ãŸã»ã†ãŒã„ã„
+			char path[MAX_PATH];
+			int pos = 0;
+			for (pos = size - 1; pos >= 0; pos--)
+			{
+				if (pFileName[pos] == '/' ||
+					pFileName[pos] == '\\')
+				{
+					pos++;
+					break;
+				}
 			}
+
+			if (pos == -1)
+			{
+				pos = 0;
+			}
+
+			strcpy_s(path, m_rootDir);
+			strcat_s(path, "/texture/");
+			strcat_s(path, &pFileName[pos]);
+
 			GetMaterial(matIdx)->texture.Load(path);
 
 			FbxFree(pFileName);
@@ -493,7 +516,7 @@ int FbxModel::FindBone(const char* pName)
 void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 {
 	MeshData* pMeshData = GetMesh(matIdx);
-	// ƒXƒLƒ“î•ñ‚Ì—L–³
+	// ã‚¹ã‚­ãƒ³æƒ…å ±ã®æœ‰ç„¡
 	int skinCount = pMesh->GetDeformerCount(FbxDeformer::eSkin);
 	if (skinCount <= 0)
 	{
@@ -503,16 +526,16 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 	UINT size = (UINT)(vertexNum * sizeof(MeshVertex));
 
 	MeshVertex* pVertices;
-	// ƒoƒbƒtƒ@‚ğƒƒbƒN‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ãƒ­ãƒƒã‚¯ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
 	pMeshData->vertexBuffer.GetBuffer()->Lock(0, size, (void**)&pVertices, 0);
 
 	FbxSkin* pSkin = (FbxSkin*)pMesh->GetDeformer(0, FbxDeformer::eSkin);
-	// ƒ{[ƒ“”
+	// ãƒœãƒ¼ãƒ³æ•°
 	int nBone = pSkin->GetClusterCount();
-	//	‘Sƒ{[ƒ“î•ñæ“¾
+	//	å…¨ãƒœãƒ¼ãƒ³æƒ…å ±å–å¾—
 	for (int bone = 0; bone < nBone; bone++)
 	{
-		//	ƒ{[ƒ“î•ñæ“¾
+		//	ãƒœãƒ¼ãƒ³æƒ…å ±å–å¾—
 		FbxCluster* pCluster = pSkin->GetCluster(bone);
 		FbxAMatrix trans;
 		pCluster->GetTransformMatrix(trans);
@@ -522,11 +545,11 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 		trans.mData[2][0] *= -1;
 		trans.mData[3][0] *= -1;
 
-		//	ƒ{[ƒ“–¼æ“¾
+		//	ãƒœãƒ¼ãƒ³åå–å¾—
 		const char* pName = pCluster->GetLink()->GetName();
 
 		Bone* pBone;
-		//	ƒ{[ƒ“ŒŸõ
+		//	ãƒœãƒ¼ãƒ³æ¤œç´¢
 		int bone_no = FindBone(pName);
 		if (bone_no != -1)
 		{
@@ -539,7 +562,7 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 			m_boneNum++;
 
 			strcpy_s(pBone->name, pName);
-			//	ƒIƒtƒZƒbƒgs—ñì¬
+			//	ã‚ªãƒ•ã‚»ãƒƒãƒˆè¡Œåˆ—ä½œæˆ
 			FbxAMatrix LinkMatrix;
 			pCluster->GetTransformLinkMatrix(LinkMatrix);
 			LinkMatrix.mData[0][1] *= -1;
@@ -551,16 +574,16 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 			FbxAMatrix Offset = LinkMatrix.Inverse() * trans;
 			FbxDouble* OffsetM = (FbxDouble*)Offset;
 
-			//	ƒIƒtƒZƒbƒgs—ñ•Û‘¶
+			//	ã‚ªãƒ•ã‚»ãƒƒãƒˆè¡Œåˆ—ä¿å­˜
 			for (int i = 0; i < 16; i++)
 			{
 				pBone->offset.m[i / 4][i % 4] = static_cast<float>(OffsetM[i]);
 			}
-			//	ƒL[ƒtƒŒ[ƒ€“Ç‚İ‚İ
+			//	ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ èª­ã¿è¾¼ã¿
 			LoadKeyFrames("default", bone_no, pCluster->GetLink());
 		}
 
-		//	ƒEƒFƒCƒg“Ç‚İ‚İ
+		//	ã‚¦ã‚§ã‚¤ãƒˆèª­ã¿è¾¼ã¿
 		int weightCount = pCluster->GetControlPointIndicesCount();
 		int* pWeightIndex = pCluster->GetControlPointIndices();
 		double* wgt = pCluster->GetControlPointWeights();
@@ -571,11 +594,11 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 		for (int i = 0; i < weightCount; i++)
 		{
 			int wgtIdx2 = pWeightIndex[i];
-			//	‘Sƒ|ƒŠƒSƒ“‚©‚çwgtIdx2”Ô–Ú‚Ì’¸“_ŒŸõ
+			//	å…¨ãƒãƒªã‚´ãƒ³ã‹ã‚‰wgtIdx2ç•ªç›®ã®é ‚ç‚¹æ¤œç´¢
 			for (int vtxIdx = 0; vtxIdx < vertexNum; vtxIdx++)
 			{
 				if (index[vtxIdx] != wgtIdx2) continue;
-				//	’¸“_‚ÉƒEƒFƒCƒg•Û‘¶
+				//	é ‚ç‚¹ã«ã‚¦ã‚§ã‚¤ãƒˆä¿å­˜
 				int weightCount;
 				for (weightCount = 0; weightCount < 4; weightCount++)
 				{
@@ -591,13 +614,13 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 			}
 		}
 	}
-	//	ƒEƒFƒCƒg³‹K‰»
-	// ‚T–{ˆÈã‚É‚Ü‚½‚Á‚ª‚Ä‚éê‡‚Ì‚½‚ß
+	//	ã‚¦ã‚§ã‚¤ãƒˆæ­£è¦åŒ–
+	// ï¼•æœ¬ä»¥ä¸Šã«ã¾ãŸã£ãŒã¦ã‚‹å ´åˆã®ãŸã‚
 	for (int vtxIdx = 0; vtxIdx < vertexNum; vtxIdx++)
 	{
 		float n = 0;
 		int weightCount;
-		//	’¸“_‚ÌƒEƒFƒCƒg‚Ì‡Œv’l
+		//	é ‚ç‚¹ã®ã‚¦ã‚§ã‚¤ãƒˆã®åˆè¨ˆå€¤
 		for (weightCount = 0; weightCount < 4; weightCount++)
 		{
 			if (pVertices[vtxIdx].weight[weightCount] <= 0.0f)
@@ -606,7 +629,7 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 			}
 			n += pVertices[vtxIdx].weight[weightCount];
 		}
-		//	³‹K‰»
+		//	æ­£è¦åŒ–
 		for (weightCount = 0; weightCount < 4; weightCount++)
 		{
 			pVertices[vtxIdx].weight[weightCount] /= n;
@@ -617,7 +640,7 @@ void FbxModel::LoadBone(UINT matIdx, FbxMesh* pMesh)
 
 void FbxModel::LoadKeyFrames(std::string name, int bone, FbxNode* pBoneNode)
 {
-	//	ƒƒ‚ƒŠŠm•Û
+	//	ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	Motion* pMotion = &m_motion[name];
 	pMotion->Key[bone].resize(pMotion->numFrame);
 
@@ -626,7 +649,7 @@ void FbxModel::LoadKeyFrames(std::string name, int bone, FbxNode* pBoneNode)
 	for (UINT f = 0; f < pMotion->numFrame; f++)
 	{
 		T.SetSecondDouble(time);
-		//	T•b‚Ìp¨s—ñ‚ğGet
+		//	Tç§’ã®å§¿å‹¢è¡Œåˆ—ã‚’Get
 		FbxMatrix m = pBoneNode->EvaluateGlobalTransform(T);
 		m.mData[0][1] *= -1;// _12
 		m.mData[0][2] *= -1;// _13
@@ -649,13 +672,13 @@ void FbxModel::LoadMotion(std::string name, const char* pFilename)
 	FbxManager* pManager = FbxManager::Create();
 	FbxScene* pScene = FbxScene::Create(pManager, "");
 
-	//	ƒtƒ@ƒCƒ‹‚©‚çƒV[ƒ“‚É“Ç‚İ‚İ
+	//	ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚·ãƒ¼ãƒ³ã«èª­ã¿è¾¼ã¿
 	FbxImporter* pImporter = FbxImporter::Create(pManager, "");
 	pImporter->Initialize(pFilename);
 	pImporter->Import(pScene);
 	pImporter->Destroy();
 
-	//	ƒ‚[ƒVƒ‡ƒ“î•ñæ“¾
+	//	ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³æƒ…å ±å–å¾—
 	FbxArray<FbxString*> names;
 	pScene->FillAnimStackNameArray(names);
 
@@ -666,20 +689,20 @@ void FbxModel::LoadMotion(std::string name, const char* pFilename)
 
 	m_startFrame = (int)(start / fps60);
 	m_motion[name].numFrame = (int)((stop - start) / fps60);
-	//	ƒ‹[ƒgƒm[ƒhæ“¾
+	//	ãƒ«ãƒ¼ãƒˆãƒãƒ¼ãƒ‰å–å¾—
 	FbxNode* root = pScene->GetRootNode();
 
-	//	‘Sƒ{[ƒ““Ç‚İ‚İ
+	//	å…¨ãƒœãƒ¼ãƒ³èª­ã¿è¾¼ã¿
 	for (int b = 0; b < (int)m_boneNum; b++)
 	{
-		//	ƒ{[ƒ“ƒm[ƒhŒŸõ
+		//	ãƒœãƒ¼ãƒ³ãƒãƒ¼ãƒ‰æ¤œç´¢
 		FbxNode* pBone = root->FindChild(m_bone[b].name);
 		if (pBone == NULL) continue;
 
-		//	ƒL[ƒtƒŒ[ƒ€“Ç‚İ‚İ
+		//	ã‚­ãƒ¼ãƒ•ãƒ¬ãƒ¼ãƒ èª­ã¿è¾¼ã¿
 		LoadKeyFrames(name, b, pBone);
 	}
-	//	‰ğ•ú
+	//	è§£æ”¾
 	pScene->Destroy();
 	pManager->Destroy();
 }

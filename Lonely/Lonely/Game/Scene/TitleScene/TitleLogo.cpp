@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file TitleLogo.cpp
-* @brief TitleLogoƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
+* @brief TitleLogoã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -17,20 +17,23 @@ TitleLogo::~TitleLogo()
 	Finalize();
 }
 
-//‰Šú‰»‚·‚é
+//åˆæœŸåŒ–ã™ã‚‹
 bool TitleLogo::Initialize()
 {
-	// assetsƒtƒHƒ‹ƒ_“à‚Ìbridge.png‚ğƒeƒNƒXƒ`ƒƒ[‚Æ‚µ‚Ä“Ç‚İ‚İ
-	if (!m_texture.Load("../Graphics/TitleLogo.png"))
+	/*if (!m_texture.Load("../Graphics/TitleLogo.png"))
+	{
+		return false;
+	}*/
+	if (!m_texture.Load("../Graphics/title.png"))
 	{
 		return false;
 	}
 
-	// ƒeƒNƒXƒ`ƒƒ[ƒTƒCƒY‚©‚ç‰æ‘œƒTƒCƒY‚ÌUV‚ğæ“¾(‰æ‘œ‚ª2‚Ì—İæ‚Å‚ ‚ê‚Î1.0f‚É‚È‚é)
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã‚µã‚¤ã‚ºã‹ã‚‰ç”»åƒã‚µã‚¤ã‚ºã®UVã‚’å–å¾—(ç”»åƒãŒ2ã®ç´¯ä¹—ã§ã‚ã‚Œã°1.0fã«ãªã‚‹)
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
-	//’¸“_‚ÌÀ•W‚ğƒZƒbƒg
+	//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth())/2
 		, static_cast<float>(WINDOW->GetHeight())/4
@@ -39,22 +42,22 @@ bool TitleLogo::Initialize()
 	return true;
 }
 
-//‰ğ•ú‚·‚é
+//è§£æ”¾ã™ã‚‹
 void TitleLogo::Finalize()
 {
 	m_texture.Finalize();
 }
 
-//XV‚·‚é
+//æ›´æ–°ã™ã‚‹
 void TitleLogo::Update()
 {
-	//–ˆƒtƒŒ[ƒ€Aˆê’è’l‚Ü‚ÅƒƒS‚ğ‘å‚«‚­‚·‚éˆ—
+	//æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã€ä¸€å®šå€¤ã¾ã§ãƒ­ã‚´ã‚’å¤§ããã™ã‚‹å‡¦ç†
 	if (logoWidth <= 450.f) 
 	{
-		logoHeight += 4.f;
+		logoHeight += 2.5f;
 		logoWidth += 6.f;
 
-		//’¸“_‚ÌÀ•W‚ğƒZƒbƒg
+		//é ‚ç‚¹ã®åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 2
 			, static_cast<float>(WINDOW->GetHeight()) / 3
@@ -68,9 +71,9 @@ void TitleLogo::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//•`‰æ
+	//æç”»
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 
 }

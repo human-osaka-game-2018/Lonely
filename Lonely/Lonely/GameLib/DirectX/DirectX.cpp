@@ -1,7 +1,7 @@
-/**
+ï»¿/**
 * @file	DirectX.cpp
-* @brief DirectXƒNƒ‰ƒX‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹
-* @author shion-sagawa@Žk‰‘
+* @brief DirectXã‚¯ãƒ©ã‚¹ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
+* @author shion-sagawaã€€å—£è‹‘
 */
 
 #include "DirectX.h"
@@ -18,12 +18,12 @@ DirectX::~DirectX()
 }
 
 
-// DirectX‚Ì‰Šú‰»
+// DirectXã®åˆæœŸåŒ–
 bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 {
 	if (m_pD3D != nullptr || m_pDevice != nullptr) return false;
 
-	// IDirect3D9ƒIƒuƒWƒFƒNƒg‚Ìì¬
+	// IDirect3D9ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½œæˆ
 	if ((m_pD3D = Direct3DCreate9(D3D_SDK_VERSION)) == NULL)
 	{
 		return false;
@@ -31,7 +31,7 @@ bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 
 	D3DPRESENT_PARAMETERS d3dpp;
 	ZeroMemory(&d3dpp, sizeof(D3DPRESENT_PARAMETERS));
-	// Device‚ÌÝ’è
+	// Deviceã®è¨­å®š
 	d3dpp.Windowed = !isFullscreen;
 	d3dpp.hDeviceWindow = hWnd;
 	d3dpp.BackBufferWidth = width;
@@ -44,11 +44,11 @@ bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 	d3dpp.BackBufferCount = 1;
 	d3dpp.EnableAutoDepthStencil = true;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
-	// VSYNC‘Ò‚¿—L‚è)
+	// VSYNCå¾…ã¡æœ‰ã‚Š)
 	d3dpp.PresentationInterval = D3DPRESENT_INTERVAL_ONE;
 	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT;
 
-	// Direct3DƒfƒoƒCƒX‚Ì¶¬
+	// Direct3Dãƒ‡ãƒã‚¤ã‚¹ã®ç”Ÿæˆ
 	if (FAILED(m_pD3D->CreateDevice(D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
 		d3dpp.hDeviceWindow,
@@ -63,7 +63,7 @@ bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 	return true;
 }
 
-// DirectX‚ÌI—¹ˆ—
+// DirectXã®çµ‚äº†å‡¦ç†
 void DirectX::Finalize()
 {
 	SAFE_RELEASE(m_pDevice);
@@ -71,25 +71,25 @@ void DirectX::Finalize()
 }
 
 
-// •`‰æƒV[ƒ“‚ÌŠJŽn
+// æç”»ã‚·ãƒ¼ãƒ³ã®é–‹å§‹
 void DirectX::BeginRenderScene()
 {
 	if (m_pDevice != nullptr) m_pDevice->BeginScene();
 }
 
-// •`‰æƒV[ƒ“‚ÌI—¹
+// æç”»ã‚·ãƒ¼ãƒ³ã®çµ‚äº†
 void DirectX::EndRenderScene()
 {
 	if (m_pDevice != nullptr) m_pDevice->EndScene();
 }
 
-// ƒoƒbƒNƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
 void DirectX::ClearBackBuffer(DWORD target, D3DCOLOR color, float depth, DWORD stencil)
 {
 	if (m_pDevice != nullptr) m_pDevice->Clear(0, NULL, target, color, depth, stencil);
 }
 
-// ‰æ–Ê‚ÌƒtƒŠƒbƒv
+// ç”»é¢ã®ãƒ•ãƒªãƒƒãƒ—
 void DirectX::FlipDisp()
 {
 	if (m_pDevice == nullptr) return;
@@ -100,97 +100,97 @@ void DirectX::FlipDisp()
 	}
 }
 
-// ‰Šú‚Ì•`‰æƒXƒe[ƒg‚ðÝ’è
+// åˆæœŸã®æç”»ã‚¹ãƒ†ãƒ¼ãƒˆã‚’è¨­å®š
 void DirectX::SetDefaultRenderState()
 {
-	// ƒJƒŠƒ“ƒOƒ‚[ƒh
+	// ã‚«ãƒªãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰
 	m_pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
-	// ƒtƒBƒ‹ƒ‚[ƒh
+	// ãƒ•ã‚£ãƒ«ãƒ¢ãƒ¼ãƒ‰
 	m_pDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
-	// Zƒoƒbƒtƒ@‚ð—LŒø‚É‚·‚é‚©H
+	// Zãƒãƒƒãƒ•ã‚¡ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ï¼Ÿ
 	m_pDevice->SetRenderState(D3DRS_ZENABLE, true);
-	// Zƒoƒbƒtƒ@‚Ì‘‚«ž‚Ý‚ð—LŒø‚É‚·‚é‚©H
+	// Zãƒãƒƒãƒ•ã‚¡ã®æ›¸ãè¾¼ã¿ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ï¼Ÿ
 	m_pDevice->SetRenderState(D3DRS_ZWRITEENABLE, true);
-	// ZƒeƒXƒg‚Ì”äŠr•û–@
+	// Zãƒ†ã‚¹ãƒˆã®æ¯”è¼ƒæ–¹æ³•
 	m_pDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
-	// ƒ¿ƒuƒŒƒ“ƒh‚ð—LŒø‚É‚·‚é‚©H
+	// Î±ãƒ–ãƒ¬ãƒ³ãƒ‰ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ï¼Ÿ
 	m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
-	// ƒ¿ƒeƒXƒg‚ð—LŒø‚É‚·‚é‚©H
+	// Î±ãƒ†ã‚¹ãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ï¼Ÿ
 	m_pDevice->SetRenderState(D3DRS_ALPHATESTENABLE, true);
-	// ƒ¿ƒeƒXƒg‚Ì”»’è•û–@
+	// Î±ãƒ†ã‚¹ãƒˆã®åˆ¤å®šæ–¹æ³•
 	m_pDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_NOTEQUAL);
-	// ƒ¿ƒeƒXƒg‚ÌŽQÆ’l
+	// Î±ãƒ†ã‚¹ãƒˆã®å‚ç…§å€¤
 	m_pDevice->SetRenderState(D3DRS_ALPHAREF, 0);
 
-	//	•`‰æÝ’è
+	//	æç”»è¨­å®š
 	m_pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
 	//m_pDevice->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
 	//m_pDevice->SetRenderState(D3DRS_NORMALIZENORMALS, true);
 
-	// ƒJƒ‰[ƒXƒe[ƒWÝ’è
+	// ã‚«ãƒ©ãƒ¼ã‚¹ãƒ†ãƒ¼ã‚¸è¨­å®š
 	m_pDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
 	m_pDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
 	m_pDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_CURRENT);
-	// ƒ¿ƒXƒe[ƒWÝ’è
+	// Î±ã‚¹ãƒ†ãƒ¼ã‚¸è¨­å®š
 	m_pDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
 	m_pDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
 	m_pDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);
 
-	// ƒeƒNƒXƒ`ƒƒ[ƒtƒBƒ‹ƒ^[‚ÌÝ’è
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã®è¨­å®š
 	m_pDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_NONE);
 	m_pDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
 	m_pDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-	// ƒeƒNƒXƒ`ƒƒ[‚ÌƒAƒhƒŒƒbƒVƒ“ƒOƒ‚[ƒh‚ÌÝ’è
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ¼ã®ã‚¢ãƒ‰ãƒ¬ãƒƒã‚·ãƒ³ã‚°ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
 	m_pDevice->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);
 	m_pDevice->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);
 }
 
-// •`‰æƒXƒe[ƒg‚ÌÝ’è
+// æç”»ã‚¹ãƒ†ãƒ¼ãƒˆã®è¨­å®š
 void DirectX::SetRenderMode(ERenderMode mode, bool enableAlpha)
 {
-	// ƒ¿‚ª–³Œø‚Èê‡‚Í“ü—Í‚³‚ê‚½ƒJƒ‰[‚ð‚»‚Ì‚Ü‚ÜŽg‚¤
+	// Î±ãŒç„¡åŠ¹ãªå ´åˆã¯å…¥åŠ›ã•ã‚ŒãŸã‚«ãƒ©ãƒ¼ã‚’ãã®ã¾ã¾ä½¿ã†
 	DWORD srcColorblend = D3DBLEND_ONE;
 	DWORD dstColorblend = D3DBLEND_ZERO;
 	if (enableAlpha)
 	{
-		// ƒ¿‚ª—LŒø‚Èê‡‚Íƒ¿’l‚ðƒJƒ‰[‚É‰e‹¿‚³‚¹‚é
+		// Î±ãŒæœ‰åŠ¹ãªå ´åˆã¯Î±å€¤ã‚’ã‚«ãƒ©ãƒ¼ã«å½±éŸ¿ã•ã›ã‚‹
 		srcColorblend = D3DBLEND_SRCALPHA;
 		dstColorblend = D3DBLEND_INVSRCALPHA;
-		// ƒ¿ƒeƒXƒg‚Åƒ¿’l‚ª0‚Ìê‡‚Í•`‰æ‚ð‚µ‚È‚¢‚æ‚¤‚ÉÝ’è
+		// Î±ãƒ†ã‚¹ãƒˆã§Î±å€¤ãŒ0ã®å ´åˆã¯æç”»ã‚’ã—ãªã„ã‚ˆã†ã«è¨­å®š
 		m_pDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_NOTEQUAL);
 		m_pDevice->SetRenderState(D3DRS_ALPHAREF, 0);
 	}
-	// ƒ¿ƒuƒŒƒ“ƒh‚Æƒ¿ƒeƒXƒg‚Ì—L–³‚ðÝ’è
+	// Î±ãƒ–ãƒ¬ãƒ³ãƒ‰ã¨Î±ãƒ†ã‚¹ãƒˆã®æœ‰ç„¡ã‚’è¨­å®š
 	m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, enableAlpha);
 	m_pDevice->SetRenderState(D3DRS_ALPHATESTENABLE, enableAlpha);
 
 	switch (mode)
 	{
 	case Normal:
-		// ƒ¿‚ª—LŒøF(SrcColor * 1) + (DestColor * 0)
-		// ƒ¿‚ª–³ŒøF(SrcColor * ƒ¿) + (DestColor * (1 - ƒ¿))
+		// Î±ãŒæœ‰åŠ¹ï¼š(SrcColor * 1) + (DestColor * 0)
+		// Î±ãŒç„¡åŠ¹ï¼š(SrcColor * Î±) + (DestColor * (1 - Î±))
 		m_pDevice->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
 		m_pDevice->SetRenderState(D3DRS_SRCBLEND, srcColorblend);
 		m_pDevice->SetRenderState(D3DRS_DESTBLEND, dstColorblend);
 		break;
 	case Add:
-		// ƒ¿‚ª—LŒøF(SrcColor * 1) + (DestColor * 1)
-		// ƒ¿‚ª–³ŒøF(SrcColor * ƒ¿) + (DestColor * 1)
+		// Î±ãŒæœ‰åŠ¹ï¼š(SrcColor * 1) + (DestColor * 1)
+		// Î±ãŒç„¡åŠ¹ï¼š(SrcColor * Î±) + (DestColor * 1)
 		m_pDevice->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
 		m_pDevice->SetRenderState(D3DRS_SRCBLEND, srcColorblend);
 		m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_ONE);
 		break;
 	case Subtract:
-		// ƒ¿‚ª—LŒøF(DestColor * 1) - (SrcColor * 1)
-		// ƒ¿‚ª–³ŒøF(DestColor * 1) - (SrcColor * ƒ¿)
+		// Î±ãŒæœ‰åŠ¹ï¼š(DestColor * 1) - (SrcColor * 1)
+		// Î±ãŒç„¡åŠ¹ï¼š(DestColor * 1) - (SrcColor * Î±)
 		m_pDevice->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_REVSUBTRACT);
 		m_pDevice->SetRenderState(D3DRS_SRCBLEND, srcColorblend);
 		m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_ONE);
 		break;
 	case Multiple:
-		// ‹¤’ÊF(SrcColor * 0) + (DestColor * SrcColor)
+		// å…±é€šï¼š(SrcColor * 0) + (DestColor * SrcColor)
 		m_pDevice->SetRenderState(D3DRS_BLENDOP, D3DBLENDOP_ADD);
 		m_pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_ZERO);
 		m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_SRCCOLOR);

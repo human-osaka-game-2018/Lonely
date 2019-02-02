@@ -1,6 +1,6 @@
-///**
+ï»¿///**
 //* @file 2DHelper.h
-//* @brief 2DHelperƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+//* @brief 2DHelperã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 //* @author shion-sagawa
 //*/
 //
@@ -17,7 +17,7 @@
 //
 //
 
-// ƒVƒ“ƒvƒ‹‚ÈƒeƒNƒXƒ`ƒƒ\•t‚«’¸“_î•ñ
+// ã‚·ãƒ³ãƒ—ãƒ«ãªãƒ†ã‚¯ã‚¹ãƒãƒ£â€•ä»˜ãé ‚ç‚¹æƒ…å ±
 struct Simple2DVertex
 {
 	float x, y, z;
@@ -27,7 +27,7 @@ struct Simple2DVertex
 };
 
 /**
-* @brief ‚QD‚ÌƒQ[ƒ€‚Ì‚æ‚­g—p‚·‚éˆ—‚ğ‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+* @brief ï¼’Dã®ã‚²ãƒ¼ãƒ ã®ã‚ˆãä½¿ç”¨ã™ã‚‹å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
 */
 class Helper2D
 {
@@ -37,52 +37,60 @@ public:
 	~Helper2D();
 
 	/**
-	* @brief ’†S“_‚©‚ç‰¡•Ac•‚ğg‚Á‚Ä‹éŒ`‚ğì‚éŠÖ”
-	* @param ’¸“_î•ñ
-	* @param ’†S“_‚ÌXÀ•W
-	* @param ’†S“_‚ÌYÀ•W
-	* @param ’†S“_‚©‚ç‚Ì‰¡•
-	* @param ’†S“_‚©‚ç‚Ìc•
-	* @param ‹éŒ`‚Ì‰E‚ÌTUiƒfƒtƒHƒ‹ƒg‚È‚ç‚P‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ì‰º‚ÌTViƒfƒtƒHƒ‹ƒg‚È‚ç‚P‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ì¶‚ÌTUiƒfƒtƒHƒ‹ƒg‚È‚ç‚O‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ìã‚ÌTViƒfƒtƒHƒ‹ƒg‚È‚ç‚O‚ğ‘ã“üj
+	* @brief ä¸­å¿ƒç‚¹ã‹ã‚‰æ¨ªå¹…ã€ç¸¦å¹…ã‚’ä½¿ã£ã¦çŸ©å½¢ã‚’ä½œã‚‹é–¢æ•°
+	* @param é ‚ç‚¹æƒ…å ±
+	* @param ä¸­å¿ƒç‚¹ã®Xåº§æ¨™
+	* @param ä¸­å¿ƒç‚¹ã®Yåº§æ¨™
+	* @param ä¸­å¿ƒç‚¹ã‹ã‚‰ã®æ¨ªå¹…
+	* @param ä¸­å¿ƒç‚¹ã‹ã‚‰ã®ç¸¦å¹…
+	* @param çŸ©å½¢ã®å³ã®TUï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼‘ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®ä¸‹ã®TVï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼‘ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®å·¦ã®TUï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®ä¸Šã®TVï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼ã‚’ä»£å…¥ï¼‰
 	*/
 	void SetVerticesFromCenterType(Simple2DVertex* vertices, float posCenterX, float posCenterY, float posWidthFromCenter, float posHeightFromCenter, float rightTU = 1.0f, float bottomTV = 1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
 	/**
-	* @brief ¶ã’¸“_‚©‚ç‰¡•Ac•‚ğg‚Á‚Ä‹éŒ`‚ğì‚éŠÖ”
-	* @param ’¸“_î•ñ
-	* @param ¶ã’¸“_‚ÌXÀ•W
-	* @param ¶ã’¸“_‚ÌYÀ•W
-	* @param ‹éŒ`‚Ì‰¡•
-	* @param ‹éŒ`‚Ìc•
-	* @param ‹éŒ`‚Ì‰E‚ÌTUiƒfƒtƒHƒ‹ƒg‚È‚ç‚P‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ì‰º‚ÌTViƒfƒtƒHƒ‹ƒg‚È‚ç‚P‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ì¶‚ÌTUiƒfƒtƒHƒ‹ƒg‚È‚ç‚O‚ğ‘ã“üj
-	* @param ‹éŒ`‚Ìã‚ÌTViƒfƒtƒHƒ‹ƒg‚È‚ç‚O‚ğ‘ã“üj
+	* @brief å·¦ä¸Šé ‚ç‚¹ã‹ã‚‰æ¨ªå¹…ã€ç¸¦å¹…ã‚’ä½¿ã£ã¦çŸ©å½¢ã‚’ä½œã‚‹é–¢æ•°
+	* @param é ‚ç‚¹æƒ…å ±
+	* @param å·¦ä¸Šé ‚ç‚¹ã®Xåº§æ¨™
+	* @param å·¦ä¸Šé ‚ç‚¹ã®Yåº§æ¨™
+	* @param çŸ©å½¢ã®æ¨ªå¹…
+	* @param çŸ©å½¢ã®ç¸¦å¹…
+	* @param çŸ©å½¢ã®å³ã®TUï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼‘ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®ä¸‹ã®TVï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼‘ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®å·¦ã®TUï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼ã‚’ä»£å…¥ï¼‰
+	* @param çŸ©å½¢ã®ä¸Šã®TVï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãªã‚‰ï¼ã‚’ä»£å…¥ï¼‰
 	*/
 	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY, float rectWidth, float rectHeight, float rightTU = 1.0f, float bottomTV =1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
 	/**
-	* @brief ¶ã’¸“_‚©‚ç‰¡•Ac•‚ğg‚Á‚Ä‹éŒ`‚ğì‚éŠÖ”
-	* @param ’¸“_î•ñ
-	* @param ¶ã’¸“_‚ÌXÀ•W
-	* @param ¶ã’¸“_‚ÌYÀ•W
+	* @brief ï¿½ï¿½ï¿½ã’¸ï¿½_ï¿½ï¿½ï¿½ç‰¡ï¿½ï¿½ï¿½Aï¿½cï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‹ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
+	* @param ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½
+	* @param ï¿½ï¿½ï¿½ã’¸ï¿½_ï¿½ï¿½Xï¿½ï¿½ï¿½W
+	* @param ï¿½ï¿½ï¿½ã’¸ï¿½_ï¿½ï¿½Yï¿½ï¿½ï¿½W
+	* @brief çŸ©å½¢4é ‚ç‚¹ã®TUTVã‚’å¤‰ãˆã‚‹é–¢æ•°
+	* @param é ‚ç‚¹ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+	* @param çŸ©å½¢ã®å³ã®TU
+	* @param çŸ©å½¢ã®ä¸‹ã®TV
+	* @param çŸ©å½¢ã®å·¦ã®TU
+	* @param çŸ©å½¢ã®ä¸Šã®TV
 	*/
 	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY);
+	void SetVerticesTuTv(Simple2DVertex* vertices, float rightTU, float bottomTV, float leftTU, float topTV);
+
 
 	/**
-	* @brief ‹éŒ`‚S’¸“_‚ÌFî•ñ‚ğ•Ï‚¦‚éŠÖ”
-	* @param ’¸“_‚Ìæ“ªƒAƒhƒŒƒX
-	* @param •Ï‚¦‚½‚¢Fî•ñiARGBj 
+	* @brief çŸ©å½¢ï¼”é ‚ç‚¹ã®è‰²æƒ…å ±ã‚’å¤‰ãˆã‚‹é–¢æ•°
+	* @param é ‚ç‚¹ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+	* @param å¤‰ãˆãŸã„è‰²æƒ…å ±ï¼ˆARGBï¼‰ 
 	*/
 	void SetVerticesColor(Simple2DVertex* vertices, DWORD color);
 
 	/**
-	* @brief ‚P’¸“_‚ÌFî•ñ‚ğ•Ï‚¦‚éŠÖ”
-	* @param ’¸“_‚Ìæ“ªƒAƒhƒŒƒX
-	* @param •Ï‚¦‚½‚¢Fî•ñiARGBj
+	* @brief ï¼‘é ‚ç‚¹ã®è‰²æƒ…å ±ã‚’å¤‰ãˆã‚‹é–¢æ•°
+	* @param é ‚ç‚¹ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
+	* @param å¤‰ãˆãŸã„è‰²æƒ…å ±ï¼ˆARGBï¼‰
 	*/
 	void SetVertexColor(Simple2DVertex* vertices, DWORD color);
 

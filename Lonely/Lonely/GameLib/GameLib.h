@@ -1,6 +1,6 @@
-/**
+ï»¿/**
 * @file	GameLib.h
-* @brief GameLibƒNƒ‰ƒX‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹
+* @brief GameLibã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«
 * @author shion-sagawa
 */
 
@@ -13,23 +13,36 @@
 #include "Font\Font.h"
 #include "SceneManager\SceneManager.h"
 #include "ObjectManager\ObjectManager.h"
+#include "CollisionManager\CollisionManager.h"
 #include "CameraManager\CameraManager.h"
 #include "Sprite\Sprite.h"
 #include "2DHelper\2DHelper.h"
 #include "DXInput\DXInput.h"
+#include "TexStorage\TexStorage.h"
+
+//#ifdef  _DEBUG
+//#pragma comment(lib, "../SoundLib/Lib/SoundLibDebug.lib")
+//
+//#else
+//#pragma comment(lib, "../SoundLib/Lib/SoundLibRelease.lib")
+//#endif // _DEBUG
+
+#include "../SoundLib/Include/SoundsManager.h"
+#include "../SoundLib/Include/SoundLibCWrapper.h"
+
 
 /**
-* @brief ‰ğ•ú‚ğs‚¤ƒ}ƒNƒ
+* @brief è§£æ”¾ã‚’è¡Œã†ãƒã‚¯ãƒ­
 */
 #define SAFE_DELETE(x)			{ if(x) { delete (x); (x) = NULL; } }
 
 /**
-* @brief ‰ğ•ú‚ğs‚¤ƒ}ƒNƒ
+* @brief è§£æ”¾ã‚’è¡Œã†ãƒã‚¯ãƒ­
 */
 #define SAFE_DELETE_ARRAY(x)	{ if(x) { delete[] (x); (x) = NULL; } }
 
 /**
-* @brief ƒQ[ƒ€ŠÖŒW‚Ìˆ—‚ğs‚¤ƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒNƒ‰ƒX
+* @brief ã‚²ãƒ¼ãƒ é–¢ä¿‚ã®å‡¦ç†ã‚’è¡Œã†ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ã‚¯ãƒ©ã‚¹
 */
 class GameLib
 {
@@ -39,95 +52,111 @@ public:
 	~GameLib();
 
 	/**
-	* @brief DirectXLib‚Ì‰Šú‰»‚ğs‚¤ŠÖ”
-	* @param pName ƒEƒBƒ“ƒhƒE‚Ì–¼‘O
-	* @param width ƒEƒBƒ“ƒhƒE‚Ì‰¡•
-	* @param height ƒEƒBƒ“ƒhƒE‚Ìc•
-	* @param isFullscreen ƒEƒBƒ“ƒhƒE‚ªƒtƒ‹ƒXƒNƒŠ[ƒ“‚©‚Ç‚¤‚©
-	* @return GameLib‚ª–â‘è‚È‚­‰Šú‰»‚Å‚«‚Ä‚¢‚½‚çTRUE
+	* @brief DirectXLibã®åˆæœŸåŒ–ã‚’è¡Œã†é–¢æ•°
+	* @param pName ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®åå‰
+	* @param width ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æ¨ªå¹…
+	* @param height ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ç¸¦å¹…
+	* @param isFullscreen ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‹ã©ã†ã‹
+	* @return GameLibãŒå•é¡ŒãªãåˆæœŸåŒ–ã§ãã¦ã„ãŸã‚‰TRUE
 	*/
 	bool Initialize(const wchar_t* pName, int width, int height, bool isFullscreen);
 
 	/**
-	* @brief DirectXLib‚Ì‰ğ•ú‚ğs‚¤ŠÖ”
+	* @brief DirectXLibã®è§£æ”¾ã‚’è¡Œã†é–¢æ•°
 	*/
 	void Finalize();
 
 	/**
-	* @brief ƒQ[ƒ€‚ÌƒƒCƒ“ƒ‹[ƒvˆ—‚ğs‚¤ŠÖ”
+	* @brief ã‚²ãƒ¼ãƒ ã®ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—å‡¦ç†ã‚’è¡Œã†é–¢æ•°
 	*/
 	void MainLoop();
 
 	/**
-	* @brief ƒEƒBƒ“ƒhƒE‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	Window* GetWindow() { return &m_window; }
 
 	/**
-	* @brief DirectX‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief DirectXã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	DirectX* GetDirectX() { return &m_directX; }
 
 	/** 
-	* @brief Direct3DDevice‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief Direct3DDeviceã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	IDirect3DDevice9* GetDirect3DDevice() { return m_directX.GetDirect3DDevice(); }
 
 	/** 
-	* @brief Font‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief Fontã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	Font* GetDebugFont() { return &m_font; }
 
 	/**
-	* @brief Input‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief Inputã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	Input* GetInput() { return &m_input; }
 
 	/** 
-	* @brief SceneManager‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief SceneManagerã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	SceneManager* GetSceneManager() { return &m_sceneManager; }
 
 	/**
-	* @brief ObjectManager‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief ObjectManagerã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	ObjectManager* GetObjectManager() { return &m_objectManager; }
 
+	/**
+	* @brief CollisionManagerã®å–å¾—ã‚’è¡Œã†é–¢æ•°
+	*/
+	CollisionManager* GetCollisionManager() { return &m_collisionManager; }
 
 	/**
-	* @brief CameraManager‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief CameraManagerã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	CameraManager* GetCameraManager() { return &m_cameraManager; }
 
 
 	/**
-	* @brief Helper2D‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief Helper2Dã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	Helper2D* GetHelper2D() { return &m_helper2D; }
 
 	/**
-	* @brief DirectInput‚Ìæ“¾‚ğs‚¤ŠÖ”
+	* @brief DirectInputã®å–å¾—ã‚’è¡Œã†é–¢æ•°
 	*/
 	DXInput* GetDXInput() { return &m_dxInput; }
 
+	/**
+	* @brief TexStorageã®å–å¾—ã‚’è¡Œã†é–¢æ•°
+	*/
+	//TexStorage* GetTexStorage() { return &m_texStorage; }
+
+	/**
+	* @brief SoundsManagerã®å–å¾—ã‚’è¡Œã†é–¢æ•°
+	*/
+	SoundLib::SoundsManager* GetSoundsManager() { return &m_soundsManager; }
+
 public:
 
-	/**GameLib‚ÌÀ‘Ì*/
+	/**GameLibã®å®Ÿä½“*/
 	static GameLib Instance;
 
 private:
 
-	Window		   m_window;
-	DirectX		   m_directX;
-	Input		   m_input;
-	Font		   m_font;
-	FbxModel	   m_fbx;
-	SceneManager   m_sceneManager;
-	ObjectManager  m_objectManager;
-	CameraManager  m_cameraManager;
-	Helper2D       m_helper2D;
-	DXInput        m_dxInput;
-
+	Window		            m_window;
+	DirectX		            m_directX;
+	Input		            m_input;
+	Font		            m_font;
+	FbxModel	            m_fbx;
+	SceneManager            m_sceneManager;
+	ObjectManager           m_objectManager;
+	CollisionManager        m_collisionManager;
+	CameraManager           m_cameraManager;
+	Helper2D                m_helper2D;
+	DXInput                 m_dxInput;
+	//TexStorage              m_texStorage;
+	SoundLib::SoundsManager m_soundsManager;
 };
 
 #define	DEBUGFONT		(GameLib::Instance.GetDebugFont())

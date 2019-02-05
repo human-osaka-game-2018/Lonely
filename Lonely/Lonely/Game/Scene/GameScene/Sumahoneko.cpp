@@ -81,21 +81,21 @@ void Sumahoneko::Update()
 		movementThisFrame.x -= movementSpeed.x;
 		movementThisFrame.z -= movementSpeed.z;
 		
-		m_playerDirection = m_pSharedInformation->GetCameraDirection() + 3.14;
+		m_playerDirection = m_pSharedInformation->GetCameraDirection() + 3.14f;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_A))
 	{
 		movementThisFrame.x -= movementSpeed.z;
 		movementThisFrame.z += movementSpeed.x;
 		
-		m_playerDirection = m_pSharedInformation->GetCameraDirection() - 1.57;
+		m_playerDirection = m_pSharedInformation->GetCameraDirection() - 1.57f;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_D))
 	{
 		movementThisFrame.x += movementSpeed.z;
 		movementThisFrame.z -= movementSpeed.x;
 		
-		m_playerDirection = m_pSharedInformation->GetCameraDirection() + 1.57;
+		m_playerDirection = m_pSharedInformation->GetCameraDirection() + 1.57f;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_F))
 	{

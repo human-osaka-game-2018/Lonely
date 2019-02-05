@@ -852,8 +852,13 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 	D3DXVECTOR3 pos(*pPos), vec(*pVec);
 
 	UINT16* pIndexData = NULL;
-	BYTE* pVertexData;
+	BYTE* pVertexData = NULL;
 	pVertexBuffer->Lock(0, pMesh->vertexStride * pMesh->vertexNum, (void**)&pVertexData, D3DLOCK_READONLY);
+	if (pVertexData == NULL)
+	{
+		return -1;
+	}
+
 	if (pIndexBuffer) pIndexBuffer->Lock(0, sizeof(UINT16) * pMesh->indexNum, (void**)&pIndexData, D3DLOCK_READONLY);
 
 	int	ret = -1;

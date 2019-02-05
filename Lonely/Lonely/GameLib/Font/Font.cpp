@@ -63,14 +63,19 @@ int Font::GetHeight()
 void Font::DrawText(int X, int Y, D3DCOLOR color, const char* pText)
 {
 	if (m_pFont == nullptr) return;
+	if (pText == nullptr) return;
 
 	RECT rect;
-	SetRect(&rect, 0, 0, 0, 0);
+	ZeroMemory(&rect, sizeof(rect));
+
 	// •`‰æ”ÍˆÍ‚ÌŽæ“¾
 	m_pFont->DrawTextA(NULL, pText, -1, &rect, DT_LEFT | DT_CALCRECT, color);
 
 	// •`‰æ
 	OffsetRect(&rect, X, Y);
+
+	if (rect.top <= -1280) return;
+
 	m_pFont->DrawTextA(NULL, pText, -1, &rect, DT_LEFT, color);
 }
 

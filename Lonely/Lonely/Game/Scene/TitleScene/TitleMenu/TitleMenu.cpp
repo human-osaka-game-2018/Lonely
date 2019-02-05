@@ -54,6 +54,10 @@ bool TitleMenu::Initialize()
 void TitleMenu::Finalize()
 {
 	SoundLibCWrapper_Free();
+	m_menuPressEnter.Finalize();
+	m_menuGameStart.Finalize();
+	m_menuGameEnd.Finalize();
+	m_menuCursor.Finalize();
 
 }
 
@@ -89,7 +93,7 @@ void TitleMenu::Update()
 			bool isSuccess = soundsManager.Start(_T("cry1"), false);
 
 			//ƒQ[ƒ€ƒV[ƒ“‚Ö
-			SCENEMANAGER->ChangeScene(new DataSelectScene);
+			SCENEMANAGER->ChangeScene(new GameScene);
 			
 		}
 		break;

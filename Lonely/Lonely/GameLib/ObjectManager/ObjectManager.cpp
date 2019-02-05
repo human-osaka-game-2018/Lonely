@@ -29,7 +29,7 @@ void ObjectManager::Finalize()
 //このクラスを派生したクラスの操作関数を呼ぶ
 void ObjectManager::Update()
 {
-	for (int i = 0; i < m_pObjectVec.size(); i++)
+	for (int i = 0; i < static_cast<int>(m_pObjectVec.size()); i++)
 	{
 		m_pObjectVec[i]->Update();
 	}
@@ -38,7 +38,7 @@ void ObjectManager::Update()
 //このクラスを派生したクラスの描画関数を呼ぶ
 void ObjectManager::Render()
 {
-	for (int i = 0; i < m_pObjectVec.size(); i++) {
+	for (int i = 0; i < static_cast<int>(m_pObjectVec.size()); i++) {
 		m_pObjectVec[i]->Render();
 	}
 }

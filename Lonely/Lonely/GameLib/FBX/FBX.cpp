@@ -196,9 +196,12 @@ void FbxModel::Skinning(void)
 		MeshVertex* pSrcVertices = m_pVertices[meshIdx];
 
 		UINT size = (UINT)(pMeshData->vertexNum * sizeof(MeshVertex));
-		MeshVertex* pVertices;
+		MeshVertex* pVertices = NULL;
 		// バッファをロックしてデータを書き込む
 		pMeshData->vertexBuffer.GetBuffer()->Lock(0, size, (void**)&pVertices, 0);
+		if (pVertices == NULL) {
+			continue;
+		}
 		for (UINT v = 0; v < pMeshData->vertexNum; v++)
 		{
 			//	頂点 * ボーン行列

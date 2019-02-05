@@ -24,6 +24,8 @@ public:
 		ReleaseTex();
 	}
 
+	void Initialize();
+
 	/**
 	* @brief テクスチャを作成する
 	* @param pTexKey テクスチャにつける名前のポインタ キー 連想配列
@@ -85,7 +87,7 @@ public:
 	}
 
 private:
-	const LPDIRECT3DDEVICE9& m_rpDX3D_DEV = nullptr;
+	LPDIRECT3DDEVICE9 m_rpDX3D_DEV = nullptr;
 
 	std::map<const TCHAR*, LPDIRECT3DTEXTURE9> m_pTexMap;
 };

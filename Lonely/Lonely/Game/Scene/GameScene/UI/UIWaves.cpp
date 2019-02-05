@@ -21,7 +21,7 @@ UIWaves::~UIWaves()
 bool UIWaves::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/UIWaves.png"))
+	if (!m_texture.Load("../Graphics/Texture/UIWaves.png"))
 	{
 		return false;
 	}

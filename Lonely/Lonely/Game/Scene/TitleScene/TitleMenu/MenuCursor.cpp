@@ -22,7 +22,7 @@ MenuCursor::~MenuCursor()
 bool MenuCursor::Initialize()
 {
 	//テクスチャー読み込み
-	if (!m_texture.Load("../Graphics/menuCursor.png"))
+	if (!m_texture.Load("../Graphics/Texture/menuCursor.png"))
 	{
 		return false;
 	}

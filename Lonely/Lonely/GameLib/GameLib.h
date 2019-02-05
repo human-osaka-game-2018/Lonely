@@ -130,7 +130,7 @@ public:
 	/**
 	* @brief TexStorageの取得を行う関数
 	*/
-	//TexStorage* GetTexStorage() { return &m_texStorage; }
+	TexStorage* GetTexStorage() { return &m_texStorage; }
 
 	/**
 	* @brief SoundsManagerの取得を行う関数
@@ -155,7 +155,7 @@ private:
 	CameraManager           m_cameraManager;
 	Helper2D                m_helper2D;
 	DXInput                 m_dxInput;
-	//TexStorage              m_texStorage;
+	TexStorage              m_texStorage;
 	SoundLib::SoundsManager m_soundsManager;
 };
 

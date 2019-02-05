@@ -21,7 +21,11 @@ TitleBackground::~TitleBackground()
 bool TitleBackground::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/Title_BG.jpg"))
+	/*if (!m_texture.Load("../Graphics/Texture/Title_BG.jpg"))
+	{
+		return false;
+	}*/
+	if (!m_texture.Load("../Graphics/Texture/titleBG2.jpg"))
 	{
 		return false;
 	}

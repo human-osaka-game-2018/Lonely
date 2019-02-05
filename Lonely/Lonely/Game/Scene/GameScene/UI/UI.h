@@ -48,5 +48,5 @@ private:
 	float logoWidth = 230.f;            //!< タイトルロゴの中心点からの横幅
 	float logoHeight = 400.f;           //!< タイトルロゴの中心点からの縦幅
 
-	TexStorage* m_pTexStrage;
+	TexStorage* m_pTexStorage;
 };

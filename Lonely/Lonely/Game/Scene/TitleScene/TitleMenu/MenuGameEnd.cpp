@@ -22,7 +22,7 @@ MenuGameEnd::~MenuGameEnd()
 bool MenuGameEnd::Initialize()
 {
 	//テクスチャー読み込み
-	if (!m_texture.Load("../Graphics/gameEnd.png"))
+	if (!m_texture.Load("../Graphics/Texture/gameEnd.png"))
 	{
 		return false;
 	}

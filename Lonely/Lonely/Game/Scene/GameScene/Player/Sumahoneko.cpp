@@ -16,6 +16,7 @@
 
 Sumahoneko::Sumahoneko()
 	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
+	, m_pSoundsManager(GameLib::Instance.GetSoundsManager())
 {
 	Initialize();
 }
@@ -28,16 +29,31 @@ Sumahoneko::~Sumahoneko()
 //初期化する
 bool Sumahoneko::Initialize()
 {
-	m_fbxModel.Load("../Graphics/smartcat.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/smartcat.fbx");
 	//m_fbxModel.Load("../Graphics/stage131.fbx");
 	m_pFbxStage = m_pSharedInformation->GetStageFbx();
 	m_shpere.CreateShpere(32);
-
 
 	m_position = { 0.f, 2.f, 0.f };
 	m_followingPositionExceptY = m_position;
 	m_prevPosition = m_position;
 	m_pCollision = new CollisionBox(this, PLAYER);
+
+	const TCHAR* filePath = _T("../Sounds/SE/sumahoneko/jump.mp3");
+	m_pSoundsManager->AddFile(filePath, _T("jump"));
+	const TCHAR* filePath2 = _T("../Sounds/SE/sumahoneko/damageCry.mp3");
+	m_pSoundsManager->AddFile(filePath2, _T("damageCry"));
+	const TCHAR* filePath3 = _T("../Sounds/SE/sumahoneko/deadCry.mp3");
+	m_pSoundsManager->AddFile(filePath3, _T("deadCry"));
+	const TCHAR* filePath4 = _T("../Sounds/SE/sumahoneko/damage.mp3");
+	m_pSoundsManager->AddFile(filePath4, _T("damage"));
+	const TCHAR* filePath5 = _T("../Sounds/SE/sumahoneko/fainted.mp3");
+	m_pSoundsManager->AddFile(filePath5, _T("fainted"));
+
+
+	//BGMを鳴らす
+	bool isSuccess = m_pSoundsManager->Start(_T("GameBGM"), true);
+
 
 	return true;
 }
@@ -56,7 +72,6 @@ void Sumahoneko::Update()
 	{
 		return;
 	}
-
 
 	UpdateDamageCount();
 
@@ -99,6 +114,9 @@ void Sumahoneko::Update()
 		//移動量を保存
 		movementThisFrame.x += movementSpeed.x;
 		movementThisFrame.z += movementSpeed.z;
+		m_lightDirection.x = movementSpeed.x;
+		m_lightDirection.z = movementSpeed.z;
+
 		if (m_runs == true)
 		{
 			movementThisFrame.x += movementSpeed.x * runSpeed;
@@ -107,12 +125,14 @@ void Sumahoneko::Update()
 
 		//キャラの向きを変える
 		m_playerDirection = m_pSharedInformation->GetCameraDirection();
-
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_S))
 	{
 		movementThisFrame.x -= movementSpeed.x;
 		movementThisFrame.z -= movementSpeed.z;
+		m_lightDirection.x = -movementSpeed.x;
+		m_lightDirection.z = -movementSpeed.z;
+
 		if (m_runs == true)
 		{
 			movementThisFrame.x -= (movementSpeed.x * runSpeed);
@@ -125,6 +145,9 @@ void Sumahoneko::Update()
 	{
 		movementThisFrame.x -= movementSpeed.z;
 		movementThisFrame.z += movementSpeed.x;
+		m_lightDirection.x = -movementSpeed.z;
+		m_lightDirection.z = +movementSpeed.x;
+
 		if (m_runs == true)
 		{
 			movementThisFrame.x -= (movementSpeed.z * runSpeed);
@@ -137,6 +160,9 @@ void Sumahoneko::Update()
 	{
 		movementThisFrame.x += movementSpeed.z;
 		movementThisFrame.z -= movementSpeed.x;
+		m_lightDirection.x = +movementSpeed.z;
+		m_lightDirection.z = -movementSpeed.x;
+
 		if (m_runs == true)
 		{
 			movementThisFrame.x += (movementSpeed.z * runSpeed);
@@ -145,11 +171,17 @@ void Sumahoneko::Update()
 
 		m_playerDirection = m_pSharedInformation->GetCameraDirection() + 1.57f;
 	}
+	if (DIRECT_INPUT->KeyboardIsReleased(DIK_R))
+	{
+		ChangeLight();
+	}
 
 	//落ちる処理
 	Fall();
 	//ジャンプ処理
 	Jump();
+	//アプリライトの方向の設定
+	SetLightDirection();
 	//ゲームオーバーのアニメーション処理
 	AnimateDead();
 	//当たり判定を登録する
@@ -161,146 +193,174 @@ void Sumahoneko::Update()
 	//this->DetectXCollidingWithStage(&movementThisFrame);
 	//this->DetectZCollidingWithStage(&movementThisFrame);
 
-	////多分hitDistはレイの距離の制限
-	//float hitDist = 10.0f;
-	//D3DXVECTOR3 hitPos(m_position);
-	//// 足元基準に当たり判定をとる場合は少し上から判定する
-	//m_position.y += 1.0f;
-	//hitPos.y += 1.0f;
-	//// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
-	//if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(0.0f, -1.0f, 0.0f), &hitDist, &hitPos) != -1)
-	//{
-	//	// 当たった場合はプレイヤーの高さを地面に設置させる
-	//	m_position.y = hitPos.y + m_radius;
-	//}
-	//else
-	//{
-	//	m_position.y -= 1.0f;
-	//}
-
 	const float tyousei = 0.5f;
 	{
 		//多分hitDistはレイの距離の制限
-		float hitDist2 = fabs(movementThisFrame.x);
+		float hitDist2 = fabsf(movementThisFrame.x) + fabsf(movementThisFrame.z);
 		D3DXVECTOR3 hitPos2(m_position);
 		// 足元基準に当たり判定をとる場合は少し上から判定する
 		m_position.y += 2.0f;
 		hitPos2.y += 2.0f;
 		// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
-		if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(movementThisFrame.x, 0.0f, 0.0f), &hitDist2, &hitPos2) != -1)
+		if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(movementThisFrame.x, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
 		{
-			if (movementThisFrame.x > 0)
+			if (movementThisFrame.x == 0.f && movementThisFrame.z == 0.f) 
 			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.x += (hitPos2.x - tyousei) - m_position.x;
-				// 当たった場合はプレイヤーの高さを地面に設置させる
-				m_position.x = hitPos2.x - tyousei;
+				
 			}
-			else if (movementThisFrame.x <= 0)
+			else if (movementThisFrame.x == 0.f && movementThisFrame.z < 0.f)
 			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.x += (hitPos2.x + tyousei) - m_position.x;
-				m_position.x = hitPos2.x + tyousei;
-			}
-			m_position.y -= 2.0f;
-		}
-		else
-		{
-			m_position.y -= 2.0f;
-		}
-	}
-	{
-		float hitDist2 = fabs(movementThisFrame.x);
-		D3DXVECTOR3 hitPos2(m_position);
-		// 足元基準に当たり判定をとる場合は少し上から判定する
-		m_position.y += 0.5f;
-		hitPos2.y += 0.5f;
-		// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
-		if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(movementThisFrame.x, 0.0f, 0.0f), &hitDist2, &hitPos2) != -1)
-		{
-			if (movementThisFrame.x > 0)
-			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.x += (hitPos2.x - tyousei) - m_position.x;
-				// 当たった場合はプレイヤーの高さを地面に設置させる
-				m_position.x = hitPos2.x - tyousei;
-			}
-			else if (movementThisFrame.x <= 0)
-			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.x += (hitPos2.x + tyousei) - m_position.x;
-				m_position.x = hitPos2.x + tyousei;
-			}
-			m_position.y -= 0.5f;
-		}
-		else
-		{
-			m_position.y -= 0.5f;
-		}
-	}
-
-	{
-		//多分hitDistはレイの距離の制限
-		float hitDist2 = fabs(movementThisFrame.z);
-		D3DXVECTOR3 hitPos2(m_position);
-		// 足元基準に当たり判定をとる場合は少し上から判定する
-		m_position.y += 2.0f;
-		hitPos2.y += 2.0f;
-		// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
-		if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(0.f, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
-		{
-			if (movementThisFrame.z > 0) {
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.z += (hitPos2.z - tyousei) - m_position.z;
-				// 当たった場合はプレイヤーの高さを地面に設置させる
-				m_position.z = hitPos2.z - tyousei;
-			}
-			else if (movementThisFrame.z <= 0)
-			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.z += (hitPos2.z + tyousei) - m_position.z;
-
+				m_position.x = hitPos2.x;
 				m_position.z = hitPos2.z + tyousei;
 			}
-			m_position.y -= 2.0f;
-		}
-		else
-		{
-			m_position.y -= 2.0f;
-		}
-	}
-
-	{
-		float hitDist2 = fabs(movementThisFrame.z);
-		D3DXVECTOR3 hitPos2(m_position);
-		// 足元基準に当たり判定をとる場合は少し上から判定する
-		m_position.y += 0.5f;
-		hitPos2.y += 0.5f;
-		// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
-		if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(0.f, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
-		{
-			if (movementThisFrame.z > 0)
+			else if (movementThisFrame.x == 0.f && movementThisFrame.z > 0.f)
 			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.z += (hitPos2.z - tyousei) - m_position.z;
-
-				// 当たった場合はプレイヤーの高さを地面に設置させる
+				m_position.x = hitPos2.x;
 				m_position.z = hitPos2.z - tyousei;
 			}
-			else if (movementThisFrame.z <= 0)
+			else if (movementThisFrame.x > 0.f && movementThisFrame.z == 0.f)
 			{
-				//当たり判定でずれた分だけ保存する
-				movementThisFrame.z += (hitPos2.z + tyousei) - m_position.z;
-
+				m_position.z = hitPos2.z;
+				m_position.x = hitPos2.x - tyousei;
+			}
+			else if (movementThisFrame.x < 0.f && movementThisFrame.z == 0.f)
+			{
+				m_position.z = hitPos2.z;
+				m_position.x = hitPos2.x + tyousei;
+			}
+			else if (movementThisFrame.x > 0.f && movementThisFrame.z > 0.f)
+			{
+				m_position.x = hitPos2.x - tyousei;
+				m_position.z = hitPos2.z - tyousei;
+			}
+			else if (movementThisFrame.x > 0.f && movementThisFrame.z < 0.f)
+			{
+				m_position.x = hitPos2.x - tyousei;
 				m_position.z = hitPos2.z + tyousei;
 			}
-			m_position.y -= 0.5f;
+			else if (movementThisFrame.x < 0.f && movementThisFrame.z < 0.f)
+			{
+				m_position.x = hitPos2.x + tyousei;
+				m_position.z = hitPos2.z + tyousei;
+			}
+			else if (movementThisFrame.x < 0.f && movementThisFrame.z > 0.f)
+			{
+				m_position.x = hitPos2.x + tyousei;
+				m_position.z = hitPos2.z - tyousei;
+			}
+			//if (movementThisFrame.x > 0)
+			//{
+			//	//当たり判定でずれた分だけ保存する
+			//	movementThisFrame.x += (hitPos2.x - tyousei) - m_position.x;
+			//	// 当たった場合はプレイヤーの高さを地面に設置させる
+			//	m_position.x = hitPos2.x - tyousei;
+			//}
+			//else if (movementThisFrame.x <= 0)
+			//{
+			//	//当たり判定でずれた分だけ保存する
+			//	movementThisFrame.x += (hitPos2.x + tyousei) - m_position.x;
+			//	m_position.x = hitPos2.x + tyousei;
+			//}
+			m_position.y -= 2.0f;
 		}
 		else
 		{
-			m_position.y -= 0.5f;
+			m_position.y -= 2.0f;
 		}
 	}
+
+	//{
+	//	float hitDist2 = fabs(movementThisFrame.x);
+	//	D3DXVECTOR3 hitPos2(m_position);
+	//	// 足元基準に当たり判定をとる場合は少し上から判定する
+	//	m_position.y += 0.5f;
+	//	hitPos2.y += 0.5f;
+	//	// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
+	//	if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(movementThisFrame.x, 0.0f, 0.0f), &hitDist2, &hitPos2) != -1)
+	//	{
+	//		if (movementThisFrame.x > 0)
+	//		{
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.x += (hitPos2.x - tyousei) - m_position.x;
+	//			// 当たった場合はプレイヤーの高さを地面に設置させる
+	//			m_position.x = hitPos2.x - tyousei;
+	//		}
+	//		else if (movementThisFrame.x <= 0)
+	//		{
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.x += (hitPos2.x + tyousei) - m_position.x;
+	//			m_position.x = hitPos2.x + tyousei;
+	//		}
+	//		m_position.y -= 0.5f;
+	//	}
+	//	else
+	//	{
+	//		m_position.y -= 0.5f;
+	//	}
+	//}
+
+	//{
+	//	//多分hitDistはレイの距離の制限
+	//	float hitDist2 = fabs(movementThisFrame.z);
+	//	D3DXVECTOR3 hitPos2(m_position);
+	//	// 足元基準に当たり判定をとる場合は少し上から判定する
+	//	m_position.y += 2.0f;
+	//	hitPos2.y += 2.0f;
+	//	// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
+	//	if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(0.f, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
+	//	{
+	//		if (movementThisFrame.z > 0) {
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.z += (hitPos2.z - tyousei) - m_position.z;
+	//			// 当たった場合はプレイヤーの高さを地面に設置させる
+	//			m_position.z = hitPos2.z - tyousei;
+	//		}
+	//		else if (movementThisFrame.z <= 0)
+	//		{
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.z += (hitPos2.z + tyousei) - m_position.z;
+
+	//			m_position.z = hitPos2.z + tyousei;
+	//		}
+	//		m_position.y -= 2.0f;
+	//	}
+	//	else
+	//	{
+	//		m_position.y -= 2.0f;
+	//	}
+	//}
+
+	//{
+	//	float hitDist2 = fabs(movementThisFrame.z);
+	//	D3DXVECTOR3 hitPos2(m_position);
+	//	// 足元基準に当たり判定をとる場合は少し上から判定する
+	//	m_position.y += 0.5f;
+	//	hitPos2.y += 0.5f;
+	//	// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
+	//	if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(0.f, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
+	//	{
+	//		if (movementThisFrame.z > 0)
+	//		{
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.z += (hitPos2.z - tyousei) - m_position.z;
+
+	//			// 当たった場合はプレイヤーの高さを地面に設置させる
+	//			m_position.z = hitPos2.z - tyousei;
+	//		}
+	//		else if (movementThisFrame.z <= 0)
+	//		{
+	//			//当たり判定でずれた分だけ保存する
+	//			movementThisFrame.z += (hitPos2.z + tyousei) - m_position.z;
+
+	//			m_position.z = hitPos2.z + tyousei;
+	//		}
+	//		m_position.y -= 0.5f;
+	//	}
+	//	else
+	//	{
+	//		m_position.y -= 0.5f;
+	//	}
+	//}
 
 	//スマホ猫を移動させる
 	m_position.x += movementThisFrame.x;
@@ -352,9 +412,13 @@ void Sumahoneko::Render()
 	// モデルの描画
 	m_fbxModel.Render();
 
-	char s[100];
-	sprintf_s(s, 100, "position.y %f gravity %f time %f", m_position.y, m_gravity, m_jumpingTime);
+	char s[200];
+	sprintf_s(s, 200, "position.y %f gravity %f time %f lightDirect %f", m_position.y, m_gravity, m_jumpingTime, m_lightDirection.x);
 	DEBUGFONT->DrawText(50, 50, 0xffffffff, s);
+
+	char arrayLight[200] = { "" };
+	sprintf_s(arrayLight, 200, "lightDirectX %f Y %f Z %f", m_lightDirection.x, m_lightDirection.y, m_lightDirection.z);
+	DEBUGFONT->DrawText(50, 100, 0xffffffff, arrayLight);
 
 	if (m_damaged == true)
 	{
@@ -416,6 +480,12 @@ void Sumahoneko::Damaged()
 		m_damageCount = 60;
 		m_hp -= 1;
 		m_pSharedInformation->SetHp(m_hp);
+		
+		if (m_hp >= 0 && m_hp <= 3)
+		{
+			m_pSoundsManager->Start(_T("damageCry"), false);
+			m_pSoundsManager->Start(_T("damage"), false);
+		}
 
 		if (m_hp == 0)
 		{
@@ -448,6 +518,8 @@ void Sumahoneko::Jump()
 			//重力　 ＝　    初速度
 			m_gravity = m_initialVelocity;
 			m_isLanded = false;
+
+			bool isSuccess = m_pSoundsManager->Start(_T("jump"), false);
 		}
 	}
 }
@@ -690,6 +762,7 @@ void Sumahoneko::AnimateDead()
 		{
 			//m_radian = 0.f;
 			m_dyingAnimeState = TWO;
+			bool isSuccess = m_pSoundsManager->Start(_T("deadCry"), false);
 		}
 	}
 	if (m_dyingAnimeState == TWO)
@@ -715,6 +788,79 @@ void Sumahoneko::AnimateDead()
 		{
 			m_rotation.z = 0.f;
 			m_dyingAnimeState = FOUR;
+			m_pSoundsManager->Start(_T("fainted"), false);
 		}
 	}
+}
+
+void Sumahoneko::SetLightDirection()
+{
+	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
+	if(m_usesLight == false)
+	{
+		pDevice->LightEnable(1, false);
+		pDevice->SetRenderState(D3DRS_AMBIENT, 0x00707070);
+		return;
+	}
+
+	//SPOTライト
+	D3DLIGHT9 lightSpot;
+	ZeroMemory(&lightSpot, sizeof(D3DLIGHT9));
+	lightSpot.Type = D3DLIGHT_SPOT;
+	lightSpot.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpot.Specular = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpot.Ambient = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
+	lightSpot.Position = m_position;
+	lightSpot.Position.y += 2.0f;
+	//lightSpot.Direction = D3DXVECTOR3(0.0f, 0.0f, 1.0f);
+	m_lightDirection.y = -0.02f;
+	D3DXVec3Normalize(&m_lightDirection, &m_lightDirection);
+	lightSpot.Direction = m_lightDirection;
+	lightSpot.Range = 100.f;
+	lightSpot.Falloff = 1.0f;
+	lightSpot.Attenuation0 = 1.0f;
+	lightSpot.Theta = D3DXToRadian(30.f);
+	lightSpot.Phi = D3DXToRadian(60.0f);
+
+	D3DLIGHT9 lightSpotToSumahoneko;
+	ZeroMemory(&lightSpotToSumahoneko, sizeof(D3DLIGHT9));
+	lightSpotToSumahoneko.Type = D3DLIGHT_SPOT;
+	lightSpotToSumahoneko.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpotToSumahoneko.Specular = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpotToSumahoneko.Ambient = D3DXCOLOR(0.3f, 0.3f, 0.3f, 1.0f);
+	lightSpotToSumahoneko.Position = m_position;
+	lightSpotToSumahoneko.Position.y += 2.0f;
+	D3DXVec3Normalize(&m_lightDirection, &m_lightDirection);
+	lightSpot.Direction = m_lightDirection;
+	lightSpotToSumahoneko.Range = 5.f;
+	lightSpotToSumahoneko.Falloff = 3.0f;
+	lightSpotToSumahoneko.Attenuation0 = 1.0f;
+	lightSpotToSumahoneko.Theta = D3DXToRadian(90.f);
+	lightSpotToSumahoneko.Phi = D3DXToRadian(180.0f);
+
+	D3DLIGHT9 lightSpotToSumahoneko2;
+	ZeroMemory(&lightSpotToSumahoneko2, sizeof(D3DLIGHT9));
+	lightSpotToSumahoneko2.Type = D3DLIGHT_SPOT;
+	lightSpotToSumahoneko2.Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpotToSumahoneko2.Specular = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
+	lightSpotToSumahoneko2.Ambient = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
+	lightSpotToSumahoneko2.Position = m_position;
+	lightSpotToSumahoneko2.Position.y += 3.0f;
+	lightSpotToSumahoneko2.Direction = D3DXVECTOR3(-0.2f, -1.0f, -0.2f);
+	lightSpotToSumahoneko2.Range = 5.f;
+	lightSpotToSumahoneko2.Falloff = 1.0f;
+	lightSpotToSumahoneko2.Attenuation0 = 1.0f;
+	lightSpotToSumahoneko2.Theta = D3DXToRadian(10.f);
+	lightSpotToSumahoneko2.Phi = D3DXToRadian(30.0f);
+	
+	pDevice->SetLight(1, &lightSpot);
+	pDevice->LightEnable(1, true);
+
+	pDevice->SetLight(2, &lightSpotToSumahoneko);
+	pDevice->LightEnable(2, true);
+
+	pDevice->SetLight(3, &lightSpotToSumahoneko2);
+	pDevice->LightEnable(3, true);
+
+	pDevice->SetRenderState(D3DRS_AMBIENT, 0x00202020);
 }

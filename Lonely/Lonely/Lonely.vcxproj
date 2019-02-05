@@ -46,6 +46,7 @@
     <ClCompile Include="GameLib\SceneManager\SceneBase\SceneBase.cpp" />
     <ClCompile Include="GameLib\SceneManager\SceneManager.cpp" />
     <ClCompile Include="GameLib\Sprite\Sprite.cpp" />
+    <ClCompile Include="GameLib\TexStorage\TexStorage.cpp" />
     <ClCompile Include="GameLib\Window\Window.cpp" />
     <ClCompile Include="Game\Main\Main.cpp" />
     <ClCompile Include="Game\Scene\DataSelectScene\DataSelectScene.cpp" />
@@ -69,10 +70,10 @@
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp" />
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageStopedObject.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarBase.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarCharging.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarMovable.cpp" />
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarQR.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerBase.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerCharging.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerMovable.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerQR.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp" />
     <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp" />
@@ -119,6 +120,7 @@
     <ClInclude Include="GameLib\SceneManager\SceneBase\SceneBase.h" />
     <ClInclude Include="GameLib\SceneManager\SceneManager.h" />
     <ClInclude Include="GameLib\Sprite\Sprite.h" />
+    <ClInclude Include="GameLib\TexStorage\TexStorage.h" />
     <ClInclude Include="GameLib\Window\Window.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\DataSelectScene.h" />
     <ClInclude Include="Game\Scene\DataSelectScene\Object\CatCursor.h" />
@@ -141,10 +143,10 @@
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h" />
     <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h" />
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarBase.h" />
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarCharging.h" />
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarMovable.h" />
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarQR.h" />
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerBase.h" />
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerCharging.h" />
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerMovable.h" />
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerQR.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UI.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h" />
     <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h" />

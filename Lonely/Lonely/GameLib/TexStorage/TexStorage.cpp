@@ -8,6 +8,12 @@
 #include "../GameLib.h"
 
 TexStorage::TexStorage() 
-		:m_rpDX3D_DEV(GameLib::Instance.GetDirect3DDevice()) 
 {
+	Initialize();
+}
+
+void TexStorage::Initialize()
+{
+	m_rpDX3D_DEV = GameLib::Instance.GetDirect3DDevice();
+
 }

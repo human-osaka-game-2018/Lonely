@@ -21,7 +21,7 @@ UIFootsteps::~UIFootsteps()
 bool UIFootsteps::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/UIFootsteps.png"))
+	if (!m_texture.Load("../Graphics/Texture/UIFootsteps.png"))
 	{
 		return false;
 	}
@@ -62,4 +62,5 @@ void UIFootsteps::Render()
 
 	//描画
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
+
 }

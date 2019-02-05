@@ -53,6 +53,8 @@ bool GameLib::Initialize(const wchar_t* pName, int width, int height, bool isFul
 	m_sceneManager.Initialize();
 	// 入力システムの初期化
 	m_input.Initialize();
+	//　テクスチャの管理クラスを初期化
+	m_texStorage.Initialize();
 
 	return true;
 }

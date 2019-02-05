@@ -24,7 +24,7 @@ bool TitleLogo::Initialize()
 	{
 		return false;
 	}*/
-	if (!m_texture.Load("../Graphics/title.png"))
+	if (!m_texture.Load("../Graphics/Texture/TitleLogo.png"))
 	{
 		return false;
 	}

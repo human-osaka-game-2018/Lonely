@@ -24,14 +24,11 @@ Stage::~Stage()
 
 bool Stage::Initialize()
 {
-	//m_fbxModel.Load("../Graphics/indoor2_color.fbx");
-	//m_fbxModel.Load("../Graphics/stage2_1.fbx");
-	m_fbxModel.Load("../Graphics/stage129.fbx");
-	//m_fbxModel.Load("../Graphics/stage131.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/stageKari.fbx");
 	m_pSharedInformation->SetStageFbx(&m_fbxModel);
 
 	m_position = { 0.f, 0.f, 0.f };
-	m_radius = 1.0f;
+	m_radius = 0.2f;
 	//m_radius = 1.f;
 	m_direction = 0.f;
 
@@ -101,7 +98,7 @@ void Stage::Render()
 //	{
 //
 //	}
-//	else if (typeB == TRIGAR)
+//	else if (typeB == TRIGGER)
 //	{
 //
 //	}

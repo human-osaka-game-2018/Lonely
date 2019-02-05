@@ -20,12 +20,12 @@ UI::~UI()
 //初期化する
 bool UI::Initialize()
 {
-	//m_pTexStrage = GameLib::Instance.GetTexStorage();
+	m_pTexStorage = GameLib::Instance.GetTexStorage();
 
-	//m_pTexStrage->CreateTex(_T("sumahoGamen"), _T("../Graphics/smart phone.png"));
+	m_pTexStorage->CreateTex(_T("sumahoGamen"), _T("../Graphics/Texture/smart phone.png"));
 
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/smart phone.png"))
+	if (!m_texture.Load("../Graphics/Texture/smart phone.png"))
 	{
 		return false;
 	}
@@ -64,8 +64,8 @@ void UI::Render()
 	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 	//テクスチャの設定
-	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//pDevice->SetTexture(0, m_pTexStrage->GetTex(_T("sumahoGamen")));
+	//pDevice->SetTexture(0, m_texture.GetD3DTexture());
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("sumahoGamen")));
 	//描画
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 

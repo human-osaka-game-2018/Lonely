@@ -10,6 +10,7 @@
 #include "PlayerBase.h"
 #include "../../../../GameLib/FBX/FBX.h"
 #include "../SharedInformation/SharedInformation.h"
+#include "../../../../GameLib/GameLib.h"
 
 enum DYING_ANIME_STATE
 {
@@ -78,9 +79,22 @@ public:
 	*/
 	void UpdateDamageCount();
 
+	/**
+	* @brief 死ぬときのアニメーションを行う関数
+	*/
 	void AnimateDead();
 
-	void SetIsLanded(bool isLanded) { m_isLanded = isLanded; };
+	/**
+	* @brief ライトモードを切り替える関数
+	*/
+	void ChangeLight() { m_usesLight = !m_usesLight; }
+
+	/**
+	* @brief ライトの方向を設定する関数
+	*/
+	void SetLightDirection();
+
+	void SetIsLanded(bool isLanded) { m_isLanded = isLanded; }
 
 private:
 
@@ -99,23 +113,26 @@ private:
 	float       m_gravity = 0.f;
 	float       m_maxGravity = -5.f;
 	float       m_jumpingTime = 0.f;
-	//float       m_accelerationGravity = 0.0025f;
-	//float       m_initialVelocity = 0.5f;
+	float       m_accelerationGravity = 0.0025f;
+	float       m_initialVelocity = 0.5f;
 
 	D3DXVECTOR3 m_rotation = { 0.f,0.f,0.f };
-	float       m_accelerationGravity = 0.0001f;
-	float       m_initialVelocity = 1.f;
+	D3DXVECTOR3 m_lightDirection = { 0.f,0.f,1.f };
+	//float       m_accelerationGravity = 0.0001f;
+	//float       m_initialVelocity = 1.f;
 	bool        m_isLanded = false;
 	bool        m_runs = false;
 	bool        m_damaged = false;
 	bool        m_dead = false;
+	bool        m_usesLight = false;
 	int         m_hp = 3;
 	int         m_damageCount;
 	int         m_dyingAnimeState;
 	int         m_dyingAnimeCount;
 	float       m_radian = 0.f;
 
-	SharedInformation* m_pSharedInformation;
+	SharedInformation*       m_pSharedInformation;
+	SoundLib::SoundsManager* m_pSoundsManager;
 
 	FbxModel*   m_pFbxStage;//今はとりあえずこのクラスに置いているだけ
 };

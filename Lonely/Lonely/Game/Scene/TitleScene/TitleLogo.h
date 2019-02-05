@@ -48,5 +48,5 @@ public:
 private:
 
 	float logoWidth = 30.f;            //!< タイトルロゴの中心点からの横幅
-	float logoHeight = 20.f;           //!< タイトルロゴの中心点からの縦幅
+	float logoHeight = 40.f;           //!< タイトルロゴの中心点からの縦幅
 };

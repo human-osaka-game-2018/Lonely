@@ -24,14 +24,14 @@ Pasoken::~Pasoken()
 //初期化する
 bool Pasoken::Initialize()
 {
-	m_fbxModel.Load("../Graphics/wanpaso_color.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/wanpaso_color.fbx");
 	m_shpere.CreateShpere(32);
 	m_position = { -50.f, 0.f, 50.f };
 	m_followingPositionExceptY = m_position;
 	m_prevPosition = m_position;
 	m_destinationPosition = { 10.f, 0.f, 10.f };
 	m_destination = DESTINATION1;
-	m_radius = 15.f;
+	m_radius = 0.5f;
 	m_speed = 0.25f;
 	m_direction = 2.1f;
 	

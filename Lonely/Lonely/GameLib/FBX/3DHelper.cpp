@@ -655,10 +655,13 @@ int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDis
 
 	int primNum = 0;
 	int ret = -1;//うまいことメッシュと当たらなかったら-１のままになる
+	float hitMinLength = 10000.f;//当たってた距離が一番短いのを保存する
+	D3DXVECTOR3 hitNearPos = { 0.f,0.f,0.f };//当たった位置の中で、一番近い距離を保存する
+
 	// 全てのメッシュと当たっているかの判定をしていく
 	for (UINT i = 0; i < m_meshNum; i++)
 	{
-		int retTemp = RayPick(i, &pos, &vec, pOut);
+		int retTemp = RayPick(i, &pos, &vec, pOut, &hitNearPos, &hitMinLength);
 		if (retTemp != -1)
 		{
 			ret = retTemp + primNum;
@@ -668,14 +671,15 @@ int Model::RayPick(const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, float* pDis
 	if (ret != -1)
 	{
 		// 交点をワールド空間に戻す
-		D3DXVec3TransformCoord(pOut, pOut, &m_world);
+		D3DXVec3TransformCoord(&hitNearPos, &hitNearPos, &m_world);
 		// 交点までの距離がレイの長さより遠ければ当たらない
-		float hitDist = D3DXVec3Length(&(*pOut - *pPos));//ベクトルの大きさを出す関数
+		float hitDist = D3DXVec3Length(&(hitNearPos - *pPos));//ベクトルの大きさを出す関数
 		if (*pDist < hitDist)
 		{
 			return -1;
 		}
-		//*pDist = hitDist;
+		
+		*pOut = hitNearPos;
 	}
 	return ret;
 }
@@ -836,7 +840,7 @@ bool Model::RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXV
 }
 
 // モデルと線の当たり判定
-int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut)
+int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut,D3DXVECTOR3* pHitNearPos ,float* pHitMinLength)
 {
 	MeshData* pMesh = GetMesh(i);
 	if (pMesh->vertexBuffer.GetBuffer() == nullptr) return -1;
@@ -902,6 +906,13 @@ int Model::RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3D
 		if (RayPickTriangle(Triangle, pos, vec, pOut, &neart))
 		{
 			ret = (int)primIdx;
+
+			//今当たった距離が保存してきた最短距離より短ければ、更新する
+			if (neart < *pHitMinLength)
+			{
+				*pHitMinLength = neart;
+				*pHitNearPos = *pOut;
+			}
 		}
 	}
 

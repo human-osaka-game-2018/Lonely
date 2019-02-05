@@ -22,7 +22,7 @@ UIHitPoint::~UIHitPoint()
 bool UIHitPoint::Initialize()
 {
 	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/UIHitPoint.png"))
+	if (!m_texture.Load("../Graphics/Texture/UIHitPoint.png"))
 	{
 		return false;
 	}

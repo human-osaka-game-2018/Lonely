@@ -56,7 +56,8 @@ bool TitleScene::Initialize()
 	// 音声ファイルオープン
 	// 第2引数は音声ファイルを識別するための任意の文字列をキーとして指定する。
 	// この後の操作関数の呼び出し時には、ここで設定したキーを指定して音声を識別する。
-	const TCHAR* filePath = _T("../Sounds/BGM/TitleBGM.mp3");
+	//const TCHAR* filePath = _T("../Sounds/BGM/TitleBGM.mp3");
+	const TCHAR* filePath = _T("../Sounds/BGM/sepianokaze.mp3");
 	isSuccess = soundsManager.AddFile(filePath, _T("TitleBGM"));
 
 	return true;

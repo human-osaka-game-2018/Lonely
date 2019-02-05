@@ -102,7 +102,7 @@ public:
 
 private:
 
-	IDirect3D9* m_pD3D;
+	IDirect3D9*             m_pD3D;
 	IDirect3DDevice9*		m_pDevice;
 	D3DPRESENT_PARAMETERS	m_d3dpp;
 };

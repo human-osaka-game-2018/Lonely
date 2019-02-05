@@ -22,7 +22,7 @@ MenuGameStart::~MenuGameStart()
 bool MenuGameStart::Initialize()
 {
 	//テクスチャー読み込み
-	if (!m_texture.Load("../Graphics/gameStart.png"))
+	if (!m_texture.Load("../Graphics/Texture/gameStart.png"))
 	{
 		return false;
 	}

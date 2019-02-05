@@ -22,7 +22,7 @@ MenuPressEnter::~MenuPressEnter()
 bool MenuPressEnter::Initialize()
 {
 	//テクスチャー読み込み
-	if (!m_texture.Load("../Graphics/pressEnter.png"))
+	if (!m_texture.Load("../Graphics/Texture/pressEnter.png"))
 	{
 		return false;
 	}

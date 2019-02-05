@@ -82,9 +82,6 @@
     <Filter Include="リソース ファイル\GameLib\CollisionManager\CollisionBase">
       <UniqueIdentifier>{dcc5572c-95c3-4d38-ab40-944bdb184dd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Trigar">
-      <UniqueIdentifier>{4209d7f3-c164-4828-8877-c1e651066045}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\Enemy">
       <UniqueIdentifier>{6d59b336-bbbb-41be-a6fd-053661a55f46}</UniqueIdentifier>
     </Filter>
@@ -103,8 +100,14 @@
     <Filter Include="リソース ファイル\GameLib\ObjectManager">
       <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Trigar\UI">
+    <Filter Include="リソース ファイル\GameLib\TexStorage">
+      <UniqueIdentifier>{ba4fe468-dac8-426b-b885-7a214b252f60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\UI">
       <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Trigger">
+      <UniqueIdentifier>{4209d7f3-c164-4828-8877-c1e651066045}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -244,25 +247,24 @@
       <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UI.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIBar.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIBattery.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
@@ -285,17 +287,8 @@
     <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBox.cpp">
       <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarQR.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarCharging.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Enemy\Pasoken.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarBase.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
@@ -318,11 +311,23 @@
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageStopedObject.cpp">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigar\TrigarMovable.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\TexStorage\TexStorage.cpp">
+      <Filter>リソース ファイル\GameLib\TexStorage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerCharging.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerMovable.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerQR.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -435,22 +440,22 @@
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar\UI</Filter>
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
@@ -524,20 +529,11 @@
     <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBox.h">
       <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarQR.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarCharging.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Enemy\Pasoken.h">
       <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h">
       <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarBase.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
@@ -566,8 +562,20 @@
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Trigar\TrigarMovable.h">
-      <Filter>リソース ファイル\Scene\GameScene\Trigar</Filter>
+    <ClInclude Include="GameLib\TexStorage\TexStorage.h">
+      <Filter>リソース ファイル\GameLib\TexStorage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerBase.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerCharging.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerMovable.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerQR.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

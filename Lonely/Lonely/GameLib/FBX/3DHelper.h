@@ -126,7 +126,7 @@ public:
 
 private:
 	// 線の当たり判定
-	int RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut);
+	int RayPick(UINT i, const D3DXVECTOR3* pPos, const D3DXVECTOR3* pVec, D3DXVECTOR3* pOut, D3DXVECTOR3* pHitNearPos, float* hitMinLength);
 	// 線の当たり判定
 	bool RayPickTriangle(const D3DXVECTOR3* pTriangle, D3DXVECTOR3 pos, D3DXVECTOR3 vec, D3DXVECTOR3* pOut, float* pDist);
 

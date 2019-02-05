@@ -60,6 +60,7 @@ bool DirectX::Initialize(HWND hWnd, int width, int height, bool isFullscreen)
 		return false;
 	}
 	m_d3dpp = d3dpp;
+
 	return true;
 }
 

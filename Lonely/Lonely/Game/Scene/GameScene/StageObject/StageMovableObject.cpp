@@ -34,7 +34,7 @@ StageMovableObject::StageMovableObject(D3DXVECTOR3* position, D3DXVECTOR3* myBox
 
 	m_pSumahoneko = pSumahoneko;
 
-	m_trigar = (new TrigarMovable(position, triggersBoxLength));
+	m_trigger = (new TriggerMovable(position, triggersBoxLength));
 
 	m_collides = false;
 	m_pCollision = new CollisionBox(this, STAGE_OBJECT, myBoxLength);
@@ -44,13 +44,13 @@ StageMovableObject::StageMovableObject(D3DXVECTOR3* position, D3DXVECTOR3* myBox
 
 bool StageMovableObject::Initialize()
 {
-	m_fbxModel.Load("../Graphics/test_box.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/test_box.fbx");
 	m_shpere.CreateShpere(32);
 	m_radius = 0.05f;
 	m_rotation = 0.f;
 	return true;
 
-	if (!m_texture.Load("../Graphics/Icon_Push.png"))
+	if (!m_texture.Load("../Graphics/Texture/Icon_Push.png"))
 	{
 		return false;
 	}
@@ -73,7 +73,7 @@ void StageMovableObject::Update()
 		return;
 	}
 
-	if (m_trigar->IsCollided())
+	if (m_trigger->IsCollided())
 	{
 		if (DIRECT_INPUT->KeyboardIsHeld(DIK_RETURN))
 		{
@@ -87,7 +87,7 @@ void StageMovableObject::Update()
 			m_followingPositionExceptY.x += playerMovement.x;
 			m_followingPositionExceptY.z += playerMovement.z;
 
-			m_trigar->SetPosition(&m_position);
+			m_trigger->SetPosition(&m_position);
 
 			m_pCollision->SetType(PLAYER_WITH_OBJECT);
 		}
@@ -107,12 +107,12 @@ void StageMovableObject::Update()
 	//当たり判定を登録する
 	m_pCollisionManager->RegisterCollision(m_pCollision);
 
-	m_trigar->Update();
+	m_trigger->Update();
 }
 
 void StageMovableObject::Render()
 {
-	m_trigar->Render();
+	m_trigger->Render();
 
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
@@ -188,5 +188,5 @@ void StageMovableObject::RevertPosition()
 	m_position = m_prevPosition;
 	m_followingPositionExceptY = m_prevPosition;
 
-	m_trigar->SetPosition(&m_position);
+	m_trigger->SetPosition(&m_position);
 }

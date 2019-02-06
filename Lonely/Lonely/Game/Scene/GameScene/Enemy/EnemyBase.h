@@ -32,7 +32,7 @@ public:
 	*/
 	void Finalize();
 
-	int GetTrigarType() { return m_trigarType; }
+	int GetTriggerType() { return m_triggerType; }
 
 protected:
 
@@ -40,7 +40,7 @@ protected:
 	CollisionBase*    m_pCollision;           //!< 当たり判定の実体
 
 	D3DXVECTOR3       m_prevPosition;         //!< フレームで移動する前の位置
-	int               m_trigarType;           //!< どのトリガーなのか
+	int               m_triggerType;           //!< どのトリガーなのか
 	bool              m_collides;             //!< 当たっているかどうか
 
 };

@@ -68,7 +68,7 @@ D3DXVECTOR3 CollisionBox::GetPosition()
 	{
 
 	}
-	else if (this->m_type == TRIGAR)
+	else if (this->m_type == TRIGGER)
 	{
 
 	}*/

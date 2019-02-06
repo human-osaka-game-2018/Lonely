@@ -12,8 +12,6 @@
 #include "../../../../GameLib/CollisionManager/EnumCollision/Enum_CollisionShape.h"
 #include "../SharedInformation/EnumGameState.h"
 
-#define _CRT_SECURE_NO_WARNINGS
-
 Sumahoneko::Sumahoneko()
 	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
 	, m_pSoundsManager(GameLib::Instance.GetSoundsManager())

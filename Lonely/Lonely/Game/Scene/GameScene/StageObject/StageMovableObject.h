@@ -9,7 +9,7 @@
 #include <d3dx9math.h>
 
 #include "StageObject.h"
-#include "../Trigar/TrigarMovable.h"
+#include "../Trigger/TriggerMovable.h"
 #include "../../../../GameLib/CollisionManager/CollisionManager.h"
 #include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBase.h"
 #include "../Player/Sumahoneko.h"
@@ -65,7 +65,7 @@ private:
 
 	};
 
-	TrigarMovable* m_trigar;
+	TriggerMovable* m_trigger;
 	Texture        m_texture;
 	Sumahoneko*    m_pSumahoneko;
 };

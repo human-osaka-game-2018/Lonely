@@ -16,9 +16,9 @@
 #include "Stage\Stage.h"
 #include "Player\Sumahoneko.h"
 #include "Enemy\Pasoken.h"
-#include "Trigar\TrigarCharging.h"
-#include "Trigar\TrigarMovable.h"
-#include "Trigar\TrigarQR.h"
+#include "Trigger\TriggerCharging.h"
+#include "Trigger\TriggerMovable.h"
+#include "Trigger\TriggerQR.h"
 #include "StageObject\StageMovableObject.h"
 #include "StageObject\StageStopedObject.h"
 #include "GameOver\GameOver.h"
@@ -51,10 +51,10 @@ bool GameScene::Initialize()
 	
 
 	//ObjectManagerのVector配列にゲームシーンで使うクラスを登録する
-	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(50.f, 0.f, 0.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
-	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(0.f, 0.f, 50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
-	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(-50.f, 0.f, -50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
-	m_pObjectManager->RegisterObject(new TrigarQR(&D3DXVECTOR3(-100.f, 0.f, -80.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TriggerQR(&D3DXVECTOR3(50.f, 0.f, 0.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TriggerQR(&D3DXVECTOR3(0.f, 0.f, 50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TriggerQR(&D3DXVECTOR3(-50.f, 0.f, -50.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
+	m_pObjectManager->RegisterObject(new TriggerQR(&D3DXVECTOR3(-100.f, 0.f, -80.f), &D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
 
 
 	//m_pObjectManager->RegisterObject(new GameOver);
@@ -68,9 +68,11 @@ bool GameScene::Initialize()
 
 	// 第2引数は音声ファイルを識別するための任意の文字列をキーとして指定する。
 	// この後の操作関数の呼び出し時には、ここで設定したキーを指定して音声を識別する。
-	const TCHAR* filePath = _T("../Sounds/BGM/GameBGM.mp3");
+	const TCHAR* filePath = _T("../Sounds/BGM/tokiwokoete.mp3");
 	m_pSoundsManager->AddFile(filePath, _T("GameBGM"));
 	
+	//BGMを鳴らす
+	bool isSuccess = m_pSoundsManager->Start(_T("GameBGM"), true);
 
 
 	return true;
@@ -88,9 +90,7 @@ void GameScene::Finalize()
 //操作を更新する
 void GameScene::Update()
 {
-	//BGMを鳴らす
-	bool isSuccess = m_pSoundsManager->Start(_T("GameBGM"), true);
-
+	
 	//当たり判定を登録されてるのを解除する
 	//当たり判定の登録はそれぞれのクラスで行う
 	m_pCollisionManager->ReleaseCollision();

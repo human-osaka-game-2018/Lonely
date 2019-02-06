@@ -88,11 +88,11 @@ private:
 	*/
 	int collisionTargetType[5] =
 	{
-		1 << PLAYER_WITH_OBJECT | 1 << ENEMY        | 1 << STAGE_OBJECT | 1 << TRIGAR,     // PLAYERタイプが判定を行うグループ
-		1 << ENEMY              | 1 << STAGE_OBJECT | 1 << TRIGAR,                         // PLAYER_WITH_OBJECTタイプが判定を行うグループ
+		1 << PLAYER_WITH_OBJECT | 1 << ENEMY        | 1 << STAGE_OBJECT | 1 << TRIGGER,     // PLAYERタイプが判定を行うグループ
+		1 << ENEMY              | 1 << STAGE_OBJECT | 1 << TRIGGER,                         // PLAYER_WITH_OBJECTタイプが判定を行うグループ
 		1 << ENEMY              | 1 << STAGE_OBJECT,                                       // ENEMYタイプが判定を行うグループ
 		1 << STAGE_OBJECT                                                                  // OBJECTタイプが判定を行うグループ
-		                                                            	                   // TRIGARタイプが判定を行うグループ
+		                                                            	                   // TRIGGERタイプが判定を行うグループ
 	};
 
 	/**

@@ -31,7 +31,7 @@ public:
 	enum CAMERA_MODE
 	{
 		DEFAULT_CAMERA,    //!< 通常のカメラ
-		APULI_CAMERA       //!< スマホ猫のアプリのカメラ
+		APP_CAMERA         //!< スマホ猫のアプリのカメラ
 	};
 
 	SharedInformation();

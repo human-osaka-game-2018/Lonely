@@ -45,6 +45,7 @@ void Pasoken::Finalize()
 {
 	m_fbxModel.Finalize();
 	m_shpere.Finalize();
+	delete m_pCollision;
 }
 
 //更新する

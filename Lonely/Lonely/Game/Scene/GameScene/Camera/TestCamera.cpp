@@ -68,6 +68,8 @@ void TestCamera::Update()
 	}*/
 
 	const float cameraRotationSpeed = 0.05f;
+	const float cameraMoveSpeed = 0.2f;
+	const float cameraPersChangeSpeed = 0.02f;
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_DOWN))
 	{
 		m_rotation.x += cameraRotationSpeed;
@@ -97,25 +99,25 @@ void TestCamera::Update()
 
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_I))
 	{
-		m_position.y += 0.1f;
+		m_position.y += cameraMoveSpeed;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_K))
 	{
-		m_position.y -= 0.1f;
+		m_position.y -= cameraMoveSpeed;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_J))
 	{
-		m_position.x += 0.1f;
+		m_position.x += cameraMoveSpeed;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_L))
 	{
-		m_position.x -= 0.1f;
+		m_position.x -= cameraMoveSpeed;
 	}
 	if (DIRECT_INPUT->KeyboardIsHeld(DIK_P))
 	{
 		if (m_perspective >= 0.7f) 
 		{
-			m_perspective += 0.02f;
+			m_perspective += cameraPersChangeSpeed;
 
 			if (m_perspective >= 1.3f)
 			{
@@ -127,7 +129,7 @@ void TestCamera::Update()
 	{
 		if (m_perspective <= 1.3f)
 		{
-			m_perspective -= 0.02f;
+			m_perspective -= cameraPersChangeSpeed;
 			if (m_perspective <= 0.7f)
 			{
 				m_perspective = 0.7f;
@@ -141,7 +143,13 @@ void TestCamera::Update()
 	m_position.y = position.y;
 	m_position.z = position.z;
 	m_lookAt.x = position.x;
-	m_lookAt.y = position.y + 3.f;
+	if(m_perspective == 0.7f)
+	{
+		m_lookAt.y = position.y + 3.5f;
+	}
+	else {
+		m_lookAt.y = position.y + 5.f;
+	}
 	m_lookAt.z = position.z;
 
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
@@ -207,13 +215,14 @@ void TestCamera::Update()
 	light.Specular.g = 1.0f;
 	light.Specular.b = 1.0f;
 	light.Ambient.a = 1.0f;
-	light.Ambient.r = 0.5f;
-	light.Ambient.g = 0.5f;
-	light.Ambient.b = 0.5f;
+	light.Ambient.r = 0.1f;
+	light.Ambient.g = 0.1f;
+	light.Ambient.b = 0.1f;
 	D3DXVec3Normalize((D3DXVECTOR3*)&light.Direction, &vecDirection);
 	light.Range = 200.0f;
 
 	pDevice->SetLight(0, &light);
-	pDevice->LightEnable(0, TRUE);
+	pDevice->LightEnable(0, false);
 
+	//pDevice->SetRenderState(D3DRS_AMBIENT, 0x00606060);
 }

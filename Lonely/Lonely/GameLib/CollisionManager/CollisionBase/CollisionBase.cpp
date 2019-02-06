@@ -11,10 +11,10 @@
 //#include "../../../Game/Scene/GameScene/Stage/Stage.h"
 #include "../../../Game/Scene/GameScene/StageObject/StageObject.h"
 #include "../../../Game/Scene/GameScene/StageObject/StageMovableObject.h"
-#include "../../../Game/Scene/GameScene/Trigar/TrigarBase.h"
-#include "../../../Game/Scene/GameScene/Trigar/TrigarQR.h"
-#include "../../../Game/Scene/GameScene/Trigar/TrigarMovable.h"
-#include "../../../Game/Scene/GameScene/Trigar/TrigarCharging.h"
+#include "../../../Game/Scene/GameScene/Trigger/TriggerBase.h"
+#include "../../../Game/Scene/GameScene/Trigger/TriggerQR.h"
+#include "../../../Game/Scene/GameScene/Trigger/TriggerMovable.h"
+#include "../../../Game/Scene/GameScene/Trigger/TriggerCharging.h"
 
 CollisionBase::CollisionBase()
 {
@@ -91,25 +91,25 @@ void CollisionBase::OnCollision(CollisionBase* collider, bool collisionStateIsRi
 				sumahoneko->RevertPosition();
 			}
 		}
-		else if (typeB == TRIGAR)
+		else if (typeB == TRIGGER)
 		{
-			TrigarBase* trigar = dynamic_cast<TrigarBase*>(collider->GetOwner());
-			int trigarType = trigar->GetTrigarType();
+			TriggerBase* trigger = dynamic_cast<TriggerBase*>(collider->GetOwner());
+			int triggerType = trigger->GetTriggerType();
 
-			if (trigarType == TRIGAR_QR)
+			if (triggerType == TRIGGER_QR)
 			{
-				TrigarQR* trigarQR = dynamic_cast<TrigarQR*>(collider->GetOwner());
-				trigarQR->CollidesWithPlayer();
+				TriggerQR* triggerQR = dynamic_cast<TriggerQR*>(collider->GetOwner());
+				triggerQR->CollidesWithPlayer();
 			}
-			else if (trigarType == TRIGAR_MOVABLE)
+			else if (triggerType == TRIGGER_MOVABLE)
 			{
-				TrigarMovable* trigarMovableObject = dynamic_cast<TrigarMovable*>(collider->GetOwner());
-				trigarMovableObject->CollidesWithPlayer();
+				TriggerMovable* triggerMovableObject = dynamic_cast<TriggerMovable*>(collider->GetOwner());
+				triggerMovableObject->CollidesWithPlayer();
 			}
-			else if (trigarType == TRIGAR_CHARGING)
+			else if (triggerType == TRIGGER_CHARGING)
 			{
-				TrigarCharging* trigarCharging = dynamic_cast<TrigarCharging*>(collider->GetOwner());
-				trigarCharging->CollidesWithPlayer();
+				TriggerCharging* triggerCharging = dynamic_cast<TriggerCharging*>(collider->GetOwner());
+				triggerCharging->CollidesWithPlayer();
 			}
 		}
 

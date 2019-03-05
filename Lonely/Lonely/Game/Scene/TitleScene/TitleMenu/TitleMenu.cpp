@@ -54,6 +54,10 @@ bool TitleMenu::Initialize()
 void TitleMenu::Finalize()
 {
 	SoundLibCWrapper_Free();
+	m_menuPressEnter.Finalize();
+	m_menuGameStart.Finalize();
+	m_menuGameEnd.Finalize();
+	m_menuCursor.Finalize();
 
 }
 

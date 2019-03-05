@@ -65,6 +65,7 @@ bool TitleScene::Initialize()
 //‰ð•ú‚·‚é
 void TitleScene::Finalize()
 {
+
 	m_pObjectManager->ReleaseObject();
 
 	bool isSuccess = soundsManager.Stop(_T("TitleBGM"));

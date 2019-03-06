@@ -9,6 +9,17 @@
 #include "../../../../GameLib/ObjectManager/Object2DBase.h"
 #include "../../../../GameLib/2DHelper/2DHelper.h"
 #include "../../../../GameLib/TexStorage/TexStorage.h"
+#include "../../../../GameLib/GameLib.h"
+#include "../SharedInformation/SharedInformation.h"
+
+enum APP_MENU_STATE
+{
+	USING,
+	NOT_USING,
+	STARTING,
+	STOPPING
+};
+
 
 /**
 * @brief UIの処理をまとめたクラス
@@ -23,7 +34,6 @@ public:
 
 	/**
 	* @brief 初期化する関数
-	* @param
 	*/
 	bool Initialize();
 
@@ -42,11 +52,24 @@ public:
 	*/
 	void Render();
 
+	/**
+	* @brief アプリメニュの状態を変えるための関数
+	*/
+	void ChangeAppMenuState();
 
 private:
 
-	float logoWidth = 230.f;            //!< タイトルロゴの中心点からの横幅
-	float logoHeight = 400.f;           //!< タイトルロゴの中心点からの縦幅
+	float m_width = 230.f;           
+	float m_height = 400.f;    
+
+	float m_positionY = 0.f;
+	float m_maxPositionY = 0.f;
+	float m_minPositionY = 0.f;
+
+	int   m_appMenuState = NOT_USING;
+	int   m_appMenuMoveCount = 0;
 
 	TexStorage* m_pTexStorage;
+	SoundLib::SoundsManager* m_pSoundsManager;
+	SharedInformation*       m_pSharedInformation;
 };

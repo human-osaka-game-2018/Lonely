@@ -1,4 +1,4 @@
-﻿?�<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="リソース ファイル">
@@ -44,6 +44,9 @@
     <Filter Include="リソース ファイル\GameLib\SceneManager\SceneBase">
       <UniqueIdentifier>{c5b81caf-e3d5-4fef-8e15-9cc1cbb8d0c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\GameLib\ObjectManager">
+      <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="リソース ファイル\GameLib\2DHelper">
       <UniqueIdentifier>{e7601e84-543d-491e-bfbd-32e26a77db6f}</UniqueIdentifier>
     </Filter>
@@ -74,40 +77,41 @@
     <Filter Include="リソース ファイル\Scene\GameScene\SharedInformation">
       <UniqueIdentifier>{175cfda2-e1d7-4e3f-b04d-5b6ab3ac9fe1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\DataSelectScene\Object">
-      <UniqueIdentifier>{28ef63bf-97f5-404e-b61b-17be4cdc39b1}</UniqueIdentifier>
-    <Filter Include="リソース ファイル\GameLib\CollisionManager">
-      <UniqueIdentifier>{a7b43583-945d-417d-9a22-a052146a29a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\GameLib\CollisionManager\CollisionBase">
-      <UniqueIdentifier>{dcc5572c-95c3-4d38-ab40-944bdb184dd8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Enemy">
-      <UniqueIdentifier>{6d59b336-bbbb-41be-a6fd-053661a55f46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Stage">
-      <UniqueIdentifier>{07c162e2-1547-45d9-980f-d3a76788dc68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\StageObject">
-      <UniqueIdentifier>{e5463999-249a-48c4-aa0f-e327a10d4562}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\GameLib\CollisionManager\EnumCollision">
-      <UniqueIdentifier>{47534c30-225a-45e0-908a-78806d26793e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Player">
-      <UniqueIdentifier>{193fdcdd-6c2f-4d22-97d9-893ade496348}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\GameLib\ObjectManager">
-      <UniqueIdentifier>{5bad15f3-3881-4f38-8ce5-e626ff57ca3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="リソース ファイル\GameLib\TexStorage">
-      <UniqueIdentifier>{ba4fe468-dac8-426b-b885-7a214b252f60}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\UI">
       <UniqueIdentifier>{432aceb1-be1f-4cac-bd62-1808c614f1a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Scene\DataSelectScene\Object">
+      <UniqueIdentifier>{28ef63bf-97f5-404e-b61b-17be4cdc39b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager">
+      <UniqueIdentifier>{5049e2fa-a1b2-47e4-b93b-38ccb8c5d392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager\CollisionBase">
+      <UniqueIdentifier>{f3236975-bd5b-4540-a52e-f449095797fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\CollisionManager\EnumCollision">
+      <UniqueIdentifier>{f2b2aedf-18c1-418a-869e-76b80a9f86f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Enumy">
+      <UniqueIdentifier>{32386c94-517a-42d9-8ee3-6462778acbde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Stage">
+      <UniqueIdentifier>{953cff2e-cccb-4b02-b1ea-296125602346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\StageObject">
+      <UniqueIdentifier>{28120231-642d-49f8-afd3-3853dbc6013e}</UniqueIdentifier>
+    </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\Trigger">
-      <UniqueIdentifier>{4209d7f3-c164-4828-8877-c1e651066045}</UniqueIdentifier>
+      <UniqueIdentifier>{438cc76e-995d-42d3-ac6f-cb8cf1cba6d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Player">
+      <UniqueIdentifier>{9906f2a4-7a55-4513-9a71-ef21b18f560d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\GameOver">
+      <UniqueIdentifier>{b78efa69-3926-4bde-b064-bc286feee76d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\GameLib\TexStorage">
+      <UniqueIdentifier>{bb2dd19c-c40c-4691-9296-780d08407c70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +260,7 @@
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIFootsteps.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\UI\UIHitPoint.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
@@ -263,38 +268,8 @@
     <ClCompile Include="Game\Scene\GameScene\UI\UIWaves.cpp">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconCamera.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\TitleScene\TitleBackground.cpp">
-      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLib\CollisionManager\CollisionManager.cpp">
-      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconMovie.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\UI\IconLight.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBase.cpp">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.cpp">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBox.cpp">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Enemy\Pasoken.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Enemy\EnemyBase.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Player\PlayerBase.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
@@ -302,32 +277,41 @@
     <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClCompile Include="Game\Scene\GameScene\Enemy\EnemyBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Enumy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Enemy\Pasoken.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Enumy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageMovableObject.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageStopedObject.cpp">
       <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBase.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionBox.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLib\CollisionManager\CollisionManager.cpp">
+      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\GameOver\GameOver.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\GameOver</Filter>
     </ClCompile>
     <ClCompile Include="GameLib\TexStorage\TexStorage.cpp">
       <Filter>リソース ファイル\GameLib\TexStorage</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerBase.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerCharging.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerMovable.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerQR.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -439,24 +423,6 @@
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h">
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
       <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
     </ClInclude>
@@ -484,68 +450,26 @@
     <ClInclude Include="Game\Scene\DataSelectScene\Object\SelectMenuFrame.h">
       <Filter>リソース ファイル\Scene\DataSelectScene\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UI.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
-      <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIBar.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\UI\UIBattery.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconCamera.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIFootsteps.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
-      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\CollisionManager.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconMovie.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIHitPoint.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\UI\IconLight.h">
+    <ClInclude Include="Game\Scene\GameScene\UI\UIWaves.h">
       <Filter>リソース ファイル\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\TitleScene\TitleBackground.h">
-      <Filter>リソース ファイル\Scene\TitleScene\TitleMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBase.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBox.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Enemy\Pasoken.h">
-      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h">
-      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h">
-      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionType.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionShape.h">
-      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Enemy\EnemyBase.h">
-      <Filter>リソース ファイル\Scene\GameScene\Enemy</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h">
+      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Player\PlayerBase.h">
       <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
@@ -553,17 +477,14 @@
     <ClInclude Include="Game\Scene\GameScene\Player\Drone.h">
       <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h">
-      <Filter>リソース ファイル\Scene\GameScene\Player</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Enemy\EnemyBase.h">
+      <Filter>リソース ファイル\Scene\GameScene\Enumy</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\StageObject\StageMovableObject.h">
-      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Enemy\Pasoken.h">
+      <Filter>リソース ファイル\Scene\GameScene\Enumy</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h">
-      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\TexStorage\TexStorage.h">
-      <Filter>リソース ファイル\GameLib\TexStorage</Filter>
+    <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h">
+      <Filter>リソース ファイル\Scene\GameScene\Stage</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerBase.h">
       <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
@@ -576,6 +497,42 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerQR.h">
       <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageMovableObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h">
+      <Filter>リソース ファイル\Scene\GameScene\StageObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBase.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionBox.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionBase\CollisionSphere.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\CollisionBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\CollisionManager.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionShape.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\CollisionManager\EnumCollision\Enum_CollisionType.h">
+      <Filter>リソース ファイル\GameLib\CollisionManager\EnumCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\GameOver\GameOver.h">
+      <Filter>リソース ファイル\Scene\GameScene\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\GameOver\EnumGameOverState.h">
+      <Filter>リソース ファイル\Scene\GameScene\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLib\TexStorage\TexStorage.h">
+      <Filter>リソース ファイル\GameLib\TexStorage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

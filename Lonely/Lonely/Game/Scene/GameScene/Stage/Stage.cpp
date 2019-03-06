@@ -24,7 +24,7 @@ Stage::~Stage()
 
 bool Stage::Initialize()
 {
-	m_fbxModel.Load("../Graphics/fbxModel/stageKari.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/stage207.fbx");
 	m_pSharedInformation->SetStageFbx(&m_fbxModel);
 
 	m_position = { 0.f, 0.f, 0.f };

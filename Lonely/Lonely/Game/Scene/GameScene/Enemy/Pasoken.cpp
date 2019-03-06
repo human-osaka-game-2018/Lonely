@@ -32,10 +32,10 @@ bool Pasoken::Initialize()
 	m_destinationPosition = { 10.f, 0.f, 10.f };
 	m_destination = DESTINATION1;
 	m_radius = 0.5f;
-	m_speed = 0.25f;
+	m_speed = 0.15f;
 	m_direction = 2.1f;
 	
-	D3DXVECTOR3 length(5.f, 3.f, 3.f);
+	D3DXVECTOR3 length(6.f, 6.f, 6.f);
 	m_pCollision = new CollisionBox(this, ENEMY, &length);
 	return true;
 }
@@ -51,8 +51,6 @@ void Pasoken::Finalize()
 //更新する
 void Pasoken::Update()
 {
-	//スピードを決める
-	float transSpeed = 0.05f;
 
 	//目的地への方向ベクトルを求める
 	D3DXVECTOR3 vecDestinationDirection(
@@ -94,8 +92,8 @@ void Pasoken::Update()
 
 	//単位ベクトルを出してから、スピードを掛けて、移動量を計算する
 	D3DXVECTOR3 movementSpeed = { 0.f,0.f,0.f };
-	movementSpeed.x = (vecDestinationDirection.x / vecSize) * transSpeed;
-	movementSpeed.z = (vecDestinationDirection.z / vecSize) * transSpeed;
+	movementSpeed.x = (vecDestinationDirection.x / vecSize) * m_speed;
+	movementSpeed.z = (vecDestinationDirection.z / vecSize) * m_speed;
 
 	//このフレームで移動する量
 	D3DXVECTOR3 movementThisFrame = { 0.f,0.f,0.f };

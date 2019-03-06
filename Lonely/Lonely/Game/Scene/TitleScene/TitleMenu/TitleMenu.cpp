@@ -11,6 +11,7 @@
 
 
 TitleMenu::TitleMenu()
+	: m_pSoundsManager(GameLib::Instance.GetSoundsManager())
 {
 	Initialize();
 }
@@ -42,9 +43,8 @@ bool TitleMenu::Initialize()
 
 
 	// SoundsManagerインスタンス生成後に1度のみ行う。
-	bool isSuccess = soundsManager.Initialize();
-	const TCHAR* filePath = _T("../Sounds/SE/スマホ猫/cry1.mp3");
-	isSuccess = soundsManager.AddFile(filePath, _T("cry1"));
+	const TCHAR* filePath = _T("../Sounds/SE/sumahoneko/button.mp3");
+	m_pSoundsManager->AddFile(filePath, _T("button"));
 
 
 	return true;
@@ -66,8 +66,7 @@ void TitleMenu::Update()
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGMを鳴らす
-			bool isSuccess = soundsManager.Start(_T("cry1"), false);
+			m_pSoundsManager->Start(_T("button"), false);
 
 			m_step = STEP2;
 		}
@@ -85,8 +84,7 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGMを鳴らす
-			bool isSuccess = soundsManager.Start(_T("cry1"), false);
+			m_pSoundsManager->Start(_T("button"), false);
 
 			//ゲームシーンへ
 			SCENEMANAGER->ChangeScene(new DataSelectScene);
@@ -106,8 +104,7 @@ void TitleMenu::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//BGMを鳴らす
-			bool isSuccess = soundsManager.Start(_T("cry1"), false);
+			m_pSoundsManager->Start(_T("button"), false);
 			//ゲーム終了
 			PostQuitMessage(0);
 			

@@ -10,6 +10,8 @@
 #include "../../../../GameLib/2DHelper/2DHelper.h"
 #include "../../../../GameLib/TexStorage/TexStorage.h"
 #include "../../../../GameLib/FBX/Texture.h"
+#include "../SharedInformation/SharedInformation.h"
+#include "EnumGameOverState.h"
 
 /**
 * @brief GameOverの処理をまとめたクラス
@@ -44,12 +46,18 @@ public:
 
 private:
 
-	int             m_count = 0;
-	DWORD           m_color = 0xffffffff;
+	int                m_count = 0;
+	DWORD              m_color = 0xffffffff;
+	bool               m_finishFeedOut = false;
+	int                m_gameOverState = CONTINUE;
+				       
+	TexStorage*        m_pTexStorage;
+	Texture            m_texture;
+	Simple2DVertex     m_vertices[4];   
+	Simple2DVertex     m_verticesGameOver[4];   
+	Simple2DVertex     m_verticesContinue[4];   
+	Simple2DVertex     m_verticesTitle[4];   
 
-
-	TexStorage*     m_pTexStrage;
-	Texture         m_texture;
-	Simple2DVertex  m_vertices[4];    //!< 矩形の4頂点
+	SharedInformation* m_pSharedInformation;
 
 };

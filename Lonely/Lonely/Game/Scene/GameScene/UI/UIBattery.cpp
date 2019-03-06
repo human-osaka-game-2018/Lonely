@@ -20,7 +20,6 @@ UIBattery::~UIBattery()
 //初期化する
 bool UIBattery::Initialize()
 {
-	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
 	/*if (!m_texture.Load("../Graphics/UIFootsteps.png"))
 	{
 		return false;

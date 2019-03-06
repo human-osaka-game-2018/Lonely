@@ -6,6 +6,10 @@
 
 #include "GameOver.h"
 #include "../../../../GameLib/GameLib.h"
+#include "../SharedInformation/EnumGameState.h"
+#include "EnumGameOverState.h"
+#include "../GameScene.h"
+#include "../../TitleScene/TitleScene.h"
 
 GameOver::GameOver()
 {
@@ -20,9 +24,13 @@ GameOver::~GameOver()
 //初期化する
 bool GameOver::Initialize()
 {
-	m_pTexStrage = GameLib::Instance.GetTexStorage();
+	m_pSharedInformation = SharedInformation::Instance.GetSharedInformation();
+	m_pTexStorage = GameLib::Instance.GetTexStorage();
 
-	//m_pTexStrage->CreateTex(_T("sumahoGamen"), _T("../Graphics/smart phone.png"));
+	m_pTexStorage->CreateTex(_T("gameOver"), _T("../Graphics/Texture/gameOver.png"));
+	m_pTexStorage->CreateTex(_T("backToTitle"), _T("../Graphics/Texture/backToTitle.png"));
+	m_pTexStorage->CreateTex(_T("continue"), _T("../Graphics/Texture/continue.png"));
+
 
 
 	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
@@ -35,15 +43,28 @@ bool GameOver::Initialize()
 		, static_cast<float>(WINDOW->GetWidth())
 		, static_cast<float>(WINDOW->GetHeight()));
 
-	m_vertices[0].z = 0.f;
-	m_vertices[1].z = 0.f;
-	m_vertices[2].z = 0.f;
-	m_vertices[3].z = 0.f;
+	//ゲームオーバー
+	HELPER_2D->SetVerticesFromCenterType(m_verticesGameOver
+		, static_cast<float>(WINDOW->GetWidth()) / 2
+		, static_cast<float>(WINDOW->GetHeight()) / 4
+		, 360.f, 180.f);
 
-	/*if (!m_texture.Load("../Graphics/smart phone.png"))
-	{
-		return false;
-	}*/
+	//コンテニュー
+	HELPER_2D->SetVerticesFromCenterType(m_verticesContinue
+		, static_cast<float>(WINDOW->GetWidth()) / 2
+		, static_cast<float>(WINDOW->GetHeight()) / 16 * 11
+		, 200.f
+		, 80.f);
+
+	//タイトルへ
+	HELPER_2D->SetVerticesFromCenterType(m_verticesTitle
+		, static_cast<float>(WINDOW->GetWidth()) / 2
+		, static_cast<float>(WINDOW->GetHeight()) / 16 * 13
+		, 200.f
+		, 80.f);
+
+	m_color = 0x00000000;
+	HELPER_2D->SetVerticesColor(m_vertices, m_color);
 
 	return true;
 }
@@ -57,29 +78,100 @@ void GameOver::Finalize()
 //更新する
 void GameOver::Update()
 {
+	if(m_pSharedInformation->GetGameState() != GAMEOVER)
+	{ 
+		return;
+	}
 	//++m_count;
 	DWORD changeAlphaColor = static_cast<DWORD>(0x02000000);
 
-	if (m_color >= static_cast<DWORD>(0x00ffffff))
+	if (m_color <= static_cast<DWORD>(0x90000000))
 	{
-		m_color -= changeAlphaColor;
+		m_color += changeAlphaColor;
+	}
+	else
+	{
+		m_finishFeedOut = true;
 	}
 
 	HELPER_2D->SetVerticesColor(m_vertices, m_color);
+
+
+	if (m_finishFeedOut == false)
+	{
+		return;
+	}
+
+	if (m_gameOverState == BACK_TO_TITLE)
+	{
+		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
+		{
+			m_gameOverState = CONTINUE;
+		}
+		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_DOWN))
+		{
+			m_gameOverState = CONTINUE;
+		}
+		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
+		{
+			//SCENEMANAGER->ChangeScene(new TitleScene);
+			PostQuitMessage(0);
+		}
+	}
+	else if (m_gameOverState == CONTINUE)
+	{
+		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
+		{
+			m_gameOverState = BACK_TO_TITLE;
+		}
+		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_DOWN))
+		{
+			m_gameOverState = BACK_TO_TITLE;
+		}
+		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
+		{
+			//SCENEMANAGER->ChangeScene(new GameScene);
+			PostQuitMessage(0);
+		}
+	}
+
 }
 
 //描画する
 void GameOver::Render()
 {
+	if (m_pSharedInformation->GetGameState() != GAMEOVER)
+	{
+		return;
+	}
+
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
 	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 	//テクスチャの設定
-	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//pDevice->SetTexture(0, m_pTexStrage->GetTex(_T("sumahoGamen")));
+	//pDevice->SetTexture(0, m_texture.GetD3DTexture());
+	pDevice->SetTexture(0, nullptr);
 	//描画
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
+
+	if (m_finishFeedOut == false)
+	{
+		return;
+	}
+
+	// 頂点に入れるデータを設定
+	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
+	//テクスチャの設定
+	//pDevice->SetTexture(0, m_texture.GetD3DTexture());
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("gameOver")));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesGameOver, sizeof(Simple2DVertex));
+
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("backToTitle")));
+	//pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesTitle, sizeof(Simple2DVertex));
+
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("continue")));
+	//pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesContinue, sizeof(Simple2DVertex));
 
 }

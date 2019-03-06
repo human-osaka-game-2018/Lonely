@@ -52,15 +52,15 @@ void TitleLogo::Finalize()
 void TitleLogo::Update()
 {
 	//毎フレーム、一定値までロゴを大きくする処理
-	if (logoWidth <= 450.f) 
+	if (logoWidth <= 480.f) 
 	{
-		logoHeight += 2.5f;
-		logoWidth += 6.f;
+		logoHeight += 3.0f;
+		logoWidth += 5.5f;
 
 		//頂点の座標をセット
 		HELPER_2D->SetVerticesFromCenterType(m_vertices
 			, static_cast<float>(WINDOW->GetWidth()) / 2
-			, static_cast<float>(WINDOW->GetHeight()) / 3
+			, static_cast<float>(WINDOW->GetHeight()) / 3 - 25
 			, logoWidth, logoHeight);
 		
 	}

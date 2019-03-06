@@ -13,5 +13,6 @@ enum GAME_STATE
 {
 	PLAY,
 	PAUSE,
-	DEAD
+	DEAD,
+	GAMEOVER
 };

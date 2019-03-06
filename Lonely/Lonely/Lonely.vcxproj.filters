@@ -313,6 +313,18 @@
     <ClCompile Include="GameLib\TexStorage\TexStorage.cpp">
       <Filter>リソース ファイル\GameLib\TexStorage</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerBase.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerCharging.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerMovable.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerQR.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\DirectX\DirectX.h">

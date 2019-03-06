@@ -6,6 +6,7 @@
 
 #include "SelectCursorInformation.h"
 #include "../../../../GameLib/GameLib.h"
+#include "../../GameScene/GameScene.h"
 
 SelectCursorInformation::SelectCursorInformation()
 {
@@ -124,7 +125,7 @@ void SelectCursorInformation::UpdateMiniCursorState()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//SCENEMANAGER->ChangeScene(new GameScene(m_catCursorState));
+			SCENEMANAGER->ChangeScene(new GameScene);
 		}
 		break;
 

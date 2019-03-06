@@ -5,11 +5,11 @@
 */
 
 #include "Sumahoneko.h"
-#include "../../../../GameLib/GameLib.h"
+#include "GameLib.h"
 #include "../SharedInformation/EnumGameState.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBox.h"
-#include "../../../../GameLib/CollisionManager/EnumCollision/Enum_CollisionType.h"
-#include "../../../../GameLib/CollisionManager/EnumCollision/Enum_CollisionShape.h"
+#include "CollisionManager/CollisionBase/CollisionBox.h"
+#include "CollisionManager/EnumCollision/Enum_CollisionType.h"
+#include "CollisionManager/EnumCollision/Enum_CollisionShape.h"
 #include "../SharedInformation/EnumGameState.h"
 
 Sumahoneko::Sumahoneko()

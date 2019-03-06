@@ -120,7 +120,7 @@ void CollisionBase::OnCollision(CollisionBase* collider, bool collisionStateIsRi
 		if (typeB == ENEMY)
 		{
 			Sumahoneko* sumahoneko = movableObject->GetPlayer();
-			Pasoken* pasoken = dynamic_cast<Pasoken*>(this->GetOwner());
+			Pasoken* pasoken = dynamic_cast<Pasoken*>(collider->GetOwner());
 			movableObject->RevertPosition();
 			sumahoneko->RevertPosition();
 			pasoken->RevertPosition();

@@ -21,8 +21,7 @@ UIHitPoint::~UIHitPoint()
 //初期化する
 bool UIHitPoint::Initialize()
 {
-	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	if (!m_texture.Load("../Graphics/Texture/UIHitPoint.png"))
+	if (!m_texture.Load("../Graphics/Texture/icon.png"))
 	{
 		return false;
 	}
@@ -35,7 +34,8 @@ bool UIHitPoint::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 600.f, WINDOW_HEIGHT-100.f, 300.f, 50.f, 347.f/2048.f, 137.f/512.f, 0.f ,0.f);
+	//HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 600.f, WINDOW_HEIGHT-100.f, 300.f, 50.f, 347.f/2048.f, 137.f/512.f, 0.f ,0.f);
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, WINDOW_WIDTH/4.f - 307.f, WINDOW_HEIGHT - 100.f, 300.f, 50.f, 511.f / 2048.f, 200.f / 1024.f, 0.f, 0.f);
 
 	return true;
 }
@@ -54,15 +54,15 @@ void UIHitPoint::Update()
 	}
 	else if (m_hp == 2)
 	{
-		HELPER_2D->SetVerticesTuTv(m_vertices, 695.f / 2048.f, 137.f / 512.f, 348.f / 2048.f, 0.f);
+		HELPER_2D->SetVerticesTuTv(m_vertices, 1023.f / 2048.f, 200.f / 1024.f, 512.f / 2048.f, 0.f);
 	}
 	else if (m_hp == 1)
 	{
-		HELPER_2D->SetVerticesTuTv(m_vertices, 1043.f / 2048.f, 137.f / 512.f, 696.f / 2048.f, 0.f);
+		HELPER_2D->SetVerticesTuTv(m_vertices, 1535.f / 2048.f, 200.f / 1024.f, 1024.f / 2048.f, 0.f);
 	}
 	else if (m_hp == 0)
 	{
-		HELPER_2D->SetVerticesTuTv(m_vertices, 1391.f / 2048.f, 137.f / 512.f, 1044.f / 2048.f, 0.f);
+		HELPER_2D->SetVerticesTuTv(m_vertices, 2047.f / 2048.f, 200.f / 1024.f, 1536.f / 2048.f, 0.f);
 	}
 	
 }
@@ -71,6 +71,7 @@ void UIHitPoint::Render()
 {
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
+	pDirectX->SetRenderMode(DirectX::Normal, true);
 
 	//頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);

@@ -20,6 +20,10 @@ UIBar::~UIBar()
 //初期化する
 bool UIBar::Initialize()
 {
+	if (!m_texture.Load("../Graphics/Texture/UIframe.png"))
+	{
+	return false;
+	}
 
 	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
 	// テクスチャが2の累乗でないときに効果を発揮する
@@ -29,11 +33,11 @@ bool UIBar::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 0.f, WINDOW_HEIGHT-100.f, WINDOW_WIDTH, 100, u, v);
+	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 0.f, WINDOW_HEIGHT-100.f, WINDOW_WIDTH/4, 100, u, v);
 
 	//矩形の色情報を変える
-	DWORD color = 0xff666699;
-	HELPER_2D->SetVerticesColor(m_vertices, color);
+	/*DWORD color = 0xff666699;
+	HELPER_2D->SetVerticesColor(m_vertices, color);*/
 
 	return true;
 }

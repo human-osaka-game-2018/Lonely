@@ -79,6 +79,6 @@ private:
 
 	int            m_step = STEP1;
 
-	SoundLib::SoundsManager soundsManager;
+	SoundLib::SoundsManager* m_pSoundsManager;
 
 };

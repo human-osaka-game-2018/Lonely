@@ -32,13 +32,18 @@ void ObjectManager::Update()
 	for (unsigned int i = 0; i < m_pObjectVec.size(); i++)
 	{
 		m_pObjectVec[i]->Update();
+		if (i > m_pObjectVec.size())
+		{
+			return;
+		}
 	}
 }
 
 //このクラスを派生したクラスの描画関数を呼ぶ
 void ObjectManager::Render()
 {
-	for (unsigned int i = 0; i < m_pObjectVec.size(); i++) {
+	for (unsigned int i = 0; i < m_pObjectVec.size(); i++) 
+	{
 		m_pObjectVec[i]->Render();
 	}
 }

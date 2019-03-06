@@ -44,9 +44,9 @@ StageMovableObject::StageMovableObject(D3DXVECTOR3* position, D3DXVECTOR3* myBox
 
 bool StageMovableObject::Initialize()
 {
-	m_fbxModel.Load("../Graphics/fbxModel/test_box.fbx");
+	m_fbxModel.Load("../Graphics/fbxModel/danbol.fbx");
 	m_shpere.CreateShpere(32);
-	m_radius = 0.05f;
+	m_radius = 0.8f;
 	m_rotation = 0.f;
 	return true;
 

@@ -20,13 +20,6 @@
 #include "DXInput\DXInput.h"
 #include "TexStorage\TexStorage.h"
 
-//#ifdef  _DEBUG
-//#pragma comment(lib, "../SoundLib/Lib/SoundLibDebug.lib")
-//
-//#else
-//#pragma comment(lib, "../SoundLib/Lib/SoundLibRelease.lib")
-//#endif // _DEBUG
-
 #include "../SoundLib/Include/SoundsManager.h"
 #include "../SoundLib/Include/SoundLibCWrapper.h"
 

@@ -546,5 +546,8 @@
     <ClInclude Include="GameLib\TexStorage\TexStorage.h">
       <Filter>リソース ファイル\GameLib\TexStorage</Filter>
     </ClInclude>
+    <ClInclude Include="GameLib\SceneManager\Enum_Scene.h">
+      <Filter>リソース ファイル\GameLib\SceneManager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

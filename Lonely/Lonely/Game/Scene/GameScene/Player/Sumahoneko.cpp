@@ -500,7 +500,7 @@ void Sumahoneko::Jump()
 	//着地している状態
 	if (m_isLanded == true)
 	{
-		if (DIRECT_INPUT->KeyboardIsReleased(DIK_SPACE))
+		if (DIRECT_INPUT->KeyboardIsPressed(DIK_SPACE))
 		{
 			//重力　 ＝　    初速度
 			m_gravity = m_initialVelocity;

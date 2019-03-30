@@ -5,9 +5,13 @@
 */
 
 #include "TitleMenu.h"
+
+#include "GameLib.h"
+
+#include "SceneManager\Enum_Scene.h"
 #include "../../GameScene/GameScene.h"
 #include "../../DataSelectScene/DataSelectScene.h"
-#include "../../../../GameLib/GameLib.h"
+
 
 
 TitleMenu::TitleMenu()

@@ -4,8 +4,7 @@
 * @author shion-sagawa
 */
 
-#include "../../GameLib/GameLib.h"
-#include "../Scene/TitleScene/TitleScene.h"
+#include "GameLib.h"
 
 // エントリーポイント
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -13,9 +12,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	// GameLibの初期化
 	GameLib::Instance.Initialize(L"Lonely", 1280, 720, false);
 
-	// システムシーンへ遷移する
-	SCENEMANAGER->ChangeScene(new TitleScene);
-
+	// ゲームのメインループ
 	GameLib::Instance.MainLoop();
 
 	// DirectXLibの解放

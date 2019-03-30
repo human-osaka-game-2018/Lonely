@@ -6,6 +6,9 @@
 
 #pragma once
 
+/**
+* @brief シーンの種類を定義
+*/
 enum SCENE
 {
 		TITLE_SCENE,

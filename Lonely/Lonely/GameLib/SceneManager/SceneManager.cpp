@@ -9,9 +9,9 @@
 #include "GameLib.h"
 
 #include "Enum_Scene.h"
-#include "../../Game/Scene/TitleScene/TitleScene.h"
-#include "../../Game/Scene/DataSelectScene/DataSelectScene.h"
-#include "../../Game/Scene/GameScene/GameScene.h"
+#include "Scene/TitleScene/TitleScene.h"
+#include "Scene/DataSelectScene/DataSelectScene.h"
+#include "Scene/GameScene/GameScene.h"
 
 
 SceneManager::SceneManager()

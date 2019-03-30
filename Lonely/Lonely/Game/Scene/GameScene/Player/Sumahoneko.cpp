@@ -5,12 +5,14 @@
 */
 
 #include "Sumahoneko.h"
+
 #include "GameLib.h"
-#include "../SharedInformation/EnumGameState.h"
-#include "CollisionManager/CollisionBase/CollisionBox.h"
-#include "CollisionManager/EnumCollision/Enum_CollisionType.h"
-#include "CollisionManager/EnumCollision/Enum_CollisionShape.h"
-#include "../SharedInformation/EnumGameState.h"
+
+#include "CollisionManager\CollisionBase\CollisionBox.h"
+#include "CollisionManager\EnumCollision\Enum_CollisionType.h"
+#include "CollisionManager\EnumCollision\Enum_CollisionShape.h"
+#include "Scene\GameScene\GameOver\EnumGameOverState.h"
+#include "Scene\GameScene\SharedInformation\EnumGameState.h"
 
 Sumahoneko::Sumahoneko()
 	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())

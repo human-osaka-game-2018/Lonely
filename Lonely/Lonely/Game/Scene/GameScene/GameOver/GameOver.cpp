@@ -5,11 +5,12 @@
 */
 
 #include "GameOver.h"
-#include "../../../../GameLib/GameLib.h"
-#include "../SharedInformation/EnumGameState.h"
-#include "EnumGameOverState.h"
-#include "../GameScene.h"
-#include "../../TitleScene/TitleScene.h"
+
+#include "GameLib.h"
+
+#include "Scene\GameScene\GameOver\EnumGameOverState.h"
+#include "Scene\GameScene\SharedInformation\EnumGameState.h"
+#include "SceneManager\Enum_Scene.h"
 
 GameOver::GameOver()
 {

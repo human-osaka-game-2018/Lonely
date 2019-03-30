@@ -5,8 +5,11 @@
 */
 
 #include "SelectCursorInformation.h"
-#include "../../../../GameLib/GameLib.h"
-#include "../../GameScene/GameScene.h"
+
+#include "GameLib.h"
+
+#include "SceneManager\Enum_Scene.h"
+#include "Scene\GameScene\GameScene.h"
 
 SelectCursorInformation::SelectCursorInformation()
 {
@@ -21,7 +24,7 @@ SelectCursorInformation::~SelectCursorInformation()
 //èâä˙âªÇ∑ÇÈ
 bool SelectCursorInformation::Initialize()
 {
-		return true;
+	return true;
 }
 
 //âï˙Ç∑ÇÈ

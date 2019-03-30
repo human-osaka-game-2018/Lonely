@@ -114,8 +114,7 @@ void GameOver::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//SCENEMANAGER->ChangeScene(new TitleScene);
-			PostQuitMessage(0);
+			SCENEMANAGER->SwitchSceneNextFrame(TITLE_SCENE);
 		}
 	}
 	else if (m_gameOverState == CONTINUE)
@@ -130,8 +129,7 @@ void GameOver::Update()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//SCENEMANAGER->ChangeScene(new GameScene);
-			PostQuitMessage(0);
+			SCENEMANAGER->SwitchSceneNextFrame(GAME_SCENE);
 		}
 	}
 

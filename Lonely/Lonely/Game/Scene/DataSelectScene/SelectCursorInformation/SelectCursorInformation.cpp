@@ -125,7 +125,7 @@ void SelectCursorInformation::UpdateMiniCursorState()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			SCENEMANAGER->ChangeScene(new GameScene);
+			SCENEMANAGER->SwitchSceneNextFrame(GAME_SCENE);
 		}
 		break;
 
@@ -142,7 +142,7 @@ void SelectCursorInformation::UpdateMiniCursorState()
 		}
 		else if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
-			//SCENEMANAGER->ChangeScene(new GameScene);
+			//SCENEMANAGER->SwitchSceneNextFrame(GAME_SCENE);
 		}
 		break;
 

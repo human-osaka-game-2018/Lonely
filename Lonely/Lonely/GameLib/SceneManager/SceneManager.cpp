@@ -78,6 +78,9 @@ void SceneManager::ReleaseScene()
 
 void SceneManager::CreateScene()
 {
+	//現在までのシーンを次のシーンへ変更
+	m_currentScene = m_nextScene;
+
 	switch (m_nextScene)
 	{
 	case TITLE_SCENE:

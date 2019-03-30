@@ -87,7 +87,7 @@ void TitleMenu::Update()
 			m_pSoundsManager->Start(_T("button"), false);
 
 			//ゲームシーンへ
-			SCENEMANAGER->ChangeScene(new GameScene);
+			SCENEMANAGER->SwitchSceneNextFrame(GAME_SCENE);
 			
 		}
 		break;

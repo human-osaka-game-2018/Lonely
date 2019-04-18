@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object3DBase.h"
-#include "../../../../GameLib/FBX/FBX.h"
+#include "ObjectManager/Object3DBase.h"
+
+#include "FBX/FBX.h"
 #include "../SharedInformation/SharedInformation.h"
 
 /**
@@ -46,12 +47,8 @@ private:
 
 	FbxModel m_fbxModel;  
 	Model	 m_shpere;
-	//D3DXVECTOR3 m_position;
-	//D3DXVECTOR3 m_prevPosition;
 	float	 m_radius;
-	float	 m_speed;
 	float    m_direction;
-
 
 	SharedInformation* m_pSharedInformation;
 };

@@ -5,7 +5,8 @@
 */
 
 #include "IndexBuffer.h"
-#include "../GameLib.h"
+
+#include "GameLib.h"
 
 IndexBuffer::IndexBuffer(void)
 	: m_pBuffer(nullptr)

@@ -6,12 +6,16 @@
 
 #pragma once
 
+#include "TriggerBase.h"
+
 #include <d3dx9math.h>
 
-#include "TriggerBase.h"
-#include "../../../../GameLib/FBX/3DHelper.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
+#include "FBX/3DHelper.h"
+#include "2DHelper/2DHelper.h"
 
+/**
+* @brief QRの状態を管理するEnum変数
+*/
 enum QR_STATE
 {
 	IS_GETTED,
@@ -75,7 +79,6 @@ private:
 		 2.f,  2.f, 0.f, static_cast<DWORD>(0xffffffff), 1.f, 0.f,
 		 2.f, -2.f, 0.f, static_cast<DWORD>(0xffffffff), 1.f, 1.f,
 		-2.f, -2.f, 0.f, static_cast<DWORD>(0xffffffff), 0.f, 1.f
-
 	};
 
 	Texture         m_textureQR;               //!< QRのテクスチャ
@@ -86,5 +89,5 @@ private:
 	Simple2DVertex  m_verticesGettingQR[4];    //!< QR取得中表示の頂点
 
 	Texture         m_textureIconQR;           //!< QRを取得できるというテクスチャ
-
+	//int             m_countQR;                 //!< 取得したQRの数を保存する
 };

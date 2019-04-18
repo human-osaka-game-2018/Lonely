@@ -5,11 +5,9 @@
 */
 #pragma once
 
-#include <d3dx9math.h>
-
 #include "TriggerBase.h"
-#include "../../../../GameLib/FBX/3DHelper.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
+
+#include <d3dx9math.h>
 
 /**
 * @brief 動かせるトリガー関係の処理のクラス

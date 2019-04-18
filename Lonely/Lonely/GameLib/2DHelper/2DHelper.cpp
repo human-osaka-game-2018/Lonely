@@ -32,14 +32,14 @@ void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLef
 	vertices[3] = { posLeftTopX            ,  posLeftTopY + rectHeight, 0.0f, 1.0f, 0xffffffff,  leftTU, bottomTV };
 }
 
-//���㒸�_���S�^�C�v�̋��`�́A���_���W�����Z�b�g�����֐�
+//頂点情報の位置だけをセットし直す関数
 void Helper2D::SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY)
 {
-	//�ړ������ʂ��v�Z�ŏo��
+	//頂点の位置とセットし直したい位置の差分を計算
 	float movementX = vertices[0].x - posLeftTopX;
 	float movementY = vertices[0].y - posLeftTopY;
 	
-	//�o�^�����Ă��钸�_���W���ړ�������
+	//その差分をすべての頂点に適応させる
 	vertices[0].x = vertices[0].x - movementX;
 	vertices[0].y = vertices[0].y - movementY;
 

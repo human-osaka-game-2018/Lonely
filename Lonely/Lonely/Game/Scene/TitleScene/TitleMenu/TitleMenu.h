@@ -6,19 +6,13 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object.h"
-#include "../../../../GameLib/DirectX/DirectX.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../../GameLib/FBX/VertexBuffer.h"
-#include "../../../../GameLib/FBX/Texture.h"
+#include "SoundLib/Include/SoundsManager.h"
+#include "SoundLib/Include/SoundLibCWrapper.h"
+
 #include "MenuPressEnter.h"
 #include "MenuGameStart.h"
 #include "MenuGameEnd.h"
 #include "MenuCursor.h"
-
-#include "../../../../SoundLib/Include/SoundsManager.h"
-#include "../../../../SoundLib/Include/SoundLibCWrapper.h"
-
 
 /**
 * @brief タイトルメニューの操作手順
@@ -64,10 +58,10 @@ public:
 
 private:
 
-	MenuPressEnter m_menuPressEnter;
-	MenuGameStart  m_menuGameStart;
-	MenuGameEnd    m_menuGameEnd;
-	MenuCursor     m_menuCursor;
+	MenuPressEnter m_menuPressEnter;    //!< 「プレスエンター」関係のクラスの実体
+	MenuGameStart  m_menuGameStart;     //!< 「ゲームスタート」関係のクラスの実体
+	MenuGameEnd    m_menuGameEnd;       //!< 「ゲームエンド」関係のクラスの実体
+	MenuCursor     m_menuCursor;        //!< メニューカーソル関係のクラスの実体
 
 	int            m_step = STEP1;
 

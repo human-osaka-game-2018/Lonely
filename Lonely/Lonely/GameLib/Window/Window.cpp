@@ -20,10 +20,7 @@ static LRESULT CALLBACK WndProc(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lPa
 		case VK_ESCAPE:			//ESCAPEキーでウィンドウを破棄
 			PostQuitMessage(0);
 			break;
-
 		}
-		break;
-
 
 		break;
 	}

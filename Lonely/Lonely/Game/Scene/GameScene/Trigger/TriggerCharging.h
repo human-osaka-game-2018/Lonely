@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <d3dx9math.h>
-
 #include "TriggerBase.h"
+
+#include <d3dx9math.h>
 
 /**
 * @brief QRコード関係の処理のクラス

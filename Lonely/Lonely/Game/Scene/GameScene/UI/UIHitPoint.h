@@ -6,11 +6,9 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../../GameLib/DirectX/DirectX.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../SharedInformation/SharedInformation.h"
+#include "ObjectManager/Object2DBase.h"
 
+#include "Scene/GameScene/SharedInformation/SharedInformation.h"
 
 /**
 * @brief UIのHP関係をまとめたクラス
@@ -24,7 +22,7 @@ public:
 
 	/**
 	* @brief 初期化する関数
-	* @return 初期化が上手くできていないとFALSE
+	* @return 初期化に異常があるとFALSE
 	*/
 	bool Initialize();
 

@@ -5,16 +5,17 @@
 */
 
 #include "CollisionBase.h"
-#include "../CollisionManager.h"
-#include "../../../Game/Scene/GameScene/Player/Sumahoneko.h"
-#include "../../../Game/Scene/GameScene/Enemy/Pasoken.h"
-//#include "../../../Game/Scene/GameScene/Stage/Stage.h"
-#include "../../../Game/Scene/GameScene/StageObject/StageObject.h"
-#include "../../../Game/Scene/GameScene/StageObject/StageMovableObject.h"
-#include "../../../Game/Scene/GameScene/Trigger/TriggerBase.h"
-#include "../../../Game/Scene/GameScene/Trigger/TriggerQR.h"
-#include "../../../Game/Scene/GameScene/Trigger/TriggerMovable.h"
-#include "../../../Game/Scene/GameScene/Trigger/TriggerCharging.h"
+
+#include "CollisionManager/CollisionManager.h"
+#include "Scene/GameScene/Player/Sumahoneko.h"
+#include "Scene/GameScene/Enemy/Pasoken.h"
+//#include "Scene/GameScene/Stage/Stage.h"
+#include "Scene/GameScene/StageObject/StageObject.h"
+#include "Scene/GameScene/StageObject/StageMovableObject.h"
+#include "Scene/GameScene/Trigger/TriggerBase.h"
+#include "Scene/GameScene/Trigger/TriggerQR.h"
+#include "Scene/GameScene/Trigger/TriggerMovable.h"
+#include "Scene/GameScene/Trigger/TriggerCharging.h"
 
 CollisionBase::CollisionBase()
 {
@@ -31,7 +32,7 @@ void CollisionBase::OnCollision(CollisionBase* collider, bool collisionStateIsRi
 	int typeA = this->GetType();
 	int typeB = collider->GetType();
 
-	
+	//衝突したクラスの組み合わせによって処理を変える
 	if (typeA == PLAYER)
 	{
 		//スマホ猫型にダウンキャストを行う

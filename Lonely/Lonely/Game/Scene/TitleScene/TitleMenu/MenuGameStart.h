@@ -6,11 +6,7 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../../GameLib/DirectX/DirectX.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../../GameLib/FBX/Texture.h"
-
+#include "ObjectManager/Object2DBase.h"
 
 /**
 * @brief タイトルメニュ（GAME START）の処理をまとめたクラス
@@ -22,10 +18,9 @@ public:
 	MenuGameStart();
 	~MenuGameStart();
 
-
 	/**
 	* @brief 初期化する関数
-	* @return 初期化が上手くできていないとFALSE
+	* @return 初期化に異常があるとFALSE
 	*/
 	bool Initialize();
 

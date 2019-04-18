@@ -5,7 +5,8 @@
 */
 
 #include "StageObject.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 #include "../SharedInformation/SharedInformation.h"
 
 StageObject::StageObject()

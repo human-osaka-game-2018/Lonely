@@ -8,9 +8,9 @@
 
 #include "GameLib.h"
 
-#include "Scene\GameScene\GameOver\EnumGameOverState.h"
-#include "Scene\GameScene\SharedInformation\EnumGameState.h"
-#include "SceneManager\Enum_Scene.h"
+#include "Scene/GameScene/GameOver/EnumGameOverState.h"
+#include "Scene/GameScene/SharedInformation/EnumGameState.h"
+#include "SceneManager/Enum_Scene.h"
 
 GameOver::GameOver()
 {

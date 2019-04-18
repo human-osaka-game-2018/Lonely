@@ -7,7 +7,8 @@
 #pragma once
 
 #include <d3dx9math.h>
-#include "../../../../GameLib/FBX/FBX.h"
+
+#include "FBX/FBX.h"
 
 /**
 * @brief 共有したい情報まとめたクラス

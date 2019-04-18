@@ -5,7 +5,8 @@
 */
 
 #include "TitleBackground.h"
-#include "../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 TitleBackground::TitleBackground()
 {
@@ -20,11 +21,7 @@ TitleBackground::~TitleBackground()
 //初期化する
 bool TitleBackground::Initialize()
 {
-	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
-	/*if (!m_texture.Load("../Graphics/Texture/Title_BG.jpg"))
-	{
-		return false;
-	}*/
+	//テクスチャの読み込み
 	if (!m_texture.Load("../Graphics/Texture/titleBG2.jpg"))
 	{
 		return false;
@@ -38,6 +35,7 @@ bool TitleBackground::Initialize()
 	float WINDOW_WIDTH  = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
+	//頂点情報を設定する
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 0.f, 0.f, WINDOW_WIDTH, WINDOW_HEIGHT, u, v);
 
 	return true;

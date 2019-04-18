@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "../DirectX/DirectX.h"
-#include "../FBX/Texture.h"
+#include "DirectX/DirectX.h"
+#include "FBX/Texture.h"
 
 
 #define FVF_SIMPLE_2D		(D3DFVF_XYZRHW | D3DFVF_DIFFUSE)

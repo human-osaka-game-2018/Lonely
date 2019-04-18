@@ -5,12 +5,12 @@
 */
 
 #include "VertexBuffer.h"
-#include "../GameLib.h"
+
+#include "GameLib.h"
 
 VertexBuffer::VertexBuffer()
 	: m_pBuffer(nullptr)
 {
-
 }
 
 VertexBuffer::~VertexBuffer()

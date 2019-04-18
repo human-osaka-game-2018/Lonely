@@ -12,7 +12,7 @@ ObjectManager::ObjectManager()
 
 ObjectManager::~ObjectManager()
 {
-	//オブジェクトの全開放の関数を呼ぶ
+	Finalize();
 }
 
 //初期化する
@@ -32,10 +32,6 @@ void ObjectManager::Update()
 	for (unsigned int i = 0; i < m_pObjectVec.size(); i++)
 	{
 		m_pObjectVec[i]->Update();
-		if (i > m_pObjectVec.size())
-		{
-			return;
-		}
 	}
 }
 

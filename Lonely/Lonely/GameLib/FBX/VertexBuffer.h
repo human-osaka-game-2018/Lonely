@@ -20,11 +20,9 @@ public:
 
 	/**
 	* @brief バッファの生成を行う関数
-	* @param 
-	* @param 
-	* @return 
 	*/
 	bool Create(UINT size, const void* pData = NULL);
+
 	/** 
 	* @brief バッファの解放を行う関数
 	*/

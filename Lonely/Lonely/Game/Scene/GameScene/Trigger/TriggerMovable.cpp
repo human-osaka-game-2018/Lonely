@@ -3,12 +3,14 @@
 * @brief TriggerMovableクラスのソースファイル
 * @author shion-sagawa
 */
-#include <d3dx9math.h>
 
 #include "TriggerMovable.h"
-#include "../../../../GameLib/CollisionManager/EnumCollision/Enum_CollisionType.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBox.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include <d3dx9math.h>
+
+#include "GameLib.h"
+#include "CollisionManager/EnumCollision/Enum_CollisionType.h"
+#include "CollisionManager/CollisionBase/CollisionBox.h"
 
 TriggerMovable::TriggerMovable()
 {

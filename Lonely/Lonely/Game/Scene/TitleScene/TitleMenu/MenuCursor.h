@@ -6,11 +6,7 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../../GameLib/DirectX/DirectX.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../../GameLib/FBX/Texture.h"
-
+#include "ObjectManager/Object2DBase.h"
 
 /**
 * @brief タイトルメニュ（GAME END）の処理をまとめたクラス

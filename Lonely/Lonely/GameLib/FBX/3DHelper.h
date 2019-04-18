@@ -6,10 +6,11 @@
 
 #pragma once
 
+#include "d3dx9math.h"
+
 #include "Texture.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
-#include "d3dx9math.h"
 
 #define FVF_SIMPLE_3D		(D3DFVF_XYZ | D3DFVF_DIFFUSE)
 #define FVF_SIMPLE_TEX_3D   (D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1)

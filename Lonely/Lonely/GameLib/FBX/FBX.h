@@ -6,19 +6,21 @@
 
 #pragma once
 
-#include ".\\3DHelper.h"
-#include <fbxsdk.h>
-#include <vector>
-#include <map>
 #include <windows.h>
 #include <stdio.h>
+
+#include <vector>
+#include <map>
+
 #include <d3dx9.h>
 #include <dinput.h>
-#pragma comment(lib, "winmm.lib")
-#pragma comment(lib, "d3dx9.lib")
-#pragma comment(lib, "dxguid.lib")
-#pragma comment(lib, "d3d9.lib")
-#pragma comment(lib, "dinput8.lib")
+
+#include <fbxsdk.h>
+
+#include "FBX/3DHelper.h"
+#include "Texture.h"
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
 
 
 static const int MOTION_MAX = 256;
@@ -32,7 +34,7 @@ struct Bone
 	D3DXMATRIX	transform;
 };
 
-//	アニメーション
+// アニメーション
 struct Motion
 {
 	Motion() {}

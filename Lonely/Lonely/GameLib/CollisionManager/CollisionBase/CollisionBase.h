@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "../../ObjectManager/Object.h"
-#include "../EnumCollision/Enum_CollisionShape.h"
+#include "ObjectManager/Object.h"
+#include "CollisionManager/EnumCollision/Enum_CollisionShape.h"
 
 /**
 * @brief “–‚½‚è”»’è‚ÌŒ`‚ÌŠî’êƒNƒ‰ƒX

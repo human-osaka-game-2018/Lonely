@@ -4,8 +4,9 @@
 * @author shion-sagawa
 */
 
-#include "../GameLib.h"
 #include "Font.h"
+
+#include "GameLib.h"
 
 Font::Font()
 	: m_fontSize(0)
@@ -30,7 +31,7 @@ bool Font::Initialize(int size)
 	desc.Weight = 400;
 	desc.MipLevels = D3DX_DEFAULT;
 	desc.Italic = FALSE;
-	desc.CharSet = DEFAULT_CHARSET;
+	desc.CharSet = SHIFTJIS_CHARSET;
 	desc.OutputPrecision = OUT_DEFAULT_PRECIS;
 	desc.Quality = DEFAULT_QUALITY;
 	desc.PitchAndFamily = FIXED_PITCH | FF_MODERN;

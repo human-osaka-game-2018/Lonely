@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "../../ObjectManager/ObjectManager.h"
-#include "../../CameraManager/CameraManager.h"
+#include "ObjectManager/ObjectManager.h"
+#include "CameraManager/CameraManager.h"
 
 /**
 * シーンの基底クラス

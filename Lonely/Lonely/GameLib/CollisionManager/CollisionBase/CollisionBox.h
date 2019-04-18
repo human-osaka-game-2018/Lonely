@@ -30,19 +30,30 @@ public:
 	* @brief オーナーが３Dオブジェクトの場合のコンストラクタ
 	* @param オーナーのアドレス
 	* @param どの当たり判定グループに属するか
-	* @param 当たり判定の中心位置
 	* @param XYZ方向の長さ
 	*/
 	CollisionBox(Object* owner, int type, D3DXVECTOR3* length);
 
-	// 指定軸番号の方向ベクトルを取得
+	/**
+	* @brief 指定軸番号の方向ベクトルを取得
+	* @param X,Y,Zのどの軸か
+	*/
 	D3DXVECTOR3 GetDirect(int elem);
 									   
-    // 指定軸方向の長さを取得
+    /**
+	* @brief 指定軸方向の長さを取得
+	* @param X,Y,Zのどの軸か
+	*/
 	FLOAT       GetLength(int elem);  
 
+	/**
+	* @brief このCollisionBoxを持つオーナーのポジションを取得する
+	*/
 	D3DXVECTOR3 GetPosition();       
 
+	/**
+	* @brief このCollisionBoxを持つオーナーの縦移動させていないポジションを取得する関数
+	*/
 	D3DXVECTOR3 GetFollowingPositionExceptY();
 
 protected:

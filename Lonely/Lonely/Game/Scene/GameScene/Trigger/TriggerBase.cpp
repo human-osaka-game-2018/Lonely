@@ -4,10 +4,11 @@
 * @author shion-sagawa
 */
 
+#include "TriggerBase.h"
+
 #include <d3dx9math.h>
 
-#include "TriggerBase.h"
-#include "../../../../GameLib/GameLib.h"
+#include "GameLib.h"
 
 TriggerBase::TriggerBase()
 	:m_pCollisionManager(GameLib::Instance.GetCollisionManager())

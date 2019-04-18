@@ -4,7 +4,7 @@
 * @author shion-sagawa
 */
 
-#include "../GameLib.h"
+#include "GameLib.h"
 
 Sprite::Sprite(void)
 	: m_x(0.0f), m_y(0.0f)

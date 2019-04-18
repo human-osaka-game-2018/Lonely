@@ -46,13 +46,9 @@ bool GameLib::Initialize(const wchar_t* pName, int width, int height, bool isFul
 		return false;
 	}
 
-	// オブジェクトマネージャ
-
-
 	// シーンシステムの初期化
 	m_sceneManager.Initialize();
-	// 入力システムの初期化
-	m_input.Initialize();
+	
 	//　テクスチャの管理クラスを初期化
 	m_texStorage.Initialize();
 
@@ -64,8 +60,6 @@ void GameLib::Finalize()
 {
 	// フォントの解放
 	m_font.Finalize();
-	// 入力システムの解放
-	m_input.Finalize();
 	// サウンドマネージャの解放
 	SoundLibCWrapper_Free();
 	// オブジェクトマネージャの解放
@@ -93,7 +87,7 @@ void GameLib::MainLoop()
 			m_dxInput.StorePrevInputState();
 
 			// 画面のクリア
-			m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER /*| D3DCLEAR_STENCIL*/, 0xFF000000, 1.0f, 0);
+			m_directX.ClearBackBuffer(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER , 0xFF000000, 1.0f, 0);
 
 			//描画可能状態にする
 			m_directX.BeginRenderScene();

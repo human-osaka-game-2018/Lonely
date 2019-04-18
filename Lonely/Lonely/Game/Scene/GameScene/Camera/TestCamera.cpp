@@ -5,7 +5,8 @@
 */
 
 #include "TestCamera.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 
 TestCamera::TestCamera()

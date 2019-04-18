@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object3DBase.h"
-#include "../../../../GameLib/FBX/FBX.h"
+#include "ObjectManager/Object3DBase.h"
+#include "FBX/FBX.h"
 
 /**
 * @brief プレイヤー関係の処理をまとめたクラス

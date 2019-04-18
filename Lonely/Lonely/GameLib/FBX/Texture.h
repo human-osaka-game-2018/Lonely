@@ -62,10 +62,10 @@ public:
 
 private:
 
-	UINT				m_width;		// テクスチャーの幅
-	UINT				m_height;		// テクスチャーの高さ
-	UINT				m_srcWidth;		// 画像の幅
-	UINT				m_srcHeight;	// 画像の高さ
-	IDirect3DTexture9*	m_pTexture;		// 生成したテクスチャーのポインタ
+	UINT				m_width;		//!< テクスチャーの幅
+	UINT				m_height;		//!< テクスチャーの高さ
+	UINT				m_srcWidth;		//!< 画像の幅
+	UINT				m_srcHeight;	//!< 画像の高さ
+	IDirect3DTexture9*	m_pTexture;		//!< 生成したテクスチャーのポインタ
 
 };

@@ -26,9 +26,6 @@
     <Filter Include="リソース ファイル\GameLib\DirectX">
       <UniqueIdentifier>{bceb0b1f-3a2f-4f75-b0b5-f16201d68aeb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\GameLib\Input">
-      <UniqueIdentifier>{64756d85-c41c-467b-b068-0ebe0bcdef2e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\GameLib\Font">
       <UniqueIdentifier>{92ed0de5-c7f8-416b-8adc-b9760a0762f0}</UniqueIdentifier>
     </Filter>
@@ -117,9 +114,6 @@
   <ItemGroup>
     <ClCompile Include="GameLib\DirectX\DirectX.cpp">
       <Filter>リソース ファイル\GameLib\DirectX</Filter>
-    </ClCompile>
-    <ClCompile Include="GameLib\Input\Input.cpp">
-      <Filter>リソース ファイル\GameLib\Input</Filter>
     </ClCompile>
     <ClCompile Include="GameLib\Font\Font.cpp">
       <Filter>リソース ファイル\GameLib\Font</Filter>
@@ -329,9 +323,6 @@
   <ItemGroup>
     <ClInclude Include="GameLib\DirectX\DirectX.h">
       <Filter>リソース ファイル\GameLib\DirectX</Filter>
-    </ClInclude>
-    <ClInclude Include="GameLib\Input\Input.h">
-      <Filter>リソース ファイル\GameLib\Input</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\Font\Font.h">
       <Filter>リソース ファイル\GameLib\Font</Filter>

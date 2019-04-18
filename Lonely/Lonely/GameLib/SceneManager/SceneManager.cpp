@@ -76,6 +76,7 @@ void SceneManager::ReleaseScene()
 	m_pScene = nullptr;
 }
 
+//シーンを動的確保し、初期化する関数
 void SceneManager::CreateScene()
 {
 	//現在までのシーンを次のシーンへ変更
@@ -106,6 +107,8 @@ void SceneManager::CreateScene()
 	m_pScene->Initialize();
 }
 
+//次のフレームに引数のシーンへ変更させることを知らせる関数
+//外部から呼ばれる関数
 void SceneManager::SwitchSceneNextFrame(int nextScene)
 {
 	m_nextScene = nextScene;

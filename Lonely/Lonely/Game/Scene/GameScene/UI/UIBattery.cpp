@@ -5,7 +5,8 @@
 */
 
 #include "UIBattery.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 UIBattery::UIBattery()
 {
@@ -20,14 +21,11 @@ UIBattery::~UIBattery()
 //初期化する
 bool UIBattery::Initialize()
 {
-	/*if (!m_texture.Load("../Graphics/UIFootsteps.png"))
-	{
-		return false;
-	}*/
 
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
+	//頂点情報を設定
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 150.f, WINDOW_HEIGHT - 90.f, 400.f, 35.f);
 
 	return true;

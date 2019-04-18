@@ -8,9 +8,9 @@
 
 #include <d3dx9math.h>
 
-#include "../../../../GameLib/ObjectManager/Object3DBase.h"
-#include "../../../../GameLib/CollisionManager/CollisionManager.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBase.h"
+#include "ObjectManager/Object3DBase.h"
+#include "CollisionManager/CollisionManager.h"
+#include "CollisionManager/CollisionBase/CollisionBase.h"
 
 /**
 * @brief トリガーの基底クラス

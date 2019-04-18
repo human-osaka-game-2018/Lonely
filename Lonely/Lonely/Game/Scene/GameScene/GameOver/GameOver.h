@@ -6,10 +6,11 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../../GameLib/TexStorage/TexStorage.h"
-#include "../../../../GameLib/FBX/Texture.h"
+#include "ObjectManager/Object.h"
+
+#include "2DHelper/2DHelper.h"
+#include "TexStorage/TexStorage.h"
+#include "FBX/Texture.h"
 #include "../SharedInformation/SharedInformation.h"
 #include "EnumGameOverState.h"
 

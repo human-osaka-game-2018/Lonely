@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object2DBase.h"
-#include "../../../../GameLib/2DHelper/2DHelper.h"
-#include "../../../../GameLib/TexStorage/TexStorage.h"
-#include "../../../../GameLib/GameLib.h"
+#include "ObjectManager/Object2DBase.h"
+
+#include "GameLib.h"
+
 #include "../SharedInformation/SharedInformation.h"
 
 enum APP_MENU_STATE
@@ -19,7 +19,6 @@ enum APP_MENU_STATE
 	STARTING,
 	STOPPING
 };
-
 
 /**
 * @brief UIの処理をまとめたクラス
@@ -69,7 +68,7 @@ private:
 	int   m_appMenuState = NOT_USING;
 	int   m_appMenuMoveCount = 0;
 
-	TexStorage* m_pTexStorage;
-	SoundLib::SoundsManager* m_pSoundsManager;
+	TexStorage*              m_pTexStorage;
 	SharedInformation*       m_pSharedInformation;
+	SoundLib::SoundsManager* m_pSoundsManager;
 };

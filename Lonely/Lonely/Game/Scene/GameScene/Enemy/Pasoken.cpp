@@ -5,8 +5,10 @@
 */
 
 #include "Pasoken.h"
-#include "../../../../GameLib/GameLib.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBox.h"
+
+#include "GameLib.h"
+
+#include "CollisionManager/CollisionBase/CollisionBox.h"
 
 #define _CRT_SECURE_NO_WARNINGS
 

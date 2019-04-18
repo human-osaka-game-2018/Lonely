@@ -5,7 +5,8 @@
 */
 
 #include "TitleLogo.h"
-#include "../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 TitleLogo::TitleLogo()
 {
@@ -20,10 +21,7 @@ TitleLogo::~TitleLogo()
 //初期化する
 bool TitleLogo::Initialize()
 {
-	/*if (!m_texture.Load("../Graphics/TitleLogo.png"))
-	{
-		return false;
-	}*/
+	//テクスチャ読み込み
 	if (!m_texture.Load("../Graphics/Texture/TitleLogo.png"))
 	{
 		return false;
@@ -33,7 +31,7 @@ bool TitleLogo::Initialize()
 	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
 	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
-	//頂点の座標をセット
+	//頂点の座標を設定する
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth())/2
 		, static_cast<float>(WINDOW->GetHeight())/4

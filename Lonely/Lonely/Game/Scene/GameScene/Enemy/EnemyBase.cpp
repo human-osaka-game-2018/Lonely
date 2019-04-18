@@ -4,10 +4,11 @@
 * @author shion-sagawa
 */
 
+#include "EnemyBase.h"
+
 #include <d3dx9math.h>
 
-#include "../../../../GameLib/GameLib.h"
-#include "EnemyBase.h"
+#include "GameLib.h"
 
 EnemyBase::EnemyBase()
 	: m_pCollisionManager(GameLib::Instance.GetCollisionManager())

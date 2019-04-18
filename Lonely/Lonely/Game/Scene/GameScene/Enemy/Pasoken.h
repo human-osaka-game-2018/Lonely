@@ -7,7 +7,8 @@
 #pragma once
 
 #include "EnemyBase.h"
-#include "../../../../GameLib/FBX/FBX.h"
+
+#include "FBX/FBX.h"
 #include "../SharedInformation/SharedInformation.h"
 
 enum DESTINATION

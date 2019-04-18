@@ -6,10 +6,11 @@
 
 #pragma once
 
+#include "Stage.h"
+
 #include <d3dx9math.h>
 
-#include "Stage.h"
-#include "../../../../GameLib/GameLib.h"
+#include "GameLib.h"
 
 Stage::Stage()
 	:m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
@@ -29,7 +30,6 @@ bool Stage::Initialize()
 
 	m_position = { 0.f, 0.f, 0.f };
 	m_radius = 0.2f;
-	//m_radius = 1.f;
 	m_direction = 0.f;
 
 	return true;
@@ -67,39 +67,3 @@ void Stage::Render()
 	// モデルの描画
 	m_fbxModel.Render();
 }
-
-//if (typeA == STAGE)
-//{
-//	Stage* stage = dynamic_cast<Stage*>(this->GetOwner());
-//	FbxModel* stageModel = stage->GetFbxModel();
-//
-//	if (typeB == PLAYER)
-//	{
-//		Sumahoneko* sumahoneko = dynamic_cast<Sumahoneko*>(collider->GetOwner());
-//		D3DXVECTOR3 position(0.f, 0.f, 0.f);
-//		float dist = 10.f;
-//
-//		//スマホ猫や、ボールなどが下に重力があるなら
-//		if (sumahoneko->Falls())
-//		{
-//			//sumahonekoにかかっている重力分だけレイを飛ばす
-//			if (stageModel->RayPick(&position, &position, &dist, &position) != -1)
-//			{
-//
-//			}
-//		}
-//
-//	}
-//	else if (typeB == ENEMY)
-//	{
-//		Pasoken* pasoken = dynamic_cast<Pasoken*>(collider->GetOwner());
-//	}
-//	else if (typeB == STAGE_OBJECT)
-//	{
-//
-//	}
-//	else if (typeB == TRIGGER)
-//	{
-//
-//	}
-//}

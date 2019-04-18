@@ -4,24 +4,13 @@
 * @author shion-sagawa
 */
 
+#include "CollisionManager.h"
+
 #include <d3dx9math.h>
 
-#include "CollisionManager.h"
 #include "CollisionBase\CollisionBase.h"
 #include "CollisionBase\CollisionBox.h"
 #include "CollisionBase\CollisionSphere.h"
-
-//class CollisionBase;
-//class Object3DBase
-//{
-//public:
-//	CollisionBase * m_Collision;
-//
-//	Object3DBase(CollisionType type)
-//	{
-//		m_Collision = new CollisionBase(this, type);
-//	}
-//};
 
 
 CollisionManager::CollisionManager()

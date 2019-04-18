@@ -6,13 +6,14 @@
 
 #pragma once
 
+#include "StageObject.h"
+
 #include <d3dx9math.h>
 
-#include "StageObject.h"
-#include "../Trigger/TriggerMovable.h"
-#include "../../../../GameLib/CollisionManager/CollisionManager.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBase.h"
-#include "../Player/Sumahoneko.h"
+#include "Scene/GameScene/Trigger/TriggerMovable.h"
+#include "CollisionManager/CollisionManager.h"
+#include "CollisionManager/CollisionBase/CollisionBase.h"
+#include "Scene/GameScene/Player/Sumahoneko.h"
 
 /**
 * @brief トリガーの基底クラス

@@ -5,7 +5,8 @@
 */
 
 #include "UIBar.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 UIBar::UIBar()
 {
@@ -20,9 +21,10 @@ UIBar::~UIBar()
 //初期化する
 bool UIBar::Initialize()
 {
+	//テクスチャを読み込む
 	if (!m_texture.Load("../Graphics/Texture/UIframe.png"))
 	{
-	return false;
+		return false;
 	}
 
 	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
@@ -33,11 +35,8 @@ bool UIBar::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
+	//頂点情報を設定
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 0.f, WINDOW_HEIGHT-100.f, WINDOW_WIDTH/4, 100, u, v);
-
-	//矩形の色情報を変える
-	/*DWORD color = 0xff666699;
-	HELPER_2D->SetVerticesColor(m_vertices, color);*/
 
 	return true;
 }

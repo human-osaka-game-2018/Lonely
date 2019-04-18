@@ -6,14 +6,13 @@
 
 #pragma once
 
-#include "../../../GameLib/SceneManager/SceneBase/SceneBase.h"
+#include "SceneManager/SceneBase/SceneBase.h"
+
+#include "SoundLib/Include/SoundsManager.h"
+#include "SoundLib/Include/SoundLibCWrapper.h"
 
 #include "SharedInformation/SharedInformation.h"
-#include "../../../GameLib/CollisionManager/CollisionManager.h"
-#include "Player\Sumahoneko.h"
-#include "../../../SoundLib/Include/SoundsManager.h"
-#include "../../../SoundLib/Include/SoundLibCWrapper.h"
-
+#include "CollisionManager/CollisionManager.h"
 
 /**
 * @brief ゲームシーンのクラス

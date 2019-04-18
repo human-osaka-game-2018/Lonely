@@ -5,7 +5,8 @@
 */
 
 #include "UIWaves.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 UIWaves::UIWaves()
 {
@@ -20,7 +21,7 @@ UIWaves::~UIWaves()
 //初期化する
 bool UIWaves::Initialize()
 {
-	// assetsフォルダ内のbridge.pngをテクスチャーとして読み込み
+	//テクスチャを読み込む
 	if (!m_texture.Load("../Graphics/Texture/UIWaves.png"))
 	{
 		return false;
@@ -34,6 +35,7 @@ bool UIWaves::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
+	//頂点情報を設定する
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 1150.f, WINDOW_HEIGHT-100.f, 100.f, 50.f,186.f/1024.f, 120.f/256.f, 0.f, 0.f);
 
 	return true;

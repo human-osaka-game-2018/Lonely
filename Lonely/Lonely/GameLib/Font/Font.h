@@ -7,8 +7,10 @@
 #pragma once
 
 #include <stdio.h>
+
 #include <d3d9.h>
 #include <d3dx9.h>
+
 #undef DrawText
 
 /** 
@@ -59,9 +61,7 @@ public:
 
 private:
 
-	/** フォントの高さを保存する変数 */
-	int			m_fontSize;
+	int			m_fontSize;    //!< フォントの大きさ
 
-	/** フォントの情報を持つ */
-	ID3DXFont*	m_pFont;
+	ID3DXFont*	m_pFont;       //!< フォントの情報を持つ
 };

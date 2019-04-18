@@ -15,7 +15,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	// ゲームのメインループ
 	GameLib::Instance.MainLoop();
 
-	// DirectXLibの解放
+	// GameLibの解放
 	GameLib::Instance.Finalize();
 
 	return 0;

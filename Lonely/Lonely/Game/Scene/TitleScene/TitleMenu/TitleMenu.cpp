@@ -8,11 +8,9 @@
 
 #include "GameLib.h"
 
-#include "SceneManager\Enum_Scene.h"
-#include "../../GameScene/GameScene.h"
-#include "../../DataSelectScene/DataSelectScene.h"
-
-
+#include "SceneManager/Enum_Scene.h"
+#include "Scene/GameScene/GameScene.h"
+#include "Scene/DataSelectScene/DataSelectScene.h"
 
 TitleMenu::TitleMenu()
 	: m_pSoundsManager(GameLib::Instance.GetSoundsManager())
@@ -45,11 +43,9 @@ bool TitleMenu::Initialize()
 		return false;
 	}
 
-
-	// SoundsManagerインスタンス生成後に1度のみ行う。
+	//音声ファイルの読み込み
 	const TCHAR* filePath = _T("../Sounds/SE/sumahoneko/button.mp3");
 	m_pSoundsManager->AddFile(filePath, _T("button"));
-
 
 	return true;
 }
@@ -57,8 +53,6 @@ bool TitleMenu::Initialize()
 //解放する
 void TitleMenu::Finalize()
 {
-	SoundLibCWrapper_Free();
-
 }
 
 //更新する
@@ -66,7 +60,7 @@ void TitleMenu::Update()
 {
 	switch (m_step)
 	{
-	case STEP1:
+	case STEP1://「プレスエンター」にメニューカーソルがあるとき
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_RETURN))
 		{
@@ -76,7 +70,7 @@ void TitleMenu::Update()
 		}
 		break;
 
-	case STEP2:
+	case STEP2://「ゲームスタート」にメニューカーソルがあるとき
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{
@@ -96,7 +90,7 @@ void TitleMenu::Update()
 		}
 		break;
 
-	case STEP3:
+	case STEP3://「ゲームエンド」にメニューカーソルがあるとき
 
 		if (DIRECT_INPUT->KeyboardIsReleased(DIK_UP))
 		{

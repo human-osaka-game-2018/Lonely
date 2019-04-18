@@ -5,6 +5,7 @@
 */
 
 #include "SharedInformation.h"
+
 #include "EnumGameState.h"
 
 // GameLibの実体定義

@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "Object.h"
 #include <vector>
+
+#include "Object.h"
 
 /**
 * オブジェクトを管理するクラス

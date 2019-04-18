@@ -9,9 +9,11 @@
 
 #include "PlayerBase.h"
 
-#include "../../../../GameLib/FBX/FBX.h"
+#include "GameLib.h"
+
+#include "FBX/FBX.h"
 #include "../SharedInformation/SharedInformation.h"
-#include "../../../../GameLib/GameLib.h"
+
 
 enum DYING_ANIME_STATE
 {

@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <d3dx9math.h>
-
 #include "TriggerCharging.h"
+
+#include <d3dx9math.h>
 
 TriggerCharging::TriggerCharging()
 {

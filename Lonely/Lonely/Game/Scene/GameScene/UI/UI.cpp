@@ -5,7 +5,8 @@
 */
 
 #include "UI.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 #include "../SharedInformation/EnumGameState.h"
 
 UI::UI()
@@ -23,6 +24,7 @@ UI::~UI()
 //初期化する
 bool UI::Initialize()
 {
+
 	m_pTexStorage = GameLib::Instance.GetTexStorage();
 	m_pTexStorage->CreateTex(_T("sumahoGamen"), _T("../Graphics/Texture/smart phone.png"));
 

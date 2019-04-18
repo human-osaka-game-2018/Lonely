@@ -4,8 +4,9 @@
 * @author shion-sagawa
 */
 #include "CollisionBox.h"
-#include "../EnumCollision/Enum_CollisionType.h"
-#include "../../ObjectManager/Object3DBase.h"
+
+#include "CollisionManager/EnumCollision/Enum_CollisionType.h"
+#include "ObjectManager/Object3DBase.h"
 
 CollisionBox::CollisionBox(Object* owner, int type)
 {
@@ -55,27 +56,11 @@ D3DXVECTOR3 CollisionBox::GetPosition()
 {
 	Object3DBase* pObject3D = dynamic_cast<Object3DBase*>(m_owner);
 
-	
-	/*if (this->m_type == PLAYER)
-	{
-		this->m_owner 
-	}
-	else if (this->m_type == ENEMY)
-	{
-
-	}
-	else if (this->m_type == STAGE_OBJECT)
-	{
-
-	}
-	else if (this->m_type == TRIGGER)
-	{
-
-	}*/
-
 	return pObject3D->GetPosition();;
 }
 
+//縦移動以外進ませた座標を取得する関数
+//ステージオブジェクトの上に乗っているときに使う
 D3DXVECTOR3 CollisionBox::GetFollowingPositionExceptY()
 {
 	Object3DBase* pObject3D = dynamic_cast<Object3DBase*>(m_owner);

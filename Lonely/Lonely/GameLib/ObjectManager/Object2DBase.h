@@ -7,8 +7,9 @@
 #pragma once
 
 #include "Object.h"
-#include "../2DHelper/2DHelper.h"
-#include "../FBX/Texture.h"
+
+#include "2DHelper/2DHelper.h"
+#include "FBX/Texture.h"
 
 /**
 * @brief ２Dオブジェクトの基底となるクラス

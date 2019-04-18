@@ -4,14 +4,15 @@
 * @author shion-sagawa
 */
 
-
-#include "../GameLib.h"
-#define FBXSDK_SHARED
 #include "FBX.h"
+
 #include <stdio.h>
+
+#include "GameLib.h"
 
 #pragma comment( lib, "libfbxsdk.lib")
 
+#define FBXSDK_SHARED
 #define	SAFE_DESTROY(x)	{ if(x) { (x)->Destroy(); (x) = NULL; } }
 
 
@@ -475,7 +476,7 @@ void FbxModel::LoadMaterial(UINT matIdx, FbxMesh* pMesh)
 			// ※グラフィッカーがきちんと出力できるようになったら最初の内容を使用したほうがいい
 			char path[MAX_PATH];
 			int pos = 0;
-			for (pos = size - 1; pos >= 0; pos--)
+			for (pos = static_cast<int>(size) - 1; pos >= 0; pos--)
 			{
 				if (pFileName[pos] == '/' ||
 					pFileName[pos] == '\\')

@@ -5,7 +5,8 @@
 */
 
 #include "UIHitPoint.h"
-#include "../../../../GameLib/GameLib.h"
+
+#include "GameLib.h"
 
 UIHitPoint::UIHitPoint()
 	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
@@ -21,6 +22,7 @@ UIHitPoint::~UIHitPoint()
 //初期化する
 bool UIHitPoint::Initialize()
 {
+	//テクスチャの読み込み
 	if (!m_texture.Load("../Graphics/Texture/icon.png"))
 	{
 		return false;
@@ -34,7 +36,7 @@ bool UIHitPoint::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	//HELPER_2D->SetVerticesFromLeftTopType(m_vertices, 600.f, WINDOW_HEIGHT-100.f, 300.f, 50.f, 347.f/2048.f, 137.f/512.f, 0.f ,0.f);
+	//頂点情報を設定する
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices, WINDOW_WIDTH/4.f - 307.f, WINDOW_HEIGHT - 100.f, 300.f, 50.f, 511.f / 2048.f, 200.f / 1024.f, 0.f, 0.f);
 
 	return true;
@@ -48,6 +50,7 @@ void UIHitPoint::Finalize()
 
 void UIHitPoint::Update()
 {
+	//ヒットポイントによって、UVを変える
 	m_hp = m_pSharedInformation->GetHp();
 	if (m_hp == 3)
 	{

@@ -5,9 +5,9 @@
 */
 
 #include "MenuCursor.h"
-#include "TitleMenu.h"
-#include "../../../../GameLib/GameLib.h"
 
+#include "GameLib.h"
+#include "TitleMenu.h"
 
 MenuCursor::MenuCursor()
 {
@@ -27,7 +27,7 @@ bool MenuCursor::Initialize()
 		return false;
 	}
 
-	//頂点の座標をセット
+	//頂点情報を設定する
 	HELPER_2D->SetVerticesFromCenterType(m_vertices
 		, static_cast<float>(WINDOW->GetWidth()) / 2
 		, static_cast<float>(WINDOW->GetHeight()) / 16 * 13

@@ -6,12 +6,13 @@
 
 #pragma once
 
+#include "TriggerQR.h"
+
 #include <d3dx9math.h>
 
-#include "TriggerQR.h"
-#include "../../../../GameLib/CollisionManager/EnumCollision/Enum_CollisionType.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBox.h"
-#include "../../../../GameLib/GameLib.h"
+#include "GameLib.h"
+#include "CollisionManager/EnumCollision/Enum_CollisionType.h"
+#include "CollisionManager/CollisionBase/CollisionBox.h"
 #include "../SharedInformation/EnumGameState.h"
 
 TriggerQR::TriggerQR()
@@ -96,6 +97,8 @@ void TriggerQR::Update()
 			if(DIRECT_INPUT->KeyboardIsHeld(DIK_RETURN))
 			{
 				m_state = IS_GETTING;
+				//QR数をカウントする
+
 				//一次停止フラグをオンにする
 				m_pSharedInformation->SetGameState(PAUSE);
 			}

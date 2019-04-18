@@ -5,7 +5,8 @@
 */
 
 #include "Texture.h"
-#include "../GameLib.h"
+
+#include "GameLib.h"
 
 #define	TEXTURE_MAX	1000
 

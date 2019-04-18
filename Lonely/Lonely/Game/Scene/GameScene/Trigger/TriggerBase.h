@@ -6,11 +6,12 @@
 
 #pragma once
 
+#include "ObjectManager/Object3DBase.h"
+
 #include <d3dx9math.h>
 
-#include "../../../../GameLib/ObjectManager/Object3DBase.h"
-#include "../../../../GameLib/CollisionManager/CollisionManager.h"
-#include "../../../../GameLib/CollisionManager/CollisionBase/CollisionBase.h"
+#include "CollisionManager/CollisionManager.h"
+#include "CollisionManager/CollisionBase/CollisionBase.h"
 #include "../SharedInformation/SharedInformation.h"
 
 /**

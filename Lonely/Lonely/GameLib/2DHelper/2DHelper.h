@@ -1,23 +1,14 @@
-﻿///**
-//* @file 2DHelper.h
-//* @brief 2DHelperクラスのヘッダファイル
-//* @author shion-sagawa
-//*/
-//
+﻿/**
+* @file 2DHelper.h
+* @brief 2DHelperクラスのヘッダファイル
+* @author shion-sagawa
+*/
+
 #pragma once
 
 #include <windows.h>
-//
-//#include "../DirectX/DirectX.h"
-//#include "../FBX/Texture.h"
-//
-//
-//#define FVF_SIMPLE_2D		(D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
-//#define FVF_SIMPLE_TEX_2D   (D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1)
-//
-//
 
-// シンプルなテクスチャ―付き頂点情報
+// テクスチャ―付き頂点情報
 struct Simple2DVertex
 {
 	float x, y, z;
@@ -65,10 +56,14 @@ public:
 	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY, float rectWidth, float rectHeight, float rightTU = 1.0f, float bottomTV =1.0f, float leftTU = 0.0f, float topTV = 0.0f);
 
 	/**
-	* @brief ���㒸�_���牡���A�c�����g���ċ��`�������֐�
-	* @param ���_����
-	* @param ���㒸�_��X���W
-	* @param ���㒸�_��Y���W
+	* @brief 頂点の位置を上書きする関数
+	* @param 頂点情報
+	* @param 上書きしたい左上頂点のX座標
+	* @param 上書きしたい左上頂点のY座標
+	*/
+	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY);
+
+	/**
 	* @brief 矩形4頂点のTUTVを変える関数
 	* @param 頂点の先頭アドレス
 	* @param 矩形の右のTU
@@ -76,7 +71,6 @@ public:
 	* @param 矩形の左のTU
 	* @param 矩形の上のTV
 	*/
-	void SetVerticesFromLeftTopType(Simple2DVertex* vertices, float posLeftTopX, float posLeftTopY);
 	void SetVerticesTuTv(Simple2DVertex* vertices, float rightTU, float bottomTV, float leftTU, float topTV);
 
 

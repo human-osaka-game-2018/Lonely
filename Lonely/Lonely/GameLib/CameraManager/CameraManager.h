@@ -7,9 +7,12 @@
 #pragma once
 
 #include <windows.h>
-#include <tchar.h>
-#include <map>
 #include <d3dx9.h>
+
+#include <tchar.h>
+
+#include <map>
+
 #include "CameraBase.h"
 
 /**

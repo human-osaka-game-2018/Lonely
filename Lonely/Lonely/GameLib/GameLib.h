@@ -6,23 +6,21 @@
 
 #pragma once
 
-#include "DirectX\DirectX.h"
-#include "FBX\FBX.h"
-#include "Window\Window.h"
-#include "Input\Input.h"
-#include "Font\Font.h"
-#include "SceneManager\SceneManager.h"
-#include "ObjectManager\ObjectManager.h"
-#include "CollisionManager\CollisionManager.h"
-#include "CameraManager\CameraManager.h"
-#include "Sprite\Sprite.h"
-#include "2DHelper\2DHelper.h"
-#include "DXInput\DXInput.h"
-#include "TexStorage\TexStorage.h"
+#include "Window/Window.h"
+#include "DirectX/DirectX.h"
+#include "DXInput/DXInput.h"
+#include "TexStorage/TexStorage.h"
+#include "Font/Font.h"
+#include "Sprite/Sprite.h"
+#include "FBX/FBX.h"
+#include "SceneManager/SceneManager.h"
+#include "ObjectManager/ObjectManager.h"
+#include "CollisionManager/CollisionManager.h"
+#include "CameraManager/CameraManager.h"
+#include "2DHelper/2DHelper.h"
 
-#include "../SoundLib/Include/SoundsManager.h"
-#include "../SoundLib/Include/SoundLibCWrapper.h"
-
+#include "SoundLib/Include/SoundsManager.h"
+#include "SoundLib/Include/SoundLibCWrapper.h"
 
 /**
 * @brief 解放を行うマクロ
@@ -84,11 +82,6 @@ public:
 	*/
 	Font* GetDebugFont() { return &m_font; }
 
-	/**
-	* @brief Inputの取得を行う関数
-	*/
-	Input* GetInput() { return &m_input; }
-
 	/** 
 	* @brief SceneManagerの取得を行う関数
 	*/
@@ -139,7 +132,8 @@ private:
 
 	Window		            m_window;
 	DirectX		            m_directX;
-	Input		            m_input;
+	DXInput                 m_dxInput;
+	TexStorage              m_texStorage;
 	Font		            m_font;
 	FbxModel	            m_fbx;
 	SceneManager            m_sceneManager;
@@ -147,15 +141,13 @@ private:
 	CollisionManager        m_collisionManager;
 	CameraManager           m_cameraManager;
 	Helper2D                m_helper2D;
-	DXInput                 m_dxInput;
-	TexStorage              m_texStorage;
 	SoundLib::SoundsManager m_soundsManager;
 };
 
-#define	DEBUGFONT		(GameLib::Instance.GetDebugFont())
-#define	INPUT			(GameLib::Instance.GetInput())
-#define	SCENEMANAGER	(GameLib::Instance.GetSceneManager())
+//外部からアクセスする際にこのマクロを使うと少し省略できる
 #define WINDOW          (GameLib::Instance.GetWindow())
 #define DIRECT_3DDEVICE (GameLib::Instance.GetDirect3DDevice())
-#define HELPER_2D       (GameLib::Instance.GetHelper2D())
 #define DIRECT_INPUT    (GameLib::Instance.GetDXInput())
+#define	DEBUGFONT		(GameLib::Instance.GetDebugFont())
+#define	SCENEMANAGER	(GameLib::Instance.GetSceneManager())
+#define HELPER_2D       (GameLib::Instance.GetHelper2D())

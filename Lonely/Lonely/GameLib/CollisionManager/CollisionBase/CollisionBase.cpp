@@ -1,6 +1,6 @@
 ﻿/**
-* @file CollisionBase.h
-* @brief CollisionBaseクラスのヘッダファイル
+* @file CollisionBase.cpp
+* @brief CollisionBaseクラスのソースファイル
 * @author shion-sagawa
 */
 

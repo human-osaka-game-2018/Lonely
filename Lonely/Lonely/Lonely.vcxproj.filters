@@ -549,5 +549,8 @@
     <ClInclude Include="Game\Scene\GameScene\StoryIntroduction\StoryIntroduction.h">
       <Filter>リソース ファイル\Scene\GameScene\StoryIntroduction</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\EnumGameState.h">
+      <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

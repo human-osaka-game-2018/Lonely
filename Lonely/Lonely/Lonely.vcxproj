@@ -141,6 +141,7 @@
     <ClInclude Include="Game\Scene\GameScene\Player\Drone.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\PlayerBase.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h" />
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\EnumGameState.h" />
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageMovableObject.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h" />

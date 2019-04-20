@@ -23,6 +23,7 @@
 #include "Trigger/TriggerQR.h"
 #include "StageObject/StageMovableObject.h"
 #include "StageObject/StageStopedObject.h"
+#include "StoryIntroduction/StoryIntroduction.h"
 #include "GameOver/GameOver.h"
 
 GameScene::GameScene()
@@ -64,6 +65,7 @@ bool GameScene::Initialize()
 	m_pObjectManager->RegisterObject(new UI);
 	m_pObjectManager->RegisterObject(new UIBar);
 	m_pObjectManager->RegisterObject(new UIHitPoint);
+	m_pObjectManager->RegisterObject(new StoryIntroduction);
 	m_pObjectManager->RegisterObject(new GameOver);
 
 	//音声ファイルの読み込み

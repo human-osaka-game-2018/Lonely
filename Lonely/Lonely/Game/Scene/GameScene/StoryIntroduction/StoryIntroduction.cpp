@@ -7,6 +7,7 @@
 #include "StoryIntroduction.h"
 
 #include "GameLib.h"
+#include "Scene/GameScene/SharedInformation/EnumGameState.h"
 
 using tstring = std::basic_string<TCHAR>;
 
@@ -36,6 +37,7 @@ bool StoryIntroduction::Initialize()
 	m_pTexStorage->CreateTex(m_textureKeys[6], _T("../Graphics/Texture/story7.png"));
 	m_pTexStorage->CreateTex(m_textureKeys[7], _T("../Graphics/Texture/story8.png"));
 	m_pTexStorage->CreateTex(m_textureKeys[8], _T("../Graphics/Texture/story9.png"));
+	m_pTexStorage->CreateTex(_T("A_SKIP"), _T("../Graphics/Texture/A_SKIP.png"));
 
 	//// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
 	//float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
@@ -47,12 +49,17 @@ bool StoryIntroduction::Initialize()
 		, 0
 		, static_cast<float>(WINDOW->GetWidth())
 		, static_cast<float>(WINDOW->GetHeight()));
-
-	HELPER_2D->SetVerticesFromLeftTopType(m_vertices
+	HELPER_2D->SetVerticesFromLeftTopType(m_backVertices
 		, 0
 		, 0
 		, static_cast<float>(WINDOW->GetWidth())
 		, static_cast<float>(WINDOW->GetHeight()));
+
+	HELPER_2D->SetVerticesFromLeftTopType(m_skipVertices
+		, static_cast<float>(WINDOW->GetWidth()) - 130
+		, static_cast<float>(WINDOW->GetHeight()) - 100
+		, 100
+		, 80);
 
 	return true;
 }
@@ -75,11 +82,37 @@ void StoryIntroduction::Update()
 		return;
 	}
 	
-	//アルファ値を減算していく処理を書きたい
-	//でも引き続けるとオーバーフローが起こってしまう
-	//だからビット演算しないとだめでは？
-	
+	//長押ししたら物語背景導入をSKIPできる
+	if (DIRECT_INPUT->KeyboardIsHeld(DIK_A))
+	{
+		++m_heldKeyCount;
+		if (m_heldKeyCount >= 60)
+		{
+			m_pSharedInformation->SetGameState(PLAY);
+		}
+	}
+	else
+	{
+		m_heldKeyCount = 0;
+	}
 
+	//Skip可能ボタンを点滅させる処理
+	HELPER_2D->DecrementVerticesAlpha(m_skipVertices, &m_decrSkipCount, 90, 60, true);
+
+	//アルファ値を減算する
+	//減算し終わるとテクスチャ番号を進める
+	if (HELPER_2D->DecrementVerticesAlpha(m_vertices, &m_decrementCount, 300, 270))
+	{
+		++m_currentTexNum;
+		++m_nextTexNum;
+		HELPER_2D->SetVerticesColor(m_vertices, (DWORD)0xffffffff);
+	}
+
+	//テクスチャが最後まで描画されたらゲームプレイへ移行
+	if (m_currentTexNum == TEXTURE_MAX)
+	{
+		m_pSharedInformation->SetGameState(PLAY);
+	}
 }
 
 //描画する
@@ -96,18 +129,20 @@ void StoryIntroduction::Render()
 	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 
-	m_nextTexID = m_currentTexID + 1;
-	if(m_nextTexID < TEXTURE_MAX)//2枚のストーリーページを描画する
+	if(m_nextTexNum < TEXTURE_MAX)//2枚のストーリーページを描画する
 	{ 
 		//テクスチャの設定
-		pDevice->SetTexture(0, m_textureKeys[m_currentTexID]);
-		pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
+		pDevice->SetTexture(0, m_pTexStorage->GetTex(m_textureKeys[m_nextTexNum]));
+		pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_backVertices, sizeof(Simple2DVertex));
 
-		pDevice->SetTexture(0, m_textureKeys[m_nextTexID]);
+		pDevice->SetTexture(0, m_pTexStorage->GetTex(m_textureKeys[m_currentTexNum]));
 		pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 	}
 	else{//最後だけ2枚描画しない
-		pDevice->SetTexture(0, m_textureKeys[m_currentTexID]);
+		pDevice->SetTexture(0, m_pTexStorage->GetTex(m_textureKeys[m_currentTexNum]));
 		pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 	}
+
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("A_SKIP")));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_skipVertices, sizeof(Simple2DVertex));
 }

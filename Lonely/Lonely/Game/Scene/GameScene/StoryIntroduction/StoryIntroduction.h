@@ -59,10 +59,16 @@ private:
 		_T("story9")
 	};
 
-	Simple2DVertex       m_vertices[4];
-	Simple2DVertex       m_verticies[4];
+	int                m_decrementCount = 0;    //!< 画像を減少させてどれくらい経ったかを保存する
+	int                m_decrSkipCount = 0;     //!< Skip画像を減少させてどれくらい経ったかを保存する
+	int                m_heldKeyCount = 0;      //!< キーが長押しされている時間を保存する
+	int                m_currentTexNum = 0;     //!< 現在のテクスチャ番号
+	int                m_nextTexNum = 1;        //!< 次のテクスチャ番号
+	
+	Simple2DVertex     m_vertices[4];           //!< 前に描画する頂点情報
+	Simple2DVertex     m_backVertices[4];       //!< 後ろに描画する頂点情報
+	Simple2DVertex     m_skipVertices[4];       //!< Skip可能画像の頂点情報
 
-	TexStorage*        m_pTexStorage;
+	TexStorage*        m_pTexStorage;           
 	SharedInformation* m_pSharedInformation;
-
 };

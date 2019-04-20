@@ -70,6 +70,7 @@
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageObject.cpp" />
     <ClCompile Include="Game\Scene\GameScene\StageObject\StageStopedObject.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Stage\Stage.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\StoryIntroduction\StoryIntroduction.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerBase.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerCharging.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerMovable.cpp" />
@@ -140,11 +141,13 @@
     <ClInclude Include="Game\Scene\GameScene\Player\Drone.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\PlayerBase.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h" />
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\EnumGameState.h" />
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageMovableObject.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageObject.h" />
     <ClInclude Include="Game\Scene\GameScene\StageObject\StageStopedObject.h" />
     <ClInclude Include="Game\Scene\GameScene\Stage\Stage.h" />
+    <ClInclude Include="Game\Scene\GameScene\StoryIntroduction\StoryIntroduction.h" />
     <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerBase.h" />
     <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerCharging.h" />
     <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerMovable.h" />

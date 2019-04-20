@@ -17,7 +17,7 @@ SharedInformation::SharedInformation()
 	, m_cameraDirection(0.f)
 	, m_cameraMode(DEFAULT_CAMERA)
 	, m_playerInitiative(SUMAHONEKO)
-	, m_gameState(PLAY)
+	, m_gameState(STORY_INTRODUCTION)
 {
 	Initialize();
 }

@@ -110,6 +110,9 @@
     <Filter Include="リソース ファイル\GameLib\TexStorage">
       <UniqueIdentifier>{bb2dd19c-c40c-4691-9296-780d08407c70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\StoryIntroduction">
+      <UniqueIdentifier>{7994ad67-62e2-4110-b03f-3e4be9851591}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\DirectX\DirectX.cpp">
@@ -318,6 +321,9 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Trigger\TriggerQR.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\StoryIntroduction\StoryIntroduction.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\StoryIntroduction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -539,6 +545,12 @@
     </ClInclude>
     <ClInclude Include="GameLib\SceneManager\Enum_Scene.h">
       <Filter>リソース ファイル\GameLib\SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\StoryIntroduction\StoryIntroduction.h">
+      <Filter>リソース ファイル\Scene\GameScene\StoryIntroduction</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\SharedInformation\EnumGameState.h">
+      <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

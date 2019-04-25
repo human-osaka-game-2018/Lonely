@@ -54,6 +54,7 @@ void UIHitPoint::Update()
 	m_hp = m_pSharedInformation->GetHp();
 	if (m_hp == 3)
 	{
+		HELPER_2D->SetVerticesTuTv(m_vertices,  511.f / 2048.f, 200.f / 1024.f,   0.f / 2048.f, 0.f);
 	}
 	else if (m_hp == 2)
 	{

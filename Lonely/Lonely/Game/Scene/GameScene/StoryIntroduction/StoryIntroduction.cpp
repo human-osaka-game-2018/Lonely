@@ -9,8 +9,6 @@
 #include "GameLib.h"
 #include "Scene/GameScene/SharedInformation/EnumGameState.h"
 
-using tstring = std::basic_string<TCHAR>;
-
 StoryIntroduction::StoryIntroduction()
 {
 	Initialize();
@@ -38,10 +36,6 @@ bool StoryIntroduction::Initialize()
 	m_pTexStorage->CreateTex(m_textureKeys[7], _T("../Graphics/Texture/story8.png"));
 	m_pTexStorage->CreateTex(m_textureKeys[8], _T("../Graphics/Texture/story9.png"));
 	m_pTexStorage->CreateTex(_T("A_SKIP"), _T("../Graphics/Texture/A_SKIP.png"));
-
-	//// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
-	//float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
-	//float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 
 	//頂点の座標をセット
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices

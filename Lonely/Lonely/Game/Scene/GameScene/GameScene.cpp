@@ -8,7 +8,7 @@
 
 #include "GameLib.h"
 
-#include "Camera/TestCamera.h"
+#include "Camera/MainCamera.h"
 #include "UI/UI.h"
 #include "UI/UIBar.h"
 #include "UI/UIFootsteps.h"
@@ -41,9 +41,10 @@ GameScene::~GameScene()
 //初期化する
 bool GameScene::Initialize()
 {
+	SharedInformation::Instance.Initialize();
 	//ゲームシーンでどのカメラを使うか設定する
-	m_pCameraManager->ChangeCamera(new TestCamera);
-
+	m_pCameraManager->ChangeCamera(new MainCamera);
+	
 	//このシーンで使うクラスをObjectManagerに登録する
 	m_pObjectManager->RegisterObject(new Stage);
 	Sumahoneko* pSumahoneko = new Sumahoneko;
@@ -74,8 +75,7 @@ bool GameScene::Initialize()
 	const TCHAR* filePath = _T("../Sounds/BGM/tokiwokoete.mp3");
 	m_pSoundsManager->AddFile(filePath, _T("GameBGM"));
 	
-	//音声を鳴らす
-	bool isSuccess = m_pSoundsManager->Start(_T("GameBGM"), true);
+	m_pSoundsManager->Start(_T("GameBGM"), true);
 
 	return true;
 }

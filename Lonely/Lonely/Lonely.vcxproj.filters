@@ -101,9 +101,6 @@
     <Filter Include="リソース ファイル\Scene\GameScene\Trigger">
       <UniqueIdentifier>{438cc76e-995d-42d3-ac6f-cb8cf1cba6d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル\Scene\GameScene\Player">
-      <UniqueIdentifier>{9906f2a4-7a55-4513-9a71-ef21b18f560d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\GameOver">
       <UniqueIdentifier>{b78efa69-3926-4bde-b064-bc286feee76d}</UniqueIdentifier>
     </Filter>
@@ -112,6 +109,9 @@
     </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\StoryIntroduction">
       <UniqueIdentifier>{7994ad67-62e2-4110-b03f-3e4be9851591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\Player">
+      <UniqueIdentifier>{9906f2a4-7a55-4513-9a71-ef21b18f560d}</UniqueIdentifier>
     </Filter>
     <Filter Include="リソース ファイル\Scene\GameScene\Player\App">
       <UniqueIdentifier>{d1860ead-ab15-4fde-95da-43da843c275a}</UniqueIdentifier>
@@ -216,9 +216,6 @@
     </ClCompile>
     <ClCompile Include="GameLib\CameraManager\CameraManager.cpp">
       <Filter>リソース ファイル\GameLib\CameraManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\Scene\GameScene\Camera\TestCamera.cpp">
-      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\SharedInformation\SharedInformation.cpp">
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
@@ -331,6 +328,12 @@
     <ClCompile Include="Game\Scene\GameScene\Player\App\QRApp.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Player\App</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Trigger\triggerDoor.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\Camera\MainCamera.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\DirectX\DirectX.h">
@@ -431,9 +434,6 @@
     </ClInclude>
     <ClInclude Include="GameLib\CameraManager\CameraManager.h">
       <Filter>リソース ファイル\GameLib\CameraManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Scene\GameScene\Camera\TestCamera.h">
-      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\SharedInformation\SharedInformation.h">
       <Filter>リソース ファイル\Scene\GameScene\SharedInformation</Filter>
@@ -560,6 +560,12 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Player\App\QRApp.h">
       <Filter>リソース ファイル\Scene\GameScene\Player\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Trigger\TriggerDoor.h">
+      <Filter>リソース ファイル\Scene\GameScene\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\Camera\MainCamera.h">
+      <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

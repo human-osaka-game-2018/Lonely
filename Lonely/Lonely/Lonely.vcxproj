@@ -62,6 +62,7 @@
     <ClCompile Include="Game\Scene\GameScene\Enemy\Pasoken.cpp" />
     <ClCompile Include="Game\Scene\GameScene\GameOver\GameOver.cpp" />
     <ClCompile Include="Game\Scene\GameScene\GameScene.cpp" />
+    <ClCompile Include="Game\Scene\GameScene\Player\App\QRApp.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Player\Drone.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Player\PlayerBase.cpp" />
     <ClCompile Include="Game\Scene\GameScene\Player\Sumahoneko.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Game\Scene\GameScene\GameOver\EnumGameOverState.h" />
     <ClInclude Include="Game\Scene\GameScene\GameOver\GameOver.h" />
     <ClInclude Include="Game\Scene\GameScene\GameScene.h" />
+    <ClInclude Include="Game\Scene\GameScene\Player\App\QRApp.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\Drone.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\PlayerBase.h" />
     <ClInclude Include="Game\Scene\GameScene\Player\Sumahoneko.h" />

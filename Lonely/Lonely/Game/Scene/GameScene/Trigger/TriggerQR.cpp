@@ -25,7 +25,7 @@ TriggerQR::~TriggerQR()
 	Finalize();
 }
 
-TriggerQR::TriggerQR(D3DXVECTOR3* position, D3DXVECTOR3* boxLength)
+TriggerQR::TriggerQR(D3DXVECTOR3* position, D3DXVECTOR3* boxLength, QRApp* pQrApp)
 {
 	m_position.x = position->x;
 	m_position.y = position->y;
@@ -37,9 +37,9 @@ TriggerQR::TriggerQR(D3DXVECTOR3* position, D3DXVECTOR3* boxLength)
 
 	m_triggerType = TRIGGER_QR;
 	m_collides = false;
-	m_state = IS_NOT_GETTED;
-	m_gettingStateCount = 0;
+	m_isGetted = false;
 	m_pCollision = new CollisionBox(this, TRIGGER, boxLength);
+	m_pQrApp = pQrApp;
 
 	Initialize();
 }
@@ -56,7 +56,7 @@ bool TriggerQR::Initialize()
 		return false;
 	}
 
-	if (!m_textureGettingQR.Load("../Graphics/Texture/gettingQR.png"))
+	if (!m_textureGettingQR.Load("../Graphics/Texture/smartphone.png"))
 	{
 		return false;
 	}
@@ -69,7 +69,7 @@ bool TriggerQR::Initialize()
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
 	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
 
-	HELPER_2D->SetVerticesFromCenterType(m_verticesGettingQR, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 400.f, 250.f, u, v);
+	HELPER_2D->SetVerticesFromCenterType(m_verticesGettingQR, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 250.f, 300.f, u, v);
 	
 	return true;
 }
@@ -85,49 +85,20 @@ void TriggerQR::Finalize()
 void TriggerQR::Update()
 {
 	//既にQRが取得されていたら返す
-	if (m_state == IS_GETTED)
+	if (m_isGetted == true)
 	{
 		return;
 	}
 
-	if (m_state == IS_NOT_GETTED)
+	if (this->m_collides) 
 	{
-		if (m_collides == true)
+		if (DIRECT_INPUT->KeyboardIsPressed(DIK_RETURN))
 		{
-			if(DIRECT_INPUT->KeyboardIsHeld(DIK_RETURN))
-			{
-				m_state = IS_GETTING;
-				//QR数をカウントする
-
-				//一次停止フラグをオンにする
-				m_pSharedInformation->SetGameState(PAUSE);
-			}
-		}
-	}
-	
-	if (m_state == IS_GETTING)
-	{
-		if (m_gettingStateCount < 90) 
-		{
-			++m_gettingStateCount;
-		}
-		//取得中表示の時間が経過したら
-		else if (m_gettingStateCount >= 90)
-		{
-			if (DIRECT_INPUT->KeyboardIsHeld(DIK_RETURN))
-			{
-				m_state = IS_GETTED;
-				//一次停止フラグをオフにする
-				m_pSharedInformation->SetGameState(PLAY);
-			}
+			m_pQrApp->Acquire();
+			m_isGetted = true;
 		}
 	}
 
-	//一次停止中なら返す
-	if (m_pSharedInformation->GetGameState() == PAUSE)
-	{
-		return;
-	}
 	//衝突していたらcollidesはTrueになるので、常にfalseにしておく
 	m_collides = false;
 
@@ -138,13 +109,15 @@ void TriggerQR::Update()
 
 void TriggerQR::Render()
 {
-	if (m_state == IS_GETTED)
+	if (m_isGetted == true)
 	{
 		return;
 	}
 
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
+
+	pDirectX->SetRenderMode(DirectX::Normal, false);
 
 	// モデルの行列を算出
 	D3DXMATRIX world;
@@ -223,17 +196,4 @@ void TriggerQR::Render()
 	//描画
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesIconQR, sizeof(SimpleTexVertex));
 	
-
-	//取得中表示を描画する
-	if (m_state == IS_GETTING)
-	{
-		//頂点に入れるデータを設定
-		pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
-
-		//テクスチャの設定
-		pDevice->SetTexture(0, m_textureGettingQR.GetD3DTexture());
-
-		//描画
-		pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesGettingQR, sizeof(Simple2DVertex));
-	}
 }

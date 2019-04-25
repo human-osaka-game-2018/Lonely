@@ -13,6 +13,7 @@
 
 #include "FBX/FBX.h"
 #include "../SharedInformation/SharedInformation.h"
+#include "Scene/GameScene/Player/App/QRApp.h"
 
 
 enum DYING_ANIME_STATE
@@ -99,6 +100,8 @@ public:
 
 	void SetIsLanded(bool isLanded) { m_isLanded = isLanded; }
 
+	QRApp* GetQrApp() { return &m_qrApp; }
+
 private:
 
 	void DetectUpCollidingWithStage(D3DXVECTOR3* movementThisFrame);
@@ -134,6 +137,7 @@ private:
 	int         m_dyingAnimeCount;
 	float       m_radian = 0.f;
 
+	QRApp                    m_qrApp;
 	SharedInformation*       m_pSharedInformation;
 	SoundLib::SoundsManager* m_pSoundsManager;
 

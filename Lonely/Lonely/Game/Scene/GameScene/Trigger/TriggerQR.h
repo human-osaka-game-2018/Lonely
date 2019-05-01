@@ -12,16 +12,7 @@
 
 #include "FBX/3DHelper.h"
 #include "2DHelper/2DHelper.h"
-
-/**
-* @brief QRの状態を管理するEnum変数
-*/
-enum QR_STATE
-{
-	IS_GETTED,
-	IS_GETTING,
-	IS_NOT_GETTED
-};
+#include "Scene/GameScene/Player/App/QRApp.h"
 
 /**
 * @brief QRコード関係の処理のクラス
@@ -38,7 +29,7 @@ public:
 	* @param 中心の位置
 	* @param BOXの軸の長さ
 	*/
-	TriggerQR(D3DXVECTOR3* position, D3DXVECTOR3* boxLength);
+	TriggerQR(D3DXVECTOR3* position, D3DXVECTOR3* boxLength, QRApp* pQrApp);
 
 	/**
 	* @brief 初期化関数
@@ -82,12 +73,10 @@ private:
 	};
 
 	Texture         m_textureQR;               //!< QRのテクスチャ
-	int             m_state;                   //!< プレイヤーに取得されているかどうか       
-	int             m_gettingStateCount;       //!< QRを取得中表示をする間カウントする
-	
 	Texture         m_textureGettingQR;        //!< QR取得中表示のテクスチャ
-	Simple2DVertex  m_verticesGettingQR[4];    //!< QR取得中表示の頂点
-
 	Texture         m_textureIconQR;           //!< QRを取得できるというテクスチャ
-	//int             m_countQR;                 //!< 取得したQRの数を保存する
+	Simple2DVertex  m_verticesGettingQR[4];    //!< QR取得中表示の頂点
+	bool            m_isGetted;                //!< 取得されたかどうか
+
+	QRApp*          m_pQrApp;                  //!< QRの管理クラス
 };

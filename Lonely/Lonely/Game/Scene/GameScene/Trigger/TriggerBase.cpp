@@ -11,7 +11,8 @@
 #include "GameLib.h"
 
 TriggerBase::TriggerBase()
-	:m_pCollisionManager(GameLib::Instance.GetCollisionManager())
+	:m_pTexStorage(GameLib::Instance.GetTexStorage())
+	,m_pCollisionManager(GameLib::Instance.GetCollisionManager())
 	,m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
 {
 }

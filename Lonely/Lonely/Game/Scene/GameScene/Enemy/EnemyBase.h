@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "../../../../GameLib/ObjectManager/Object3DBase.h"
+#include "ObjectManager/Object3DBase.h"
 
 #include <d3dx9math.h>
 

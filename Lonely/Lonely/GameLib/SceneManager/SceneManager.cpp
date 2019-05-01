@@ -71,7 +71,10 @@ void SceneManager::SwitchScene()
 
 void SceneManager::ReleaseScene()
 {
-	m_pScene->Finalize();
+	if (m_pScene) 
+	{
+		m_pScene->Finalize();
+	}
 	delete m_pScene;
 	m_pScene = nullptr;
 }

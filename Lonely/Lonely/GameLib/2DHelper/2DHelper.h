@@ -8,6 +8,8 @@
 
 #include <windows.h>
 
+#include <vector>
+
 // テクスチャ―付き頂点情報
 struct Simple2DVertex
 {
@@ -87,6 +89,21 @@ public:
 	* @param 変えたい色情報（ARGB）
 	*/
 	void SetVertexColor(Simple2DVertex* vertices, DWORD color);
+
+	/**
+	* @brief 矩形４頂点のアルファ値を所要時間で減算を行う関数
+	* @param 頂点の先頭アドレス
+	* @param 減少させ始めてからどれくらい時間が経ったか
+	* @param 所要時間
+	* @param 減少させ始める時間
+	* @param 繰り返すかどうか
+	* @return 所要時間経つとTRUEを返す
+	*/
+	bool DecrementVerticesAlpha(Simple2DVertex* vertices
+		, int* currentDecrementCount
+		, const int duration
+		, const int startingDecrementCount = 0
+		, const bool repeat = false);
 
 private:
 

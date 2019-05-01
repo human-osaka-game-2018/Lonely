@@ -199,7 +199,7 @@ void Sumahoneko::Update()
 			// 足元基準に当たり判定をとる場合は少し上から判定する
 			m_position.y += 2.0f;
 			hitPos2.y += 2.0f;
-			// 地面との当たり判定(プレイヤーの位置から真下に当たり判定を行う)
+			// 地面との当たり判定(プレイヤーの位置からXZ方向に当たり判定を行う)
 			if (m_pFbxStage->RayPick(&m_position, &D3DXVECTOR3(movementThisFrame.x, 0.0f, movementThisFrame.z), &hitDist2, &hitPos2) != -1)
 			{
 				if (movementThisFrame.x == 0.f && movementThisFrame.z == 0.f)
@@ -361,6 +361,9 @@ void Sumahoneko::Update()
 	m_pSharedInformation->SetPlayerPosition(m_position);
 	m_pSharedInformation->SetPlayerMovement(movementThisFrame);
 
+	//QRアプリの更新を行う
+	m_qrApp.Update();
+
 	//ゲームオーバーのアニメーション処理
 	AnimateDead();
 
@@ -400,6 +403,9 @@ void Sumahoneko::Render()
 
 	// モデルの描画
 	m_fbxModel.Render();
+
+	// QRアプリの描画
+	m_qrApp.Render();
 
 	//char s[200];
 	//sprintf_s(s, 200, "position.y %f gravity %f time %f lightDirect %f", m_position.y, m_gravity, m_jumpingTime, m_lightDirection.x);
@@ -614,7 +620,9 @@ void Sumahoneko::DetectXCollidingWithStage(D3DXVECTOR3* movementThisFrame)
 				movementThisFrame->x += (hitPos2.x + adjustment) - m_position.x;
 				m_position.x = hitPos2.x + adjustment;
 			}
+
 			m_position.y -= 2.0f;
+			return;
 		}
 		else
 		{
@@ -646,7 +654,9 @@ void Sumahoneko::DetectXCollidingWithStage(D3DXVECTOR3* movementThisFrame)
 				movementThisFrame->x += (hitPos2.x + adjustment) - m_position.x;
 				m_position.x = hitPos2.x + adjustment;
 			}
+
 			m_position.y -= 0.5f;
+			return;
 		}
 		else
 		{
@@ -681,7 +691,9 @@ void Sumahoneko::DetectZCollidingWithStage(D3DXVECTOR3* movementThisFrame)
 
 				m_position.z = hitPos2.z + adjustment;
 			}
+
 			m_position.y -= 2.0f;
+			return;
 		}
 		else
 		{
@@ -715,7 +727,9 @@ void Sumahoneko::DetectZCollidingWithStage(D3DXVECTOR3* movementThisFrame)
 
 				m_position.z = hitPos2.z + adjustment;
 			}
+
 			m_position.y -= 0.5f;
+			return;
 		}
 		else
 		{

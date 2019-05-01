@@ -1,25 +1,25 @@
 ﻿/**
-* @file TestCamera.cpp
-* @brief TestCameraクラスのソースファイル
+* @file MainCamera.cpp
+* @brief MainCameraクラスのソースファイル
 * @author shion-sagawa
 */
 
-#include "TestCamera.h"
+#include "MainCamera.h"
 
 #include "GameLib.h"
 
 
-TestCamera::TestCamera()
+MainCamera::MainCamera()
 	: m_pSharedInformation(SharedInformation::Instance.GetSharedInformation())
 {
 }
 
-TestCamera::~TestCamera()
+MainCamera::~MainCamera()
 {
 }
 
 //初期化する
-void TestCamera::Initialize()
+void MainCamera::Initialize()
 {
 	m_position = { 0.f,10.f,-10.f };
 	m_lookAt = { 0.0f,3.f,0.f };
@@ -28,46 +28,14 @@ void TestCamera::Initialize()
 }
 
 //解放する
-void TestCamera::Finalize()
+void MainCamera::Finalize()
 {
 
 }
 
 //更新する
-void TestCamera::Update()
+void MainCamera::Update()
 {
-
-	/*if (DIRECT_INPUT->KeyboardIsHeld(DIK_DOWN))
-	{
-		m_position.z -= 0.5f;
-		m_lookAt.z -= 0.5f;
-	}
-	if (DIRECT_INPUT->KeyboardIsHeld(DIK_UP))
-	{
-		m_position.z += 0.5f;
-		m_lookAt.z += 0.5f;
-	}
-	if (DIRECT_INPUT->KeyboardIsHeld(DIK_LEFT))
-	{
-		m_position.x -= 0.5f;
-		m_lookAt.x -= 0.5f;
-	}
-	if (DIRECT_INPUT->KeyboardIsHeld(DIK_RIGHT))
-	{
-		m_position.x += 0.5f;
-		m_lookAt.x += 0.5f;
-	}
-	if (DIRECT_INPUT->KeyboardIsHeld(DIK_T))
-	{
-		m_position.y += 0.5f;
-		m_lookAt.y += 0.5f;
-	}
-	if (DIRECT_INPUT->KeyboardIsHeld(DIK_Y))
-	{
-		m_position.y -= 0.5f;
-		m_lookAt.y -= 0.5f;
-	}*/
-
 	const float cameraRotationSpeed = 0.05f;
 	const float cameraMoveSpeed = 0.2f;
 	const float cameraPersChangeSpeed = 0.02f;
@@ -194,7 +162,6 @@ void TestCamera::Update()
 
 	//ビュー行列を算出
 	D3DXMatrixLookAtLH(&m_matView, &vecEyePt, &vecLookatPt, &vecUpVec);
-	m_pSharedInformation->SetMatView(&m_matView);
 	
 	pDevice->SetTransform(D3DTS_VIEW, &m_matView);
 

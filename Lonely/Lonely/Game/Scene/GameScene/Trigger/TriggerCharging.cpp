@@ -4,8 +4,6 @@
 * @author shion-sagawa
 */
 
-#pragma once
-
 #include "TriggerCharging.h"
 
 #include <d3dx9math.h>

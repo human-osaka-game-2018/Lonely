@@ -1,6 +1,6 @@
 ﻿/**
-* @file CollisionBase.h
-* @brief CollisionBaseクラスのヘッダファイル
+* @file CollisionBase.cpp
+* @brief CollisionBaseクラスのソースファイル
 * @author shion-sagawa
 */
 
@@ -97,7 +97,7 @@ void CollisionBase::OnCollision(CollisionBase* collider, bool collisionStateIsRi
 			TriggerBase* trigger = dynamic_cast<TriggerBase*>(collider->GetOwner());
 			int triggerType = trigger->GetTriggerType();
 
-			if (triggerType == TRIGGER_QR)
+			/*if (triggerType == TRIGGER_QR)
 			{
 				TriggerQR* triggerQR = dynamic_cast<TriggerQR*>(collider->GetOwner());
 				triggerQR->CollidesWithPlayer();
@@ -111,7 +111,9 @@ void CollisionBase::OnCollision(CollisionBase* collider, bool collisionStateIsRi
 			{
 				TriggerCharging* triggerCharging = dynamic_cast<TriggerCharging*>(collider->GetOwner());
 				triggerCharging->CollidesWithPlayer();
-			}
+			}*/
+
+			trigger->CollidesWithPlayer();
 		}
 
 	}

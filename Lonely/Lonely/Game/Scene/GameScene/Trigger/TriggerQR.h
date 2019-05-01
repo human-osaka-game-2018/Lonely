@@ -63,19 +63,9 @@ private:
 
 	};
 
-	SimpleTexVertex m_verticesIconQR[4] =
-	{
-		//   x,  y,   z,      color,  tu,  tv
-		-2.f,  2.f, 0.f, static_cast<DWORD>(0xffffffff), 0.f, 0.f,
-		 2.f,  2.f, 0.f, static_cast<DWORD>(0xffffffff), 1.f, 0.f,
-		 2.f, -2.f, 0.f, static_cast<DWORD>(0xffffffff), 1.f, 1.f,
-		-2.f, -2.f, 0.f, static_cast<DWORD>(0xffffffff), 0.f, 1.f
-	};
-
-	Texture         m_textureQR;               //!< QRのテクスチャ
-	Texture         m_textureGettingQR;        //!< QR取得中表示のテクスチャ
-	Texture         m_textureIconQR;           //!< QRを取得できるというテクスチャ
-	Simple2DVertex  m_verticesGettingQR[4];    //!< QR取得中表示の頂点
+	Simple2DVertex  m_verticesCallout[4];      //!< 吹き出しの頂点情報
+	Simple2DVertex  m_verticesGettingQR[4];    //!< QR取得中表示の頂点情報
+	Simple2DVertex  m_verticesQrIcon[4];       //!< QRアイコンの頂点情報
 	bool            m_isGetted;                //!< 取得されたかどうか
 
 	QRApp*          m_pQrApp;                  //!< QRの管理クラス

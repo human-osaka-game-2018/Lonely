@@ -25,13 +25,14 @@ bool QRApp::Initialize()
 {
 	m_pSharedInformation = SharedInformation::Instance.GetSharedInformation();
 	m_pTexStorage = GameLib::Instance.GetTexStorage();
+	m_font.Initialize(30);
 
 	//テクスチャ読み込み
 	m_pTexStorage->CreateTex(_T("Getting_QR"), _T("../Graphics/Texture/smartphone.png"));
 
 	m_state = IS_NOT_GETTING;
 	m_gettingStateCount = 0;
-	m_numQR = 0;
+	m_retentionQrNum = 0;
 	
 	//頂点情報を設定
 	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
@@ -52,12 +53,9 @@ void QRApp::Update()
 		return;
 	}
 
-	//TriggerQR　当たってるときに入力　
-	//TriggerQRでQRAｐｐの取得関数を呼ぶ（そのQRが特別な情報を持つなら引数にそのインタフェース渡すとか）
-	//そのTriggerQRは取得済みにする、またQRの描画を消す
-	//QR取得関数が呼ばれたら、取得中フラグをオンにする。
-	//取得中フラグがオンなら、「何個目のQRか」みたいな情報を画像バックのフォントで描画する
-	//取得中フラグの時間経過+キー入力で描画をオフる
+	//「QRとれますよ」「物体移動できますよ」などのヒント画面を取得QR数によって出していきたい
+
+
 
 	const int FRAME_LIMIT = 60;
 	if (m_state == IS_GETTING)
@@ -71,7 +69,6 @@ void QRApp::Update()
 		{
 			if (DIRECT_INPUT->KeyboardIsHeld(DIK_RETURN))
 			{
-				//
 				m_state = IS_NOT_GETTING;
 				//取得が完了したらカウントをゼロにする
 				m_gettingStateCount = 0;
@@ -79,6 +76,11 @@ void QRApp::Update()
 				m_pSharedInformation->SetGameState(PLAY);
 			}
 		}
+	}
+
+	if (DIRECT_INPUT->KeyboardIsPressed(DIK_1))
+	{
+		m_retentionQrNum = 9;
 	}
 
 	//一次停止中なら返す
@@ -113,15 +115,24 @@ void QRApp::Render()
 
 	if (m_gettingStateCount > 10) 
 	{
-		char currentNumQr[50];
-		sprintf_s(currentNumQr, 50, "QR数\n\t%2d / %2d", m_numQR, m_totalNumQr);
-		DEBUGFONT->DrawText(540, 250, 0xff000000, currentNumQr);
+		char currentQrNumString[50];
+		sprintf_s(currentQrNumString, 50, "QR数\n\t%2d / %2d", m_retentionQrNum, m_totalNumQr);
+		DEBUGFONT->DrawText(540, 250, 0xff000000, currentQrNumString);
 
 		if (m_gettingStateCount > 40)
 		{
-			char nokoriNumQR[50];
-			sprintf_s(nokoriNumQR, 50, "残りQR数\n\t%2d個", m_totalNumQr - m_numQR);
-			DEBUGFONT->DrawText(540, 450, 0xff000000, nokoriNumQR);
+			if (m_retentionQrNum < m_totalNumQr)
+			{
+				char restQrNumString[50];
+				sprintf_s(restQrNumString, 50, "残りQR数\n\t%2d個", m_totalNumQr - m_retentionQrNum);
+				DEBUGFONT->DrawText(540, 450, 0xff000000, restQrNumString);
+			}
+			else
+			{
+				char clearString[50];
+				sprintf_s(clearString, 50, "QR取得により\nパスワード完成！\n\n扉から脱出しよう！");
+				m_font.DrawText(540, 450, 0xff000000, clearString);
+			}
 		}
 	}
 }
@@ -129,5 +140,5 @@ void QRApp::Render()
 void QRApp::Acquire()
 {
 	m_state = IS_GETTING;
-	++m_numQR;
+	++m_retentionQrNum;
 }

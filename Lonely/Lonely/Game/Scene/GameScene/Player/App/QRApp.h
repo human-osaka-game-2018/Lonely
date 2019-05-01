@@ -9,6 +9,7 @@
 #include "ObjectManager/Object.h"
 
 #include "TexStorage/TexStorage.h"
+#include "Font/Font.h"
 #include "2DHelper/2DHelper.h"
 #include "Scene/GameScene/SharedInformation/SharedInformation.h"
 
@@ -56,15 +57,18 @@ public:
 	*/
 	void Acquire();
 
+	int GetRetentionQrNum() { return m_retentionQrNum; }
+
 private:
 
 	int                m_state;                   //!< プレイヤーに取得されているかどうか       
 	int                m_gettingStateCount;       //!< QRを取得中表示をする間カウントする
-	int                m_numQR;                   //!< QRコードをいくつ取得したか
+	int                m_retentionQrNum;          //!< QRコードをいくつ取得したか
 	const int          m_totalNumQr = 10;         //!< QRコードの最大数
 
 	Simple2DVertex     m_verticesGettingQR[4];    //!< QR取得しました、の画像の頂点情報
 
 	TexStorage*        m_pTexStorage;
 	SharedInformation* m_pSharedInformation;
+	Font               m_font;
 };

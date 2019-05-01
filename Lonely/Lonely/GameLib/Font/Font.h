@@ -28,7 +28,7 @@ public:
 	* @param フォントのサイズ
 	* @return フォントを作成できていたらTRUE
 	*/
-	bool Initialize(int size = 30);
+	bool Initialize(int size = 50);
 
 	/** 
 	* @briefフォントを破棄する関数

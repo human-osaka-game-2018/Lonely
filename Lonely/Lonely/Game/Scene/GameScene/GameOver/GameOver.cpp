@@ -83,7 +83,7 @@ void GameOver::Update()
 	{ 
 		return;
 	}
-	//++m_count;
+	
 	DWORD changeAlphaColor = static_cast<DWORD>(0x02000000);
 
 	if (m_color <= static_cast<DWORD>(0x90000000))
@@ -147,12 +147,9 @@ void GameOver::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
-	//テクスチャの設定
-	//pDevice->SetTexture(0, m_texture.GetD3DTexture());
+
 	pDevice->SetTexture(0, nullptr);
-	//描画
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(Simple2DVertex));
 
 	if (m_finishFeedOut == false)
@@ -160,17 +157,15 @@ void GameOver::Render()
 		return;
 	}
 
-	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
-	//テクスチャの設定
-	//pDevice->SetTexture(0, m_texture.GetD3DTexture());
+	
 	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("gameOver")));
 	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesGameOver, sizeof(Simple2DVertex));
 
 	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("backToTitle")));
-	//pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesTitle, sizeof(Simple2DVertex));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesTitle, sizeof(Simple2DVertex));
 
 	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("continue")));
-	//pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesContinue, sizeof(Simple2DVertex));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesContinue, sizeof(Simple2DVertex));
 
 }

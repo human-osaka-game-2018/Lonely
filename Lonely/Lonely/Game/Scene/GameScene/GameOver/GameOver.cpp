@@ -32,11 +32,6 @@ bool GameOver::Initialize()
 	m_pTexStorage->CreateTex(_T("backToTitle"), _T("../Graphics/Texture/backToTitle.png"));
 	m_pTexStorage->CreateTex(_T("continue"), _T("../Graphics/Texture/continue.png"));
 
-
-
-	// テクスチャーサイズから画像サイズのUVを取得(画像が2の累乗であれば1.0fになる)
-	float u = static_cast<float>(m_texture.GetSrcWidth()) / static_cast<float>(m_texture.GetWidth());
-	float v = static_cast<float>(m_texture.GetSrcHeight()) / static_cast<float>(m_texture.GetHeight());
 	//頂点の座標をセット
 	HELPER_2D->SetVerticesFromLeftTopType(m_vertices
 		, 0
@@ -73,7 +68,6 @@ bool GameOver::Initialize()
 //解放する
 void GameOver::Finalize()
 {
-	m_texture.Finalize();
 }
 
 //更新する

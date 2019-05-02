@@ -45,8 +45,8 @@ public:
 
 private:
 
-	static const int TEXTURE_MAX = 9;
-	const TCHAR* m_textureKeys[TEXTURE_MAX] = {
+	static const int STORY_TEXTURE_MAX = 9;
+	const TCHAR* m_textureKeys[STORY_TEXTURE_MAX] = {
 
 		_T("story1"),
 		_T("story2"),

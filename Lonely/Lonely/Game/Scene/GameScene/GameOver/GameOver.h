@@ -10,7 +10,6 @@
 
 #include "2DHelper/2DHelper.h"
 #include "TexStorage/TexStorage.h"
-#include "FBX/Texture.h"
 #include "../SharedInformation/SharedInformation.h"
 #include "EnumGameOverState.h"
 
@@ -53,7 +52,6 @@ private:
 	int                m_gameOverState = CONTINUE;
 				       
 	TexStorage*        m_pTexStorage;
-	Texture            m_texture;
 	Simple2DVertex     m_vertices[4];   
 	Simple2DVertex     m_verticesGameOver[4];   
 	Simple2DVertex     m_verticesContinue[4];   

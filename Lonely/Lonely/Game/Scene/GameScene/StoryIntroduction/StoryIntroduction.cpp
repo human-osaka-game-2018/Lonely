@@ -62,7 +62,7 @@ bool StoryIntroduction::Initialize()
 void StoryIntroduction::Finalize()
 {
 	//テクスチャの解放を行う
-	for (int i = 0; i < TEXTURE_MAX; ++i)
+	for (int i = 0; i < STORY_TEXTURE_MAX; ++i)
 	{
 		m_pTexStorage->EraseTex(m_textureKeys[i]);
 	}
@@ -103,7 +103,7 @@ void StoryIntroduction::Update()
 	}
 
 	//テクスチャが最後まで描画されたらゲームプレイへ移行
-	if (m_currentTexNum == TEXTURE_MAX)
+	if (m_currentTexNum == STORY_TEXTURE_MAX)
 	{
 		m_pSharedInformation->SetGameState(PLAY);
 	}
@@ -123,7 +123,7 @@ void StoryIntroduction::Render()
 	// 頂点に入れるデータを設定
 	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
 
-	if(m_nextTexNum < TEXTURE_MAX)//2枚のストーリーページを描画する
+	if(m_nextTexNum < STORY_TEXTURE_MAX)//2枚のストーリーページを描画する
 	{ 
 		//テクスチャの設定
 		pDevice->SetTexture(0, m_pTexStorage->GetTex(m_textureKeys[m_nextTexNum]));

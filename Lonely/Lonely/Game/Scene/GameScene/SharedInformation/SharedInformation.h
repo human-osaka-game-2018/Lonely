@@ -103,11 +103,6 @@ public: //セッターとゲッター
 
 	int GetPlayerInitiative() { return m_playerInitiative; };
 
-	//ビュー逆行列
-	void SetInverseView(D3DXMATRIXA16 matInverseView) { m_matInverseView = matInverseView; };
-
-	D3DXMATRIXA16 GetInverseView() { return m_matInverseView; };
-
 	//ポーズ画面フラグ
 	void SetGameState(int gameState) { m_gameState = gameState; };
 
@@ -117,15 +112,11 @@ public: //セッターとゲッター
 	void SetStageFbx(FbxModel* pStageFbx) { m_pStageFbx = pStageFbx; };
 	FbxModel* GetStageFbx() { return m_pStageFbx; };
 
-	void SetMatView(D3DXMATRIX* matView) { m_matView = matView; };
-	D3DXMATRIX* GetMatView() { return m_matView; };
-
 	void SetHp(int hp) { m_hp = hp; }
 	int GetHp() { return m_hp; }
 
 private:
 
-	D3DXMATRIXA16 m_matInverseView;    //!< ビュー逆行列
 	D3DXVECTOR3   m_playerPosition;    //!< プレイヤーの位置
 	D3DXVECTOR3   m_cameraPosition;    //!< カメラの位置
 	D3DXVECTOR3   m_playerMovement;    //!< プレイヤーが移動した量
@@ -134,6 +125,5 @@ private:
 	int           m_playerInitiative;  //!< プレイヤーの操作の主導権は誰が持っているか　
 	int           m_gameState;         //!< ゲームが一次停止しているかなどの状態
 	FbxModel*     m_pStageFbx;         //!< ステージのFBXのポインタ
-	D3DXMATRIX*   m_matView;
 	int           m_hp = 3;   
 };

@@ -10,6 +10,7 @@
 
 #include <d3dx9math.h>
 
+#include "TexStorage/TexStorage.h"
 #include "CollisionManager/CollisionManager.h"
 #include "CollisionManager/CollisionBase/CollisionBase.h"
 #include "../SharedInformation/SharedInformation.h"
@@ -44,12 +45,13 @@ public:
 
 protected:
 
+	TexStorage*        m_pTexStorage;           //!< テクスチャ管理クラスのポインタ
 	SharedInformation* m_pSharedInformation;    //!< 情報共有クラスのポインタ
 	CollisionManager*  m_pCollisionManager;     //!< 当たり判定管理クラスのポインタ
 	CollisionBase*     m_pCollision;            //!< 当たり判定の実体
 					   						    
 	D3DXVECTOR3        m_prevPosition;          //!< プレイヤーの位置（フレームで移動する前の）
-	int                m_triggerType;            //!< どのトリガーなのか
+	int                m_triggerType;           //!< どのトリガーなのか
 	bool               m_collides;              //!< 当たっているかどうか
 
 };

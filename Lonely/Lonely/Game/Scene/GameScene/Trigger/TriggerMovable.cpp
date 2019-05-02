@@ -40,17 +40,20 @@ TriggerMovable::TriggerMovable(D3DXVECTOR3* position, D3DXVECTOR3* boxLength)
 
 bool TriggerMovable::Initialize()
 {
-	if (!m_texture.Load("../Graphics/Texture/Icon_push.png"))
-	{
-		return false;
-	}
+	m_pTexStorage->CreateTex(_T("MovableIcon"), _T("../Graphics/Texture/Icon_Push.png"));
+
+	float WINDOW_WIDTH = static_cast<float>(WINDOW->GetWidth());
+	float WINDOW_HEIGHT = static_cast<float>(WINDOW->GetHeight());
+
+	HELPER_2D->SetVerticesFromLeftTopType(m_verticesCallout, 0.f, WINDOW_HEIGHT - 450.f, 300.f, 300.f);
+	HELPER_2D->SetVerticesFromLeftTopType(m_verticesMovableIcon, 100.f, WINDOW_HEIGHT - 300.f, 100.f, 100.f);
+
 
 	return true;
 }
 
 void TriggerMovable::Finalize()
 {
-	m_texture.Finalize();
 	delete m_pCollision;
 }
 
@@ -73,43 +76,18 @@ void TriggerMovable::Render()
 	IDirect3DDevice9* pDevice = GameLib::Instance.GetDirect3DDevice();
 	DirectX* pDirectX = GameLib::Instance.GetDirectX();
 
-	// モデルの行列を算出
-	D3DXMATRIX world;
-	D3DXMATRIX rot, trans, scale;
-	D3DXMatrixIdentity(&world);
-	//D3DXMatrixIdentity(&rot);
-	D3DXMatrixIdentity(&trans);
-	D3DXMatrixIdentity(&scale);
-	//ビュー逆行列を算出
-	D3DXMATRIX matView, matInverseView;
-	D3DXMatrixIdentity(&matView);
-	//pDevice->GetTransform(D3DTS_VIEW, &matView);
+	pDirectX->SetRenderMode(DirectX::Normal, true);
 
-	float m_radius = 0.2f;
-	D3DXMatrixScaling(&scale, m_radius, m_radius, m_radius);
-	//D3DXMatrixRotationY(&rot, (m_direction));
-	D3DXMatrixTranslation(&trans, (m_position.x + 1.f), (m_position.y + 3.f), (m_position.z + 1.f));
+	pDevice->SetFVF(FVF_SIMPLE_TEX_2D);
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("Callout")));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesCallout, sizeof(Simple2DVertex));
 
-	D3DXMatrixIdentity(&matInverseView);
-	pDevice->GetTransform(D3DTS_VIEW, &matView);
-	D3DXMatrixInverse(&matInverseView, NULL, &matView);
-	matInverseView._41 = 0.f;
-	matInverseView._42 = 0.f;
-	matInverseView._43 = 0.f;
-
-	D3DXMatrixMultiply(&world, &world, &scale);
-	D3DXMatrixMultiply(&world, &world, &matInverseView);
-	D3DXMatrixMultiply(&world, &world, &trans);
-
-	//ワールドトランスフォーム
-	pDevice->SetTransform(D3DTS_WORLD, &world);
+	pDevice->SetTexture(0, m_pTexStorage->GetTex(_T("MovableIcon")));
+	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_verticesMovableIcon, sizeof(Simple2DVertex));
 
 
-	//頂点に入れるデータを設定
-	pDevice->SetFVF(FVF_SIMPLE_TEX_3D);
-	//テクスチャの設定
-	pDevice->SetTexture(0, m_texture.GetD3DTexture());
-	//pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-	//描画
-	pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, m_vertices, sizeof(SimpleTexVertex));
+	char hukidasiString[50];
+	sprintf_s(hukidasiString, 50, " ENTERキー\n    + 移動");
+
+	DEBUGFONT->DrawText(30, WINDOW->GetHeight() - 400, 0xff000000, hukidasiString);
 }

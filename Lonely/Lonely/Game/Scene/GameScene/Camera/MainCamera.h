@@ -1,6 +1,6 @@
 ﻿/**
-* @file TestCamera.h
-* @brief TestCameraクラスのヘッダファイル
+* @file MainCamera.h
+* @brief MainCameraクラスのヘッダファイル
 * @author shion-sagawa
 */
 
@@ -15,12 +15,12 @@
 /**
 * @brief ゲームシーンのクラス
 */
-class TestCamera : public CameraBase
+class MainCamera : public CameraBase
 {
 public:
 
-	TestCamera();
-	~TestCamera();
+	MainCamera();
+	~MainCamera();
 
 	/**
 	* @brief 初期化関数

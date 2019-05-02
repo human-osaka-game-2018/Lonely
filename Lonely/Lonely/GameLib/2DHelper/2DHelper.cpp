@@ -80,3 +80,54 @@ void Helper2D::SetVertexColor(Simple2DVertex* vertices, DWORD color)
 {
 	vertices->color = color;
 }
+
+//指定したカウントでアルファ値を下げてくれる関数
+bool Helper2D::DecrementVerticesAlpha(Simple2DVertex* vertices
+	, int* currentDecrementCount
+	, const int duration
+	, const int startingDecrementCount
+	, const bool repeat)
+{
+	if (*currentDecrementCount >= duration || startingDecrementCount >= duration)
+	{
+		return false;
+	}
+
+	//　減少時間        = 所要時間 - 減算し始める時間
+	int decrementCount = duration - startingDecrementCount;
+
+	//減少時間でアルファ値が０に近い値になるように、減らす量を計算
+	DWORD decrementAlpha = 0x000000ff / decrementCount;
+	decrementAlpha = decrementAlpha << 24;
+	
+	//算出したアルファ値を引く
+	if (*currentDecrementCount >= startingDecrementCount)
+	{
+		vertices[0].color -= decrementAlpha;
+		vertices[1].color -= decrementAlpha;
+		vertices[2].color -= decrementAlpha;
+		vertices[3].color -= decrementAlpha;
+	}
+
+	//カウントを増やす
+	++*currentDecrementCount;
+
+	//目的の所要時間までカウントが達していたらTRUEを返す
+	if (*currentDecrementCount >= duration && repeat == false)
+	{
+		*currentDecrementCount = 0;
+		return true;
+	}//繰り返すように設定されていたら、アルファ値を初期化してTRUEを返す
+	else if (*currentDecrementCount >= duration && repeat == true)
+	{
+		*currentDecrementCount = 0;
+		vertices[0].color = 0xffffffff;
+		vertices[1].color = 0xffffffff;
+		vertices[2].color = 0xffffffff;
+		vertices[3].color = 0xffffffff;
+
+		return true;
+	}
+
+	return false;
+}

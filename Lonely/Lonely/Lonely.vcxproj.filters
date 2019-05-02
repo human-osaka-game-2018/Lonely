@@ -116,6 +116,9 @@
     <Filter Include="リソース ファイル\Scene\GameScene\Player\App">
       <UniqueIdentifier>{d1860ead-ab15-4fde-95da-43da843c275a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Scene\GameScene\GameClear">
+      <UniqueIdentifier>{4cf69081-3933-4308-b996-9e95561ac8d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\DirectX\DirectX.cpp">
@@ -333,6 +336,9 @@
     </ClCompile>
     <ClCompile Include="Game\Scene\GameScene\Camera\MainCamera.cpp">
       <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameScene\GameClear\GameClear.cpp">
+      <Filter>リソース ファイル\Scene\GameScene\GameClear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -566,6 +572,9 @@
     </ClInclude>
     <ClInclude Include="Game\Scene\GameScene\Camera\MainCamera.h">
       <Filter>リソース ファイル\Scene\GameScene\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameScene\GameClear\GameClear.h">
+      <Filter>リソース ファイル\Scene\GameScene\GameClear</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

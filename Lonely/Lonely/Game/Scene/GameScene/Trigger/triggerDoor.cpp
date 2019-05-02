@@ -72,7 +72,7 @@ void TriggerDoor::Update()
 		//取得QR数がクリア条件数を超えていたらクリア
 		if (this->m_collides == true && this->AchieveClearCondition(QrNum))
 		{
-			m_pSharedInformation->SetGameState(CLEAR);
+			m_pSharedInformation->SetGameState(GAMECLEAR);
 		}
 	}
 

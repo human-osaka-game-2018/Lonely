@@ -27,6 +27,7 @@
 #include "StageObject/StageStopedObject.h"
 #include "StoryIntroduction/StoryIntroduction.h"
 #include "GameOver/GameOver.h"
+#include "GameClear/GameClear.h"
 
 GameScene::GameScene()
 	: m_pCollisionManager(GameLib::Instance.GetCollisionManager())
@@ -72,6 +73,7 @@ bool GameScene::Initialize()
 	m_pObjectManager->RegisterObject(new UIHitPoint);
 	m_pObjectManager->RegisterObject(new StoryIntroduction);
 	m_pObjectManager->RegisterObject(new GameOver);
+	m_pObjectManager->RegisterObject(new GameClear);
 
 	//音声ファイルの読み込み
 	const TCHAR* filePath = _T("../Sounds/BGM/tokiwokoete.mp3");
